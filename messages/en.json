@@ -1,0 +1,54 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "specialties": "Specialties",
+    "process": "Process",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Premium Printing for Your Business",
+    "subtitle": "Bringing your ideas to life with vibrant colors and exceptional quality. Your trusted printing partner for all your needs.",
+    "cta": {
+      "services": "Our Services",
+      "quote": "Get a Quote"
+    }
+  },
+  "services": {
+    "title": "Our Printing Services",
+    "description": "We offer a comprehensive range of printing services to meet all your business and personal needs. From traditional offset printing to cutting-edge digital solutions, we've got you covered.",
+    "learnMore": "Learn More"
+  },
+  "specialties": {
+    "title": "Our Printing Expertise",
+    "description": "Discover the quality and precision that sets our printing services apart. We combine cutting-edge technology with traditional craftsmanship to deliver exceptional results."
+  },
+  "process": {
+    "title": "Our Printing Process",
+    "description": "We follow a meticulous process to ensure the highest quality for all your printing needs."
+  },
+  "whyChooseUs": {
+    "title": "Why Choose Raja Ganapathi Offset Printers",
+    "description": "With decades of experience and a commitment to quality, we are your trusted partner for all printing needs."
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "description": "Have a project in mind? Contact us today for a free quote or to discuss your printing needs.",
+    "form": {
+      "name": "Your Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message"
+    }
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "ourServices": "Our Services",
+    "contactUs": "Contact Us",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+}
+
