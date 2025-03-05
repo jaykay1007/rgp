@@ -73,16 +73,16 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                 <span className="text-gray-400">
-                  39 Palani Andavar Kovil Street, Bhavani. (638301). (CSI School opposite)
+                  24 Palani Andavar Kovil Street, Bhavani. (638301). (CSI School opposite)
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-primary shrink-0" />
-                <span className="text-gray-400">+91 98765 43210</span>
+                <span className="text-gray-400">+91 9994466277</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-primary shrink-0" />
-                <span className="text-gray-400">info@rajaganapathibhavani.com</span>
+                <span className="text-gray-400">rgpbvn@gmail.com</span>
               </li>
             </ul>
           </div>
