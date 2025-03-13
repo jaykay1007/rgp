@@ -8,10 +8,8 @@ const BalloonAnimation: React.FC = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current
-    if (!canvas) return
-
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
+    const ctx = canvas?.getContext('2d')
+    if (!canvas || !ctx) return
 
     canvas.width = canvas.offsetWidth
     canvas.height = canvas.offsetHeight
@@ -62,8 +60,8 @@ const BalloonAnimation: React.FC = () => {
       balloons.push(new Balloon())
     }
 
-    function animate() {
-      if (!ctx) return
+    const animate = () => {
+      if (!canvas || !ctx) return
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       balloons.forEach((balloon) => {
         balloon.update()
