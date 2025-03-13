@@ -6,7 +6,7 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Rajaganapathi Offset – Trusted Offset Printing Press in Bhavani: Invitations, Business Essentials & Beyond",
+  title: "Rajaganapathi Offset – Expert Offset Printing Press in Bhavani: Invitations, Business Essentials & Beyond",
   description:
     "Your one-stop shop for all printing needs including wedding invitations, business cards, brochures, letterheads, bill books, and more.",
     generator: 'v0.dev'
