@@ -3,7 +3,14 @@
 import { useState, useEffect } from "react"
 import { CheckCircle2, CircleXIcon as XCircle2 } from "lucide-react"
 
-export default function AvailabilityIndicator() {
+export default function AvailabilityIndicator({
+  businessHours
+}: {
+  businessHours: {
+    monToSat: Array<{ start: string; end: string }>;
+    sunday: string;
+  };
+}) {
   const [isAvailable, setIsAvailable] = useState(true)
 
   useEffect(() => {
@@ -25,4 +32,3 @@ export default function AvailabilityIndicator() {
     </div>
   )
 }
-
