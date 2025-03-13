@@ -26,8 +26,8 @@ const BalloonAnimation: React.FC = () => {
       speed: number
 
       constructor() {
-        this.x = Math.random() * canvas.width
-        this.y = canvas.height + Math.random() * 50
+        this.x = Math.random() * (canvas?.width ?? window.innerWidth)
+        this.y = (canvas?.height ?? window.innerHeight) + Math.random() * 50
         this.radius = Math.random() * 20 + 10
         this.color = `hsl(${Math.random() * 360}, 70%, 50%)`
         this.speed = Math.random() * 2 + 1
@@ -53,7 +53,7 @@ const BalloonAnimation: React.FC = () => {
       update() {
         this.y -= this.speed
         if (this.y + this.radius < 0) {
-          this.y = canvas.height + this.radius
+          this.y = (canvas?.height ?? window.innerHeight) + this.radius
         }
       }
     }
@@ -83,4 +83,3 @@ const BalloonAnimation: React.FC = () => {
 }
 
 export default BalloonAnimation
-
