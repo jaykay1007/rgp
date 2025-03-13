@@ -20,15 +20,17 @@ const BubbleAnimation: React.FC = () => {
     const numBubbles = 75 // Increased from 50
 
     class Bubble {
+      private canvas: HTMLCanvasElement;
       x: number
       y: number
       size: number
       speedY: number
       color: string
 
-      constructor() {
-        this.x = Math.random() * canvas.width
-        this.y = canvas.height + Math.random() * 100
+      constructor(canvas: HTMLCanvasElement) {
+        this.canvas = canvas;
+        this.x = Math.random() * this.canvas.width
+        this.y = this.canvas.height + Math.random() * 100
         this.size = Math.random() * 12 + 4 // Increased size range
         this.speedY = Math.random() * 0.5 + 0.1
         this.color = `hsla(${Math.random() * 60 + 180}, 100%, 75%, ${Math.random() * 0.4 + 0.2})` // Blue-cyan hue range with increased opacity
@@ -37,7 +39,7 @@ const BubbleAnimation: React.FC = () => {
       update() {
         this.y -= this.speedY
         if (this.y + this.size < 0) {
-          this.y = canvas.height + this.size
+          this.y = this.canvas.height + this.size
         }
       }
 
@@ -62,7 +64,7 @@ const BubbleAnimation: React.FC = () => {
     }
 
     for (let i = 0; i < numBubbles; i++) {
-      bubbles.push(new Bubble())
+      bubbles.push(new Bubble(canvas))
     }
 
     const animate = () => {
@@ -93,4 +95,3 @@ const BubbleAnimation: React.FC = () => {
 }
 
 export default BubbleAnimation
-
