@@ -1,3 +1,23 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /assets/unused/
+Disallow: /backup/
+Disallow: /dev/
+
+# Allow Google Images to crawl images
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.webp$
+
+# Allow Google to index important sections
+User-agent: Googlebot
+Allow: /locations/
+Allow: /services/
+Allow: /blog/
+Crawl-delay: 1
+
+# Sitemaps
 Sitemap: https://www.rajaganapathioffset.info/sitemap.xml
