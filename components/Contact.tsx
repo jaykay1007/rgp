@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useState, useEffect } from "react";
+import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const contactMethods = [
   {
@@ -12,7 +12,13 @@ const contactMethods = [
     action: "https://wa.me/919994466277",
     color: "bg-green-500",
   },
-  { icon: Phone, label: "Call", value: "+919994466277", action: "tel:+919994466277", color: "bg-blue-500" },
+  {
+    icon: Phone,
+    label: "Call",
+    value: "+919994466277",
+    action: "tel:+919994466277",
+    color: "bg-blue-500",
+  },
   {
     icon: Mail,
     label: "Email",
@@ -20,36 +26,50 @@ const contactMethods = [
     action: "mailto:rgpbvn@gmail.com",
     color: "bg-red-500",
   },
-]
+];
 
 const contactInfo = [
-  { icon: MapPin, label: "Address", value: "24 Palani Andavar Kovil Street, Bhavani. (638301). (CSI School opposite)" },
-  { icon: Clock, label: "Hours", value: "Monday - Saturday: 9:00 AM - 7:00 PM\nSunday: Closed" },
-]
+  {
+    icon: MapPin,
+    label: "Address",
+    value:
+      "24 Palani Andavar Kovil Street, Bhavani. (638301). (CSI School opposite)",
+  },
+  {
+    icon: Clock,
+    label: "Hours",
+    value: "Monday - Saturday: 9:00 AM - 7:00 PM\nSunday: Closed",
+  },
+];
 
 export default function Contact() {
-  const [activeMethod, setActiveMethod] = useState(0)
-  const [isHovering, setIsHovering] = useState(false)
+  const [activeMethod, setActiveMethod] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
     if (!isHovering) {
       const interval = setInterval(() => {
-        setActiveMethod((prev) => (prev + 1) % contactMethods.length)
-      }, 5000)
-      return () => clearInterval(interval)
+        setActiveMethod((prev) => (prev + 1) % contactMethods.length);
+      }, 5000);
+      return () => clearInterval(interval);
     }
-  }, [isHovering])
+  }, [isHovering]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const testimonials = document.querySelectorAll(".relative.overflow-hidden > div")
+      const testimonials = document.querySelectorAll(
+        ".relative.overflow-hidden > div"
+      );
       testimonials.forEach((testimonial, index) => {
-        const newIndex = (index - 1 + testimonials.length) % testimonials.length
-        ;(testimonial as HTMLElement).style.transform = `translateX(${newIndex * 100}%)`
-      })
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [])
+        const newIndex =
+          (index - 1 + testimonials.length) % testimonials.length;
+        (testimonial as HTMLElement).style.transform = `translateX(${
+          newIndex * 100
+        }%)`;
+      });
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section id="contact" className="py-20 bg-gray-50">
@@ -65,22 +85,31 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="bg-white p-8 rounded-2xl shadow-lg h-full flex flex-col justify-between">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              Get in Touch
+            </h3>
             <div className="relative h-64 mb-8">
               <AnimatePresence>
                 {contactMethods.map((method, index) => (
                   <motion.div
                     key={method.label}
-                    className={`absolute inset-0 flex flex-col items-center justify-center ${method.color} text-white rounded-xl p-6 ${
+                    className={`absolute inset-0 flex flex-col items-center justify-center ${
+                      method.color
+                    } text-white rounded-xl p-6 ${
                       index === activeMethod ? "z-10" : "z-0"
                     }`}
                     initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: index === activeMethod ? 1 : 0, scale: index === activeMethod ? 1 : 0.8 }}
+                    animate={{
+                      opacity: index === activeMethod ? 1 : 0,
+                      scale: index === activeMethod ? 1 : 0.8,
+                    }}
                     exit={{ opacity: 0, scale: 0.8 }}
                     transition={{ duration: 0.5 }}
                   >
                     <method.icon size={48} className="mb-4" />
-                    <h4 className="text-xl font-semibold mb-2">{method.label}</h4>
+                    <h4 className="text-xl font-semibold mb-2">
+                      {method.label}
+                    </h4>
                     <p className="text-center mb-4">{method.value}</p>
                     <a
                       href={method.action}
@@ -88,7 +117,11 @@ export default function Contact() {
                       rel="noopener noreferrer"
                       className="bg-white text-gray-900 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition-colors"
                     >
-                      {method.label === "WhatsApp" ? "Chat Now" : method.label === "Call" ? "Call Now" : "Send Email"}
+                      {method.label === "WhatsApp"
+                        ? "Chat Now"
+                        : method.label === "Call"
+                        ? "Call Now"
+                        : "Send Email"}
                     </a>
                   </motion.div>
                 ))}
@@ -124,7 +157,9 @@ export default function Contact() {
                   <info.icon className="w-6 h-6 text-primary mt-1" />
                   <div>
                     <h4 className="text-lg font-medium">{info.label}</h4>
-                    <p className="text-gray-300 whitespace-pre-line">{info.value}</p>
+                    <p className="text-gray-300 whitespace-pre-line">
+                      {info.value}
+                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -145,5 +180,5 @@ export default function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }
