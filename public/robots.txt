@@ -20,4 +20,4 @@ Allow: /blog/
 Crawl-delay: 1
 
 # Sitemaps
-Sitemap: https://www.rajaganapathioffset.info/sitemap.xml
+Sitemap: https://www.rajaganapathibhavani.com/sitemap.xml

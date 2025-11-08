@@ -21,6 +21,7 @@ export const translations = {
     // Navigation
     "nav.home": "Home",
     "nav.services": "Services",
+    "nav.portfolio": "Portfolio",
     "nav.specialties": "Specialties",
     "nav.process": "Process",
     "nav.contact": "Contact",
@@ -80,6 +81,7 @@ export const translations = {
     // Navigation
     "nav.home": "முகப்பு",
     "nav.services": "சேவைகள்",
+    "nav.portfolio": "போர்ட்ஃபோலியோ",
     "nav.specialties": "சிறப்புகள்",
     "nav.process": "செயல்முறை",
     "nav.contact": "தொடர்பு",

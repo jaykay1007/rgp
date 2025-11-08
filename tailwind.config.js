@@ -17,6 +17,10 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)"],
+        display: ["var(--font-display)"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -24,11 +28,11 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#e63946",
+          DEFAULT: "#0F172A",
           foreground: "#ffffff",
         },
         secondary: {
-          DEFAULT: "#457b9d",
+          DEFAULT: "#D4AF37",
           foreground: "#ffffff",
         },
         magenta: {

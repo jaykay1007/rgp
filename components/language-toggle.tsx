@@ -1,10 +1,10 @@
 "use client"
 
-import { useState } from "react"
+import { useLanguage } from "@/contexts/language-context"
 import { Globe } from "lucide-react"
 
 export default function LanguageToggle() {
-  const [language, setLanguage] = useState("english")
+  const { language, setLanguage } = useLanguage()
 
   const toggleLanguage = () => {
     setLanguage(language === "english" ? "tamil" : "english")
