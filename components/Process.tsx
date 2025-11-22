@@ -7,119 +7,124 @@ export default function Process() {
   const steps = [
     {
       icon: FileText,
-      title: "Consultation",
-      description: "Discuss your requirements and get expert advice",
-      color: "from-blue-500 to-cyan-500"
+      title: "Immersion call",
+      description: "Briefing, sample decoding, and feasibility grid",
     },
     {
       icon: Palette,
-      title: "Design & Approval",
-      description: "Create or refine designs with your feedback",
-      color: "from-purple-500 to-pink-500"
+      title: "Design lab",
+      description: "Proofing, dieline builds, and colour calibrations",
     },
     {
       icon: Printer,
-      title: "Printing",
-      description: "High-quality offset or digital printing",
-      color: "from-green-500 to-emerald-500"
+      title: "Press orchestration",
+      description: "Offset, digital, and finishing pods sequenced",
     },
     {
       icon: Package,
-      title: "Finishing",
-      description: "Cutting, binding, lamination as required",
-      color: "from-orange-500 to-red-500"
+      title: "Finishing atelier",
+      description: "Foil, emboss, UV, binding, and kitting",
     },
     {
       icon: CheckCircle,
-      title: "Quality Check",
-      description: "Thorough inspection before delivery",
-      color: "from-indigo-500 to-purple-500"
+      title: "QC vault",
+      description: "Pantone guardians + tactile inspection",
     },
     {
       icon: Truck,
-      title: "Delivery",
-      description: "Safe and timely delivery to your location",
-      color: "from-yellow-500 to-orange-500"
-    }
+      title: "Logistics concierge",
+      description: "Doorstep delivery & install coordination",
+    },
   ]
 
   return (
-    <section id="process" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section id="process" className="relative overflow-hidden py-28">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(255,255,255,0.12),_transparent_55%)]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#040918] via-[#020710] to-[#010409]" />
+
+      <div className="container relative z-10 text-white">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center max-w-3xl mx-auto"
         >
-          <span className="inline-block px-4 py-2 bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 rounded-full text-sm font-semibold mb-4">
-            Our Process
+          <span className="glass-pill inline-flex items-center gap-2 text-xs font-semibold tracking-[0.4em] text-white/70">
+            <span className="w-2 h-2 rounded-full bg-secondary" /> Process architecture
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            From Concept to Completion
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Our streamlined printing process ensures quality at every step
+          <h2 className="mt-5 font-display text-4xl md:text-5xl leading-tight">From immersion to install in six calm steps.</h2>
+          <p className="mt-4 text-white/70">
+            Every workflow is logged, timestamped, and concierge-supervised so your launches stay predictable even when timelines
+            compress.
           </p>
         </motion.div>
 
-        {/* Process Steps */}
-        <div className="relative">
-          {/* Connection Line - Hidden on mobile */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gray-200 -translate-y-1/2 z-0" />
-          
-          <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-8 relative z-10">
-            {steps.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                {/* Icon Container */}
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="relative mb-6"
-                >
-                  <div className={`w-20 h-20 mx-auto bg-gradient-to-r ${step.color} rounded-2xl flex items-center justify-center shadow-lg`}>
-                    <step.icon className="w-10 h-10 text-white" />
-                  </div>
-                  
-                  {/* Step Number */}
-                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center text-sm font-bold text-gray-700">
-                    {index + 1}
-                  </div>
-                </motion.div>
-                
-                {/* Content */}
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
-                <p className="text-sm text-gray-600">{step.description}</p>
-              </motion.div>
-            ))}
-          </div>
+        <div className="mt-16 grid gap-8 lg:grid-cols-3">
+          {steps.slice(0, 3).map((step, index) => (
+            <motion.div
+              key={step.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08 }}
+              className="glass-card p-6"
+            >
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center">
+                  <step.icon className="w-6 h-6 text-secondary" />
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.35em] text-white/50">Step {index + 1}</p>
+                  <h3 className="text-xl font-semibold">{step.title}</h3>
+                </div>
+              </div>
+              <p className="mt-4 text-sm text-white/70 leading-relaxed">{step.description}</p>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Additional Info */}
+        <div className="mt-8 grid gap-8 lg:grid-cols-3">
+          {steps.slice(3).map((step, index) => (
+            <motion.div
+              key={step.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08 }}
+              className="glass-card p-6"
+            >
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center">
+                  <step.icon className="w-6 h-6 text-secondary" />
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.35em] text-white/50">Step {index + 4}</p>
+                  <h3 className="text-xl font-semibold">{step.title}</h3>
+                </div>
+              </div>
+              <p className="mt-4 text-sm text-white/70 leading-relaxed">{step.description}</p>
+            </motion.div>
+          ))}
+        </div>
+
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-8"
+          className="mt-16 glass-panel p-8"
         >
-          <div className="grid md:grid-cols-3 gap-8 text-center">
+          <div className="grid gap-8 md:grid-cols-3 text-center">
             <div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">24 Hours</div>
-              <p className="text-gray-600">Express delivery available</p>
+              <p className="text-3xl font-semibold">24 hrs</p>
+              <p className="text-sm uppercase tracking-[0.35em] text-white/60">Express pods</p>
             </div>
             <div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">100%</div>
-              <p className="text-gray-600">Quality guaranteed</p>
+              <p className="text-3xl font-semibold">100%</p>
+              <p className="text-sm uppercase tracking-[0.35em] text-white/60">Pantone fidelity</p>
             </div>
             <div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">Free</div>
-              <p className="text-gray-600">Design consultation</p>
+              <p className="text-3xl font-semibold">5 cities</p>
+              <p className="text-sm uppercase tracking-[0.35em] text-white/60">Concierge delivery</p>
             </div>
           </div>
         </motion.div>

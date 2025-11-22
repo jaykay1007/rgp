@@ -13,7 +13,7 @@ module.exports = {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
+        "2xl": "1500px",
       },
     },
     extend: {
@@ -28,19 +28,15 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#0F172A",
-          foreground: "#ffffff",
+          DEFAULT: "#020817",
+          foreground: "#f5f7fa",
         },
         secondary: {
-          DEFAULT: "#D4AF37",
-          foreground: "#ffffff",
+          DEFAULT: "#d9b351",
+          foreground: "#0b0d17",
         },
-        magenta: {
-          500: "#ff00ff",
-        },
-        cyan: {
-          500: "#00ffff",
-        },
+        midnight: "#050b16",
+        slateglass: "rgba(255,255,255,0.08)",
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
@@ -67,6 +63,10 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        glass: "0 35px 120px rgba(1, 6, 18, 0.65)",
+        glow: "0 0 25px rgba(217, 179, 81, 0.35)",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: 0 },
@@ -76,10 +76,21 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        float: {
+          "0%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
+          "100%": { transform: "translateY(0px)" },
+        },
+        "slow-pulse": {
+          "0%, 100%": { opacity: 0.35 },
+          "50%": { opacity: 0.7 },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        float: "float 6s ease-in-out infinite",
+        "slow-pulse": "slow-pulse 5s ease-in-out infinite",
       },
     },
   },

@@ -5,60 +5,65 @@ import AnimatedText from "./animated-text"
 
 const features = [
   {
-    title: "State-of-the-Art Technology",
-    description: "We use the latest printing technology to ensure the highest quality output for every project.",
+    title: "Calibration obsessive",
+    description: "ISO-audited colour labs keep Pantone + metallic shades honest through every rerun.",
     icon: Printer,
   },
   {
-    title: "Expert Team",
-    description: "Our skilled professionals bring years of experience and dedication to every print job.",
+    title: "Dedicated pods",
+    description: "Wedding, textile, and packaging squads operate like mini studios with concierge PMs.",
     icon: Users,
   },
   {
-    title: "Quick Turnaround",
-    description: "We understand the importance of deadlines and strive to deliver your projects on time, every time.",
+    title: "Rapid orchestration",
+    description: "24-hour express queue, same-day proofs, and realtime job boards for total visibility.",
     icon: Clock,
   },
   {
-    title: "Customized Solutions",
-    description: "We work closely with you to provide tailored printing solutions that meet your specific needs.",
+    title: "Tailored engineering",
+    description: "Dielines, substrates, finishing stacks, and logistics are prototyped around your launch.",
     icon: Settings,
   },
   {
-    title: "Competitive Pricing",
-    description:
-      "High-quality printing doesn't have to break the bank. We offer competitive rates without compromising on quality.",
+    title: "Value intelligence",
+    description: "Volume tiers, hybrid press planning, and waste reduction protect your budgets.",
     icon: DollarSign,
   },
   {
-    title: "Customer Satisfaction",
-    description:
-      "Your satisfaction is our top priority. We go above and beyond to ensure you're happy with the final product.",
+    title: "Client love",
+    description: "House accounts, WhatsApp war rooms, and post-launch audits keep you calm.",
     icon: Heart,
   },
 ]
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-choose-us" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+    <section id="why-choose-us" className="relative overflow-hidden py-28">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#010409] via-[#050b16] to-[#0b1124]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.08),_transparent_60%)]" />
+
+      <div className="container relative z-10 text-white">
+        <div className="text-center max-w-3xl mx-auto">
           <AnimatedText
-            text="Why Choose Raja Ganapathi Offset Printers"
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+            text="Why partners stay with Raja Ganapathi Press"
+            className="font-display text-3xl sm:text-4xl md:text-5xl"
           />
-          <p className="text-gray-700 max-w-2xl mx-auto">
-            With decades of experience and a commitment to quality, we are your trusted partner for all printing needs.
+          <p className="mt-4 text-white/70">
+            Boutique service layers, obsessive calibration, and Tamil Nadu-rooted hospitality engineered for luxury brands,
+            couture weddings, and export powerhouses.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <div key={index} className="bg-gray-50 rounded-lg p-6 shadow-md">
-              <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
-                {feature.icon && <feature.icon className="h-6 w-6 text-primary" />}
+
+        <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {features.map((feature) => (
+            <div key={feature.title} className="glass-card p-6">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center">
+                  {feature.icon && <feature.icon className="h-6 w-6 text-secondary" />}
+                </div>
+                <h3 className="text-xl font-semibold">{feature.title}</h3>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
+              <p className="mt-4 text-sm text-white/70 leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>

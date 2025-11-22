@@ -57,40 +57,41 @@ export default function Testimonials() {
   ]
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="relative overflow-hidden py-28 text-white">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#010409] via-[#050b16] to-[#0f1729]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.1),_transparent_60%)]" />
+
+      <div className="container relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center max-w-3xl mx-auto"
         >
-          <span className="inline-block px-4 py-2 bg-gradient-to-r from-yellow-100 to-orange-100 text-yellow-700 rounded-full text-sm font-semibold mb-4">
-            Client Testimonials
+          <span className="glass-pill inline-flex items-center gap-2 text-xs font-semibold tracking-[0.4em] text-white/70">
+            <span className="w-2 h-2 rounded-full bg-secondary" /> Patron stories
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Clients Say</span>
+          <h2 className="mt-5 font-display text-4xl md:text-5xl leading-tight">
+            Whispered praise from couture houses & textile labs.
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Don't just take our word for it - hear from our satisfied customers across Bhavani, Erode, and neighboring areas
+          <p className="mt-4 text-white/70">
+            Wedding directors, export CEOs, and event architects trust our atelier for concierge communication, obsessive QA, and
+            deliveries that land calm.
           </p>
         </motion.div>
 
-        {/* Main Testimonial Display */}
-        <div className="max-w-4xl mx-auto mb-12">
+        <div className="max-w-4xl mx-auto mt-16">
           <motion.div
             key={activeIndex}
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="bg-white rounded-2xl shadow-xl p-8 md:p-12"
+            className="glass-panel p-8 md:p-12"
           >
-            <Quote className="w-12 h-12 text-blue-600/20 mb-6" />
-            
-            <p className="text-xl md:text-2xl text-gray-700 mb-8 italic leading-relaxed">
+            <Quote className="w-12 h-12 text-secondary/40 mb-6" />
+            <p className="text-xl md:text-2xl text-white/85 mb-8 leading-relaxed">
               "{testimonials[activeIndex].content}"
             </p>
-            
             <div className="flex items-center justify-between flex-wrap gap-4">
               <div className="flex items-center gap-4">
                 <Image
@@ -101,32 +102,30 @@ export default function Testimonials() {
                   className="w-16 h-16 rounded-full object-cover"
                 />
                 <div>
-                  <h4 className="text-lg font-bold text-gray-900">{testimonials[activeIndex].name}</h4>
-                  <p className="text-sm text-gray-600">{testimonials[activeIndex].role}, {testimonials[activeIndex].location}</p>
+                  <h4 className="text-lg font-semibold">{testimonials[activeIndex].name}</h4>
+                  <p className="text-sm text-white/60">
+                    {testimonials[activeIndex].role}, {testimonials[activeIndex].location}
+                  </p>
                 </div>
               </div>
-              
               <div className="flex gap-1">
                 {[...Array(testimonials[activeIndex].rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  <Star key={i} className="w-5 h-5 text-secondary" fill="#D9B351" />
                 ))}
               </div>
             </div>
           </motion.div>
         </div>
 
-        {/* Testimonial Selector */}
-        <div className="flex justify-center gap-4 flex-wrap">
+        <div className="mt-12 flex justify-center gap-4 flex-wrap">
           {testimonials.map((testimonial, index) => (
             <motion.button
               key={testimonial.id}
               onClick={() => setActiveIndex(index)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`relative overflow-hidden rounded-full transition-all ${
-                activeIndex === index 
-                  ? "ring-4 ring-blue-600 ring-offset-2" 
-                  : "hover:ring-2 hover:ring-gray-300 hover:ring-offset-2"
+              className={`relative overflow-hidden rounded-full border border-white/15 transition-all ${
+                activeIndex === index ? "ring-2 ring-secondary" : "hover:border-white/40"
               }`}
             >
               <Image
@@ -136,36 +135,33 @@ export default function Testimonials() {
                 height={60}
                 className="w-12 h-12 md:w-16 md:h-16 object-cover"
               />
-              {activeIndex === index && (
-                <div className="absolute inset-0 bg-blue-600/20" />
-              )}
+              {activeIndex === index && <div className="absolute inset-0 bg-secondary/20" />}
             </motion.button>
           ))}
         </div>
 
-        {/* Stats */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white"
+          className="mt-16 glass-card p-8"
         >
-          <div className="grid md:grid-cols-4 gap-8 text-center">
+          <div className="grid gap-8 md:grid-cols-4 text-center">
             <div>
-              <div className="text-3xl font-bold mb-2">15,000+</div>
-              <p className="text-white/80">Happy Clients</p>
+              <p className="text-3xl font-semibold">15k+</p>
+              <p className="text-sm uppercase tracking-[0.35em] text-white/60">Clients</p>
             </div>
             <div>
-              <div className="text-3xl font-bold mb-2">50,000+</div>
-              <p className="text-white/80">Projects Completed</p>
+              <p className="text-3xl font-semibold">50k+</p>
+              <p className="text-sm uppercase tracking-[0.35em] text-white/60">Jobs shipped</p>
             </div>
             <div>
-              <div className="text-3xl font-bold mb-2">5.0 ⭐</div>
-              <p className="text-white/80">Average Rating</p>
+              <p className="text-3xl font-semibold">5.0</p>
+              <p className="text-sm uppercase tracking-[0.35em] text-white/60">Google rated</p>
             </div>
             <div>
-              <div className="text-3xl font-bold mb-2">27+</div>
-              <p className="text-white/80">Years Experience</p>
+              <p className="text-3xl font-semibold">27 yrs</p>
+              <p className="text-sm uppercase tracking-[0.35em] text-white/60">Legacy</p>
             </div>
           </div>
         </motion.div>

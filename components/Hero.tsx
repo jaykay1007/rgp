@@ -3,243 +3,180 @@
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { Phone, Mail, MapPin, ArrowRight, Star, Users, Clock, Award, Printer } from "lucide-react"
-import { useState, useEffect } from "react"
+import { Phone, ArrowRight, Star, Users, Clock, Award, ShieldCheck, Sparkles } from "lucide-react"
+
+const heroPills = ["Museum-grade finishing", "Eco-certified inks", "Same-day dispatch", "Luxury packaging pods"]
+
+const statHighlights = [
+  { icon: Users, value: "15k+", label: "Luxury clients" },
+  { icon: Award, value: "27 yrs", label: "Offset mastery" },
+  { icon: Clock, value: "24 hr", label: "Express cells" },
+  { icon: Star, value: "5.0", label: "Google rated" },
+]
+
+const productShots = [
+  {
+    title: "Couture wedding atelier",
+    image: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1000&q=80",
+    spec: "Foil + emboss + velvet stock",
+  },
+  {
+    title: "Textile export folios",
+    image: "https://images.unsplash.com/photo-1508921340878-ba53e1f016ec?auto=format&fit=crop&w=1000&q=80",
+    spec: "Pantone-calibrated spreads",
+  },
+]
 
 export default function Hero() {
-  const [currentServiceIndex, setCurrentServiceIndex] = useState(0)
-  
-  const services = [
-    "Premium Offset Printing",
-    "Wedding Invitations", 
-    "Business Cards",
-    "Brochures & Catalogs",
-    "Packaging Solutions",
-    "Digital Printing"
-  ]
-
-  const stats = [
-    { icon: Users, value: "15,000+", label: "Happy Clients", color: "text-blue-600" },
-    { icon: Award, value: "27+", label: "Years Experience", color: "text-purple-600" },
-    { icon: Clock, value: "24hr", label: "Express Service", color: "text-green-600" },
-    { icon: Star, value: "5★", label: "Google Rating", color: "text-yellow-500" }
-  ]
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentServiceIndex((prev) => (prev + 1) % services.length)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
-
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-white to-gray-50">
-      {/* Animated Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.015]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 30c11.046 0 20 8.954 20 20s-8.954 20-20 20-20-8.954-20-20 8.954-20 20-20zm0 5c-8.284 0-15 6.716-15 15s6.716 15 15 15 15-6.716 15-15-6.716-15-15-15z' fill='%23000000'/%3E%3C/svg%3E")`,
-          backgroundSize: '100px 100px'
-        }} />
+    <section id="home" className="relative overflow-hidden py-24 sm:py-28 text-white">
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 opacity-70 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.18),_transparent_55%)]" />
+        <motion.div
+          aria-hidden
+          className="absolute -top-24 -right-10 h-[420px] w-[420px] rounded-full bg-gradient-to-br from-white/20 to-primary/50 blur-3xl"
+          animate={{ y: [0, -20, 0] }}
+          transition={{ duration: 10, repeat: Infinity }}
+        />
+        <motion.div
+          aria-hidden
+          className="absolute bottom-0 left-0 h-[520px] w-[520px] rounded-full bg-gradient-to-tr from-secondary/30 to-transparent blur-[120px]"
+          animate={{ y: [0, 20, 0] }}
+          transition={{ duration: 12, repeat: Infinity }}
+        />
       </div>
 
-      {/* Floating Gradient Orbs */}
-      <motion.div
-        animate={{ 
-          x: [0, 100, 0],
-          y: [0, -100, 0]
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-        className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full blur-3xl"
-      />
-      <motion.div
-        animate={{ 
-          x: [0, -100, 0],
-          y: [0, 100, 0]
-        }}
-        transition={{
-          duration: 25,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-        className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-secondary/10 to-primary/10 rounded-full blur-3xl"
-      />
-
-      <div className="container mx-auto px-4 py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
-          {/* Left Content */}
+      <div className="container relative z-10">
+        <div className="hero-grid grid gap-16 lg:grid-cols-[1.1fr_0.9fr] items-center">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center lg:text-left"
+            transition={{ duration: 0.8 }}
+            className="space-y-10"
           >
-            {/* Premium Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-block mb-6"
-            >
-              <span className="px-4 py-2 bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20 rounded-full text-sm font-semibold text-amber-700">
-                ⭐ Premium Quality Printing Since 1997
-              </span>
-            </motion.div>
+            <div className="glass-pill inline-flex items-center gap-3 text-sm uppercase tracking-[0.3em] text-white/70">
+              <span className="w-2 h-2 rounded-full bg-secondary" /> Raja Ganapathi Press · Bhavani · Erode
+            </div>
 
-            {/* Main Heading */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-5xl lg:text-7xl font-bold mb-6"
-            >
-              <span className="bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent">
-                Raja Ganapathi
-              </span>
-              <br />
-              <span className="text-3xl lg:text-5xl text-gray-700">Offset Printers</span>
-            </motion.h1>
-
-            {/* Dynamic Service Text */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="mb-8 h-16"
-            >
-              <p className="text-xl text-gray-600">
-                Expert in{" "}
-                <motion.span
-                  key={currentServiceIndex}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
-                >
-                  {services[currentServiceIndex]}
-                </motion.span>
+            <div className="space-y-6">
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-[4.2rem] leading-[1.05]">
+                <span className="text-white/90">Royal offset atelier crafting </span>
+                <span className="gold-text">museum-grade print experiences</span>
+                <span className="text-white/90"> for visionary brands.</span>
+              </h1>
+              <p className="text-lg text-white/70 max-w-2xl">
+                Apple-inspired detailing with Tamil Nadu heritage. We orchestrate couture wedding suites, textile decks, and
+                premium packaging with glassmorphic presentation, ISO-audited workflows, and concierge-level project care.
               </p>
-              <p className="text-lg text-gray-500 mt-2">Serving Bhavani, Erode & Surrounding Areas</p>
-            </motion.div>
+            </div>
 
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
-            >
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="glass-card p-6">
+                <div className="flex items-center gap-3 text-sm text-white/60">
+                  <ShieldCheck className="h-4 w-4 text-secondary" /> Certified production pods
+                </div>
+                <h2 className="mt-4 text-2xl font-semibold">Neo-offset + luxury finishing</h2>
+                <p className="mt-2 text-sm text-white/60">Foil · letterpress · UV · duplex stocks · bespoke dielines</p>
+              </div>
+              <div className="glass-card p-6">
+                <div className="flex items-center gap-3 text-sm text-white/60">
+                  <Sparkles className="h-4 w-4 text-secondary" /> Concierge support
+                </div>
+                <h2 className="mt-4 text-2xl font-semibold">Calibrated luxury at scale</h2>
+                <p className="mt-2 text-sm text-white/60">Same-day proofs, Pantone guardians, national logistics</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <div className="gold-border w-full sm:w-auto">
+                <Link href="tel:+91999466277" className="gap-2">
+                  <Phone className="h-5 w-5 text-secondary" /> Speak to the press director
+                </Link>
+              </div>
               <Link
-                href="tel:+919994466277"
-                className="group relative px-8 py-4 bg-gradient-to-r from-primary to-primary text-white rounded-xl font-semibold overflow-hidden transition-all hover:scale-105 hover:shadow-2xl"
+                href="#portfolio"
+                className="inline-flex items-center justify-center rounded-full border border-white/20 px-8 py-3 text-base font-semibold text-white/80 transition hover:border-white hover:text-white"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity" />
-                <span className="relative flex items-center justify-center gap-2">
-                  <Phone className="w-5 h-5" />
-                  Call: 99944 66277
+                View living portfolio <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              {heroPills.map((pill) => (
+                <span key={pill} className="glass-pill text-xs font-semibold text-white/75">
+                  {pill}
                 </span>
-              </Link>
-              
-              <Link
-                href="#services"
-                className="px-8 py-4 bg-white border-2 border-gray-200 text-gray-900 rounded-xl font-semibold hover:border-gray-300 hover:shadow-lg transition-all hover:scale-105 flex items-center justify-center gap-2"
-              >
-                Explore Services
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </motion.div>
-
-            {/* Contact Info */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="space-y-3 text-sm"
-            >
-              <div className="flex items-center gap-3 text-gray-600 justify-center lg:justify-start">
-                <MapPin className="w-4 h-4 text-secondary" />
-                <span>24 Palani Andavar Kovil Street, Bhavani (638301)</span>
-              </div>
-              <div className="flex items-center gap-3 text-gray-600 justify-center lg:justify-start">
-                <Mail className="w-4 h-4 text-secondary" />
-                <span>rgpbvn@gmail.com</span>
-              </div>
-            </motion.div>
+              ))}
+            </div>
           </motion.div>
 
-          {/* Right Image Section */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative">
-              {/* Main Image */}
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="glass-panel p-6 sm:p-8 space-y-6">
+              <div className="relative overflow-hidden rounded-[42px]">
                 <Image
-                  src="https://images.pexels.com/photos/7661652/pexels-photo-7661652.jpeg"
-                  alt="Raja Ganapathi Offset - Premium Printing Press"
-                  width={600}
-                  height={500}
-                  className="w-full h-auto object-cover"
+                  src="https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=1200&q=80"
+                  alt="Premium offset press"
+                  width={760}
+                  height={520}
+                  className="h-[360px] w-full object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-midnight/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
+                  <p className="text-sm uppercase tracking-[0.3em] text-white/70">Bhavani flagship floor</p>
+                  <span className="glass-pill text-xs font-semibold">ISO 9001:2015</span>
+                </div>
               </div>
 
-              {/* Floating Card */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
-                className="absolute -bottom-10 -left-10 bg-white p-6 rounded-xl shadow-xl"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
-                    <Printer className="w-6 h-6 text-white" />
+              <div className="grid gap-4 md:grid-cols-2">
+                {productShots.map((shot) => (
+                  <div key={shot.title} className="glass-card overflow-hidden">
+                    <Image
+                      src={shot.image}
+                      alt={shot.title}
+                      width={360}
+                      height={240}
+                      className="h-40 w-full object-cover"
+                    />
+                    <div className="p-4">
+                      <p className="text-sm uppercase tracking-[0.25em] text-white/60">{shot.spec}</p>
+                      <p className="text-lg font-semibold text-white mt-2">{shot.title}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">Quality Assured</p>
-                    <p className="text-sm text-gray-600">ISO Certified Process</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Experience Badge */}
-              <motion.div
-                animate={{ rotate: [0, 5, -5, 0] }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -top-5 -right-5 bg-gradient-to-r from-secondary to-secondary text-white px-6 py-3 rounded-full shadow-lg font-bold"
-              >
-                27+ Years
-              </motion.div>
+                ))}
+              </div>
             </div>
+
+            <motion.div
+              aria-hidden
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity }}
+              className="glass-card absolute -bottom-12 left-1/2 w-[75%] -translate-x-1/2 p-5 text-center"
+            >
+              <p className="text-sm text-white/60">Trusted across Bhavani · Erode · Komarapalayam</p>
+              <p className="text-lg font-semibold text-white">House of couture, textile mills & premium packaging labs</p>
+            </motion.div>
           </motion.div>
         </div>
 
-        {/* Stats Section */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-12 border-t border-gray-200"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-28 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1 + index * 0.1 }}
-              className="text-center"
-            >
-              <stat.icon className={`w-8 h-8 ${stat.color} mx-auto mb-3`} />
-              <div className="text-3xl font-bold text-gray-900">{stat.value}</div>
-              <div className="text-sm text-gray-600 mt-1">{stat.label}</div>
-            </motion.div>
+          {statHighlights.map((stat) => (
+            <div key={stat.label} className="glass-card p-6 text-center">
+              <stat.icon className="mx-auto mb-3 h-6 w-6 text-secondary" />
+              <p className="text-3xl font-semibold">{stat.value}</p>
+              <p className="text-sm uppercase tracking-[0.35em] text-white/60">{stat.label}</p>
+            </div>
           ))}
         </motion.div>
       </div>

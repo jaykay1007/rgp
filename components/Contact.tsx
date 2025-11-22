@@ -55,86 +55,64 @@ export default function Contact() {
     }
   }, [isHovering]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const testimonials = document.querySelectorAll(
-        ".relative.overflow-hidden > div"
-      );
-      testimonials.forEach((testimonial, index) => {
-        const newIndex =
-          (index - 1 + testimonials.length) % testimonials.length;
-        (testimonial as HTMLElement).style.transform = `translateX(${
-          newIndex * 100
-        }%)`;
-      });
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section id="contact" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="relative overflow-hidden py-28">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#010409] via-[#030b16] to-[#040918]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_60%)]" />
+
+      <div className="container relative z-10 text-white">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12"
+          className="text-4xl md:text-5xl font-display text-center"
         >
-          Let's Connect
+          Concierge support that actually answers.
         </motion.h2>
+        <p className="mt-4 text-center text-white/70 max-w-2xl mx-auto">
+          Whether you need an urgent proof, dieline help, or a factory walk-through, our team is a call, chat, or visit away.
+        </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="bg-white p-8 rounded-2xl shadow-lg h-full flex flex-col justify-between">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Get in Touch
-            </h3>
-            <div className="relative h-64 mb-8">
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="glass-panel p-8 flex flex-col">
+            <h3 className="text-2xl font-semibold">Talk to us</h3>
+            <p className="mt-2 text-white/70">Cycle through your preferred channel or tap the dots to lock one in.</p>
+            <div className="relative h-64 mt-8">
               <AnimatePresence>
                 {contactMethods.map((method, index) => (
                   <motion.div
                     key={method.label}
-                    className={`absolute inset-0 flex flex-col items-center justify-center ${
-                      method.color
-                    } text-white rounded-xl p-6 ${
+                    className={`glass-card absolute inset-0 flex flex-col items-center justify-center gap-3 text-center ${
                       index === activeMethod ? "z-10" : "z-0"
                     }`}
-                    initial={{ opacity: 0, scale: 0.8 }}
+                    initial={{ opacity: 0, scale: 0.85 }}
                     animate={{
                       opacity: index === activeMethod ? 1 : 0,
-                      scale: index === activeMethod ? 1 : 0.8,
+                      scale: index === activeMethod ? 1 : 0.85,
                     }}
-                    exit={{ opacity: 0, scale: 0.8 }}
+                    exit={{ opacity: 0, scale: 0.85 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <method.icon size={48} className="mb-4" />
-                    <h4 className="text-xl font-semibold mb-2">
-                      {method.label}
-                    </h4>
-                    <p className="text-center mb-4">{method.value}</p>
+                    <method.icon size={48} className="text-secondary" />
+                    <h4 className="text-xl font-semibold">{method.label}</h4>
+                    <p className="text-white/70">{method.value}</p>
                     <a
                       href={method.action}
                       target={method.label === "Email" ? "_blank" : undefined}
                       rel="noopener noreferrer"
-                      className="bg-white text-gray-900 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition-colors"
+                      className="gold-border w-auto"
                     >
-                      {method.label === "WhatsApp"
-                        ? "Chat Now"
-                        : method.label === "Call"
-                        ? "Call Now"
-                        : "Send Email"}
+                      <span>{method.label === "WhatsApp" ? "Chat now" : method.label === "Call" ? "Call now" : "Send email"}</span>
                     </a>
                   </motion.div>
                 ))}
               </AnimatePresence>
             </div>
-            <div className="flex-grow"></div>
-            <div className="flex justify-center space-x-2">
+            <div className="mt-6 flex justify-center space-x-2">
               {contactMethods.map((_, index) => (
                 <button
                   key={index}
-                  className={`w-3 h-3 rounded-full ${
-                    index === activeMethod ? "bg-primary" : "bg-gray-300"
-                  } transition-colors`}
+                  className={`w-3 h-3 rounded-full ${index === activeMethod ? "bg-secondary" : "bg-white/30"}`}
                   onClick={() => setActiveMethod(index)}
                   onMouseEnter={() => setIsHovering(true)}
                   onMouseLeave={() => setIsHovering(false)}
@@ -143,8 +121,11 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="bg-gray-900 text-white p-8 rounded-2xl shadow-lg flex flex-col justify-between">
-            <h3 className="text-2xl font-bold mb-6">Visit Us</h3>
+          <div className="glass-panel p-8 flex flex-col gap-8">
+            <div>
+              <h3 className="text-2xl font-semibold">Visit the atelier</h3>
+              <p className="mt-2 text-white/70">Walk-ins welcome, but concierge appointments get priority floors access.</p>
+            </div>
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
                 <motion.div
@@ -154,18 +135,15 @@ export default function Contact() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <info.icon className="w-6 h-6 text-primary mt-1" />
+                  <info.icon className="w-6 h-6 text-secondary mt-1" />
                   <div>
                     <h4 className="text-lg font-medium">{info.label}</h4>
-                    <p className="text-gray-300 whitespace-pre-line">
-                      {info.value}
-                    </p>
+                    <p className="text-white/70 whitespace-pre-line">{info.value}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
-            <div className="mt-8 rounded-xl overflow-hidden">
-              <h3 className="text-xl font-bold mb-4">Our Location</h3>
+            <div className="rounded-2xl overflow-hidden border border-white/15">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.500706464165!2d77.6826523!3d11.4437407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba969e298955acf%3A0x4ab7994fb3d4c7e0!2sRajaganapathi%20Offset%20printers!5e0!3m2!1sen!2sin!4v1740914817996!5m2!1sen!2sin"
                 width="100%"
