@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { HelpCircle } from "lucide-react"
+import SectionHeading from "./SectionHeading"
 
 const faqs = [
   {
@@ -35,20 +36,17 @@ export default function Faq() {
   }
 
   return (
-    <section id="faq" className="relative overflow-hidden py-28 text-white">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#050b16] via-[#010409] to-[#020716]" />
+    <section id="faq" className="relative isolate overflow-hidden bg-gradient-to-b from-[#050b16] via-[#010409] to-[#020716] py-28 text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(255,255,255,0.08),_transparent_60%)]" />
+      <div className="absolute left-10 top-10 h-56 w-56 rounded-full bg-secondary/10 blur-[140px]" />
 
       <div className="container relative z-10">
-        <div className="text-center max-w-3xl mx-auto">
-          <span className="glass-pill inline-flex items-center gap-2 text-xs font-semibold tracking-[0.35em] text-white/70">
-            <HelpCircle className="w-4 h-4" /> Quick answers
-          </span>
-          <h2 className="mt-5 font-display text-4xl md:text-5xl leading-tight">FAQ & production details.</h2>
-          <p className="mt-4 text-white/70">
-            Everything you need to know before onboarding Raja Ganapathi Press as your offset partner.
-          </p>
-        </div>
+        <SectionHeading
+          eyebrow={"Quick answers"}
+          eyebrowIcon={<HelpCircle className="w-4 h-4" />}
+          title={<h2 className="font-display text-4xl md:text-5xl leading-tight">FAQ & production details.</h2>}
+          description="Everything you need to know before onboarding Raja Ganapathi Press as your offset partner."
+        />
 
         <div className="mt-16 space-y-4 max-w-4xl mx-auto">
           {faqs.map((faq, index) => {

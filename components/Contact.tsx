@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import SectionHeading from "./SectionHeading";
 
 const contactMethods = [
   {
@@ -56,24 +57,31 @@ export default function Contact() {
   }, [isHovering]);
 
   return (
-    <section id="contact" className="relative overflow-hidden py-28">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#010409] via-[#030b16] to-[#040918]" />
+    <section
+      id="contact"
+      className="relative isolate overflow-hidden bg-gradient-to-b from-[#01040c] via-[#030b16] to-[#040918] py-28 text-white"
+    >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_60%)]" />
+      <div className="absolute right-10 top-0 h-64 w-64 rounded-full bg-secondary/10 blur-[140px]" />
 
       <div className="container relative z-10 text-white">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl md:text-5xl font-display text-center"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
         >
-          Concierge support that actually answers.
-        </motion.h2>
-        <p className="mt-4 text-center text-white/70 max-w-2xl mx-auto">
-          Whether you need an urgent proof, dieline help, or a factory walk-through, our team is a call, chat, or visit away.
-        </p>
+          <SectionHeading
+            eyebrow="Concierge support"
+            title={
+              <h2 className="text-4xl md:text-5xl font-display leading-tight text-center">
+                Concierge support that actually answers.
+              </h2>
+            }
+            description="Whether you need an urgent proof, dieline help, or a factory walk-through, our team is a call, chat, or visit away."
+          />
+        </motion.div>
 
-        <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2">
           <div className="glass-panel p-8 flex flex-col">
             <h3 className="text-2xl font-semibold">Talk to us</h3>
             <p className="mt-2 text-white/70">Cycle through your preferred channel or tap the dots to lock one in.</p>

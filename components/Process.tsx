@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { FileText, Palette, Printer, Package, Truck, CheckCircle } from "lucide-react"
+import SectionHeading from "./SectionHeading"
 
 export default function Process() {
   const steps = [
@@ -38,25 +39,21 @@ export default function Process() {
   ]
 
   return (
-    <section id="process" className="relative overflow-hidden py-28">
+    <section id="process" className="relative isolate overflow-hidden bg-gradient-to-b from-[#01040c] via-[#030a17] to-[#050b16] py-28">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(255,255,255,0.12),_transparent_55%)]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#040918] via-[#020710] to-[#010409]" />
+      <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-secondary/10 blur-[120px]" />
 
       <div className="container relative z-10 text-white">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto"
         >
-          <span className="glass-pill inline-flex items-center gap-2 text-xs font-semibold tracking-[0.4em] text-white/70">
-            <span className="w-2 h-2 rounded-full bg-secondary" /> Process architecture
-          </span>
-          <h2 className="mt-5 font-display text-4xl md:text-5xl leading-tight">From immersion to install in six calm steps.</h2>
-          <p className="mt-4 text-white/70">
-            Every workflow is logged, timestamped, and concierge-supervised so your launches stay predictable even when timelines
-            compress.
-          </p>
+          <SectionHeading
+            eyebrow="Process architecture"
+            title={<h2 className="font-display text-4xl md:text-5xl leading-tight">From immersion to install in six calm steps.</h2>}
+            description="Every workflow is logged, timestamped, and concierge-supervised so your launches stay predictable even when timelines compress."
+          />
         </motion.div>
 
         <div className="mt-16 grid gap-8 lg:grid-cols-3">

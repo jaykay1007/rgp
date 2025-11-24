@@ -2,6 +2,7 @@
 
 import { Printer, Users, Clock, Settings, DollarSign, Heart } from "lucide-react"
 import AnimatedText from "./animated-text"
+import SectionHeading from "./SectionHeading"
 
 const features = [
   {
@@ -38,21 +39,21 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-choose-us" className="relative overflow-hidden py-28">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#010409] via-[#050b16] to-[#0b1124]" />
+    <section id="why-choose-us" className="relative isolate overflow-hidden bg-gradient-to-b from-[#01040c] via-[#050b16] to-[#0b1124] py-28">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.08),_transparent_60%)]" />
+      <div className="absolute inset-x-0 top-0 mx-auto h-px w-2/3 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
 
       <div className="container relative z-10 text-white">
-        <div className="text-center max-w-3xl mx-auto">
-          <AnimatedText
-            text="Why partners stay with Raja Ganapathi Press"
-            className="font-display text-3xl sm:text-4xl md:text-5xl"
-          />
-          <p className="mt-4 text-white/70">
-            Boutique service layers, obsessive calibration, and Tamil Nadu-rooted hospitality engineered for luxury brands,
-            couture weddings, and export powerhouses.
-          </p>
-        </div>
+        <SectionHeading
+          eyebrow="Client partnerships"
+          title={
+            <AnimatedText
+              text="Why partners stay with Raja Ganapathi Press"
+              className="font-display text-3xl sm:text-4xl md:text-5xl"
+            />
+          }
+          description="Boutique service layers, obsessive calibration, and Tamil Nadu-rooted hospitality engineered for luxury brands, couture weddings, and export powerhouses."
+        />
 
         <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => (
