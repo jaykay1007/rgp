@@ -1,7 +1,12 @@
+"use client"
+
 import Link from "next/link"
 import { Printer, MapPin, Phone, Mail } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function Footer() {
+  const { t } = useLanguage()
+  
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="container mx-auto px-4">
@@ -12,8 +17,7 @@ export default function Footer() {
               <span className="text-xl font-bold text-white">Raja Ganapathi Offset Printers</span>
             </div>
             <p className="text-gray-400 mb-6">
-              Your trusted partner for high-quality printing services. We bring your ideas to life with vibrant colors
-              and exceptional quality.
+              {t("footer.description")}
             </p>
             <div className="flex gap-4">
               {["facebook", "twitter", "instagram", "linkedin"].map((social) => (
@@ -32,7 +36,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold mb-6">Quick Links</h3>
+            <h3 className="text-lg font-bold mb-6">{t("footer.quickLinks")}</h3>
             <ul className="space-y-3">
               {["Home", "About Us", "Services", "Specialties", "Process", "Contact"].map((item) => (
                 <li key={item}>
@@ -48,7 +52,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold mb-6">Our Services</h3>
+            <h3 className="text-lg font-bold mb-6">{t("footer.services")}</h3>
             <ul className="space-y-3">
               {[
                 "Visiting Cards",
@@ -68,7 +72,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold mb-6">Contact Us</h3>
+            <h3 className="text-lg font-bold mb-6">{t("footer.contactUs")}</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-primary shrink-0 mt-0.5" />
@@ -90,14 +94,14 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} Raja Ganapathi Offset Printers. All rights reserved.
+            &copy; {new Date().getFullYear()} Raja Ganapathi Offset Printers. {t("footer.rights")}
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <Link href="#" className="text-gray-400 hover:text-primary text-sm transition-colors">
-              Privacy Policy
+              {t("footer.privacy")}
             </Link>
             <Link href="#" className="text-gray-400 hover:text-primary text-sm transition-colors">
-              Terms of Service
+              {t("footer.terms")}
             </Link>
           </div>
         </div>

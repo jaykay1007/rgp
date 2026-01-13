@@ -1,6 +1,9 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { ChevronRight } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 const services = [
   {
@@ -70,15 +73,16 @@ const services = [
 ]
 
 export default function Services() {
+  const { t } = useLanguage()
+  
   return (
     <section id="services" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Printing Services</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t("services.title")}</h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
           <p className="text-gray-700 max-w-2xl mx-auto">
-            We offer a comprehensive range of printing services to meet all your business and personal needs. From
-            traditional offset printing to cutting-edge digital solutions, we've got you covered.
+            {t("services.description")}
           </p>
         </div>
 
@@ -99,7 +103,7 @@ export default function Services() {
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{service.title}</h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
                 <Link href={service.link} className="inline-flex items-center text-primary hover:underline">
-                  Learn More
+                  {t("services.learnMore")}
                   <ChevronRight className="ml-1 h-4 w-4" />
                 </Link>
               </div>

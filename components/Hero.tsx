@@ -6,8 +6,11 @@ import { motion } from "framer-motion"
 import { ChevronRight } from "lucide-react"
 import BubbleAnimation from "./bubble-animation"
 import AvailabilityIndicator from "./AvailabilityIndicator"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function Hero() {
+  const { t } = useLanguage()
+  
   return (
     <section id="home" className="relative bg-gradient-to-r from-primary/10 to-secondary/10 py-20 overflow-hidden">
       <BubbleAnimation />
@@ -23,15 +26,14 @@ export default function Hero() {
                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4"
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
               >
-                <span className="text-primary">Premium</span> Printing <br />
-                for Your <span className="text-secondary">Business</span>
+                <span className="text-primary">{t("hero.title1")}</span> {t("hero.title2")} <br />
+                {t("hero.title3")} <span className="text-secondary">{t("hero.title4")}</span>
               </motion.h1>
               <motion.p
                 className="text-lg text-gray-700 mb-8 max-w-lg"
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
               >
-                Bringing your ideas to life with vibrant colors and exceptional quality. Your trusted printing partner
-                for all your needs.
+                {t("hero.description")}
               </motion.p>
               <motion.div
                 className="flex flex-col sm:flex-row gap-4"
@@ -41,15 +43,17 @@ export default function Hero() {
                   href="#services"
                   className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 font-medium text-white hover:bg-primary/90 transition-colors"
                 >
-                  Our Services
+                  {t("hero.services")}
                   <ChevronRight className="ml-2 h-4 w-4" />
                 </Link>
-                <Link
-                  href="#contact"
+                <a
+                  href="https://wa.me/919994466277"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-md border border-primary bg-white px-6 py-3 font-medium text-primary hover:bg-primary/5 transition-colors"
                 >
-                  Get a Quote
-                </Link>
+                  {t("nav.contact")}
+                </a>
               </motion.div>
             </motion.div>
           </div>

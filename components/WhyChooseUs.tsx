@@ -2,6 +2,7 @@
 
 import { Printer, Users, Clock, Settings, DollarSign, Heart } from "lucide-react"
 import AnimatedText from "./animated-text"
+import { useLanguage } from "@/contexts/language-context"
 
 const features = [
   {
@@ -39,16 +40,18 @@ const features = [
 ]
 
 export default function WhyChooseUs() {
+  const { t } = useLanguage()
+  
   return (
     <section id="why-choose-us" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <AnimatedText
-            text="Why Choose Raja Ganapathi Offset Printers"
+            text={t("whyChooseUs.title")}
             className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
           />
           <p className="text-gray-700 max-w-2xl mx-auto">
-            With decades of experience and a commitment to quality, we are your trusted partner for all printing needs.
+            {t("whyChooseUs.description")}
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

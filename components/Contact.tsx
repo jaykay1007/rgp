@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/contexts/language-context";
 
 const contactMethods = [
   {
@@ -43,6 +44,7 @@ const contactInfo = [
 ];
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [activeMethod, setActiveMethod] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
 
@@ -80,13 +82,13 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
           className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12"
         >
-          Let's Connect
+          {t("contact.title")}
         </motion.h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="bg-white p-8 rounded-2xl shadow-lg h-full flex flex-col justify-between">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Get in Touch
+              {t("contact.getInTouch")}
             </h3>
             <div className="relative h-64 mb-8">
               <AnimatePresence>
@@ -144,7 +146,7 @@ export default function Contact() {
           </div>
 
           <div className="bg-gray-900 text-white p-8 rounded-2xl shadow-lg flex flex-col justify-between">
-            <h3 className="text-2xl font-bold mb-6">Visit Us</h3>
+            <h3 className="text-2xl font-bold mb-6">{t("contact.visitUs")}</h3>
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
                 <motion.div
@@ -165,7 +167,7 @@ export default function Contact() {
               ))}
             </div>
             <div className="mt-8 rounded-xl overflow-hidden">
-              <h3 className="text-xl font-bold mb-4">Our Location</h3>
+              <h3 className="text-xl font-bold mb-4">{t("contact.location")}</h3>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.500706464165!2d77.6826523!3d11.4437407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba969e298955acf%3A0x4ab7994fb3d4c7e0!2sRajaganapathi%20Offset%20printers!5e0!3m2!1sen!2sin!4v1740914817996!5m2!1sen!2sin"
                 width="100%"

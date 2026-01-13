@@ -57,7 +57,9 @@ export const translations = {
       "With decades of experience and a commitment to quality, we are your trusted partner for all printing needs.",
 
     // Contact Section
-    "contact.title": "Get In Touch",
+    "contact.title": "Let's Connect",
+    "contact.getInTouch": "Get in Touch",
+    "contact.visitUs": "Visit Us",
     "contact.description":
       "Have a project in mind? Contact us today for a free quote or to discuss your printing needs.",
     "contact.sendMessage": "Send Us a Message",
@@ -67,6 +69,10 @@ export const translations = {
     "contact.email": "Email Address",
     "contact.hours": "Business Hours",
     "contact.follow": "Follow Us",
+    "contact.address": "Address",
+    "contact.chatNow": "Chat Now",
+    "contact.callNow": "Call Now",
+    "contact.sendEmail": "Send Email",
 
     // Footer
     "footer.quickLinks": "Quick Links",
@@ -75,6 +81,8 @@ export const translations = {
     "footer.rights": "All rights reserved.",
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Service",
+    "footer.description": "Your trusted partner for high-quality printing services. We bring your ideas to life with vibrant colors and exceptional quality.",
+    "footer.aboutUs": "About Us",
   },
   tamil: {
     // Navigation
@@ -118,6 +126,8 @@ export const translations = {
 
     // Contact Section
     "contact.title": "தொடர்பு கொள்ளுங்கள்",
+    "contact.getInTouch": "தொடர்பு கொள்ளுங்கள்",
+    "contact.visitUs": "எங்களை சந்தியுங்கள்",
     "contact.description": "ஒரு திட்டம் மனதில் உள்ளதா? உங்கள் அச்சுப்பதிப்பு தேவைகளைப் பற்றி விவாதிக்க இன்றே எங்களைத் தொடர்பு கொள்ளுங்கள்.",
     "contact.sendMessage": "எங்களுக்கு செய்தி அனுப்புங்கள்",
     "contact.info": "தொடர்பு தகவல்",
@@ -126,6 +136,10 @@ export const translations = {
     "contact.email": "மின்னஞ்சல் முகவரி",
     "contact.hours": "வணிக நேரம்",
     "contact.follow": "எங்களை பின்தொடருங்கள்",
+    "contact.address": "முகவரி",
+    "contact.chatNow": "இப்போது அரட்டையடிக்கவும்",
+    "contact.callNow": "இப்போது அழைக்கவும்",
+    "contact.sendEmail": "மின்னஞ்சல் அனுப்பு",
 
     // Footer
     "footer.quickLinks": "விரைவு இணைப்புகள்",
@@ -134,6 +148,8 @@ export const translations = {
     "footer.rights": "அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
     "footer.privacy": "தனியுரிமைக் கொள்கை",
     "footer.terms": "சேவை விதிமுறைகள்",
+    "footer.description": "உயர்தர அச்சு சேவைகளுக்கான உங்கள் நம்பகமான பங்காளி. உங்கள் யோசனைகளை துடிப்பான வண்ணங்கள் மற்றும் சிறந்த தரத்துடன் உயிர்ப்பிக்கிறோம்.",
+    "footer.aboutUs": "எங்களை பற்றி",
   },
 }
 
