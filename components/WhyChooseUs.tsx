@@ -15,12 +15,12 @@ const testimonials = [
   },
   {
     quote: "Fast turnaround without compromising quality. Our go-to printer for all business needs.",
-    author: "Rajesh Textiles",
+    author: "Raga Textiles",
     role: "Erode",
   },
   {
-    quote: "Professional service from start to finish. Highly recommend for packaging needs.",
-    author: "Green Valley Foods",
+    quote: "Professional service from start to finish. Highly recommend for all printing needs.",
+    author: "Prima",
     role: "Bhavani",
   },
 ]
