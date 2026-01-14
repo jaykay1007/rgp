@@ -1,186 +1,160 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useLanguage } from "@/contexts/language-context";
-
-const contactMethods = [
-  {
-    icon: MessageCircle,
-    label: "WhatsApp",
-    value: "+919994466277",
-    action: "https://wa.me/919994466277",
-    color: "bg-green-500",
-  },
-  {
-    icon: Phone,
-    label: "Call",
-    value: "+919994466277",
-    action: "tel:+919994466277",
-    color: "bg-blue-500",
-  },
-  {
-    icon: Mail,
-    label: "Email",
-    value: "rgpbvn@gmail.com",
-    action: "mailto:rgpbvn@gmail.com",
-    color: "bg-red-500",
-  },
-];
-
-const contactInfo = [
-  {
-    icon: MapPin,
-    label: "Address",
-    value:
-      "24 Palani Andavar Kovil Street, Bhavani. (638301). (CSI School opposite)",
-  },
-  {
-    icon: Clock,
-    label: "Hours",
-    value: "Monday - Saturday: 9:00 AM - 7:00 PM\nSunday: Closed",
-  },
-];
+import { useRef } from "react"
+import { motion, useInView } from "framer-motion"
+import { MapPin, Phone, Mail, Clock, MessageCircle, ArrowUpRight } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function Contact() {
-  const { t } = useLanguage();
-  const [activeMethod, setActiveMethod] = useState(0);
-  const [isHovering, setIsHovering] = useState(false);
-
-  useEffect(() => {
-    if (!isHovering) {
-      const interval = setInterval(() => {
-        setActiveMethod((prev) => (prev + 1) % contactMethods.length);
-      }, 5000);
-      return () => clearInterval(interval);
-    }
-  }, [isHovering]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const testimonials = document.querySelectorAll(
-        ".relative.overflow-hidden > div"
-      );
-      testimonials.forEach((testimonial, index) => {
-        const newIndex =
-          (index - 1 + testimonials.length) % testimonials.length;
-        (testimonial as HTMLElement).style.transform = `translateX(${
-          newIndex * 100
-        }%)`;
-      });
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+  const { t } = useLanguage()
+  const sectionRef = useRef<HTMLElement>(null)
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12"
+    <section
+      ref={sectionRef}
+      id="contact"
+      className="py-32 bg-white"
+    >
+      <div className="max-w-[980px] mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          className="text-center mb-20"
         >
-          {t("contact.title")}
-        </motion.h2>
+          <h2 className="text-[48px] md:text-[56px] font-semibold text-[#1d1d1f] leading-tight tracking-[-0.02em] mb-6">
+            Let's create together.
+          </h2>
+          <p className="text-[21px] text-[#86868b] max-w-[600px] mx-auto leading-relaxed">
+            Ready to bring your vision to life? Get in touch for a free quote.
+          </p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="bg-white p-8 rounded-2xl shadow-lg h-full flex flex-col justify-between">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              {t("contact.getInTouch")}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+            className="bg-[#f5f5f7] rounded-3xl p-8 md:p-10"
+          >
+            <h3 className="text-[24px] font-semibold text-[#1d1d1f] mb-8 tracking-tight">
+              Get in Touch
             </h3>
-            <div className="relative h-64 mb-8">
-              <AnimatePresence>
-                {contactMethods.map((method, index) => (
-                  <motion.div
-                    key={method.label}
-                    className={`absolute inset-0 flex flex-col items-center justify-center ${
-                      method.color
-                    } text-white rounded-xl p-6 ${
-                      index === activeMethod ? "z-10" : "z-0"
-                    }`}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{
-                      opacity: index === activeMethod ? 1 : 0,
-                      scale: index === activeMethod ? 1 : 0.8,
-                    }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <method.icon size={48} className="mb-4" />
-                    <h4 className="text-xl font-semibold mb-2">
-                      {method.label}
-                    </h4>
-                    <p className="text-center mb-4">{method.value}</p>
-                    <a
-                      href={method.action}
-                      target={method.label === "Email" ? "_blank" : undefined}
-                      rel="noopener noreferrer"
-                      className="bg-white text-gray-900 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition-colors"
-                    >
-                      {method.label === "WhatsApp"
-                        ? "Chat Now"
-                        : method.label === "Call"
-                        ? "Call Now"
-                        : "Send Email"}
-                    </a>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-            </div>
-            <div className="flex-grow"></div>
-            <div className="flex justify-center space-x-2">
-              {contactMethods.map((_, index) => (
-                <button
-                  key={index}
-                  className={`w-3 h-3 rounded-full ${
-                    index === activeMethod ? "bg-primary" : "bg-gray-300"
-                  } transition-colors`}
-                  onClick={() => setActiveMethod(index)}
-                  onMouseEnter={() => setIsHovering(true)}
-                  onMouseLeave={() => setIsHovering(false)}
-                />
-              ))}
-            </div>
-          </div>
 
-          <div className="bg-gray-900 text-white p-8 rounded-2xl shadow-lg flex flex-col justify-between">
-            <h3 className="text-2xl font-bold mb-6">{t("contact.visitUs")}</h3>
             <div className="space-y-6">
-              {contactInfo.map((info, index) => (
-                <motion.div
-                  key={info.label}
-                  className="flex items-start gap-4"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <info.icon className="w-6 h-6 text-primary mt-1" />
-                  <div>
-                    <h4 className="text-lg font-medium">{info.label}</h4>
-                    <p className="text-gray-300 whitespace-pre-line">
-                      {info.value}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+              <a
+                href="https://wa.me/919994466277?text=Hi!%20I'm%20interested%20in%20your%20printing%20services"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 p-4 bg-white rounded-2xl hover-lift"
+              >
+                <div className="w-12 h-12 rounded-xl bg-green-500 flex items-center justify-center">
+                  <MessageCircle className="w-6 h-6 text-white" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-[17px] font-medium text-[#1d1d1f]">WhatsApp</p>
+                  <p className="text-[14px] text-[#86868b]">Quick response, anytime</p>
+                </div>
+                <ArrowUpRight className="w-5 h-5 text-[#86868b] group-hover:text-[#1d1d1f] transition-colors" />
+              </a>
+
+              <a
+                href="tel:+919994466277"
+                className="group flex items-center gap-4 p-4 bg-white rounded-2xl hover-lift"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#0071e3] flex items-center justify-center">
+                  <Phone className="w-6 h-6 text-white" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-[17px] font-medium text-[#1d1d1f]">+91 99944 66277</p>
+                  <p className="text-[14px] text-[#86868b]">Call us directly</p>
+                </div>
+                <ArrowUpRight className="w-5 h-5 text-[#86868b] group-hover:text-[#1d1d1f] transition-colors" />
+              </a>
+
+              <a
+                href="mailto:rgpbvn@gmail.com"
+                className="group flex items-center gap-4 p-4 bg-white rounded-2xl hover-lift"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#1d1d1f] flex items-center justify-center">
+                  <Mail className="w-6 h-6 text-white" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-[17px] font-medium text-[#1d1d1f]">rgpbvn@gmail.com</p>
+                  <p className="text-[14px] text-[#86868b]">Send us an email</p>
+                </div>
+                <ArrowUpRight className="w-5 h-5 text-[#86868b] group-hover:text-[#1d1d1f] transition-colors" />
+              </a>
             </div>
-            <div className="mt-8 rounded-xl overflow-hidden">
-              <h3 className="text-xl font-bold mb-4">{t("contact.location")}</h3>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+            className="bg-[#1d1d1f] text-white rounded-3xl p-8 md:p-10"
+          >
+            <h3 className="text-[24px] font-semibold mb-8 tracking-tight">
+              Visit Us
+            </h3>
+
+            <div className="space-y-8 mb-8">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <p className="text-[17px] font-medium mb-1">Address</p>
+                  <p className="text-[15px] text-white/60 leading-relaxed">
+                    24 Palani Andavar Kovil Street,<br />
+                    Bhavani - 638301<br />
+                    (Opposite CSI School)
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <p className="text-[17px] font-medium mb-1">Business Hours</p>
+                  <p className="text-[15px] text-white/60 leading-relaxed">
+                    Monday – Saturday<br />
+                    9:30 AM – 8:00 PM<br />
+                    <span className="text-white/40">Sunday: Closed</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-2xl overflow-hidden">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.500706464165!2d77.6826523!3d11.4437407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba969e298955acf%3A0x4ab7994fb3d4c7e0!2sRajaganapathi%20Offset%20printers!5e0!3m2!1sen!2sin!4v1740914817996!5m2!1sen!2sin"
                 width="100%"
-                height="300"
-                style={{ border: 0 }}
+                height="200"
+                style={{ border: 0, filter: "grayscale(1) invert(1) contrast(1.2) opacity(0.7)" }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
+                title="Raja Ganapathi Offset location"
+              />
             </div>
-          </div>
+          </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+          className="mt-16 text-center"
+        >
+          <p className="text-[14px] text-[#86868b]">
+            Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi and surrounding areas
+          </p>
+        </motion.div>
       </div>
     </section>
-  );
+  )
 }

@@ -4,41 +4,41 @@ import { useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
-import { ArrowLeft, Phone, MessageCircle, BookOpen, FileText, Award, Calendar } from "lucide-react"
+import { ArrowLeft, Phone, MessageCircle, ArrowUpRight } from "lucide-react"
 
-const materialTypes = [
+const bagTypes = [
   {
-    name: "School Diaries & Planners",
-    description: "Custom-designed academic diaries with school branding, calendars, and student information pages.",
-    icon: Calendar,
+    name: "Wedding & Engagement Bags",
+    description: "Elegant cotton and fabric bags for your special day. Custom designs with names, dates, and traditional motifs.",
+    image: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=800&auto=format&fit=crop&q=80",
   },
   {
-    name: "Textbooks & Workbooks",
-    description: "High-quality printed textbooks, practice books, and study guides for all subjects.",
-    icon: BookOpen,
+    name: "Festival & Pooja Bags",
+    description: "Auspicious bags for Diwali, Pongal, and temple events. Traditional prints with vibrant colors.",
+    image: "https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?w=800&auto=format&fit=crop&q=80",
   },
   {
-    name: "Exam Papers & Answer Sheets",
-    description: "Secure, standardized exam materials with proper formatting and numbering.",
-    icon: FileText,
+    name: "Cotton Shopping Bags",
+    description: "Eco-friendly reusable bags for retail stores and supermarkets. Durable and customizable.",
+    image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&auto=format&fit=crop&q=80",
   },
   {
-    name: "Certificates & Mark Sheets",
-    description: "Professional certificates, diplomas, and academic records with security features.",
-    icon: Award,
+    name: "Katta Pai (Jute Bags)",
+    description: "Traditional jute bags perfect for groceries, gifts, and everyday use. Sturdy and sustainable.",
+    image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&auto=format&fit=crop&q=80",
   },
 ]
 
 const features = [
-  "Custom designs matching school branding and colors",
-  "Durable binding for daily student use",
-  "Bulk printing with competitive institutional pricing",
-  "Quick turnaround to meet academic schedules",
-  "Eco-friendly paper options available",
-  "Secure printing for exam materials",
+  "Custom sizes from small gift bags to large shopping bags",
+  "Multiple fabric options: Cotton, Jute, Canvas, Non-woven",
+  "Full-color printing with your brand or design",
+  "Eco-friendly and reusable materials",
+  "Bulk orders with competitive pricing",
+  "Fast turnaround for urgent requirements",
 ]
 
-export default function EducationalMaterialsPage() {
+export default function BagPrintingPage() {
   const heroRef = useRef<HTMLDivElement>(null)
   const isHeroInView = useInView(heroRef, { once: true })
   const contentRef = useRef<HTMLDivElement>(null)
@@ -48,8 +48,8 @@ export default function EducationalMaterialsPage() {
     <div className="min-h-screen bg-white">
       <div ref={heroRef} className="relative h-[70vh] min-h-[500px] bg-[#1d1d1f] overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1600&auto=format&fit=crop&q=80"
-          alt="Educational Materials Printing"
+          src="https://images.unsplash.com/photo-1591561954557-26941169b49e?w=1600&auto=format&fit=crop&q=80"
+          alt="Bag Printing Services"
           fill
           className="object-cover opacity-40"
           priority
@@ -70,10 +70,10 @@ export default function EducationalMaterialsPage() {
               Back to Services
             </Link>
             <h1 className="text-[48px] md:text-[64px] font-semibold text-white leading-tight tracking-[-0.02em] mb-4">
-              Educational Materials
+              Bag Printing
             </h1>
             <p className="text-[21px] text-white/70 max-w-[600px] leading-relaxed">
-              Empower learning. Quality printed materials for schools, colleges, and educational institutions.
+              Carry your brand, celebrate your moments. Custom printed bags for weddings, festivals, and everyday elegance.
             </p>
           </motion.div>
         </div>
@@ -87,27 +87,33 @@ export default function EducationalMaterialsPage() {
           className="mb-20"
         >
           <h2 className="text-[32px] md:text-[40px] font-semibold text-[#1d1d1f] tracking-tight mb-6">
-            Built for education.
+            Bags for every occasion.
           </h2>
           <p className="text-[17px] text-[#86868b] leading-relaxed max-w-[700px]">
-            From school diaries to exam papers, we understand the unique needs of educational institutions. Our printing solutions are designed for durability, clarity, and cost-effectiveness.
+            From traditional wedding return gifts to modern eco-friendly shopping bags, we print on a variety of materials with stunning quality. Perfect for personal celebrations and business branding alike.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
-          {materialTypes.map((material, index) => (
+          {bagTypes.map((bag, index) => (
             <motion.div
-              key={material.name}
+              key={bag.name}
               initial={{ opacity: 0, y: 30 }}
               animate={isContentInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-[#f5f5f7] rounded-3xl p-8 hover-lift"
+              className="group relative h-[300px] rounded-3xl overflow-hidden"
             >
-              <div className="w-14 h-14 rounded-2xl bg-[#0071e3]/10 flex items-center justify-center mb-6">
-                <material.icon className="w-7 h-7 text-[#0071e3]" strokeWidth={1.5} />
+              <Image
+                src={bag.image}
+                alt={bag.name}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                <h3 className="text-[20px] font-semibold text-white mb-2">{bag.name}</h3>
+                <p className="text-[14px] text-white/70 leading-relaxed">{bag.description}</p>
               </div>
-              <h3 className="text-[20px] font-semibold text-[#1d1d1f] mb-3">{material.name}</h3>
-              <p className="text-[15px] text-[#86868b] leading-relaxed">{material.description}</p>
             </motion.div>
           ))}
         </div>
@@ -119,7 +125,7 @@ export default function EducationalMaterialsPage() {
           className="bg-[#f5f5f7] rounded-3xl p-8 md:p-12 mb-20"
         >
           <h2 className="text-[28px] font-semibold text-[#1d1d1f] tracking-tight mb-8">
-            Why schools trust us.
+            What we offer.
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {features.map((feature, index) => (
@@ -142,14 +148,14 @@ export default function EducationalMaterialsPage() {
           className="bg-[#1d1d1f] rounded-3xl p-8 md:p-12 text-center"
         >
           <h2 className="text-[28px] font-semibold text-white tracking-tight mb-4">
-            Partner with us.
+            Ready to order?
           </h2>
           <p className="text-[17px] text-white/60 mb-8 max-w-[500px] mx-auto">
-            Serving schools and colleges across Bhavani, Erode, and surrounding areas. Contact us for institutional pricing.
+            Get custom bags for your wedding, business, or event. Contact us for a free quote.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/919994466277?text=Hi!%20I'm%20interested%20in%20educational%20materials%20printing"
+              href="https://wa.me/919994466277?text=Hi!%20I'm%20interested%20in%20bag%20printing%20services"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full text-[17px] font-medium transition-colors"
@@ -170,4 +176,3 @@ export default function EducationalMaterialsPage() {
     </div>
   )
 }
-

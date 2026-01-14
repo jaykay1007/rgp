@@ -1,6 +1,5 @@
 "use client"
 
-import { SmoothScroll } from "@/components/smooth-scroll"
 import Header from "@/components/Header"
 import Hero from "@/components/Hero"
 import Services from "@/components/Services"
@@ -12,24 +11,13 @@ import Footer from "@/components/Footer"
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col">
-      <SmoothScroll />
+    <div className="min-h-screen bg-white">
       <Header />
       <main>
         <Hero />
         <Services />
         <Specialties />
-        <section id="process" className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Printing Process</h2>
-              <p className="text-gray-700 max-w-2xl mx-auto">
-                We follow a meticulous process to ensure the highest quality for all your printing needs.
-              </p>
-            </div>
-            <PrintingProcess />
-          </div>
-        </section>
+        <PrintingProcess />
         <WhyChooseUs />
         <Contact />
       </main>

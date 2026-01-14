@@ -1,66 +1,118 @@
 "use client"
 
-import { Printer, Layers, Palette, Sparkles, Leaf, Clock } from "lucide-react"
-import AnimatedText from "./animated-text"
+import { useRef } from "react"
+import { motion, useInView } from "framer-motion"
+import { Printer, Layers, Palette, Sparkles, Leaf, Zap } from "lucide-react"
 
 const specialties = [
   {
-    title: "High-Resolution Printing",
-    description: "Crystal-clear images and sharp text with our state-of-the-art printing technology.",
+    title: "High-Resolution",
+    description: "Crystal-clear output at 2400 DPI",
     icon: Printer,
   },
   {
-    title: "Premium Paper Selection",
-    description: "A wide range of high-quality papers to suit every project and budget.",
+    title: "Premium Papers",
+    description: "Art papers to luxury cardstock",
     icon: Layers,
   },
   {
-    title: "Color Matching Expertise",
-    description: "Precise color reproduction to ensure your brand colors are always on point.",
+    title: "Color Precision",
+    description: "Pantone-matched perfection",
     icon: Palette,
   },
   {
-    title: "Finishing Techniques",
-    description: "Enhance your prints with options like embossing, foil stamping, and spot UV coating.",
+    title: "Premium Finishes",
+    description: "Embossing, foiling, spot UV",
     icon: Sparkles,
   },
   {
-    title: "Eco-Friendly Options",
-    description: "Sustainable printing solutions using recycled papers and vegetable-based inks.",
+    title: "Eco-Conscious",
+    description: "Sustainable materials & inks",
     icon: Leaf,
   },
   {
-    title: "Rapid Turnaround",
-    description: "Fast and efficient printing services without compromising on quality.",
-    icon: Clock,
+    title: "Express Delivery",
+    description: "24-48 hour turnaround",
+    icon: Zap,
   },
 ]
 
 export default function Specialties() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
+
   return (
-    <section id="specialties" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <AnimatedText text="Our Printing Expertise" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4" />
-          <p className="text-gray-700 max-w-2xl mx-auto">
-            Discover the quality and precision that sets our printing services apart. We combine cutting-edge technology
-            with traditional craftsmanship to deliver exceptional results.
+    <section
+      ref={sectionRef}
+      id="expertise"
+      className="py-32 bg-[#f5f5f7]"
+    >
+      <div className="max-w-[980px] mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-[48px] md:text-[56px] font-semibold text-[#1d1d1f] leading-tight tracking-[-0.02em] mb-6">
+            Expertise that shows.
+          </h2>
+          <p className="text-[21px] text-[#86868b] max-w-[600px] mx-auto leading-relaxed">
+            Every detail matters. Our capabilities ensure your prints stand out.
           </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        </motion.div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           {specialties.map((specialty, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg p-6"
+            <motion.div
+              key={specialty.title}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.08,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
+              className="group relative bg-white rounded-2xl p-6 md:p-8 hover-lift cursor-default"
             >
-              <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
-                {specialty.icon && <specialty.icon className="h-6 w-6 text-primary" />}
+              <div className="mb-4">
+                <div className="w-12 h-12 rounded-xl bg-[#f5f5f7] flex items-center justify-center group-hover:bg-[#0071e3]/10 transition-colors duration-300">
+                  <specialty.icon className="w-6 h-6 text-[#1d1d1f] group-hover:text-[#0071e3] transition-colors duration-300" strokeWidth={1.5} />
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">{specialty.title}</h3>
-              <p className="text-gray-600">{specialty.description}</p>
-            </div>
+              <h3 className="text-[17px] font-semibold text-[#1d1d1f] mb-1 tracking-tight">
+                {specialty.title}
+              </h3>
+              <p className="text-[14px] text-[#86868b] leading-relaxed">
+                {specialty.description}
+              </p>
+            </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          className="mt-20 text-center"
+        >
+          <div className="inline-flex items-center gap-8 px-8 py-6 rounded-2xl bg-white shadow-apple-md">
+            <div className="text-center">
+              <p className="text-[32px] font-semibold text-[#1d1d1f] tracking-tight">27+</p>
+              <p className="text-[12px] text-[#86868b] uppercase tracking-wider">Years</p>
+            </div>
+            <div className="w-px h-12 bg-[#d2d2d7]" />
+            <div className="text-center">
+              <p className="text-[32px] font-semibold text-[#1d1d1f] tracking-tight">50K+</p>
+              <p className="text-[12px] text-[#86868b] uppercase tracking-wider">Projects</p>
+            </div>
+            <div className="w-px h-12 bg-[#d2d2d7]" />
+            <div className="text-center">
+              <p className="text-[32px] font-semibold text-[#1d1d1f] tracking-tight">100%</p>
+              <p className="text-[12px] text-[#86868b] uppercase tracking-wider">Quality</p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

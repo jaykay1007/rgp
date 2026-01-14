@@ -1,115 +1,140 @@
 "use client"
 
+import { useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronRight } from "lucide-react"
+import { motion, useInView } from "framer-motion"
+import { ArrowUpRight } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 
 const services = [
   {
-    title: "Visiting Cards",
-    description: "Make a lasting first impression with our high-quality visiting cards.",
-    icon: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnVzaW5lc3MlMjBjYXJkc3xlbnwwfHwwfHx8MA%3D%3D",
-    color: "bg-primary/10",
-    iconColor: "text-primary",
+    title: "Business Cards",
+    description: "First impressions that last. Premium finishes and precise details.",
+    image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=800&auto=format&fit=crop&q=80",
     link: "/services/visiting-cards",
+    gradient: "from-slate-900 to-slate-700",
   },
   {
-    title: "Brochures",
-    description: "Showcase your products or services with our professionally designed brochures.",
-    icon: "https://images.unsplash.com/photo-1616628188859-7a11abb6fcc9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnJvY2h1cmV8ZW58MHx8MHx8fDA%3D",
-    color: "bg-secondary/10",
-    iconColor: "text-secondary",
+    title: "Brochures & Catalogs",
+    description: "Tell your story beautifully. Showcase products with elegance.",
+    image: "https://images.unsplash.com/photo-1616628188859-7a11abb6fcc9?w=800&auto=format&fit=crop&q=80",
     link: "/services/brochures",
+    gradient: "from-blue-900 to-blue-700",
   },
   {
-    title: "Multicolour Offset Printing",
-    description: "High-quality offset printing for all your commercial needs.",
-    icon: "https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?q=80&w=2070",
-    color: "bg-primary/10",
-    iconColor: "text-primary",
+    title: "Offset Printing",
+    description: "High-volume excellence. Consistent quality, every single print.",
+    image: "https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?w=800&auto=format&fit=crop&q=80",
     link: "/services/multicolour-offset-printing",
+    gradient: "from-violet-900 to-violet-700",
   },
   {
-    title: "Digital Printing",
-    description: "Fast and efficient printing for short runs and variable data.",
-    icon: "https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlnaXRhbCUyMHByaW50aW5nfGVufDB8fDB8fHww",
-    color: "bg-secondary/10",
-    iconColor: "text-secondary",
-    link: "/services/digital-printing",
+    title: "Educational Materials",
+    description: "Empower learning. School diaries, workbooks, and study guides.",
+    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&auto=format&fit=crop&q=80",
+    link: "/services/educational-materials",
+    gradient: "from-amber-900 to-amber-700",
   },
   {
-    title: "Large Format Printing",
-    description: "Eye-catching banners, posters, and signage for maximum impact.",
-    icon: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFyZ2UlMjBmb3JtYXQlMjBwcmludGluZ3xlbnwwfHwwfHx8MA%3D%3D",
-    color: "bg-accent/10",
-    iconColor: "text-accent",
-    link: "/services/large-format-printing",
-  },
-  {
-    title: "Book Printing",
-    description: "Professional book printing and binding services.",
-    icon: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Ym9vayUyMHByaW50aW5nfGVufDB8fDB8fHww",
-    color: "bg-yellow-100",
-    iconColor: "text-yellow-600",
+    title: "Books & Binding",
+    description: "Stories deserve substance. Professional binding, lasting quality.",
+    image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=800&auto=format&fit=crop&q=80",
     link: "/services/book-printing",
+    gradient: "from-emerald-900 to-emerald-700",
   },
   {
-    title: "Packaging Printing",
-    description: "Custom packaging solutions for products of all sizes.",
-    icon: "https://images.unsplash.com/photo-1589758438368-0ad531db3366?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGFja2FnaW5nfGVufDB8fDB8fHww",
-    color: "bg-red-100",
-    iconColor: "text-red-600",
-    link: "/services/packaging-printing",
-  },
-  {
-    title: "Stationery Printing",
-    description: "Professional stationery to elevate your brand identity.",
-    icon: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3RhdGlvbmVyeXxlbnwwfHwwfHx8MA%3D%3D",
-    color: "bg-green-100",
-    iconColor: "text-green-600",
-    link: "/services/stationery-printing",
+    title: "Bag Printing",
+    description: "Carry your brand. Cotton bags, wedding bags, and festival specials.",
+    image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&auto=format&fit=crop&q=80",
+    link: "/services/bag-printing",
+    gradient: "from-rose-900 to-rose-700",
   },
 ]
 
 export default function Services() {
   const { t } = useLanguage()
-  
-  return (
-    <section id="services" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t("services.title")}</h2>
-          <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
-          <p className="text-gray-700 max-w-2xl mx-auto">
-            {t("services.description")}
-          </p>
-        </div>
+  const sectionRef = useRef<HTMLElement>(null)
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  return (
+    <section
+      ref={sectionRef}
+      id="services"
+      className="py-32 bg-white"
+    >
+      <div className="max-w-[980px] mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-[48px] md:text-[56px] font-semibold text-[#1d1d1f] leading-tight tracking-[-0.02em] mb-6">
+            {t("services.title") || "What we create."}
+          </h2>
+          <p className="text-[21px] text-[#86868b] max-w-[600px] mx-auto leading-relaxed">
+            From concept to completion, we deliver print solutions that exceed expectations.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg"
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
             >
-              <Image
-                src={service.icon || "/placeholder.svg"}
-                alt={service.title}
-                width={400}
-                height={250}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{service.title}</h3>
-                <p className="text-gray-600 mb-4">{service.description}</p>
-                <Link href={service.link} className="inline-flex items-center text-primary hover:underline">
-                  {t("services.learnMore")}
-                  <ChevronRight className="ml-1 h-4 w-4" />
-                </Link>
-              </div>
-            </div>
+              <Link
+                href={service.link}
+                className="group block relative h-[400px] rounded-3xl overflow-hidden bg-[#f5f5f7] hover-lift"
+              >
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className={`absolute inset-0 bg-gradient-to-t ${service.gradient} opacity-60 group-hover:opacity-70 transition-opacity duration-500`} />
+                
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <div className="transform transition-transform duration-500 group-hover:translate-y-[-8px]">
+                    <h3 className="text-[24px] font-semibold text-white mb-2 tracking-tight">
+                      {service.title}
+                    </h3>
+                    <p className="text-[15px] text-white/80 leading-relaxed mb-4">
+                      {service.description}
+                    </p>
+                    <span className="inline-flex items-center gap-1 text-[14px] text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      Learn more
+                      <ArrowUpRight className="w-4 h-4" />
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="text-center mt-16"
+        >
+          <Link
+            href="#contact"
+            className="inline-flex items-center gap-2 text-[#0071e3] text-[17px] font-medium hover:underline"
+          >
+            View all services
+            <ArrowUpRight className="w-4 h-4" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   )

@@ -1,50 +1,48 @@
 "use client"
 
 import Link from "next/link"
-import { Printer, MapPin, Phone, Mail } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
+
+const footerLinks = {
+  services: [
+    { label: "Business Cards", href: "/services/visiting-cards" },
+    { label: "Brochures", href: "/services/brochures" },
+    { label: "Offset Printing", href: "/services/multicolour-offset-printing" },
+    { label: "Packaging", href: "/services/packaging-printing" },
+    { label: "Book Printing", href: "/services/book-printing" },
+  ],
+  company: [
+    { label: "About", href: "#why-choose-us" },
+    { label: "Process", href: "#process" },
+    { label: "Contact", href: "#contact" },
+  ],
+  locations: [
+    { label: "Bhavani", href: "#" },
+    { label: "Erode", href: "#" },
+    { label: "Komarapalayam", href: "#" },
+    { label: "Anthiyur", href: "#" },
+  ],
+}
 
 export default function Footer() {
   const { t } = useLanguage()
-  
+
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div>
-            <div className="flex items-center gap-2 mb-6">
-              <Printer className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold text-white">Raja Ganapathi Offset Printers</span>
-            </div>
-            <p className="text-gray-400 mb-6">
-              {t("footer.description")}
-            </p>
-            <div className="flex gap-4">
-              {["facebook", "twitter", "instagram", "linkedin"].map((social) => (
-                <Link key={social} href={`#${social}`} className="text-gray-400 hover:text-primary transition-colors">
-                  <span className="sr-only">{social}</span>
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path
-                      fillRule="evenodd"
-                      d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-bold mb-6">{t("footer.quickLinks")}</h3>
+    <footer className="bg-[#f5f5f7] border-t border-[#d2d2d7]/50">
+      <div className="max-w-[980px] mx-auto px-6">
+        <div className="py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="col-span-2 md:col-span-1">
+            <h3 className="text-[12px] font-semibold text-[#1d1d1f] uppercase tracking-wider mb-4">
+              Services
+            </h3>
             <ul className="space-y-3">
-              {["Home", "About Us", "Services", "Specialties", "Process", "Contact"].map((item) => (
-                <li key={item}>
+              {footerLinks.services.map((link) => (
+                <li key={link.label}>
                   <Link
-                    href={`#${item.toLowerCase().replace(" ", "-")}`}
-                    className="text-gray-400 hover:text-primary transition-colors"
+                    href={link.href}
+                    className="text-[12px] text-[#86868b] hover:text-[#1d1d1f] transition-colors"
                   >
-                    {item}
+                    {link.label}
                   </Link>
                 </li>
               ))}
@@ -52,19 +50,17 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold mb-6">{t("footer.services")}</h3>
+            <h3 className="text-[12px] font-semibold text-[#1d1d1f] uppercase tracking-wider mb-4">
+              Company
+            </h3>
             <ul className="space-y-3">
-              {[
-                "Visiting Cards",
-                "Brochures",
-                "Wedding Invitations",
-                "Packaging Materials",
-                "Promotional Materials",
-                "Business Stationery",
-              ].map((item) => (
-                <li key={item}>
-                  <Link href="#services" className="text-gray-400 hover:text-primary transition-colors">
-                    {item}
+              {footerLinks.company.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-[12px] text-[#86868b] hover:text-[#1d1d1f] transition-colors"
+                  >
+                    {link.label}
                   </Link>
                 </li>
               ))}
@@ -72,37 +68,83 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold mb-6">{t("footer.contactUs")}</h3>
+            <h3 className="text-[12px] font-semibold text-[#1d1d1f] uppercase tracking-wider mb-4">
+              Locations
+            </h3>
             <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                <span className="text-gray-400">
-                  24 Palani Andavar Kovil Street, Bhavani. (638301). (CSI School opposite)
-                </span>
+              {footerLinks.locations.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-[12px] text-[#86868b] hover:text-[#1d1d1f] transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-[12px] font-semibold text-[#1d1d1f] uppercase tracking-wider mb-4">
+              Contact
+            </h3>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="tel:+919994466277"
+                  className="text-[12px] text-[#86868b] hover:text-[#1d1d1f] transition-colors"
+                >
+                  +91 99944 66277
+                </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-primary shrink-0" />
-                <span className="text-gray-400">+91 9994466277</span>
+              <li>
+                <a
+                  href="mailto:rgpbvn@gmail.com"
+                  className="text-[12px] text-[#86868b] hover:text-[#1d1d1f] transition-colors"
+                >
+                  rgpbvn@gmail.com
+                </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-primary shrink-0" />
-                <span className="text-gray-400">rgpbvn@gmail.com</span>
+              <li>
+                <a
+                  href="https://wa.me/919994466277"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[12px] text-[#86868b] hover:text-[#1d1d1f] transition-colors"
+                >
+                  WhatsApp
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} Raja Ganapathi Offset Printers. {t("footer.rights")}
-          </p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <Link href="#" className="text-gray-400 hover:text-primary text-sm transition-colors">
-              {t("footer.privacy")}
-            </Link>
-            <Link href="#" className="text-gray-400 hover:text-primary text-sm transition-colors">
-              {t("footer.terms")}
-            </Link>
+        <div className="py-6 border-t border-[#d2d2d7]/50">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+              <p className="text-[12px] text-[#86868b]">
+                © {new Date().getFullYear()} Raja Ganapathi Offset Printers.
+              </p>
+              <span className="hidden md:inline text-[#d2d2d7]">|</span>
+              <p className="text-[12px] text-[#86868b]">
+                24 Palani Andavar Kovil Street, Bhavani - 638301
+              </p>
+            </div>
+            <div className="flex items-center gap-6">
+              <Link
+                href="#"
+                className="text-[12px] text-[#86868b] hover:text-[#1d1d1f] transition-colors"
+              >
+                Privacy
+              </Link>
+              <Link
+                href="#"
+                className="text-[12px] text-[#86868b] hover:text-[#1d1d1f] transition-colors"
+              >
+                Terms
+              </Link>
+            </div>
           </div>
         </div>
       </div>
