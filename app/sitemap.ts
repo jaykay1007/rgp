@@ -24,13 +24,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = ["", "services", "about", "contact"].map((route) => ({
     url: `${baseUrl}/${route}`,
     lastModified: new Date().toISOString(),
+    changeFrequency: 'weekly' as const,
+    priority: route === "" ? 1.0 : 0.8,
   }))
+
+  const authorityPage = {
+    url: `${baseUrl}/printing-press-bhavani-erode`,
+    lastModified: new Date().toISOString(),
+    changeFrequency: 'weekly' as const,
+    priority: 1.0,
+  }
 
   const serviceRoutes = services.map((service) => ({
     url: `${baseUrl}/services/${service}`,
     lastModified: new Date().toISOString(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
   }))
 
-  return [...routes, ...serviceRoutes]
+  return [authorityPage, ...routes, ...serviceRoutes]
 }
 
