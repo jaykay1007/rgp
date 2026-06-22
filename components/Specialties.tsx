@@ -2,40 +2,58 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { Printer, Layers, Palette, Sparkles, Leaf, Zap } from "lucide-react"
+import { Printer, Layers, Palette, Sparkles, Leaf, Zap, ShieldCheck, Clock } from "lucide-react"
 
 const specialties = [
   {
-    title: "High-Resolution",
-    description: "Crystal-clear output at 2400 DPI",
+    title: "2400 DPI offset",
+    description: "True high-resolution output on Heidelberg presses for poster-perfect detail.",
     icon: Printer,
+    accent: "text-cmyk-cyan",
   },
   {
-    title: "Premium Papers",
-    description: "Art papers to luxury cardstock",
+    title: "Premium papers",
+    description: "Imported art papers, textured stocks, kraft, suede, & luxury cardstock.",
     icon: Layers,
+    accent: "text-cmyk-magenta",
   },
   {
-    title: "Color Precision",
-    description: "Pantone-matched perfection",
+    title: "Pantone colour matching",
+    description: "Brand-true spot colours, soft proofing, and dedicated ink kitchen.",
     icon: Palette,
+    accent: "text-accent",
   },
   {
-    title: "Premium Finishes",
-    description: "Embossing, foiling, spot UV",
+    title: "Foil, emboss, spot UV",
+    description: "Luxury finishes that turn a print into a keepsake.",
     icon: Sparkles,
+    accent: "text-amber-500",
   },
   {
-    title: "Eco-Conscious",
-    description: "Sustainable materials & inks",
+    title: "Soy & vegetable inks",
+    description: "Eco-conscious inks, FSC-certified papers, lower-emission washes.",
     icon: Leaf,
+    accent: "text-emerald-500",
   },
   {
-    title: "Express Delivery",
-    description: "24-48 hour turnaround",
+    title: "24-hour express",
+    description: "Same-day visiting cards & next-day wedding samples — no compromise.",
     icon: Zap,
+    accent: "text-yellow-500",
   },
-]
+  {
+    title: "Quality-locked",
+    description: "Three-stage QA with proof sign-off & batch quality samples.",
+    icon: ShieldCheck,
+    accent: "text-blue-500",
+  },
+  {
+    title: "Sat-late delivery",
+    description: "Open till 8 PM, six days a week — for last-minute deadlines.",
+    icon: Clock,
+    accent: "text-rose-500",
+  },
+] as const
 
 export default function Specialties() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -45,76 +63,98 @@ export default function Specialties() {
     <section
       ref={sectionRef}
       id="expertise"
-      className="py-32 bg-[#f5f5f7]"
+      className="relative py-32 md:py-40 bg-ink-100 overflow-hidden"
+      aria-label="Why our offset printing is different"
     >
-      <div className="max-w-[980px] mx-auto px-6">
+      {/* Decorative grid background */}
+      <div aria-hidden="true" className="absolute inset-0 opacity-[0.04]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
+      </div>
+
+      <div className="container-apple-wide relative">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-center mb-20"
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-3xl mb-20"
         >
-          <h2 className="text-[48px] md:text-[56px] font-semibold text-[#1d1d1f] leading-tight tracking-[-0.02em] mb-6">
+          <p className="text-eyebrow uppercase text-accent mb-5">Built into every print</p>
+          <h2 className="font-display font-semibold text-ink-900 tracking-[-0.025em] text-[clamp(40px,6vw,80px)] leading-[1.02] text-balance">
             Expertise that shows.
+            <br />
+            <span className="text-gradient-blue">From the first sheet.</span>
           </h2>
-          <p className="text-[21px] text-[#86868b] max-w-[600px] mx-auto leading-relaxed">
-            Every detail matters. Our capabilities ensure your prints stand out.
+          <p className="mt-6 text-[clamp(17px,1.4vw,21px)] text-ink-500 leading-[1.5] text-pretty">
+            Eight pillars that make us South India's most trusted offset printing
+            press. Every project, audited against this standard.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-          {specialties.map((specialty, index) => (
-            <motion.div
-              key={specialty.title}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+          {specialties.map((s, index) => (
+            <motion.article
+              key={s.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{
-                duration: 0.5,
-                delay: index * 0.08,
-                ease: [0.25, 0.1, 0.25, 1],
+                duration: 0.6,
+                delay: index * 0.06,
+                ease: [0.16, 1, 0.3, 1],
               }}
-              className="group relative bg-white rounded-2xl p-6 md:p-8 hover-lift cursor-default"
+              className="group relative bg-white rounded-3xl p-7 md:p-8 hover-lift cursor-default overflow-hidden"
             >
-              <div className="mb-4">
-                <div className="w-12 h-12 rounded-xl bg-[#f5f5f7] flex items-center justify-center group-hover:bg-[#0071e3]/10 transition-colors duration-300">
-                  <specialty.icon className="w-6 h-6 text-[#1d1d1f] group-hover:text-[#0071e3] transition-colors duration-300" strokeWidth={1.5} />
+              <div className="relative z-10">
+                <div className="mb-5">
+                  <div className="w-12 h-12 rounded-2xl bg-ink-100 flex items-center justify-center group-hover:bg-ink-900 transition-colors duration-500">
+                    <s.icon
+                      className={`w-5 h-5 ${s.accent} group-hover:text-white transition-colors duration-500`}
+                      strokeWidth={1.5}
+                    />
+                  </div>
                 </div>
+                <h3 className="text-[18px] font-display font-semibold text-ink-900 mb-1.5 tracking-tight">
+                  {s.title}
+                </h3>
+                <p className="text-[14px] text-ink-500 leading-[1.5]">{s.description}</p>
               </div>
-              <h3 className="text-[17px] font-semibold text-[#1d1d1f] mb-1 tracking-tight">
-                {specialty.title}
-              </h3>
-              <p className="text-[14px] text-[#86868b] leading-relaxed">
-                {specialty.description}
-              </p>
-            </motion.div>
+
+              {/* Decorative dot */}
+              <div
+                className={`absolute -top-4 -right-4 w-24 h-24 rounded-full ${s.accent.replace("text-", "bg-")} opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-700`}
+              />
+            </motion.article>
           ))}
         </div>
 
+        {/* Big stats bar */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mt-20 text-center"
+          transition={{ duration: 0.9, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px rounded-3xl overflow-hidden bg-ink-200"
         >
-          <div className="inline-flex items-center gap-8 px-8 py-6 rounded-2xl bg-white shadow-apple-md">
-            <div className="text-center">
-              <p className="text-[32px] font-semibold text-[#1d1d1f] tracking-tight">27+</p>
-              <p className="text-[12px] text-[#86868b] uppercase tracking-wider">Years</p>
+          {[
+            { stat: "27+", label: "Years on press" },
+            { stat: "50,000+", label: "Projects shipped" },
+            { stat: "1M+", label: "Sheets / month" },
+            { stat: "8", label: "Districts served" },
+          ].map((b) => (
+            <div key={b.label} className="bg-white p-8 text-center">
+              <p className="font-display font-semibold text-ink-900 text-[clamp(32px,4vw,48px)] tracking-tight leading-none">
+                {b.stat}
+              </p>
+              <p className="mt-2 text-[12px] uppercase tracking-widest text-ink-500">{b.label}</p>
             </div>
-            <div className="w-px h-12 bg-[#d2d2d7]" />
-            <div className="text-center">
-              <p className="text-[32px] font-semibold text-[#1d1d1f] tracking-tight">50K+</p>
-              <p className="text-[12px] text-[#86868b] uppercase tracking-wider">Projects</p>
-            </div>
-            <div className="w-px h-12 bg-[#d2d2d7]" />
-            <div className="text-center">
-              <p className="text-[32px] font-semibold text-[#1d1d1f] tracking-tight">100%</p>
-              <p className="text-[12px] text-[#86868b] uppercase tracking-wider">Quality</p>
-            </div>
-          </div>
+          ))}
         </motion.div>
       </div>
     </section>
   )
 }
-

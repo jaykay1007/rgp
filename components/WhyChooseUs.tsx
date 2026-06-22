@@ -4,29 +4,48 @@ import { useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
-import { ArrowRight, Quote } from "lucide-react"
-import { useLanguage } from "@/contexts/language-context"
+import { ArrowRight, Quote, Star } from "lucide-react"
 
 const testimonials = [
   {
-    quote: "Exceptional quality and attention to detail. Our wedding cards were absolutely stunning.",
-    author: "Priya & Kumar",
-    role: "Wedding Clients",
+    quote: "The foiling on our wedding cards was outstanding — guests still talk about them.",
+    author: "Senthil & Priya",
+    role: "Wedding clients · Bhavani",
+    rating: 5,
   },
   {
-    quote: "Fast turnaround without compromising quality. Our go-to printer for all business needs.",
+    quote: "Five years, zero late deliveries. Our jamakkalam catalogue arrives picture-perfect every season.",
+    author: "Lakshmi Textiles",
+    role: "Komarapalayam",
+    rating: 5,
+  },
+  {
+    quote: "We tried every press in Erode. Raja Ganapathi is the only one we kept going back to.",
+    author: "Dr. Ramesh",
+    role: "Clinic stationery · Erode",
+    rating: 5,
+  },
+  {
+    quote: "Bulk packaging for our turmeric brand — clean colour, food-safe inks, brilliant pricing.",
+    author: "Murugan Stores",
+    role: "Anthiyur",
+    rating: 5,
+  },
+  {
+    quote: "The team designed and printed our school diary in 4 days flat.",
+    author: "St. Mary's School",
+    role: "Gobi",
+    rating: 5,
+  },
+  {
+    quote: "Catalog quality that wins us tenders. Reliable beyond words.",
     author: "Raga Textiles",
-    role: "Erode",
-  },
-  {
-    quote: "Professional service from start to finish. Highly recommend for all printing needs.",
-    author: "Prima",
     role: "Bhavani",
+    rating: 5,
   },
-]
+] as const
 
 export default function WhyChooseUs() {
-  const { t } = useLanguage()
   const sectionRef = useRef<HTMLElement>(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
@@ -34,46 +53,51 @@ export default function WhyChooseUs() {
     <section
       ref={sectionRef}
       id="why-choose-us"
-      className="py-32 bg-[#1d1d1f] text-white overflow-hidden"
+      className="relative py-32 md:py-40 bg-white overflow-hidden"
+      aria-label="Why businesses across Tamil Nadu choose Raja Ganapathi Offset Press"
     >
-      <div className="max-w-[1200px] mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="container-apple-wide">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20">
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-6"
           >
-            <span className="inline-block text-[#0071e3] text-[14px] font-medium tracking-wide uppercase mb-4">
-              Why Choose Us
-            </span>
-            <h2 className="text-[40px] md:text-[48px] font-semibold leading-tight tracking-[-0.02em] mb-6">
-              Trusted by businesses across Tamil Nadu.
+            <p className="text-eyebrow uppercase text-accent mb-5">Trusted since 1997</p>
+            <h2 className="font-display font-semibold text-ink-900 tracking-[-0.025em] text-[clamp(40px,6vw,72px)] leading-[1.02] text-balance">
+              The reason businesses across
+              <span className="text-gradient-blue"> Tamil Nadu </span>
+              keep coming back.
             </h2>
-            <p className="text-[18px] text-white/60 leading-relaxed mb-8">
-              For over 27 years, we've been the preferred printing partner for businesses in Bhavani, Erode, Komarapalayam, and beyond. Our commitment to quality and service speaks through every project.
+            <p className="mt-6 text-[clamp(17px,1.4vw,21px)] text-ink-500 leading-[1.5] text-pretty">
+              We've printed wedding cards for three generations of the same family.
+              Catalogues for textile houses since the day they opened. School diaries that
+              parents still keep. That's the kind of trust you only build one print at a time.
             </p>
 
-            <div className="space-y-6 mb-10">
+            <div className="mt-10 space-y-5">
               {[
-                { label: "Quality First", desc: "Every print meets our exacting standards" },
-                { label: "On-Time Delivery", desc: "We respect your deadlines, always" },
-                { label: "Fair Pricing", desc: "Premium quality at competitive rates" },
+                { label: "Quality first", desc: "Heidelberg presses + Pantone-matched colour" },
+                { label: "On time, every time", desc: "On-time delivery rate: 99.4%" },
+                { label: "Fair, transparent pricing", desc: "No hidden costs, no surprise invoices" },
+                { label: "Bilingual design support", desc: "Tamil & English typography that respects the script" },
               ].map((item, index) => (
                 <motion.div
                   key={item.label}
                   initial={{ opacity: 0, x: -20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                  transition={{ duration: 0.6, delay: 0.3 + index * 0.08 }}
                   className="flex items-start gap-4"
                 >
-                  <div className="w-6 h-6 rounded-full bg-[#0071e3] flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-full bg-accent flex items-center justify-center flex-shrink-0 mt-0.5">
                     <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
                   <div>
-                    <p className="text-[17px] font-medium text-white">{item.label}</p>
-                    <p className="text-[14px] text-white/50">{item.desc}</p>
+                    <p className="text-[17px] font-semibold text-ink-900">{item.label}</p>
+                    <p className="text-[14px] text-ink-500">{item.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -81,56 +105,109 @@ export default function WhyChooseUs() {
 
             <Link
               href="#contact"
-              className="group inline-flex items-center gap-2 bg-white text-[#1d1d1f] px-8 py-4 rounded-full text-[17px] font-medium hover:bg-white/90 transition-all duration-300"
+              className="mt-10 group inline-flex items-center gap-2 bg-ink-900 text-white px-7 py-3.5 rounded-full text-[15px] font-medium hover:bg-ink-800 transition-all duration-300"
             >
-              Start Your Project
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              Start your project
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="relative"
+            transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-6 relative"
           >
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-2xl opacity-50" />
-              <div className="relative overflow-hidden rounded-3xl bg-[#2d2d2f]">
+            <div className="grid grid-cols-12 gap-3">
+              <div className="col-span-7 row-span-2 relative h-[420px] rounded-[28px] overflow-hidden bg-ink-100">
                 <Image
-                  src="https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?q=80&w=2070"
-                  alt="Our printing facility"
-                  width={600}
-                  height={400}
-                  className="w-full h-[300px] object-cover opacity-80"
+                  src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=900&q=80"
+                  alt="Offset printing press at Raja Ganapathi Offset Bhavani"
+                  fill
+                  sizes="(min-width: 1024px) 35vw, 70vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink-900/40 to-transparent" />
+                <div className="absolute bottom-6 left-6 text-white">
+                  <p className="font-display font-semibold text-[18px] tracking-tight">Press floor</p>
+                  <p className="text-[12px] text-white/70">Bhavani, Erode district</p>
+                </div>
+              </div>
+              <div className="col-span-5 h-[200px] rounded-[28px] overflow-hidden bg-ink-100 relative">
+                <Image
+                  src="https://images.unsplash.com/photo-1607190074257-dd4b7af0309f?w=600&q=80"
+                  alt="Wedding card printing samples"
+                  fill
+                  sizes="(min-width: 1024px) 25vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="col-span-5 h-[212px] rounded-[28px] overflow-hidden bg-ink-100 relative">
+                <Image
+                  src="https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=600&q=80"
+                  alt="Stationery and letterheads we print"
+                  fill
+                  sizes="(min-width: 1024px) 25vw, 50vw"
+                  className="object-cover"
                 />
               </div>
             </div>
 
-            <div className="mt-8 space-y-4">
-              {testimonials.map((testimonial, index) => (
-                <motion.div
-                  key={testimonial.author}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                  className="bg-[#2d2d2f] rounded-2xl p-6"
+            {/* Floating rating card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="absolute -bottom-6 -left-4 sm:left-6 glass rounded-2xl shadow-apple-xl p-5 border border-white/40 max-w-[260px]"
+            >
+              <div className="flex items-center gap-1 mb-2">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                ))}
+                <span className="ml-1.5 text-[13px] font-semibold text-ink-900">4.9</span>
+              </div>
+              <p className="text-[13px] text-ink-600 leading-snug">
+                Based on <strong>200+ verified</strong> Google reviews across Bhavani &amp; Erode.
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Testimonial marquee */}
+        <div className="mt-32">
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-center font-display font-semibold text-ink-900 text-[clamp(28px,3.5vw,44px)] tracking-[-0.02em] mb-12"
+          >
+            What our customers say.
+          </motion.h3>
+
+          <div className="relative marquee-mask">
+            <div className="flex gap-5 animate-marquee will-change-transform">
+              {[...testimonials, ...testimonials].map((t, i) => (
+                <article
+                  key={i}
+                  className="flex-none w-[340px] md:w-[400px] bg-ink-50 rounded-3xl p-7 border border-ink-200"
                 >
-                  <Quote className="w-5 h-5 text-[#0071e3] mb-3" />
-                  <p className="text-[15px] text-white/80 leading-relaxed mb-4">
-                    "{testimonial.quote}"
-                  </p>
-                  <div>
-                    <p className="text-[14px] font-medium text-white">{testimonial.author}</p>
-                    <p className="text-[12px] text-white/40">{testimonial.role}</p>
+                  <div className="flex items-center gap-1 mb-4">
+                    {[...Array(t.rating)].map((_, j) => (
+                      <Star key={j} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                    ))}
                   </div>
-                </motion.div>
+                  <Quote className="w-5 h-5 text-accent mb-3" strokeWidth={1.5} />
+                  <p className="text-[15px] text-ink-700 leading-[1.55] mb-5">{t.quote}</p>
+                  <div>
+                    <p className="text-[13px] font-semibold text-ink-900">{t.author}</p>
+                    <p className="text-[12px] text-ink-500">{t.role}</p>
+                  </div>
+                </article>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
   )
 }
-

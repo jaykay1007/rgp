@@ -52,6 +52,24 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        ink: {
+          50: "#fafafa",
+          100: "#f5f5f7",
+          200: "#e8e8ed",
+          300: "#d2d2d7",
+          400: "#a1a1a6",
+          500: "#86868b",
+          600: "#6e6e73",
+          700: "#3a3a3c",
+          800: "#1d1d1f",
+          900: "#0a0a0b",
+        },
+        cmyk: {
+          cyan: "#00B5E2",
+          magenta: "#EC008C",
+          yellow: "#FFF200",
+          key: "#0A0A0B",
+        },
         apple: {
           blue: "#0071e3",
           gray: {
@@ -66,6 +84,7 @@ module.exports = {
       },
       fontFamily: {
         sans: [
+          "SF Pro Text",
           "-apple-system",
           "BlinkMacSystemFont",
           "Inter",
@@ -82,8 +101,18 @@ module.exports = {
           "Inter",
           "sans-serif",
         ],
+        mono: [
+          "SF Mono",
+          "JetBrains Mono",
+          "ui-monospace",
+          "Menlo",
+          "Monaco",
+          "monospace",
+        ],
       },
       fontSize: {
+        "hero-xl": ["clamp(56px, 10vw, 140px)", { lineHeight: "0.95", letterSpacing: "-0.045em", fontWeight: "700" }],
+        "hero-lg": ["clamp(48px, 8vw, 112px)", { lineHeight: "1.0", letterSpacing: "-0.04em", fontWeight: "700" }],
         "display-xl": ["96px", { lineHeight: "1.05", letterSpacing: "-0.03em", fontWeight: "700" }],
         "display-lg": ["80px", { lineHeight: "1.05", letterSpacing: "-0.03em", fontWeight: "700" }],
         "display-md": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "600" }],
@@ -95,6 +124,7 @@ module.exports = {
         "body-md": ["17px", { lineHeight: "1.5", letterSpacing: "0", fontWeight: "400" }],
         "body-sm": ["14px", { lineHeight: "1.5", letterSpacing: "0", fontWeight: "400" }],
         "caption": ["12px", { lineHeight: "1.4", letterSpacing: "0", fontWeight: "400" }],
+        "eyebrow": ["11px", { lineHeight: "1.4", letterSpacing: "0.12em", fontWeight: "600" }],
       },
       spacing: {
         "18": "4.5rem",
@@ -105,6 +135,7 @@ module.exports = {
       borderRadius: {
         "4xl": "2rem",
         "5xl": "2.5rem",
+        "6xl": "3rem",
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
@@ -114,16 +145,30 @@ module.exports = {
         "apple-md": "0 4px 16px rgba(0, 0, 0, 0.08)",
         "apple-lg": "0 8px 32px rgba(0, 0, 0, 0.12)",
         "apple-xl": "0 16px 48px rgba(0, 0, 0, 0.16)",
+        "apple-2xl": "0 32px 80px rgba(0, 0, 0, 0.20)",
         "glass": "0 8px 32px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.1)",
+        "inner-glow": "inset 0 1px 0 0 rgba(255, 255, 255, 0.08)",
+        "ink-glow": "0 0 80px rgba(0, 113, 227, 0.25)",
       },
       transitionDuration: {
         "400": "400ms",
         "600": "600ms",
         "800": "800ms",
+        "1200": "1200ms",
       },
       transitionTimingFunction: {
         "apple": "cubic-bezier(0.25, 0.1, 0.25, 1)",
         "apple-bounce": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "apple-out": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "swift": "cubic-bezier(0.65, 0, 0.35, 1)",
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "ink-blue": "linear-gradient(135deg, #0071e3 0%, #42a1ec 50%, #6dc4ff 100%)",
+        "ink-magenta": "linear-gradient(135deg, #ec008c 0%, #ff4fab 100%)",
+        "ink-rainbow": "linear-gradient(135deg, #00B5E2 0%, #EC008C 33%, #FFF200 66%, #0A0A0B 100%)",
+        "noise": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E\")",
       },
       keyframes: {
         "accordion-down": {
@@ -154,6 +199,26 @@ module.exports = {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
         },
+        "marquee": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "shimmer": {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
+        "spin-slow": {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
+        "pulse-ring": {
+          "0%": { transform: "scale(0.95)", opacity: "1" },
+          "100%": { transform: "scale(1.6)", opacity: "0" },
+        },
+        "gradient-x": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -163,9 +228,13 @@ module.exports = {
         "scale-in": "scale-in 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards",
         "slide-up": "slide-up 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards",
         "float": "float 6s ease-in-out infinite",
+        "marquee": "marquee 40s linear infinite",
+        "shimmer": "shimmer 2.5s linear infinite",
+        "spin-slow": "spin-slow 18s linear infinite",
+        "pulse-ring": "pulse-ring 2s cubic-bezier(0.65, 0, 0.35, 1) infinite",
+        "gradient-x": "gradient-x 6s ease infinite",
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
 }
-

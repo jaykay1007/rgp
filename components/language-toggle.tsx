@@ -13,12 +13,11 @@ export default function LanguageToggle() {
   return (
     <button
       onClick={toggleLanguage}
-      className="flex items-center space-x-2 text-gray-700 hover:text-primary transition-colors"
+      className="inline-flex items-center gap-1.5 text-[12px] text-ink-800/80 hover:text-ink-800 transition-colors font-normal"
       aria-label={`Switch to ${language === "english" ? "Tamil" : "English"}`}
     >
-      <Globe className="h-5 w-5" />
-      <span className="text-sm font-medium">{language === "english" ? "தமிழ்" : "English"}</span>
+      <Globe className="h-3.5 w-3.5" strokeWidth={1.5} />
+      <span>{language === "english" ? "தமிழ்" : "English"}</span>
     </button>
   )
 }
-
