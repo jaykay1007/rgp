@@ -16,7 +16,6 @@ export const metadata: Metadata = {
     "printing press erode",
     "commercial printing bhavani",
     "multicolor printing bhavani",
-    "digital printing bhavani",
     "wedding card printing bhavani",
     "visiting card printing erode",
     "brochure printing komarapalayam",
@@ -25,7 +24,6 @@ export const metadata: Metadata = {
     "bill book printing erode",
     "letterhead printing bhavani",
     "poster printing gobi",
-    "banner printing bhavani",
     "catalog printing erode",
     "booklet printing bhavani",
     "sticker printing erode",
@@ -48,14 +46,7 @@ export const metadata: Metadata = {
     description: "Trusted printing press serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi for 27+ years. Expert offset printing, wedding cards, business stationery, packaging, bag printing. Quality guaranteed. Call +91 9994466277",
     url: `${SITE_CONFIG.domain}/printing-press-bhavani-erode`,
     siteName: SITE_CONFIG.name,
-    images: [
-      {
-        url: '/images/printing-press-bhavani.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Raja Ganapathi Offset Printing Press Bhavani',
-      },
-    ],
+    // OG image inherited from app/opengraph-image.tsx (generated, never 404s).
     locale: 'en_IN',
     type: 'website',
   },
@@ -124,7 +115,7 @@ function HeroSection() {
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-            Premier Offset Printing, Digital Printing & Commercial Printing Solutions Provider
+            Premier Multicolour Offset & Commercial Printing Solutions Provider
             <span className="block mt-2 text-lg">Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi & Surrounding Areas</span>
           </p>
           
@@ -183,7 +174,7 @@ function IntroSection() {
             </p>
             
             <p className="text-lg leading-relaxed">
-              As the <strong>leading printing press in Bhavani</strong>, we specialize in comprehensive printing solutions including <strong>offset printing, multicolor printing, digital printing, commercial printing, wedding card printing, visiting card printing, brochure printing, packaging printing, bag printing, bill book printing, letterhead printing</strong>, and much more. Our state-of-the-art printing facility combines traditional craftsmanship with modern technology to deliver exceptional results every time.
+              As the <strong>leading printing press in Bhavani</strong>, we specialize in comprehensive printing solutions including <strong>offset printing, multicolor printing, commercial printing, wedding card printing, visiting card printing, brochure printing, packaging printing, bag printing, bill book printing, letterhead printing</strong>, and much more. Our state-of-the-art printing facility combines traditional craftsmanship with modern technology to deliver exceptional results every time.
             </p>
             
             <p className="text-lg leading-relaxed">
@@ -205,7 +196,7 @@ function IntroSection() {
             <div className="bg-gradient-to-br from-[#0F172A] to-[#1e293b] p-6 rounded-xl text-white text-center">
               <TrendingUp className="w-12 h-12 text-[#D4AF37] mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-2">Modern Technology</h3>
-              <p className="text-gray-300">Latest offset and digital printing equipment for perfect results</p>
+              <p className="text-gray-300">Latest Heidelberg offset printing equipment for perfect results</p>
             </div>
           </div>
         </div>
@@ -217,11 +208,11 @@ function IntroSection() {
 function ComprehensiveServicesSection() {
   const services = [
     {
-      category: "Offset & Digital Printing Services",
+      category: "Offset Printing Services",
       items: [
         "Multicolor Offset Printing (CMYK + Spot Colors)",
         "Single Color & Two Color Offset Printing",
-        "Digital Printing for Small Quantities",
+        "Short-run Offset Printing for Small Quantities",
         "Commercial Printing Solutions",
         "Bulk Printing Services",
         "Express Printing Services",
@@ -247,12 +238,11 @@ function ComprehensiveServicesSection() {
         "Brochure Printing & Pamphlet Printing",
         "Flyer Printing & Leaflet Distribution Materials",
         "Catalog Printing & Booklet Printing",
-        "Poster Printing & Banner Printing",
-        "Flex Printing & Vinyl Printing",
-        "Hoarding Printing & Large Format Printing",
+        "Poster Printing (Paper Stock)",
         "Dangler Printing & Tent Card Printing",
         "Standee Printing & Display Materials",
         "Menu Card Printing (Restaurant & Hotel)",
+        "Calendar Printing & Diary Printing",
         "Bill Folder Printing",
       ]
     },
@@ -387,7 +377,7 @@ function LocationsServedSection() {
     { name: "Erode", desc: "Complete printing services across Erode city" },
     { name: "Komarapalayam", desc: "Textile & commercial printing hub" },
     { name: "Anthiyur", desc: "Wedding cards & business stationery" },
-    { name: "Gobichettipalayam (Gobi)", desc: "Offset & digital printing services" },
+    { name: "Gobichettipalayam (Gobi)", desc: "Offset & commercial printing services" },
     { name: "Perundurai", desc: "Packaging & promotional materials" },
     { name: "Sathyamangalam", desc: "All printing solutions available" },
     { name: "Mettur", desc: "Business & commercial printing" },
@@ -608,13 +598,13 @@ function SpecializedServicesSection() {
           <div className="bg-gradient-to-br from-red-50 to-white border-2 border-red-100 rounded-xl p-6">
             <h3 className="text-xl font-bold text-[#0F172A] mb-4">Promotional Material Printing</h3>
             <p className="text-gray-700 mb-4">
-              Eye-catching marketing materials to promote your business. Posters, banners, flex boards, standees, danglers, and all promotional printing at affordable prices.
+              Eye-catching marketing materials to promote your business. Posters, standees, danglers, flyers, calendars and all promotional printing at affordable prices.
             </p>
             <ul className="space-y-2 text-sm text-gray-600">
-              <li>• Posters & Banners</li>
-              <li>• Flex & Vinyl Printing</li>
+              <li>• Posters & Pamphlets</li>
               <li>• Standees & Danglers</li>
               <li>• Promotional Flyers</li>
+              <li>• Calendars & Diaries</li>
               <li>• Event Branding Materials</li>
             </ul>
           </div>
@@ -658,7 +648,7 @@ function ProcessSection() {
     {
       step: "4",
       title: "Printing Process",
-      desc: "Your order goes into production using our advanced offset or digital printing equipment."
+      desc: "Your order goes into production on our advanced Heidelberg offset printing equipment."
     },
     {
       step: "5",
@@ -704,7 +694,7 @@ function FAQSection() {
   const faqs = [
     {
       q: "What types of printing services does Raja Ganapathi Offset offer in Bhavani?",
-      a: "We offer comprehensive printing services including multicolor offset printing, digital printing, wedding card printing, visiting card printing, business stationery (letterheads, bill books, envelopes), brochure printing, catalog printing, packaging printing, bag printing (paper, cloth, jute, non-woven), book printing, poster printing, banner printing, sticker printing, label printing, certificate printing, ID card printing, calendar printing, and all finishing services like lamination, foiling, embossing, and binding."
+      a: "We offer comprehensive printing services including multicolor offset printing, wedding card printing, visiting card printing, business stationery (letterheads, bill books, envelopes), brochure printing, catalog printing, packaging printing, bag printing (paper, cloth, jute, non-woven), book printing, poster printing, sticker printing, label printing, certificate printing, ID card printing, calendar printing, and all finishing services like lamination, foiling, embossing, and binding."
     },
     {
       q: "Which areas do you serve from your Bhavani location?",
@@ -724,7 +714,7 @@ function FAQSection() {
     },
     {
       q: "What is the minimum order quantity for offset printing?",
-      a: "For offset printing, we typically recommend a minimum of 500 pieces for cost-effectiveness, as offset printing is ideal for bulk orders. However, for smaller quantities (less than 500), we offer digital printing services with no minimum order requirement. Contact us to discuss your specific needs."
+      a: "For offset printing, we typically recommend a minimum of 500 pieces for cost-effectiveness, as offset printing is ideal for bulk orders. For smaller quantities (less than 500), we also offer quick short-run printing with no large minimum order. Contact us to discuss your specific needs."
     },
     {
       q: "Do you provide express or urgent printing services?",

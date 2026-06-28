@@ -22,19 +22,21 @@ const megaMenu: Record<string, MegaItem[]> = {
     { label: "Business Stationery", href: "/services/business-stationery", desc: "Letterheads, envelopes, bill books" },
     { label: "Packaging Printing", href: "/services/packaging-printing", desc: "Custom boxes & product packaging" },
     { label: "Book Printing", href: "/services/book-printing", desc: "Bound to last" },
-    { label: "Digital Printing", href: "/services/digital-printing", desc: "Short-run, same-day" },
-    { label: "Large Format", href: "/services/large-format-printing", desc: "Banners, flex, posters" },
+    { label: "Bill Books & Stationery", href: "/services/stationery-printing", desc: "Numbered, carbonless, ready to use" },
+    { label: "Promotional Materials", href: "/services/promotional-materials", desc: "Posters, flyers & calendars" },
     { label: "Bag Printing", href: "/services/bag-printing", desc: "Cotton, jute, festival specials" },
     { label: "Bhavani Jamakkalam Brochures", href: "/services/bhavani-jamakkalam-brochures", desc: "Heritage handloom marketing" },
     { label: "Turmeric Packaging", href: "/services/turmeric-packaging", desc: "Food-grade spice wraps" },
   ],
   Locations: [
     { label: "Bhavani", href: "/printing-press-bhavani-erode", desc: "Our home, since 1997" },
-    { label: "Erode", href: "/printing-press-bhavani-erode", desc: "Across the district" },
-    { label: "Komarapalayam", href: "/printing-press-bhavani-erode", desc: "Textile capital" },
-    { label: "Anthiyur", href: "/printing-press-bhavani-erode", desc: "On-time delivery" },
-    { label: "Gobi", href: "/printing-press-bhavani-erode", desc: "Weddings & business" },
-    { label: "Sathyamangalam", href: "/printing-press-bhavani-erode", desc: "Trusted partner" },
+    { label: "Erode", href: "/printing-press/erode", desc: "Across the district" },
+    { label: "Komarapalayam", href: "/printing-press/komarapalayam", desc: "Textile capital" },
+    { label: "Gobichettipalayam", href: "/printing-press/gobichettipalayam", desc: "Weddings & business" },
+    { label: "Anthiyur", href: "/printing-press/anthiyur", desc: "On-time delivery" },
+    { label: "Sathyamangalam", href: "/printing-press/sathyamangalam", desc: "Trusted partner" },
+    { label: "Perundurai", href: "/printing-press/perundurai", desc: "Industries & SIPCOT" },
+    { label: "All locations", href: "/printing-press", desc: "See every area we serve" },
   ],
 }
 
@@ -68,7 +70,7 @@ export default function Header() {
     { key: "expertise", label: "Expertise", href: "#expertise" },
     { key: "process", label: "Process", href: "#process" },
     { key: "work", label: "Work", href: "#showcase" },
-    { key: "locations", label: "Locations", href: "/printing-press-bhavani-erode", mega: "Locations" },
+    { key: "locations", label: "Locations", href: "/printing-press", mega: "Locations" },
     { key: "contact", label: "Contact", href: "#contact" },
   ]
 
@@ -126,7 +128,7 @@ export default function Header() {
                 href="#contact"
                 className="text-[12px] bg-ink-800 text-white px-4 py-1.5 rounded-full hover:bg-ink-900 transition-all duration-300"
               >
-                Get Quote
+                Visit Shop
               </Link>
             </div>
 
@@ -235,7 +237,7 @@ export default function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block w-full text-center bg-ink-800 text-white py-4 rounded-2xl text-[17px] font-medium hover:bg-ink-900 transition-colors"
                 >
-                  Get a Free Quote
+                  Visit our shop
                 </Link>
               </div>
             </div>

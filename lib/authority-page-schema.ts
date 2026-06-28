@@ -50,7 +50,7 @@ export const generateAuthorityPageSchema = () => {
         "Printing Press Bhavani",
         "Offset Printing Bhavani"
       ],
-      "description": `Premier offset printing press in Bhavani since ${SITE_CONFIG.foundingYear}. Specializing in multicolor offset printing, digital printing, wedding invitations, visiting cards, business stationery, brochures, packaging printing, bag printing, and all commercial printing services. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobichettipalayam, Perundurai, Sathyamangalam, Mettur, Sankagiri, Salem, Namakkal, and surrounding areas in Tamil Nadu.`,
+      "description": `Premier offset printing press in Bhavani since ${SITE_CONFIG.foundingYear}. Specializing in multicolor offset printing, wedding invitations, visiting cards, business stationery, brochures, packaging printing, bag printing, and all commercial printing services. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobichettipalayam, Perundurai, Sathyamangalam, Mettur, Sankagiri, Salem, Namakkal, and surrounding areas in Tamil Nadu.`,
       "url": SITE_CONFIG.domain,
       "telephone": CONTACT_INFO.phone,
       "email": CONTACT_INFO.email,
@@ -152,7 +152,7 @@ export const generateAuthorityPageSchema = () => {
               { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brochure Printing" } },
               { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Catalog Printing" } },
               { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Poster Printing" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Banner Printing" } }
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Calendar Printing" } }
             ]
           },
           {
@@ -177,7 +177,7 @@ export const generateAuthorityPageSchema = () => {
           "name": "What types of printing services does Raja Ganapathi Offset offer in Bhavani?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We offer comprehensive printing services including multicolor offset printing, digital printing, wedding card printing, visiting card printing, business stationery (letterheads, bill books, envelopes), brochure printing, catalog printing, packaging printing, bag printing (paper, cloth, jute, non-woven), book printing, poster printing, banner printing, sticker printing, label printing, certificate printing, ID card printing, calendar printing, and all finishing services like lamination, foiling, embossing, and binding."
+            "text": "We offer comprehensive printing services including multicolor offset printing, wedding card printing, visiting card printing, business stationery (letterheads, bill books, envelopes), brochure printing, catalog printing, packaging printing, bag printing (paper, cloth, jute, non-woven), book printing, poster printing, sticker printing, label printing, certificate printing, ID card printing, calendar printing, and all finishing services like lamination, foiling, embossing, and binding."
           }
         },
         {
@@ -230,7 +230,7 @@ export const generateAuthorityPageSchema = () => {
       "numberOfItems": 50,
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Multicolor Offset Printing" },
-        { "@type": "ListItem", "position": 2, "name": "Digital Printing" },
+        { "@type": "ListItem", "position": 2, "name": "Short-run Offset Printing" },
         { "@type": "ListItem", "position": 3, "name": "Wedding Card Printing" },
         { "@type": "ListItem", "position": 4, "name": "Visiting Card Printing" },
         { "@type": "ListItem", "position": 5, "name": "Letterhead Printing" },
@@ -240,7 +240,7 @@ export const generateAuthorityPageSchema = () => {
         { "@type": "ListItem", "position": 9, "name": "Packaging Printing" },
         { "@type": "ListItem", "position": 10, "name": "Bag Printing" },
         { "@type": "ListItem", "position": 11, "name": "Poster Printing" },
-        { "@type": "ListItem", "position": 12, "name": "Banner Printing" },
+        { "@type": "ListItem", "position": 12, "name": "Dangler & Standee Printing" },
         { "@type": "ListItem", "position": 13, "name": "Sticker Printing" },
         { "@type": "ListItem", "position": 14, "name": "Label Printing" },
         { "@type": "ListItem", "position": 15, "name": "Envelope Printing" },

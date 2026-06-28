@@ -5,63 +5,24 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
+import { featuredServices, getService } from "@/lib/services-data"
 
-const services = [
-  {
-    title: "Wedding Invitations",
-    tag: "Most loved",
-    description: "Hand-finished foil, embossing & laser-cut wedding cards crafted in Tamil, English and bilingual layouts.",
-    image: "https://images.unsplash.com/photo-1607190074257-dd4b7af0309f?w=1200&auto=format&fit=crop&q=80",
-    link: "/services/wedding-invitations",
-    accent: "from-rose-500/30 via-fuchsia-500/20 to-transparent",
-    seoLabel: "wedding card printing Bhavani Erode",
-  },
-  {
-    title: "Visiting Cards",
-    tag: "From ₹399",
-    description: "Premium 350gsm matte, suede, and metallic-foil business cards delivered in 48 hours.",
-    image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=1200&auto=format&fit=crop&q=80",
-    link: "/services/visiting-cards",
-    accent: "from-blue-500/30 via-cyan-500/20 to-transparent",
-    seoLabel: "visiting card printing Bhavani",
-  },
-  {
-    title: "Multicolour Offset",
-    tag: "Heidelberg press",
-    description: "True 4-color CMYK + Pantone offset printing at 2400 DPI for bulk runs from 1,000 to 1,000,000.",
-    image: "https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?w=1200&auto=format&fit=crop&q=80",
-    link: "/services/multicolour-offset-printing",
-    accent: "from-violet-500/30 via-indigo-500/20 to-transparent",
-    seoLabel: "multicolour offset printing press Erode",
-  },
-  {
-    title: "Brochures & Catalogs",
-    tag: "Marketing",
-    description: "Tri-fold brochures, A4 catalogues, leaflets and corporate booklets that move the needle.",
-    image: "https://images.unsplash.com/photo-1616628188859-7a11abb6fcc9?w=1200&auto=format&fit=crop&q=80",
-    link: "/services/brochures",
-    accent: "from-amber-500/30 via-orange-500/20 to-transparent",
-    seoLabel: "brochure catalog printing Bhavani Erode",
-  },
-  {
-    title: "Books & Educational",
-    tag: "Schools",
-    description: "School diaries, workbooks, textbooks, magazines and perfect-bound publications.",
-    image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=1200&auto=format&fit=crop&q=80",
-    link: "/services/book-printing",
-    accent: "from-emerald-500/30 via-teal-500/20 to-transparent",
-    seoLabel: "book printing press Bhavani",
-  },
-  {
-    title: "Packaging & Bags",
-    tag: "Sustainable",
-    description: "Mono-cartons, turmeric pouches, jamakkalam brochures, cotton & wedding return-gift bags.",
-    image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=1200&auto=format&fit=crop&q=80",
-    link: "/services/bag-printing",
-    accent: "from-slate-500/30 via-stone-500/20 to-transparent",
-    seoLabel: "packaging bag printing Bhavani",
-  },
-] as const
+// Featured cards + secondary tiles are sourced from the single services data file
+// so imagery and copy stay consistent across the site.
+const services = featuredServices.map((s) => ({
+  title: s.name,
+  tag: s.tag,
+  description: s.summary,
+  image: s.hero.src,
+  link: `/services/${s.slug}`,
+  accent: s.accent,
+  seoLabel: s.hero.alt,
+}))
+
+const secondary = ["business-stationery", "stationery-printing", "packaging-printing", "promotional-materials"]
+  .map((slug) => getService(slug))
+  .filter(Boolean)
+  .map((s) => ({ title: s!.name, href: `/services/${s!.slug}`, image: s!.hero.src, alt: s!.hero.alt }))
 
 export default function Services() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -181,12 +142,7 @@ export default function Services() {
           transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"
         >
-          {[
-            { title: "Letterheads", href: "/services/business-stationery", image: "https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=800&q=80" },
-            { title: "Bill Books", href: "/services/stationery-printing", image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80" },
-            { title: "Banners & Flex", href: "/services/large-format-printing", image: "https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?w=800&q=80" },
-            { title: "Digital Print", href: "/services/digital-printing", image: "https://images.unsplash.com/photo-1582719188393-bb71ca45dbb9?w=800&q=80" },
-          ].map((s) => (
+          {secondary.map((s) => (
             <Link
               key={s.title}
               href={s.href}
@@ -194,7 +150,7 @@ export default function Services() {
             >
               <Image
                 src={s.image}
-                alt={s.title}
+                alt={s.alt}
                 fill
                 sizes="(min-width: 1024px) 25vw, 50vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -217,7 +173,7 @@ export default function Services() {
           className="mt-16 flex items-center justify-center"
         >
           <Link
-            href="#contact"
+            href="/services"
             className="inline-flex items-center gap-1.5 text-accent text-[15px] font-medium hover:underline"
           >
             View all printing services

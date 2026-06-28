@@ -1,6 +1,6 @@
 "use client"
 
-import { Suspense, useMemo, useRef } from "react"
+import { Suspense, useEffect, useMemo, useRef, useState } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import {
   Environment,
@@ -215,24 +215,48 @@ function Scene() {
 }
 
 export default function HeroScene() {
+  const wrapRef = useRef<HTMLDivElement>(null)
+  const [active, setActive] = useState(true)
+
+  // Pause WebGL rendering when the hero is scrolled out of view (perf + battery)
+  useEffect(() => {
+    const el = wrapRef.current
+    if (!el) return
+    const io = new IntersectionObserver(
+      ([entry]) => setActive(entry.isIntersecting),
+      { rootMargin: "120px" }
+    )
+    io.observe(el)
+    const onVisibility = () => setActive(!document.hidden && active)
+    document.addEventListener("visibilitychange", onVisibility)
+    return () => {
+      io.disconnect()
+      document.removeEventListener("visibilitychange", onVisibility)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
-    <Canvas
-      dpr={[1, 1.6]}
-      gl={{
-        antialias: true,
-        powerPreference: "high-performance",
-        alpha: true,
-      }}
-      style={{
-        position: "absolute",
-        inset: 0,
-        pointerEvents: "none",
-      }}
-      shadows
-    >
-      <Suspense fallback={null}>
-        <Scene />
-      </Suspense>
-    </Canvas>
+    <div ref={wrapRef} className="absolute inset-0">
+      <Canvas
+        frameloop={active ? "always" : "never"}
+        dpr={[1, 1.6]}
+        gl={{
+          antialias: true,
+          powerPreference: "high-performance",
+          alpha: true,
+        }}
+        style={{
+          position: "absolute",
+          inset: 0,
+          pointerEvents: "none",
+        }}
+        shadows
+      >
+        <Suspense fallback={null}>
+          <Scene />
+        </Suspense>
+      </Canvas>
+    </div>
   )
 }

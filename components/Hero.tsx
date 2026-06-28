@@ -4,7 +4,7 @@ import dynamic from "next/dynamic"
 import { useRef } from "react"
 import Link from "next/link"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { ArrowRight, Sparkles } from "lucide-react"
+import { ArrowRight, MapPin } from "lucide-react"
 
 // Three.js scene is heavy — load only on client
 const HeroScene = dynamic(() => import("./three/HeroScene"), {
@@ -112,8 +112,8 @@ export default function Hero() {
             href="#contact"
             className="group inline-flex items-center justify-center gap-2 bg-white/80 backdrop-blur-md text-ink-800 px-7 py-3.5 rounded-full text-[15px] font-medium border border-ink-300/60 hover:bg-white transition-all duration-300"
           >
-            <Sparkles className="w-4 h-4 text-cmyk-magenta" strokeWidth={2} />
-            Free Quote in 1 hour
+            <MapPin className="w-4 h-4 text-cmyk-magenta" strokeWidth={2} />
+            Visit our press
           </Link>
         </motion.div>
 

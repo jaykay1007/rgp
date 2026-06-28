@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
   name: "Raja Ganapathi Offset",
   legalName: "Raja Ganapathi Offset Printers",
   tagline: "Premium Offset Printing Press in Bhavani",
-  domain: "https://www.rajaganapathioffset.info",
+  domain: "https://www.rajaganapathioffset.in",
   foundingYear: 1997,
   yearsInBusiness: new Date().getFullYear() - 1997,
 } as const;
@@ -168,20 +168,6 @@ export const SERVICES = [
     priority: 0.85,
   },
   {
-    slug: "digital-printing",
-    name: "Digital Printing",
-    shortDesc: "Quick turnaround digital printing for small quantities and urgent orders",
-    keywords: ["digital printing", "quick printing", "small quantity", "urgent printing"],
-    priority: 0.8,
-  },
-  {
-    slug: "large-format-printing",
-    name: "Large Format Printing",
-    shortDesc: "Banners, posters, and flex printing for events and advertising",
-    keywords: ["banners", "posters", "flex printing", "large format"],
-    priority: 0.8,
-  },
-  {
     slug: "textile-sample-books",
     name: "Textile Sample Books",
     shortDesc: "Professional textile sample books for fabric and garment industries",
@@ -208,7 +194,7 @@ export const SERVICES = [
 export const FAQ_DATA = [
   {
     question: "What types of printing services do you offer in Bhavani?",
-    answer: "We offer comprehensive printing services including multicolor offset printing, wedding invitations, visiting cards, business stationery (letterheads, bill books, envelopes), brochures, catalogs, packaging printing, book printing, digital printing, large format printing (banners, posters), and specialized services like textile sample books and Bhavani Jamakkalam brochures.",
+    answer: "We offer comprehensive printing services including multicolor offset printing, wedding invitations, visiting cards, business stationery (letterheads, bill books, envelopes), brochures, catalogs, packaging printing, book printing, bag printing, promotional materials, and specialized services like textile sample books, turmeric packaging and Bhavani Jamakkalam brochures.",
   },
   {
     question: "How long has Raja Ganapathi Offset been in business?",
@@ -228,11 +214,11 @@ export const FAQ_DATA = [
   },
   {
     question: "What is the minimum order quantity for visiting cards?",
-    answer: "For offset printing, we typically require a minimum of 500 visiting cards for cost-effectiveness. However, for smaller quantities, we offer digital printing services with no minimum order requirement.",
+    answer: "For offset printing, we typically require a minimum of 500 visiting cards for cost-effectiveness. For smaller quantities, we also offer quick short-run printing with no large minimum order.",
   },
   {
-    question: "How can I get a quote for my printing project?",
-    answer: "You can get a quote by calling us at +91 9994466277, sending a WhatsApp message, or emailing us at rgpbvn@gmail.com. Please provide details about your project including quantity, size, paper type, and any special finishes required.",
+    question: "How do I start a printing project with you?",
+    answer: "The best way is to visit our press floor at 24 Palani Andavar Kovil Street, Bhavani. You can feel the paper stocks, see real samples of our work, and plan your project face-to-face with our team — no appointment needed. Prefer to start remotely? Call us at +91 9994466277, message us on WhatsApp, or email rgpbvn@gmail.com with your project details and we'll guide you from there.",
   },
   {
     question: "Do you offer express or urgent printing services?",

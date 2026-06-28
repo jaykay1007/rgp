@@ -12,8 +12,8 @@ const services = [
   { label: "Book Printing", href: "/services/book-printing" },
   { label: "Packaging Printing", href: "/services/packaging-printing" },
   { label: "Bag Printing", href: "/services/bag-printing" },
-  { label: "Digital Printing", href: "/services/digital-printing" },
-  { label: "Large Format / Banners", href: "/services/large-format-printing" },
+  { label: "Bill Books & Stationery", href: "/services/stationery-printing" },
+  { label: "All Services", href: "/services" },
 ]
 
 const specialized = [
@@ -28,13 +28,13 @@ const specialized = [
 
 const locations = [
   { label: "Printing press Bhavani", href: "/printing-press-bhavani-erode" },
-  { label: "Offset printing Erode", href: "/printing-press-bhavani-erode" },
-  { label: "Printing Komarapalayam", href: "/printing-press-bhavani-erode" },
-  { label: "Printing Anthiyur", href: "/printing-press-bhavani-erode" },
-  { label: "Printing Gobi", href: "/printing-press-bhavani-erode" },
-  { label: "Printing Sathyamangalam", href: "/printing-press-bhavani-erode" },
-  { label: "Printing Perundurai", href: "/printing-press-bhavani-erode" },
-  { label: "Printing Moorodu", href: "/printing-press-bhavani-erode" },
+  { label: "Printing press Erode", href: "/printing-press/erode" },
+  { label: "Printing Komarapalayam", href: "/printing-press/komarapalayam" },
+  { label: "Printing Gobichettipalayam", href: "/printing-press/gobichettipalayam" },
+  { label: "Printing Anthiyur", href: "/printing-press/anthiyur" },
+  { label: "Printing Sathyamangalam", href: "/printing-press/sathyamangalam" },
+  { label: "Printing Perundurai", href: "/printing-press/perundurai" },
+  { label: "All locations", href: "/printing-press" },
 ]
 
 export default function Footer() {
@@ -50,7 +50,7 @@ export default function Footer() {
         {/* Big CTA strap */}
         <div className="mb-20 grid lg:grid-cols-12 gap-6 items-end">
           <div className="lg:col-span-7">
-            <p className="text-eyebrow uppercase text-accent mb-5">Get a quote in 1 hour</p>
+            <p className="text-eyebrow uppercase text-accent mb-5">Visit our press floor</p>
             <h2 className="font-display font-semibold tracking-[-0.025em] text-[clamp(36px,5vw,72px)] leading-[1.02] text-balance">
               Ready to print
               <br />

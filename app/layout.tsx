@@ -63,14 +63,7 @@ export const metadata: Metadata = {
       "Wedding cards, visiting cards, brochures, packaging & multicolour offset printing in Bhavani, Erode. Heidelberg press, CMYK + Pantone, foil, emboss, spot UV. Free quote in 1 hour.",
     url: SITE_CONFIG.domain,
     siteName: SITE_CONFIG.name,
-    images: [
-      {
-        url: "/images/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: `${SITE_CONFIG.name} — Premium Offset Printing Press in Bhavani, Erode`,
-      },
-    ],
+    // OG image is provided by app/opengraph-image.tsx (generated, never 404s).
     locale: "en_IN",
     alternateLocale: ["ta_IN"],
     type: "website",
@@ -81,7 +74,6 @@ export const metadata: Metadata = {
       "Raja Ganapathi Offset — Premium Printing Press in Bhavani, Erode",
     description:
       "Wedding cards, visiting cards, brochures, packaging & offset printing in Bhavani, Erode. Since 1997. Free quote in 1 hour.",
-    images: ["/images/og-image.jpg"],
     creator: "@rajaganapathioffset",
     site: "@rajaganapathioffset",
   },
@@ -183,9 +175,9 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://www.google.com" />
 
-        <link rel="manifest" href="/manifest.json" />
+        {/* favicon.ico fallback; modern icon, apple-icon and web manifest are
+            provided by app/icon.tsx, app/apple-icon.tsx and app/manifest.ts */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
       <body className={`${inter.className} bg-ink-50 text-ink-900`}>
         <LanguageProvider>{children}</LanguageProvider>

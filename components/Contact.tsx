@@ -34,7 +34,7 @@ export default function Contact() {
             <span className="text-gradient-blue">We'll bring it to life.</span>
           </h2>
           <p className="mt-6 text-[clamp(17px,1.4vw,21px)] text-ink-500 leading-[1.5]">
-            Free quote in under an hour. WhatsApp, call, or visit our press floor in Bhavani.
+            Visit our press floor in Bhavani for a hands-on consultation — feel the paper, see real samples. Or reach us on WhatsApp.
           </p>
         </motion.div>
 
@@ -47,15 +47,15 @@ export default function Contact() {
           >
             <div className="bg-white rounded-[28px] p-8 md:p-10 shadow-apple-md">
               <h3 className="font-display font-semibold text-ink-900 text-[24px] tracking-tight mb-2">
-                Choose how to reach us
+                Talk to a printer, not a form
               </h3>
               <p className="text-[14px] text-ink-500 mb-8">
-                We reply within minutes during business hours (9:30 AM – 8 PM, Mon–Sat).
+                Drop in, call, or message us — we reply within minutes during business hours (9:30 AM – 8 PM, Mon–Sat).
               </p>
 
               <div className="space-y-3">
                 <a
-                  href="https://wa.me/919994466277?text=Hi%20Raja%20Ganapathi%20Offset%2C%20I%27d%20like%20a%20printing%20quote"
+                  href="https://wa.me/919994466277?text=Hi%20Raja%20Ganapathi%20Offset%2C%20I%27d%20like%20to%20discuss%20a%20printing%20project"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center gap-4 p-5 bg-ink-50 hover:bg-ink-100 rounded-2xl transition-all border border-ink-200"
@@ -66,7 +66,7 @@ export default function Contact() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-[15px] font-semibold text-ink-900">WhatsApp</p>
-                    <p className="text-[13px] text-ink-500">Send a photo or PDF, get a quote</p>
+                    <p className="text-[13px] text-ink-500">Share a reference, plan your print</p>
                   </div>
                   <ArrowUpRight className="w-4 h-4 text-ink-400 group-hover:text-ink-800 group-hover:rotate-12 transition-all" />
                 </a>
@@ -87,7 +87,7 @@ export default function Contact() {
                 </a>
 
                 <a
-                  href="mailto:rgpbvn@gmail.com?subject=Printing%20quote%20request"
+                  href="mailto:rgpbvn@gmail.com?subject=Printing%20project%20enquiry"
                   className="group flex items-center gap-4 p-5 bg-ink-50 hover:bg-ink-100 rounded-2xl transition-all border border-ink-200"
                   aria-label="Email Raja Ganapathi Offset"
                 >
