@@ -1,68 +1,160 @@
 "use client"
 
-import { Printer, Layers, Palette, Sparkles, Leaf, Clock } from "lucide-react"
-import AnimatedText from "./animated-text"
+import { useRef } from "react"
+import { motion, useInView } from "framer-motion"
+import { Printer, Layers, Palette, Sparkles, Leaf, Zap, ShieldCheck, Clock } from "lucide-react"
 
 const specialties = [
   {
-    title: "High-Resolution Printing",
-    description: "Crystal-clear images and sharp text with our state-of-the-art printing technology.",
+    title: "2400 DPI offset",
+    description: "True high-resolution output on Heidelberg presses for poster-perfect detail.",
     icon: Printer,
+    accent: "text-cmyk-cyan",
   },
   {
-    title: "Premium Paper Selection",
-    description: "A wide range of high-quality papers to suit every project and budget.",
+    title: "Premium papers",
+    description: "Imported art papers, textured stocks, kraft, suede, & luxury cardstock.",
     icon: Layers,
+    accent: "text-cmyk-magenta",
   },
   {
-    title: "Color Matching Expertise",
-    description: "Precise color reproduction to ensure your brand colors are always on point.",
+    title: "Pantone colour matching",
+    description: "Brand-true spot colours, soft proofing, and dedicated ink kitchen.",
     icon: Palette,
+    accent: "text-accent",
   },
   {
-    title: "Finishing Techniques",
-    description: "Enhance your prints with options like embossing, foil stamping, and spot UV coating.",
+    title: "Foil, emboss, spot UV",
+    description: "Luxury finishes that turn a print into a keepsake.",
     icon: Sparkles,
+    accent: "text-amber-500",
   },
   {
-    title: "Eco-Friendly Options",
-    description: "Sustainable printing solutions using recycled papers and vegetable-based inks.",
+    title: "Soy & vegetable inks",
+    description: "Eco-conscious inks, FSC-certified papers, lower-emission washes.",
     icon: Leaf,
+    accent: "text-emerald-500",
   },
   {
-    title: "Rapid Turnaround",
-    description: "Fast and efficient printing services without compromising on quality.",
-    icon: Clock,
+    title: "24-hour express",
+    description: "Same-day visiting cards & next-day wedding samples — no compromise.",
+    icon: Zap,
+    accent: "text-yellow-500",
   },
-]
+  {
+    title: "Quality-locked",
+    description: "Three-stage QA with proof sign-off & batch quality samples.",
+    icon: ShieldCheck,
+    accent: "text-blue-500",
+  },
+  {
+    title: "Sat-late delivery",
+    description: "Open till 8 PM, six days a week — for last-minute deadlines.",
+    icon: Clock,
+    accent: "text-rose-500",
+  },
+] as const
 
 export default function Specialties() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
+
   return (
-    <section id="specialties" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <AnimatedText text="Our Printing Expertise" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4" />
-          <p className="text-gray-700 max-w-2xl mx-auto">
-            Discover the quality and precision that sets our printing services apart. We combine cutting-edge technology
-            with traditional craftsmanship to deliver exceptional results.
+    <section
+      ref={sectionRef}
+      id="expertise"
+      className="relative py-32 md:py-40 bg-ink-100 overflow-hidden"
+      aria-label="Why our offset printing is different"
+    >
+      {/* Decorative grid background */}
+      <div aria-hidden="true" className="absolute inset-0 opacity-[0.04]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
+      </div>
+
+      <div className="container-apple-wide relative">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-3xl mb-20"
+        >
+          <p className="text-eyebrow uppercase text-accent mb-5">Built into every print</p>
+          <h2 className="font-display font-semibold text-ink-900 tracking-[-0.025em] text-[clamp(40px,6vw,80px)] leading-[1.02] text-balance">
+            Expertise that shows.
+            <br />
+            <span className="text-gradient-blue">From the first sheet.</span>
+          </h2>
+          <p className="mt-6 text-[clamp(17px,1.4vw,21px)] text-ink-500 leading-[1.5] text-pretty">
+            Eight pillars that make us South India's most trusted offset printing
+            press. Every project, audited against this standard.
           </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {specialties.map((specialty, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg p-6"
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+          {specialties.map((s, index) => (
+            <motion.article
+              key={s.title}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.06,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="group relative bg-white rounded-3xl p-7 md:p-8 hover-lift cursor-default overflow-hidden"
             >
-              <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
-                {specialty.icon && <specialty.icon className="h-6 w-6 text-primary" />}
+              <div className="relative z-10">
+                <div className="mb-5">
+                  <div className="w-12 h-12 rounded-2xl bg-ink-100 flex items-center justify-center group-hover:bg-ink-900 transition-colors duration-500">
+                    <s.icon
+                      className={`w-5 h-5 ${s.accent} group-hover:text-white transition-colors duration-500`}
+                      strokeWidth={1.5}
+                    />
+                  </div>
+                </div>
+                <h3 className="text-[18px] font-display font-semibold text-ink-900 mb-1.5 tracking-tight">
+                  {s.title}
+                </h3>
+                <p className="text-[14px] text-ink-500 leading-[1.5]">{s.description}</p>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">{specialty.title}</h3>
-              <p className="text-gray-600">{specialty.description}</p>
-            </div>
+
+              {/* Decorative dot */}
+              <div
+                className={`absolute -top-4 -right-4 w-24 h-24 rounded-full ${s.accent.replace("text-", "bg-")} opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-700`}
+              />
+            </motion.article>
           ))}
         </div>
+
+        {/* Big stats bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.9, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px rounded-3xl overflow-hidden bg-ink-200"
+        >
+          {[
+            { stat: "27+", label: "Years on press" },
+            { stat: "50,000+", label: "Projects shipped" },
+            { stat: "1M+", label: "Sheets / month" },
+            { stat: "8", label: "Districts served" },
+          ].map((b) => (
+            <div key={b.label} className="bg-white p-8 text-center">
+              <p className="font-display font-semibold text-ink-900 text-[clamp(32px,4vw,48px)] tracking-tight leading-none">
+                {b.stat}
+              </p>
+              <p className="mt-2 text-[12px] uppercase tracking-widest text-ink-500">{b.label}</p>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   )
 }
-
