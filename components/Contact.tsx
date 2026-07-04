@@ -2,7 +2,8 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { MapPin, Phone, Mail, Clock, MessageCircle, ArrowUpRight } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, MessageCircle, ArrowUpRight, Navigation } from "lucide-react"
+import { CONTACT_INFO } from "@/lib/seo-config"
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -155,12 +156,13 @@ export default function Contact() {
                       Erode District, Tamil Nadu
                     </p>
                     <a
-                      href="https://maps.app.goo.gl/7bUZMaUAAN2VSYibA"
+                      href={CONTACT_INFO.directionsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 mt-2 text-[12px] text-accent hover:underline"
+                      className="inline-flex items-center gap-1.5 mt-3 rounded-full bg-accent px-4 py-2 text-[12px] font-medium text-white transition-transform hover:scale-[1.03]"
                     >
-                      Open in Google Maps <ArrowUpRight className="w-3 h-3" />
+                      <Navigation className="w-3 h-3" strokeWidth={2} />
+                      Get directions in Google Maps
                     </a>
                   </div>
                 </div>
@@ -182,16 +184,25 @@ export default function Contact() {
 
               <div className="rounded-2xl overflow-hidden mt-auto border border-white/10">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.500706464165!2d77.6826523!3d11.4437407!2m3!1f0!2f0!3f0!3m2!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba969e298955acf%3A0x4ab7994fb3d4c7e0!2sRajaganapathi%20Offset%20printers!5e0!3m2!1sen!2sin!4v1740914817996!5m2!1sen!2sin"
+                  src={CONTACT_INFO.mapEmbedUrl}
                   width="100%"
                   height="220"
                   style={{ border: 0, filter: "grayscale(1) invert(1) contrast(1.1) opacity(0.85)" }}
                   allowFullScreen
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Raja Ganapathi Offset Press location in Bhavani Erode"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  title="Raja Ganapathi Press location in Bhavani Erode — Google Maps"
                 />
               </div>
+              <a
+                href={CONTACT_INFO.directionsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-white py-3.5 text-[14px] font-medium text-ink-900 transition-colors hover:bg-ink-100"
+              >
+                <Navigation className="w-4 h-4" strokeWidth={2} />
+                Start navigation to our shop
+              </a>
             </div>
           </motion.div>
         </div>

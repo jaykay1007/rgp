@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { X, Menu, ChevronRight, Phone } from "lucide-react"
 import LanguageToggle from "./language-toggle"
 import { useLanguage } from "@/contexts/language-context"
+import { CONTACT_INFO } from "@/lib/seo-config"
 
 interface MegaItem {
   label: string
@@ -124,12 +125,15 @@ export default function Header() {
                 <Phone className="w-3 h-3" strokeWidth={2} />
                 Call
               </a>
-              <Link
-                href="#contact"
+              <a
+                href={CONTACT_INFO.directionsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-[12px] bg-ink-800 text-white px-4 py-1.5 rounded-full hover:bg-ink-900 transition-all duration-300"
+                aria-label="Get directions to our shop in Google Maps"
               >
                 Visit Shop
-              </Link>
+              </a>
             </div>
 
             <button
@@ -232,13 +236,16 @@ export default function Header() {
                 >
                   +91 99944 66277
                 </Link>
-                <Link
-                  href="#contact"
+                <a
+                  href={CONTACT_INFO.directionsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block w-full text-center bg-ink-800 text-white py-4 rounded-2xl text-[17px] font-medium hover:bg-ink-900 transition-colors"
+                  aria-label="Get directions to our shop in Google Maps"
                 >
                   Visit our shop
-                </Link>
+                </a>
               </div>
             </div>
           </motion.div>

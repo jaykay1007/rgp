@@ -254,12 +254,6 @@ body {
     border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
   }
 
-  /* Marquee */
-  .marquee-mask {
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-  }
-
   /* Inks */
   .ink-dot {
     border-radius: 100%;

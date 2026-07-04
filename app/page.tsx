@@ -4,6 +4,7 @@ import Services from "@/components/Services"
 import Specialties from "@/components/Specialties"
 import PrintingProcess from "@/components/printing-process"
 import WhyChooseUs from "@/components/WhyChooseUs"
+import FinishLab from "@/components/FinishLab"
 import Showcase from "@/components/Showcase"
 import FAQ from "@/components/FAQ"
 import Contact from "@/components/Contact"
@@ -29,6 +30,7 @@ export default function Home() {
           <Showcase />
           <PrintingProcess />
           <WhyChooseUs />
+          <FinishLab />
           <FAQ />
           <Contact />
         </main>

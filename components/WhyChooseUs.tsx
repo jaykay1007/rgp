@@ -4,46 +4,7 @@ import { useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
-import { ArrowRight, Quote, Star } from "lucide-react"
-
-const testimonials = [
-  {
-    quote: "The foiling on our wedding cards was outstanding — guests still talk about them.",
-    author: "Senthil & Priya",
-    role: "Wedding clients · Bhavani",
-    rating: 5,
-  },
-  {
-    quote: "Five years, zero late deliveries. Our jamakkalam catalogue arrives picture-perfect every season.",
-    author: "Lakshmi Textiles",
-    role: "Komarapalayam",
-    rating: 5,
-  },
-  {
-    quote: "We tried every press in Erode. Raja Ganapathi is the only one we kept going back to.",
-    author: "Dr. Ramesh",
-    role: "Clinic stationery · Erode",
-    rating: 5,
-  },
-  {
-    quote: "Bulk packaging for our turmeric brand — clean colour, food-safe inks, brilliant pricing.",
-    author: "Murugan Stores",
-    role: "Anthiyur",
-    rating: 5,
-  },
-  {
-    quote: "The team designed and printed our school diary in 4 days flat.",
-    author: "St. Mary's School",
-    role: "Gobi",
-    rating: 5,
-  },
-  {
-    quote: "Catalog quality that wins us tenders. Reliable beyond words.",
-    author: "Raga Textiles",
-    role: "Bhavani",
-    rating: 5,
-  },
-] as const
+import { ArrowRight, Star } from "lucide-react"
 
 export default function WhyChooseUs() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -171,41 +132,6 @@ export default function WhyChooseUs() {
               </p>
             </motion.div>
           </motion.div>
-        </div>
-
-        {/* Testimonial marquee */}
-        <div className="mt-32">
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-center font-display font-semibold text-ink-900 text-[clamp(28px,3.5vw,44px)] tracking-[-0.02em] mb-12"
-          >
-            What our customers say.
-          </motion.h3>
-
-          <div className="relative marquee-mask">
-            <div className="flex gap-5 animate-marquee will-change-transform">
-              {[...testimonials, ...testimonials].map((t, i) => (
-                <article
-                  key={i}
-                  className="flex-none w-[340px] md:w-[400px] bg-ink-50 rounded-3xl p-7 border border-ink-200"
-                >
-                  <div className="flex items-center gap-1 mb-4">
-                    {[...Array(t.rating)].map((_, j) => (
-                      <Star key={j} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-                  <Quote className="w-5 h-5 text-accent mb-3" strokeWidth={1.5} />
-                  <p className="text-[15px] text-ink-700 leading-[1.55] mb-5">{t.quote}</p>
-                  <div>
-                    <p className="text-[13px] font-semibold text-ink-900">{t.author}</p>
-                    <p className="text-[12px] text-ink-500">{t.role}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>

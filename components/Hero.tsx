@@ -5,7 +5,7 @@ import { useRef } from "react"
 import Link from "next/link"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { ArrowRight, MapPin } from "lucide-react"
-import { SITE_CONFIG } from "@/lib/seo-config"
+import { SITE_CONFIG, CONTACT_INFO } from "@/lib/seo-config"
 
 // Three.js scene is heavy — load only on client
 const HeroScene = dynamic(() => import("./three/HeroScene"), {
@@ -109,13 +109,16 @@ export default function Hero() {
             Explore Services
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" strokeWidth={2} />
           </Link>
-          <Link
-            href="#contact"
+          <a
+            href={CONTACT_INFO.directionsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center justify-center gap-2 bg-white/80 backdrop-blur-md text-ink-800 px-7 py-3.5 rounded-full text-[15px] font-medium border border-ink-300/60 hover:bg-white transition-all duration-300"
+            aria-label="Get directions to our press in Google Maps"
           >
             <MapPin className="w-4 h-4 text-cmyk-magenta" strokeWidth={2} />
             Visit our press
-          </Link>
+          </a>
         </motion.div>
 
         {/* Floating credibility badges */}

@@ -7,6 +7,12 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["next", "dev"],
       "port": 3050
+    },
+    {
+      "name": "next-prod",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["next", "start", "-p", "3060"],
+      "port": 3060
     }
   ]
 }
