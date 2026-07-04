@@ -20,6 +20,7 @@ import SmoothScroll from "@/components/smooth-scroll"
 import type { Location } from "@/lib/locations-data"
 import { LOCATION_HERO } from "@/lib/locations-data"
 import type { Service } from "@/lib/services-data"
+import { SITE_CONFIG } from "@/lib/seo-config"
 
 const ease = [0.16, 1, 0.3, 1] as const
 
@@ -203,7 +204,7 @@ export default function LocationDetail({
               </Reveal>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {[
-                  { t: "27+ years on press", d: "A trusted Bhavani–Erode printer since 1997." },
+                  { t: `${SITE_CONFIG.yearsInBusiness}+ years on press`, d: "A trusted Bhavani–Erode printer since 1997." },
                   { t: "Heidelberg offset", d: "True CMYK + Pantone at 2400 DPI for crisp, consistent print." },
                   { t: "Fast local delivery", d: location.reach + "." },
                   { t: "Fair, bulk-friendly rates", d: "Sharp pricing from small runs to lakhs of sheets." },

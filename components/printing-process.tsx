@@ -10,7 +10,13 @@ import {
   type MotionValue,
 } from "framer-motion"
 import { MessageSquare, PenTool, Layers, Scissors, ShieldCheck, Truck, ArrowRight, MapPin } from "lucide-react"
-import ProcessScene from "@/components/three/ProcessScene"
+import dynamic from "next/dynamic"
+
+// Three.js scene is heavy — split it out of the initial bundle like HeroScene
+const ProcessScene = dynamic(() => import("@/components/three/ProcessScene"), {
+  ssr: false,
+  loading: () => null,
+})
 
 const steps = [
   {

@@ -107,7 +107,7 @@ export default function Showcase() {
                   alt={`${w.title} — ${w.category} printed by Raja Ganapathi Offset Bhavani`}
                   fill
                   sizes="(min-width: 768px) 60vw, 100vw"
-                  className="object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.07]"
+                  className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,_1,_0.3,_1)] group-hover:scale-[1.07]"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-t ${w.tint} to-transparent opacity-60`} />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink-900/85 via-ink-900/15 to-transparent" />

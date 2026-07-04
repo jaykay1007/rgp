@@ -38,8 +38,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  // Type errors fail the build — the codebase type-checks clean.
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
   images: {
     // Image optimization ENABLED (was `unoptimized: true`, which forced full-size

@@ -6,14 +6,12 @@ import "./globals.css"
 import {
   SITE_CONFIG,
   CONTACT_INFO,
-  generatePageTitle,
-  generateMetaDescription,
   PRIMARY_KEYWORDS,
   LOCATION_KEYWORDS,
   SERVICE_KEYWORDS,
   LONGTAIL_KEYWORDS,
 } from "@/lib/seo-config"
-import { getAllStructuredData } from "@/lib/structured-data"
+import { getSiteWideStructuredData } from "@/lib/structured-data"
 import { LanguageProvider } from "@/contexts/language-context"
 
 const inter = Inter({
@@ -126,16 +124,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const structuredData = getAllStructuredData()
+  // WebSite + Organization + LocalBusiness only. Page-specific schemas
+  // (FAQPage, ItemList, breadcrumbs…) are injected by each page so markup
+  // always matches visible content.
+  const structuredData = getSiteWideStructuredData()
 
   return (
     <html lang="en" prefix="og: http://ogp.me/ns#" className={inter.variable}>
       <head>
-        <Script
-          id="structured-data"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: structuredData }}
-          strategy="beforeInteractive"
         />
 
         {process.env.NEXT_PUBLIC_GA_ID && (
@@ -164,10 +163,6 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Raja Ganapathi Offset" />
         <meta name="format-detection" content="telephone=yes" />
-        <meta name="rating" content="general" />
-        <meta name="distribution" content="global" />
-        <meta name="revisit-after" content="7 days" />
-        <meta httpEquiv="content-language" content="en-IN" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

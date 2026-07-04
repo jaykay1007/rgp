@@ -116,79 +116,9 @@ export const SERVICE_AREAS = [
   { name: "Perundurai", priority: 0.75, slug: "perundurai" },
 ] as const;
 
-// Services offered with SEO-optimized descriptions
-export const SERVICES = [
-  {
-    slug: "multicolour-offset-printing",
-    name: "Multicolour Offset Printing",
-    shortDesc: "High-quality multicolor offset printing with vibrant colors and sharp details",
-    keywords: ["multicolor printing", "offset printing", "cmyk printing", "commercial printing"],
-    priority: 1.0,
-  },
-  {
-    slug: "wedding-invitations",
-    name: "Wedding Invitations",
-    shortDesc: "Elegant wedding invitation cards with foiling, embossing, and custom designs",
-    keywords: ["wedding cards", "marriage invitation", "wedding printing", "invitation cards"],
-    priority: 0.95,
-  },
-  {
-    slug: "visiting-cards",
-    name: "Visiting Cards",
-    shortDesc: "Professional business cards with premium finishes and creative designs",
-    keywords: ["visiting cards", "business cards", "name cards", "professional cards"],
-    priority: 0.95,
-  },
-  {
-    slug: "business-stationery",
-    name: "Business Stationery",
-    shortDesc: "Complete business stationery including letterheads, envelopes, and bill books",
-    keywords: ["letterhead", "envelopes", "bill books", "business stationery"],
-    priority: 0.9,
-  },
-  {
-    slug: "brochures",
-    name: "Brochures & Catalogs",
-    shortDesc: "Eye-catching brochures and product catalogs for effective marketing",
-    keywords: ["brochures", "catalogs", "marketing materials", "product brochures"],
-    priority: 0.9,
-  },
-  {
-    slug: "packaging-printing",
-    name: "Packaging Printing",
-    shortDesc: "Custom packaging solutions including boxes, labels, and product packaging",
-    keywords: ["packaging", "product boxes", "labels", "custom packaging"],
-    priority: 0.85,
-  },
-  {
-    slug: "book-printing",
-    name: "Book Printing",
-    shortDesc: "Quality book printing services for educational and commercial publications",
-    keywords: ["book printing", "publications", "educational books", "printing press"],
-    priority: 0.85,
-  },
-  {
-    slug: "textile-sample-books",
-    name: "Textile Sample Books",
-    shortDesc: "Professional textile sample books for fabric and garment industries",
-    keywords: ["textile samples", "fabric books", "sample cards", "textile industry"],
-    priority: 0.75,
-  },
-  {
-    slug: "turmeric-packaging",
-    name: "Turmeric Packaging",
-    shortDesc: "Specialized packaging for turmeric and spice products",
-    keywords: ["turmeric packaging", "spice packaging", "food packaging"],
-    priority: 0.75,
-  },
-  {
-    slug: "bhavani-jamakkalam-brochures",
-    name: "Bhavani Jamakkalam Brochures",
-    shortDesc: "Marketing materials for the famous Bhavani Jamakkalam handloom products",
-    keywords: ["jamakkalam", "handloom", "bhavani jamakkalam", "textile brochures"],
-    priority: 0.75,
-  },
-] as const;
+// NOTE: the service catalogue lives in lib/services-data.ts (single source of
+// truth for routes, sitemap, schema and navigation). Do not re-add a parallel
+// SERVICES list here — the two lists drifted apart once already.
 
 // FAQ data for FAQ schema
 export const FAQ_DATA = [

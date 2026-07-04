@@ -3,12 +3,11 @@ import {
   SITE_CONFIG,
   CONTACT_INFO,
   BUSINESS_HOURS,
-  SERVICES,
   FAQ_DATA,
   REVIEWS,
   SERVICE_AREAS,
-  getFullAddress,
 } from "./seo-config";
+import { services } from "./services-data";
 
 // LocalBusiness Schema - Primary for local SEO
 export const generateLocalBusinessSchema = () => ({
@@ -84,6 +83,30 @@ export const generateLocalBusinessSchema = () => ({
     availableLanguage: ["Tamil", "English"],
     areaServed: "IN",
   },
+  // Ratings/reviews live on the one canonical LocalBusiness node — a separate
+  // LocalBusiness "#reviews" entity would split the business into two entities.
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: REVIEWS.length.toString(),
+    bestRating: "5",
+    worstRating: "1",
+  },
+  review: REVIEWS.map((review) => ({
+    "@type": "Review",
+    author: {
+      "@type": "Person",
+      name: review.author,
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: review.rating.toString(),
+      bestRating: "5",
+      worstRating: "1",
+    },
+    reviewBody: review.review,
+    datePublished: review.date,
+  })),
 });
 
 // Organization Schema
@@ -112,53 +135,27 @@ export const generateOrganizationSchema = () => ({
   },
 });
 
-// Service Schema - for each service
-export const generateServiceSchema = (serviceSlug?: string) => {
-  const service = serviceSlug 
-    ? SERVICES.find((s) => s.slug === serviceSlug)
-    : null;
-
-  if (service) {
-    return {
-      "@context": "https://schema.org",
+// Services ItemList Schema — derived from lib/services-data.ts (the single
+// source of truth for routes) so every listed URL is a real, live page.
+export const generateServiceSchema = () => ({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": `${SITE_CONFIG.domain}/#services`,
+  name: "Printing Services",
+  description: "Comprehensive printing services offered by Raja Ganapathi Offset Press",
+  numberOfItems: services.length,
+  itemListElement: services.map((service, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
       "@type": "Service",
-      "@id": `${SITE_CONFIG.domain}/services/${service.slug}#service`,
+      "@id": `${SITE_CONFIG.domain}/services/${service.slug}`,
       name: service.name,
-      description: service.shortDesc,
-      provider: {
-        "@type": "LocalBusiness",
-        "@id": `${SITE_CONFIG.domain}/#localbusiness`,
-        name: SITE_CONFIG.legalName,
-      },
-      areaServed: SERVICE_AREAS.map((area) => ({
-        "@type": "City",
-        name: area.name,
-      })),
-      serviceType: service.name,
-    };
-  }
-
-  // All services
-  return {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "@id": `${SITE_CONFIG.domain}/#services`,
-    name: "Printing Services",
-    description: "Comprehensive printing services offered by Raja Ganapathi Offset Press",
-    numberOfItems: SERVICES.length,
-    itemListElement: SERVICES.map((service, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      item: {
-        "@type": "Service",
-        "@id": `${SITE_CONFIG.domain}/services/${service.slug}`,
-        name: service.name,
-        description: service.shortDesc,
-        url: `${SITE_CONFIG.domain}/services/${service.slug}`,
-      },
-    })),
-  };
-};
+      description: service.summary,
+      url: `${SITE_CONFIG.domain}/services/${service.slug}`,
+    },
+  })),
+});
 
 // FAQ Schema
 export const generateFAQSchema = () => ({
@@ -172,36 +169,6 @@ export const generateFAQSchema = () => ({
       "@type": "Answer",
       text: faq.answer,
     },
-  })),
-});
-
-// Review/Testimonials Schema
-export const generateReviewSchema = () => ({
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": `${SITE_CONFIG.domain}/#reviews`,
-  name: SITE_CONFIG.legalName,
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: REVIEWS.length.toString(),
-    bestRating: "5",
-    worstRating: "1",
-  },
-  review: REVIEWS.map((review) => ({
-    "@type": "Review",
-    author: {
-      "@type": "Person",
-      name: review.author,
-    },
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: review.rating.toString(),
-      bestRating: "5",
-      worstRating: "1",
-    },
-    reviewBody: review.review,
-    datePublished: review.date,
   })),
 });
 
@@ -231,14 +198,8 @@ export const generateWebsiteSchema = () => ({
     "@type": "Organization",
     "@id": `${SITE_CONFIG.domain}/#organization`,
   },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${SITE_CONFIG.domain}/search?q={search_term_string}`,
-    },
-    "query-input": "required name=search_term_string",
-  },
+  // No SearchAction: the site has no /search route, and pointing Google at a
+  // nonexistent endpoint invalidates the sitelinks-searchbox markup.
   inLanguage: ["en", "ta"],
 });
 
@@ -265,19 +226,17 @@ export const generateWebPageSchema = (
   inLanguage: "en",
 });
 
-// Combined schema for homepage
-export const generateHomePageSchema = () => {
-  return [
+// Site-wide entity graph (WebSite + Organization + LocalBusiness). Safe on
+// every page — these describe the business, not any specific page's content.
+export const getSiteWideStructuredData = () =>
+  JSON.stringify([
     generateWebsiteSchema(),
     generateOrganizationSchema(),
     generateLocalBusinessSchema(),
-    generateServiceSchema(),
-    generateFAQSchema(),
-    generateReviewSchema(),
-  ];
-};
+  ]);
 
-// Generate all schemas as JSON string for injection
-export const getAllStructuredData = () => {
-  return JSON.stringify(generateHomePageSchema());
-};
+// Homepage-only schemas. FAQPage markup must appear only on pages where the
+// FAQ content is visible (Google guideline), so this is injected by app/page.tsx
+// — not the root layout.
+export const getHomePageStructuredData = () =>
+  JSON.stringify([generateServiceSchema(), generateFAQSchema()]);

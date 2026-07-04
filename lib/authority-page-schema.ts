@@ -193,7 +193,7 @@ export const generateAuthorityPageSchema = () => {
           "name": "How long has Raja Ganapathi Offset been in business?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Raja Ganapathi Offset was established in 1997 and has been serving customers in Bhavani and Erode district for over 27 years. We are one of the most trusted and experienced printing presses in the region with thousands of satisfied customers."
+            "text": `Raja Ganapathi Offset was established in 1997 and has been serving customers in Bhavani and Erode district for over ${new Date().getFullYear() - 1997} years. We are one of the most trusted and experienced printing presses in the region with thousands of satisfied customers.`
           }
         },
         {

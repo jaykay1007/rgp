@@ -175,32 +175,33 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* SEO-rich tag cloud */}
+        {/* Popular searches — each anchor points at its own topical page so
+            internal link equity is distributed instead of piling onto one URL */}
         <div className="py-10 border-b border-white/10">
           <h3 className="text-[12px] font-semibold text-white/80 uppercase tracking-wider mb-4">
             Popular searches
           </h3>
           <div className="flex flex-wrap gap-2">
             {[
-              "printing press bhavani",
-              "offset printing erode",
-              "wedding card printing bhavani",
-              "visiting card printing erode",
-              "best printing press in bhavani",
-              "rajaganapathi offset press",
-              "multicolor offset printing tamil nadu",
-              "bulk printing erode district",
-              "bhavani jamakkalam brochure",
-              "turmeric packaging printing",
-              "marriage card printing bhavani",
-              "letterhead printing erode",
-              "brochure printing komarapalayam",
-              "catalog printing erode",
-              "packaging printing bhavani",
-            ].map((k) => (
+              { k: "printing press bhavani", href: "/printing-press-bhavani-erode" },
+              { k: "offset printing erode", href: "/printing-press/erode" },
+              { k: "wedding card printing bhavani", href: "/services/wedding-invitations" },
+              { k: "visiting card printing erode", href: "/services/visiting-cards" },
+              { k: "best printing press in bhavani", href: "/printing-press-bhavani-erode" },
+              { k: "multicolor offset printing tamil nadu", href: "/services/multicolour-offset-printing" },
+              { k: "bulk printing erode district", href: "/services/multicolour-offset-printing" },
+              { k: "bhavani jamakkalam brochure", href: "/services/bhavani-jamakkalam-brochures" },
+              { k: "turmeric packaging printing", href: "/services/turmeric-packaging" },
+              { k: "letterhead printing erode", href: "/services/business-stationery" },
+              { k: "brochure printing komarapalayam", href: "/printing-press/komarapalayam" },
+              { k: "catalog printing erode", href: "/services/brochures" },
+              { k: "packaging printing bhavani", href: "/services/packaging-printing" },
+              { k: "bag printing bhavani", href: "/services/bag-printing" },
+              { k: "bill book printing bhavani", href: "/services/stationery-printing" },
+            ].map(({ k, href }) => (
               <Link
                 key={k}
-                href="/printing-press-bhavani-erode"
+                href={href}
                 className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] text-white/55 hover:bg-white/10 hover:text-white transition-all"
               >
                 {k}
@@ -211,18 +212,18 @@ export default function Footer() {
 
         <div className="pt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div className="text-[12px] text-white/50">
-            © {new Date().getFullYear()} Raja Ganapathi Offset Printers · Bhavani, Erode · GST 33ABCDE1234F1Z5
+            © {new Date().getFullYear()} Raja Ganapathi Offset Printers · Bhavani, Erode · Since 1997
           </div>
           <div className="flex items-center gap-6">
-            <Link href="/" className="text-[12px] text-white/50 hover:text-white transition-colors">
-              Privacy
+            <Link href="/#faq" className="text-[12px] text-white/50 hover:text-white transition-colors">
+              FAQ
             </Link>
-            <Link href="/" className="text-[12px] text-white/50 hover:text-white transition-colors">
-              Terms
+            <Link href="/services" className="text-[12px] text-white/50 hover:text-white transition-colors">
+              All services
             </Link>
-            <Link href="/printing-press-bhavani-erode" className="text-[12px] text-white/50 hover:text-white transition-colors">
+            <a href="/sitemap.xml" className="text-[12px] text-white/50 hover:text-white transition-colors">
               Sitemap
-            </Link>
+            </a>
           </div>
         </div>
       </div>

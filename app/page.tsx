@@ -9,10 +9,17 @@ import FAQ from "@/components/FAQ"
 import Contact from "@/components/Contact"
 import Footer from "@/components/Footer"
 import SmoothScroll from "@/components/smooth-scroll"
+import { getHomePageStructuredData } from "@/lib/structured-data"
 
 export default function Home() {
   return (
     <SmoothScroll>
+      {/* Homepage-only schemas (services ItemList + FAQPage matching the
+          visible FAQ section). Site-wide entity graph lives in app/layout.tsx. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: getHomePageStructuredData() }}
+      />
       <div className="min-h-screen bg-ink-50 overflow-x-clip">
         <Header />
         <main>
