@@ -5,6 +5,7 @@ import { useRef } from "react"
 import Link from "next/link"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { ArrowRight, MapPin } from "lucide-react"
+import { SITE_CONFIG } from "@/lib/seo-config"
 
 // Three.js scene is heavy — load only on client
 const HeroScene = dynamic(() => import("./three/HeroScene"), {
@@ -67,7 +68,7 @@ export default function Hero() {
         >
           <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/70 backdrop-blur-md text-[11px] text-ink-700 font-medium border border-ink-300/40 shadow-apple-sm">
             <span className="status-dot inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 text-emerald-500" />
-            27+ years of offset craftsmanship in Bhavani, Erode
+            {SITE_CONFIG.yearsInBusiness}+ years of offset craftsmanship in Bhavani, Erode
           </span>
         </motion.div>
 
@@ -125,7 +126,7 @@ export default function Hero() {
           className="mt-16 grid grid-cols-3 max-w-[640px] mx-auto gap-3 sm:gap-6"
         >
           {[
-            { stat: "27+", label: "years on press" },
+            { stat: `${SITE_CONFIG.yearsInBusiness}+`, label: "years on press" },
             { stat: "50K+", label: "projects shipped" },
             { stat: "4.9★", label: "client rating" },
           ].map((b) => (

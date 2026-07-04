@@ -1,11 +1,13 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import Script from "next/script"
 import { Phone, Mail, MapPin, Clock, CheckCircle2, Award, Users, TrendingUp, Star, ArrowRight } from "lucide-react"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import { SITE_CONFIG, CONTACT_INFO, getFullAddress } from "@/lib/seo-config"
 import { getAuthorityPageSchemaJSON } from "@/lib/authority-page-schema"
+
+// Computed once so "years of excellence" copy never goes stale.
+const YEARS = SITE_CONFIG.yearsInBusiness
 
 export const metadata: Metadata = {
   title: "Best Offset Printing Press in Bhavani, Erode | Raja Ganapathi Offset | Commercial Printing Services",
@@ -43,7 +45,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Raja Ganapathi Offset - Best Printing Press in Bhavani, Erode District | Since 1997",
-    description: "Trusted printing press serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi for 27+ years. Expert offset printing, wedding cards, business stationery, packaging, bag printing. Quality guaranteed. Call +91 9994466277",
+    description: `Trusted printing press serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi for ${YEARS}+ years. Expert offset printing, wedding cards, business stationery, packaging, bag printing. Quality guaranteed. Call +91 9994466277`,
     url: `${SITE_CONFIG.domain}/printing-press-bhavani-erode`,
     siteName: SITE_CONFIG.name,
     // OG image inherited from app/opengraph-image.tsx (generated, never 404s).
@@ -53,7 +55,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Raja Ganapathi Offset - Best Printing Press Bhavani | Offset Printing Erode",
-    description: "27+ years trusted printing press in Bhavani. Wedding cards, visiting cards, brochures, packaging, bag printing. Serving Erode district. Call +91 9994466277",
+    description: `${YEARS}+ years trusted printing press in Bhavani. Wedding cards, visiting cards, brochures, packaging, bag printing. Serving Erode district. Call +91 9994466277`,
   },
   alternates: {
     canonical: `${SITE_CONFIG.domain}/printing-press-bhavani-erode`,
@@ -73,11 +75,9 @@ export const metadata: Metadata = {
 export default function PrintingPressBhavaniErodePage() {
   return (
     <>
-      <Script
-        id="authority-page-schema"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: getAuthorityPageSchemaJSON() }}
-        strategy="beforeInteractive"
       />
       <div className="min-h-screen bg-white">
         <Header />
@@ -106,7 +106,7 @@ function HeroSection() {
         <div className="text-center max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full px-6 py-2 mb-6">
             <Award className="w-5 h-5 text-[#D4AF37]" />
-            <span className="text-[#D4AF37] font-semibold">Trusted Since 1997 | 27+ Years of Excellence</span>
+            <span className="text-[#D4AF37] font-semibold">Trusted Since 1997 | {YEARS}+ Years of Excellence</span>
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -137,7 +137,7 @@ function HeroSection() {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl font-bold text-[#D4AF37] mb-1">27+</div>
+              <div className="text-3xl font-bold text-[#D4AF37] mb-1">{YEARS}+</div>
               <div className="text-sm text-gray-400">Years Experience</div>
             </div>
             <div className="text-center">
@@ -170,7 +170,7 @@ function IntroSection() {
           
           <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
             <p className="text-lg leading-relaxed">
-              Established in <strong>1997</strong>, <strong>Raja Ganapathi Offset</strong> has been the cornerstone of quality printing services in <strong>Bhavani, Erode district, Tamil Nadu</strong>. With over <strong>27 years of dedicated service</strong>, we have earned the trust of thousands of businesses, individuals, and organizations across <strong>Bhavani, Erode, Komarapalayam, Anthiyur, Gobichettipalayam, Perundurai, Sathyamangalam, Mettur, Sankagiri, Salem, Namakkal, Tiruchengode, Pallipalayam, Chithode, Modakurichi, Kavindapadi, Ammapet</strong>, and surrounding regions.
+              Established in <strong>1997</strong>, <strong>Raja Ganapathi Offset</strong> has been the cornerstone of quality printing services in <strong>Bhavani, Erode district, Tamil Nadu</strong>. With over <strong>{YEARS} years of dedicated service</strong>, we have earned the trust of thousands of businesses, individuals, and organizations across <strong>Bhavani, Erode, Komarapalayam, Anthiyur, Gobichettipalayam, Perundurai, Sathyamangalam, Mettur, Sankagiri, Salem, Namakkal, Tiruchengode, Pallipalayam, Chithode, Modakurichi, Kavindapadi, Ammapet</strong>, and surrounding regions.
             </p>
             
             <p className="text-lg leading-relaxed">
@@ -452,7 +452,7 @@ function WhyChooseSection() {
   const reasons = [
     {
       icon: Award,
-      title: "27+ Years of Excellence",
+      title: `${YEARS}+ Years of Excellence`,
       desc: "Established in 1997, we bring nearly three decades of printing expertise and industry knowledge to every project."
     },
     {
@@ -702,7 +702,7 @@ function FAQSection() {
     },
     {
       q: "How long has Raja Ganapathi Offset been in business?",
-      a: "Raja Ganapathi Offset was established in 1997 and has been serving customers in Bhavani and Erode district for over 27 years. We are one of the most trusted and experienced printing presses in the region with thousands of satisfied customers."
+      a: `Raja Ganapathi Offset was established in 1997 and has been serving customers in Bhavani and Erode district for over ${YEARS} years. We are one of the most trusted and experienced printing presses in the region with thousands of satisfied customers.`
     },
     {
       q: "What are your business hours and contact details?",
@@ -738,7 +738,7 @@ function FAQSection() {
     },
     {
       q: "What makes Raja Ganapathi Offset different from other printing presses?",
-      a: "Our 27+ years of experience, commitment to quality, competitive pricing, fast turnaround times, complete in-house facilities, expert design team, modern printing equipment, wide range of services under one roof, and thousands of satisfied customers make us the preferred choice in Bhavani and Erode district. We combine traditional craftsmanship with modern technology to deliver exceptional results every time."
+      a: `Our ${YEARS}+ years of experience, commitment to quality, competitive pricing, fast turnaround times, complete in-house facilities, expert design team, modern printing equipment, wide range of services under one roof, and thousands of satisfied customers make us the preferred choice in Bhavani and Erode district. We combine traditional craftsmanship with modern technology to deliver exceptional results every time.`
     },
   ]
 
@@ -800,7 +800,7 @@ function CTASection() {
           Ready to Start Your Printing Project?
         </h2>
         <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-          Experience the quality and service that has made Raja Ganapathi Offset the most trusted printing press in Bhavani for over 27 years
+          Experience the quality and service that has made Raja Ganapathi Offset the most trusted printing press in Bhavani for over {YEARS} years
         </p>
 
         <div className="flex flex-wrap justify-center gap-4 mb-12">

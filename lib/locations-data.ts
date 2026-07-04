@@ -42,7 +42,7 @@ export const locations: Location[] = [
     summary:
       "Trusted printing press serving Erode city with offset printing, wedding cards, visiting cards, brochures and packaging — delivered fast.",
     intro:
-      "Erode businesses, textile houses and families have relied on Raja Ganapathi Offset for over 27 years. From our Bhavani press — minutes from Erode — we print true CMYK offset, wedding invitations, visiting cards, brochures, bill books and packaging, with same-day pickup and next-day delivery across the city.",
+      `Erode businesses, textile houses and families have relied on Raja Ganapathi Offset for over ${new Date().getFullYear() - 1997} years. From our Bhavani press — minutes from Erode — we print true CMYK offset, wedding invitations, visiting cards, brochures, bill books and packaging, with same-day pickup and next-day delivery across the city.`,
     nearbyAreas: ["Erode Bus Stand", "Surampatti", "Veerappanchatram", "Chithode", "Solar", "Periya Semur"],
     popular: ["wedding-invitations", "visiting-cards", "multicolour-offset-printing", "brochures"],
     faqs: [

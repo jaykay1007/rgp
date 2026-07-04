@@ -3,6 +3,7 @@
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { Printer, Layers, Palette, Sparkles, Leaf, Zap, ShieldCheck, Clock } from "lucide-react"
+import { SITE_CONFIG } from "@/lib/seo-config"
 
 const specialties = [
   {
@@ -141,7 +142,7 @@ export default function Specialties() {
           className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px rounded-3xl overflow-hidden bg-ink-200"
         >
           {[
-            { stat: "27+", label: "Years on press" },
+            { stat: `${SITE_CONFIG.yearsInBusiness}+`, label: "Years on press" },
             { stat: "50,000+", label: "Projects shipped" },
             { stat: "1M+", label: "Sheets / month" },
             { stat: "8", label: "Districts served" },
