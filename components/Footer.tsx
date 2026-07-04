@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { ArrowUpRight, MapPin, Phone, Mail, MessageCircle } from "lucide-react"
+import { CONTACT_INFO } from "@/lib/seo-config"
 
 const services = [
   { label: "Multicolour Offset Printing", href: "/services/multicolour-offset-printing" },
@@ -95,10 +96,11 @@ export default function Footer() {
             </p>
             <div className="mt-6 space-y-3">
               <a
-                href="https://maps.app.goo.gl/7bUZMaUAAN2VSYibA"
+                href={CONTACT_INFO.directionsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 text-[13px] text-white/65 hover:text-white transition-colors"
+                aria-label="Get directions to our shop in Google Maps"
               >
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" strokeWidth={1.5} />
                 <span>

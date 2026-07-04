@@ -76,6 +76,18 @@ const IMG = {
     "https://images.unsplash.com/photo-1589758438368-0ad531db3366?w=1400&auto=format&fit=crop&q=80",
 } as const
 
+// First-party work photography served from /public — preferred over stock
+// wherever we have a real shot of the craft.
+const WORK = {
+  weddingGoldFoil: "/images/works/wedding-invitation-gold-foil-handmade-paper.jpg",
+  weddingSuiteSeal: "/images/works/wedding-invitation-suite-letterpress-wax-seal.jpg",
+  cardSilverFoil: "/images/works/visiting-card-silver-foil-black-cardstock.jpg",
+  cardFoilPressTable: "/images/works/visiting-card-foil-stamped-press-table.jpg",
+  booksHardcover: "/images/works/book-printing-hardcover-offset-press-floor.jpg",
+  brochurePressRun: "/images/works/brochure-catalog-offset-press-run.jpg",
+  toteBag: "/images/works/cotton-canvas-tote-bag-printing.jpg",
+} as const
+
 export const services: Service[] = [
   {
     slug: "multicolour-offset-printing",
@@ -123,10 +135,10 @@ export const services: Service[] = [
       "Hand-finished wedding invitations with gold foil, embossing and laser-cut detail — crafted for your big day.",
     overview:
       "From traditional Tamil mappillai-azhaippithal to modern minimalist suites, we design and print wedding invitations that feel as special as the occasion. Choose gold and silver foil, blind embossing, laser cutting, and premium handmade stocks.",
-    hero: { src: IMG.weddingSuite, alt: "Foiled and embossed wedding invitation suite printed in Bhavani" },
+    hero: { src: WORK.weddingGoldFoil, alt: "Gold foil wedding invitation on handmade deckle-edge paper printed in Bhavani" },
     gallery: [
+      { src: WORK.weddingSuiteSeal, alt: "Letterpress wedding invitation suite with wax seal and RSVP cards" },
       { src: IMG.weddingFoil, alt: "Gold foil wedding invitation card" },
-      { src: IMG.cards, alt: "Premium printed invitation cards" },
       { src: IMG.pressSheets, alt: "Wedding cards on the offset press" },
     ],
     features: [
@@ -159,10 +171,10 @@ export const services: Service[] = [
       "Premium matte, suede and metallic-foil visiting cards on 350gsm stock, delivered in 48 hours.",
     overview:
       "A visiting card is a handshake in paper. We print on heavy 350gsm stocks with finishes that make people hold on a second longer — soft-touch matte lamination, spot UV, gold foil edges and embossing.",
-    hero: { src: IMG.cards, alt: "Premium visiting cards printed at Raja Ganapathi Offset, Bhavani" },
+    hero: { src: WORK.cardSilverFoil, alt: "Silver foil visiting cards on black 600gsm cardstock printed at Raja Ganapathi Offset, Bhavani" },
     gallery: [
+      { src: WORK.cardFoilPressTable, alt: "Foil-stamped business cards on the finishing table beside ink tins" },
       { src: IMG.letterhead, alt: "Business card and stationery set" },
-      { src: IMG.press, alt: "Visiting cards being printed on the press" },
       { src: IMG.stationery, alt: "Finished premium business cards" },
     ],
     features: [
@@ -195,10 +207,10 @@ export const services: Service[] = [
       "Tri-fold brochures, product catalogues and corporate booklets designed to sell, on premium art stocks.",
     overview:
       "Whether it's a single tri-fold or a 64-page product catalogue, we help you tell your story in print. Crisp offset colour, clean folds, and binding that lies flat and lasts.",
-    hero: { src: IMG.brochure, alt: "Tri-fold brochures and catalogues printed in Bhavani, Erode" },
+    hero: { src: WORK.brochurePressRun, alt: "Freshly printed catalogue stacks beside the offset press in Bhavani, Erode" },
     gallery: [
+      { src: IMG.brochure, alt: "Tri-fold brochures and catalogues" },
       { src: IMG.press, alt: "Brochures on the multicolour offset press" },
-      { src: IMG.books, alt: "Perfect-bound product catalogue" },
       { src: IMG.pressSheets, alt: "Printed brochure sheets before folding" },
     ],
     features: [
@@ -231,10 +243,10 @@ export const services: Service[] = [
       "Perfect-bound and saddle-stitched books, magazines and journals with durable, lay-flat binding.",
     overview:
       "From self-published authors to schools and magazines, we print and bind books that hold up to daily use. Choose paperback or hardcase binding, full colour or economical black-and-white interiors.",
-    hero: { src: IMG.books, alt: "Perfect-bound books printed at Raja Ganapathi Offset, Bhavani" },
+    hero: { src: WORK.booksHardcover, alt: "Hardcover books stacked on pallets beside the offset press at Raja Ganapathi Offset" },
     gallery: [
+      { src: IMG.books, alt: "Perfect-bound books ready for delivery" },
       { src: IMG.press, alt: "Book pages printing on the offset press" },
-      { src: IMG.brochure, alt: "Printed magazines and journals" },
       { src: IMG.pressSheets, alt: "Book signatures before binding" },
     ],
     features: [
@@ -267,7 +279,7 @@ export const services: Service[] = [
       "Custom-printed cotton, jute and non-woven bags for weddings, festivals, return-gifts and retail.",
     overview:
       "Carry your brand and celebrate your moments. We screen and digitally print on cotton, jute, canvas and non-woven bags — from wedding return-gift bags to eco-friendly shopping bags for shops and supermarkets.",
-    hero: { src: IMG.bagsCotton, alt: "Custom printed cotton and jute bags from Bhavani" },
+    hero: { src: WORK.toteBag, alt: "Natural cotton canvas tote bag ready for custom printing in Bhavani" },
     gallery: [
       { src: IMG.bagsWedding, alt: "Personalised wedding return-gift bags" },
       { src: IMG.bagsFestival, alt: "Festival and pooja bags with traditional prints" },

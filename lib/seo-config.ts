@@ -26,10 +26,20 @@ export const CONTACT_INFO = {
     countryCode: "IN",
   },
   geo: {
-    latitude: 11.4500,
-    longitude: 77.6833,
+    // Exact pin from the shop's Google Business embed (Raja Ganapathi Press)
+    latitude: 11.4437642,
+    longitude: 77.6800726,
   },
   googleMapsUrl: "https://maps.app.goo.gl/7bUZMaUAAN2VSYibA",
+  // Universal Maps directions deep-link: opens the Google Maps app on mobile
+  // and maps.google.com on desktop with the shop pre-filled as destination,
+  // ready to navigate from the visitor's current location.
+  directionsUrl:
+    "https://www.google.com/maps/dir/?api=1&destination=" +
+    encodeURIComponent("Raja Ganapathi Press, 24 Palani Andavar Kovil Street, Bhavani, Tamil Nadu 638301"),
+  // Official embed for the shop's Google Business listing.
+  mapEmbedUrl:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.500381143992!2d77.68007261103888!3d11.443764246482452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba969e298955acf%3A0x4ab7994fb3d4c7e0!2sRaja%20Ganapathi%20Press!5e0!3m2!1sen!2sin!4v1783152998067!5m2!1sen!2sin",
 } as const;
 
 export const BUSINESS_HOURS = {
