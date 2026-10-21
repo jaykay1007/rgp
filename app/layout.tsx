@@ -171,7 +171,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.google.com" />
 
         {/* favicon.ico fallback; modern icon, apple-icon and web manifest are
-            provided by app/icon.tsx, app/apple-icon.tsx and app/manifest.ts */}
+            provided by app/icon.png, app/apple-icon.png and app/manifest.ts */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className={`${inter.className} bg-ink-50 text-ink-900`}>

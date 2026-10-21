@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight, MapPin, Phone, Mail, MessageCircle } from "lucide-react"
 import { CONTACT_INFO } from "@/lib/seo-config"
@@ -82,10 +83,12 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-12 gap-y-12 gap-x-8 pb-12 border-b border-white/10">
           <div className="col-span-2 md:col-span-4">
             <Link href="/" className="inline-flex items-center gap-2.5 mb-5">
-              <span className="relative inline-flex w-7 h-7 items-center justify-center rounded-full bg-gradient-to-tr from-cmyk-cyan via-cmyk-magenta to-cmyk-yellow">
-                <span className="absolute inset-[3px] rounded-full bg-ink-900" />
-                <span className="relative text-[10px] font-bold text-white">R</span>
-              </span>
+              <Image
+                src="/images/brand/emblem-64.png"
+                alt="Raja Ganapathi Offset Printers"
+                width={28}
+                height={28}
+              />
               <span className="text-[16px] font-display font-semibold tracking-tight">
                 Raja Ganapathi Offset
               </span>

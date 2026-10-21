@@ -1,6 +1,7 @@
 "use client"
 
 import { useRef, useState, useCallback, useEffect } from "react"
+import Image from "next/image"
 import type { MotionValue } from "framer-motion"
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion"
 import { CreditCard, Heart, FileText, ShoppingBag, ImagePlus, MessageCircle, ArrowUpRight, X } from "lucide-react"
@@ -137,9 +138,9 @@ const finishes: Finish[] = [
  * Stocks — surface colour + whether it reads as a light surface
  * ------------------------------------------------------------------ */
 const stocks = [
-  { id: "onyx", label: "Onyx black", card: "bg-gradient-to-br from-ink-800 via-ink-900 to-black", grain: "opacity-[0.12]", light: false, mono: "bg-ink-900", monoText: "text-white", sub: "text-white/45" },
-  { id: "ivory", label: "Ivory cotton", card: "bg-gradient-to-br from-[#f4efe6] via-[#ece5d8] to-[#ddd3c0]", grain: "opacity-[0.18]", light: true, mono: "bg-[#efe8da]", monoText: "text-ink-800", sub: "text-ink-500" },
-  { id: "kraft", label: "Natural kraft", card: "bg-gradient-to-br from-[#dcc7a4] via-[#cdb389] to-[#bd9f74]", grain: "opacity-[0.22]", light: true, mono: "bg-[#e7d6b6]", monoText: "text-ink-800", sub: "text-ink-700/70" },
+  { id: "onyx", label: "Onyx black", card: "bg-gradient-to-br from-ink-800 via-ink-900 to-black", grain: "opacity-[0.12]", light: false, sub: "text-white/45" },
+  { id: "ivory", label: "Ivory cotton", card: "bg-gradient-to-br from-[#f4efe6] via-[#ece5d8] to-[#ddd3c0]", grain: "opacity-[0.18]", light: true, sub: "text-ink-500" },
+  { id: "kraft", label: "Natural kraft", card: "bg-gradient-to-br from-[#dcc7a4] via-[#cdb389] to-[#bd9f74]", grain: "opacity-[0.22]", light: true, sub: "text-ink-700/70" },
 ] as const
 
 type Stock = (typeof stocks)[number]
@@ -476,11 +477,14 @@ function ProductPreview({
   const head = `${product.nameClass} ${product.nameSize} leading-[1.05] ${headlineClass(finish, isLight)} ${finish.gloss ? "relative inline-block" : ""}`
   const radius = product.id === "tote-bag" ? "rounded-[14px]" : "rounded-[18px]"
 
+  const monogramSize = product.id === "letterhead" ? 32 : 36
   const Monogram = (
-    <span className={`relative inline-flex items-center justify-center rounded-full bg-gradient-to-tr from-cmyk-cyan via-cmyk-magenta to-cmyk-yellow ${product.id === "letterhead" ? "w-8 h-8" : "w-9 h-9"}`}>
-      <span className={`absolute inset-[3px] rounded-full ${stock.mono}`} />
-      <span className={`relative text-[11px] font-bold ${stock.monoText}`}>R</span>
-    </span>
+    <Image
+      src="/images/brand/emblem-128.png"
+      alt="Raja Ganapathi Offset Printers"
+      width={monogramSize}
+      height={monogramSize}
+    />
   )
 
   const Logo = logo ? (

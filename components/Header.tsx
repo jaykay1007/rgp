@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, Menu, ChevronRight, Phone } from "lucide-react"
@@ -92,10 +93,13 @@ export default function Header() {
               href="/"
               className="text-[14px] font-semibold tracking-tight text-ink-800 hover:opacity-80 transition-opacity duration-300 inline-flex items-center gap-2"
             >
-              <span className="relative inline-flex w-5 h-5 items-center justify-center rounded-full bg-gradient-to-tr from-cmyk-cyan via-cmyk-magenta to-cmyk-yellow">
-                <span className="absolute inset-[3px] rounded-full bg-white" />
-                <span className="relative text-[8px] font-bold text-ink-800">R</span>
-              </span>
+              <Image
+                src="/images/brand/emblem-64.png"
+                alt="Raja Ganapathi Offset Printers"
+                width={20}
+                height={20}
+                priority
+              />
               <span>Raja Ganapathi</span>
             </Link>
 
