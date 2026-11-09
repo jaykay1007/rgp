@@ -12,7 +12,7 @@ const url = `${SITE_CONFIG.domain}/printing-press`
 export const metadata: Metadata = {
   title: "Printing Press Near You — Bhavani, Erode & Across the District",
   description:
-    "Raja Ganapathi Offset serves Bhavani, Erode, Komarapalayam, Gobichettipalayam, Anthiyur, Sathyamangalam and Perundurai with offset, wedding card, visiting card and packaging printing since 1997.",
+    "Raja Ganapathi Offset serves Bhavani, Erode, Komarapalayam, Gobichettipalayam, Anthiyur, Sathyamangalam and Perundurai with offset, wedding card, visiting card, calendar and sticker label printing since 1997.",
   alternates: { canonical: url },
   openGraph: {
     title: `Printing Press Locations | ${SITE_CONFIG.name}`,

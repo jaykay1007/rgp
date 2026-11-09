@@ -8,23 +8,21 @@ import { CONTACT_INFO } from "@/lib/seo-config"
 const services = [
   { label: "Multicolour Offset Printing", href: "/services/multicolour-offset-printing" },
   { label: "Wedding Invitations", href: "/services/wedding-invitations" },
-  { label: "Visiting Cards", href: "/services/visiting-cards" },
+  { label: "Digital & PVC Visiting Cards", href: "/services/visiting-cards" },
+  { label: "Calendar Printing", href: "/services/calendar-printing" },
+  { label: "Die-Cut Sticker Labels", href: "/services/sticker-labels" },
   { label: "Business Stationery", href: "/services/business-stationery" },
   { label: "Brochures & Catalogs", href: "/services/brochures" },
   { label: "Book Printing", href: "/services/book-printing" },
-  { label: "Packaging Printing", href: "/services/packaging-printing" },
   { label: "Bag Printing", href: "/services/bag-printing" },
-  { label: "Bill Books & Stationery", href: "/services/stationery-printing" },
   { label: "All Services", href: "/services" },
 ]
 
 const specialized = [
   { label: "Bhavani Jamakkalam Brochures", href: "/services/bhavani-jamakkalam-brochures" },
-  { label: "Turmeric Packaging", href: "/services/turmeric-packaging" },
   { label: "Textile Sample Books", href: "/services/textile-sample-books" },
   { label: "Educational Materials", href: "/services/educational-materials" },
-  { label: "Stationery Printing", href: "/services/stationery-printing" },
-  { label: "Packaging Materials", href: "/services/packaging-materials" },
+  { label: "Bill Books & Stationery", href: "/services/stationery-printing" },
   { label: "Promotional Materials", href: "/services/promotional-materials" },
 ]
 
@@ -94,8 +92,8 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-[14px] text-white/55 leading-relaxed max-w-sm">
-              Premium offset printing press in Bhavani, Erode — wedding cards, visiting cards,
-              brochures, books, packaging and bag printing. Since 1997.
+              Multicolour offset printing press in Bhavani, Erode — wedding cards, visiting cards,
+              calendars, sticker labels, brochures and books. Since 1997.
             </p>
             <div className="mt-6 space-y-3">
               <a
@@ -196,11 +194,13 @@ export default function Footer() {
               { k: "multicolor offset printing tamil nadu", href: "/services/multicolour-offset-printing" },
               { k: "bulk printing erode district", href: "/services/multicolour-offset-printing" },
               { k: "bhavani jamakkalam brochure", href: "/services/bhavani-jamakkalam-brochures" },
-              { k: "turmeric packaging printing", href: "/services/turmeric-packaging" },
+              { k: "calendar printing bhavani", href: "/services/calendar-printing" },
+              { k: "daily calendar printing erode", href: "/services/calendar-printing" },
               { k: "letterhead printing erode", href: "/services/business-stationery" },
               { k: "brochure printing komarapalayam", href: "/printing-press/komarapalayam" },
               { k: "catalog printing erode", href: "/services/brochures" },
-              { k: "packaging printing bhavani", href: "/services/packaging-printing" },
+              { k: "sticker label printing erode", href: "/services/sticker-labels" },
+              { k: "pvc visiting card bhavani", href: "/services/visiting-cards" },
               { k: "bag printing bhavani", href: "/services/bag-printing" },
               { k: "bill book printing bhavani", href: "/services/stationery-printing" },
             ].map(({ k, href }) => (

@@ -4,12 +4,12 @@ import { useRef, useState, useCallback, useEffect } from "react"
 import Image from "next/image"
 import type { MotionValue } from "framer-motion"
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion"
-import { CreditCard, Heart, FileText, ShoppingBag, ImagePlus, MessageCircle, ArrowUpRight, X } from "lucide-react"
+import { CreditCard, Heart, FileText, Sticker, ImagePlus, MessageCircle, ArrowUpRight, X } from "lucide-react"
 
 /* ------------------------------------------------------------------ *
  * Product templates — each renders its own layout in the live preview
  * ------------------------------------------------------------------ */
-type ProductId = "visiting-card" | "wedding-invitation" | "letterhead" | "tote-bag"
+type ProductId = "visiting-card" | "wedding-invitation" | "letterhead" | "sticker"
 
 type Product = {
   id: ProductId
@@ -69,15 +69,15 @@ const products: Product[] = [
     nameSize: "text-[clamp(20px,3vw,30px)]",
   },
   {
-    id: "tote-bag",
-    label: "Tote bag",
-    icon: ShoppingBag,
-    serviceSlug: "bag-printing",
-    frame: "aspect-[5/6] max-w-[360px]",
-    nameLabel: "Brand / text",
-    line2Label: "Tagline (optional)",
+    id: "sticker",
+    label: "Sticker label",
+    icon: Sticker,
+    serviceSlug: "sticker-labels",
+    frame: "aspect-square max-w-[360px]",
+    nameLabel: "Product / brand",
+    line2Label: "Weight, MRP or tagline",
     namePlaceholder: "YOUR BRAND",
-    line2Placeholder: "Carry it proud",
+    line2Placeholder: "Net 200 g · MRP ₹120",
     nameClass: "font-display font-bold tracking-[0.02em]",
     nameSize: "text-[clamp(24px,3.6vw,36px)]",
   },
@@ -97,40 +97,40 @@ type Finish = {
 
 const finishes: Finish[] = [
   {
-    id: "gold-foil",
-    label: "Gold foil",
-    blurb: "Metallic foil pressed hot into the paper — catches light from every angle.",
-    onDark: "bg-gradient-to-br from-amber-200 via-yellow-500 to-amber-600 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(120,80,0,0.4)]",
-    onLight: "bg-gradient-to-br from-amber-500 via-yellow-600 to-amber-700 bg-clip-text text-transparent drop-shadow-[0_1px_0_rgba(255,255,255,0.5)]",
+    id: "full-colour",
+    label: "Full colour (CMYK)",
+    blurb: "Four-colour offset or digital print — photos, gradients and every colour in your design.",
+    onDark: "bg-gradient-to-r from-cyan-300 via-fuchsia-400 to-yellow-300 bg-clip-text text-transparent",
+    onLight: "bg-gradient-to-r from-cyan-600 via-fuchsia-600 to-amber-500 bg-clip-text text-transparent",
   },
   {
-    id: "silver-foil",
-    label: "Silver foil",
-    blurb: "Cool chrome shine on dark stock — the classic premium visiting-card look.",
-    onDark: "bg-gradient-to-br from-slate-100 via-slate-400 to-slate-200 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]",
-    onLight: "bg-gradient-to-br from-slate-400 via-slate-600 to-slate-400 bg-clip-text text-transparent drop-shadow-[0_1px_0_rgba(255,255,255,0.6)]",
+    id: "pantone",
+    label: "Pantone spot colour",
+    blurb: "Your exact brand colour, mixed as a Pantone spot ink and proofed before the run.",
+    onDark: "text-[#4da3ff]",
+    onLight: "text-[#0057b8]",
   },
   {
-    id: "emboss",
-    label: "Blind emboss",
-    blurb: "No ink at all — the design is raised out of the sheet so you read it with your fingertips.",
-    onDark: "text-transparent bg-clip-text bg-gradient-to-b from-white/25 to-black/10 [text-shadow:0_1px_1px_rgba(255,255,255,0.35),0_-1px_1px_rgba(0,0,0,0.35)]",
-    onLight: "text-transparent bg-clip-text bg-gradient-to-b from-black/15 to-white/50 [text-shadow:0_1px_1px_rgba(255,255,255,0.75),0_-1px_1px_rgba(0,0,0,0.22)]",
+    id: "single-colour",
+    label: "Single colour",
+    blurb: "One crisp ink colour — economical and classic for letterheads, bill books and simple cards.",
+    onDark: "text-white",
+    onLight: "text-ink-900",
   },
   {
-    id: "spot-uv",
-    label: "Spot UV",
-    blurb: "A glass-like gloss printed only where you want it — subtle until the light hits.",
-    onDark: "text-white/90",
-    onLight: "text-ink-800/90",
+    id: "matte-lamination",
+    label: "Matte lamination",
+    blurb: "A soft, non-reflective film that protects the print and feels smooth in the hand.",
+    onDark: "text-white/80",
+    onLight: "text-ink-800/80",
+  },
+  {
+    id: "gloss-lamination",
+    label: "Gloss lamination",
+    blurb: "A clear glossy film that makes colours pop and wipes clean — great for cards, covers and labels.",
+    onDark: "text-white",
+    onLight: "text-ink-900",
     gloss: true,
-  },
-  {
-    id: "letterpress",
-    label: "Letterpress",
-    blurb: "Type pressed deep into thick cotton paper — a finish you can feel.",
-    onDark: "text-white/85 [text-shadow:inset_0_2px_2px_rgba(0,0,0,0.6),0_1px_0_rgba(255,255,255,0.15)]",
-    onLight: "text-ink-800/85 [text-shadow:0_1px_0_rgba(255,255,255,0.6),0_-1px_1px_rgba(0,0,0,0.28)]",
   },
 ]
 
@@ -138,9 +138,10 @@ const finishes: Finish[] = [
  * Stocks — surface colour + whether it reads as a light surface
  * ------------------------------------------------------------------ */
 const stocks = [
-  { id: "onyx", label: "Onyx black", card: "bg-gradient-to-br from-ink-800 via-ink-900 to-black", grain: "opacity-[0.12]", light: false, sub: "text-white/45" },
-  { id: "ivory", label: "Ivory cotton", card: "bg-gradient-to-br from-[#f4efe6] via-[#ece5d8] to-[#ddd3c0]", grain: "opacity-[0.18]", light: true, sub: "text-ink-500" },
+  { id: "white", label: "White art card", card: "bg-gradient-to-br from-white via-[#f7f7f5] to-[#ecebe7]", grain: "opacity-[0.08]", light: true, sub: "text-ink-500" },
+  { id: "ivory", label: "Ivory pearl card", card: "bg-gradient-to-br from-[#f4efe6] via-[#ece5d8] to-[#ddd3c0]", grain: "opacity-[0.18]", light: true, sub: "text-ink-500" },
   { id: "kraft", label: "Natural kraft", card: "bg-gradient-to-br from-[#dcc7a4] via-[#cdb389] to-[#bd9f74]", grain: "opacity-[0.22]", light: true, sub: "text-ink-700/70" },
+  { id: "pvc", label: "PVC (full-bleed)", card: "bg-gradient-to-br from-[#0f2a5f] via-[#163f86] to-[#1e5bb8]", grain: "opacity-[0.06]", light: false, sub: "text-white/55" },
 ] as const
 
 type Stock = (typeof stocks)[number]
@@ -214,8 +215,8 @@ export default function FinishLab() {
 
   const whatsapp = `https://wa.me/919994466277?text=${encodeURIComponent(
     [
-      `Hi Raja Ganapathi Offset! I designed a ${product.label.toLowerCase()} in your Finish Lab:`,
-      `• Finish: ${finish.label}`,
+      `Hi Raja Ganapathi Offset! I designed a ${product.label.toLowerCase()} in your Print Lab:`,
+      `• Print: ${finish.label}`,
       `• Stock: ${stock.label}`,
       `• Text: "${displayName}"${displayLine2 ? ` / "${displayLine2}"` : ""}`,
       logo ? "• I have a logo/artwork to share." : null,
@@ -230,7 +231,7 @@ export default function FinishLab() {
       ref={sectionRef}
       id="finish-lab"
       className="relative py-32 md:py-40 bg-ink-900 overflow-hidden"
-      aria-label="Interactive print designer — try products, finishes and stocks with your own text and logo"
+      aria-label="Interactive print designer — try products, print styles and stocks with your own text and logo"
     >
       <div aria-hidden="true" className="absolute inset-0 press-grid opacity-20" />
       <div aria-hidden="true" className="absolute -top-40 -right-40 w-[560px] h-[560px] bg-cmyk-magenta/10 ink-dot" />
@@ -243,16 +244,16 @@ export default function FinishLab() {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-2xl"
         >
-          <p className="text-eyebrow uppercase text-accent mb-5">The Finish Lab</p>
+          <p className="text-eyebrow uppercase text-accent mb-5">The Print Lab</p>
           <h2 className="font-display font-semibold text-white tracking-[-0.025em] text-[clamp(36px,5vw,64px)] leading-[1.05] text-balance">
-            Feel the finish,
+            See your print,
             <br />
             <span className="text-gradient-pearl">before we press it.</span>
           </h2>
           <p className="mt-6 text-[clamp(16px,1.3vw,19px)] text-white/60 leading-[1.55]">
-            Pick a product, add your own name, details and logo, then try the finishes and
-            papers we craft on the press floor. Move your cursor over the preview to watch
-            the light play — and send your design straight to our team.
+            Pick a product, add your own name, details and logo, then try the print styles,
+            laminations and stocks we use on the press floor — in Tamil or English. Send your
+            design straight to our team on WhatsApp.
           </p>
         </motion.div>
 
@@ -290,8 +291,8 @@ export default function FinishLab() {
             </div>
 
             {/* Finish */}
-            <p className="text-[11px] uppercase tracking-widest text-white/40 mt-7 mb-3">Finish</p>
-            <div className="flex flex-wrap gap-2" role="group" aria-label="Choose a print finish">
+            <p className="text-[11px] uppercase tracking-widest text-white/40 mt-7 mb-3">Print style</p>
+            <div className="flex flex-wrap gap-2" role="group" aria-label="Choose a print style">
               {finishes.map((f) => (
                 <button
                   key={f.id}
@@ -445,7 +446,7 @@ export default function FinishLab() {
                 sheenX={sheenX}
               />
             </motion.div>
-            <p className="mt-6 text-[12px] text-white/35">Hover / drag across the preview to see the finish shift.</p>
+            <p className="mt-6 text-[12px] text-white/35">Hover / drag across the preview to tilt it in the light.</p>
           </motion.div>
         </div>
       </div>
@@ -475,7 +476,7 @@ function ProductPreview({
 }) {
   const isLight = stock.light
   const head = `${product.nameClass} ${product.nameSize} leading-[1.05] ${headlineClass(finish, isLight)} ${finish.gloss ? "relative inline-block" : ""}`
-  const radius = product.id === "tote-bag" ? "rounded-[14px]" : "rounded-[18px]"
+  const radius = product.id === "sticker" ? "rounded-full" : "rounded-[18px]"
 
   const monogramSize = product.id === "letterhead" ? 32 : 36
   const Monogram = (
@@ -492,7 +493,7 @@ function ProductPreview({
     <img
       src={logo}
       alt="Your uploaded logo preview"
-      className={`object-contain ${product.id === "tote-bag" ? "max-h-16 max-w-[60%]" : "max-h-11 max-w-[46%]"} ${isLight ? "" : "drop-shadow-[0_0_1px_rgba(255,255,255,0.4)]"}`}
+      className={`object-contain ${product.id === "sticker" ? "max-h-16 max-w-[50%]" : "max-h-11 max-w-[46%]"} ${isLight ? "" : "drop-shadow-[0_0_1px_rgba(255,255,255,0.4)]"}`}
     />
   ) : (
     Monogram
@@ -508,14 +509,11 @@ function ProductPreview({
 
   return (
     <>
-      {/* Tote handles */}
-      {product.id === "tote-bag" && (
-        <>
-          <span aria-hidden="true" className={`absolute left-[24%] -top-[14%] h-[20%] w-[16%] rounded-t-full border-[7px] border-b-0 ${isLight ? "border-[#c9b088]" : "border-ink-700"}`} />
-          <span aria-hidden="true" className={`absolute right-[24%] -top-[14%] h-[20%] w-[16%] rounded-t-full border-[7px] border-b-0 ${isLight ? "border-[#c9b088]" : "border-ink-700"}`} />
-        </>
-      )}
 
+      {/* die-cut line around the sticker */}
+      {product.id === "sticker" && (
+        <span aria-hidden="true" className="absolute -inset-3 rounded-full border-2 border-dashed border-white/25" />
+      )}
       <div className={`relative w-full h-full ${radius} ${stock.card} shadow-apple-xl border border-white/10 overflow-hidden`}>
         {/* paper grain */}
         <div
@@ -582,8 +580,8 @@ function ProductPreview({
           </div>
         )}
 
-        {product.id === "tote-bag" && (
-          <div className="absolute inset-0 p-8 flex flex-col items-center justify-center text-center [transform:translateZ(28px)]">
+        {product.id === "sticker" && (
+          <div className="absolute inset-0 p-12 flex flex-col items-center justify-center text-center [transform:translateZ(28px)]">
             <div className="mb-5">{Logo}</div>
             <p className={head}>
               {name}

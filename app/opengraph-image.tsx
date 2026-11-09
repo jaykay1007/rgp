@@ -44,7 +44,7 @@ export default function OpengraphImage() {
             Premium Offset Printing Press in Bhavani, Erode
           </div>
           <div style={{ marginTop: 24, fontSize: 30, color: "rgba(255,255,255,0.66)", maxWidth: 900 }}>
-            Wedding cards · Visiting cards · Brochures · Packaging — since 1997
+            Wedding cards · Calendars · Visiting cards · Stickers — since 1997
           </div>
         </div>
 

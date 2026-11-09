@@ -39,7 +39,7 @@ export default function WhyChooseUs() {
 
             <div className="mt-10 space-y-5">
               {[
-                { label: "Quality first", desc: "Heidelberg presses + Pantone-matched colour" },
+                { label: "Quality first", desc: "Multicolour offset + Pantone-matched colour" },
                 { label: "On time, every time", desc: "On-time delivery rate: 99.4%" },
                 { label: "Fair, transparent pricing", desc: "No hidden costs, no surprise invoices" },
                 { label: "Bilingual design support", desc: "Tamil & English typography that respects the script" },

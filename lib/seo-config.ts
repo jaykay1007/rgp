@@ -79,18 +79,20 @@ export const SERVICE_KEYWORDS = [
   "wedding invitation printing",
   "marriage card printing tamil nadu",
   "business card printing bhavani",
-  "visiting cards offset printing",
+  "pvc visiting card printing",
+  "calendar printing bhavani",
+  "daily calendar printing erode",
   "letterhead printing erode",
   "bill book printing bhavani",
   "brochure printing services",
   "catalog printing erode",
-  "packaging printing bhavani",
-  "label printing erode district",
+  "die cut sticker printing bhavani",
+  "sticker label printing erode district",
   "poster printing bhavani",
   "pamphlet printing erode",
   "book printing tamil nadu",
   "textile sample book printing",
-  "turmeric packaging printing",
+  "tamil calendar printing",
   "bhavani jamakkalam brochures",
 ] as const;
 
@@ -134,7 +136,7 @@ export const SERVICE_AREAS = [
 export const FAQ_DATA = [
   {
     question: "What types of printing services do you offer in Bhavani?",
-    answer: "We offer comprehensive printing services including multicolor offset printing, wedding invitations, visiting cards, business stationery (letterheads, bill books, envelopes), brochures, catalogs, packaging printing, book printing, bag printing, promotional materials, and specialized services like textile sample books, turmeric packaging and Bhavani Jamakkalam brochures.",
+    answer: "We offer comprehensive printing services including multicolor offset printing, wedding invitations, visiting cards, digital & PVC visiting cards, monthly & daily calendars, die-cut sticker labels, business stationery (letterheads, bill books, envelopes), brochures, catalogs, book printing, bag printing, promotional materials, and specialized services like textile sample books and Bhavani Jamakkalam brochures.",
   },
   {
     question: "How long has Raja Ganapathi Offset been in business?",
@@ -150,11 +152,11 @@ export const FAQ_DATA = [
   },
   {
     question: "Do you offer custom wedding card designs?",
-    answer: "Yes, we specialize in custom wedding invitation designs. We offer various styles including traditional Tamil designs, modern minimalist, luxury foil stamping, and embossed designs. Our team can help create personalized invitations that match your wedding theme.",
+    answer: "Yes, we specialize in custom wedding invitation designs. We offer traditional Tamil, modern minimalist and bilingual designs, printed in rich multicolour on premium card stocks with die-cut shape options. Our team can help create personalized invitations that match your wedding theme.",
   },
   {
     question: "What is the minimum order quantity for visiting cards?",
-    answer: "For offset printing, we typically require a minimum of 500 visiting cards for cost-effectiveness. For smaller quantities, we also offer quick short-run printing with no large minimum order.",
+    answer: "Our digital and PVC visiting cards have no large minimum — a standard box of 100 cards is fine. PVC cards are waterproof and tear-proof, ideal for clinics and shops.",
   },
   {
     question: "How do I start a printing project with you?",
@@ -180,7 +182,7 @@ export const REVIEWS = [
     author: "Senthil Kumar",
     location: "Bhavani",
     rating: 5,
-    review: "Excellent quality wedding cards. The foiling work was outstanding. Highly recommended for wedding invitations in Bhavani area.",
+    review: "Excellent quality wedding cards. The Tamil design and colours were outstanding. Highly recommended for wedding invitations in Bhavani area.",
     date: "2024-12-15",
   },
   {
@@ -201,7 +203,7 @@ export const REVIEWS = [
     author: "Murugan Stores",
     location: "Anthiyur",
     rating: 5,
-    review: "Affordable prices with premium quality. Their packaging printing for our products is always perfect. Trusted press for commercial printing.",
+    review: "Affordable prices with premium quality. Their sticker labels and calendars for our shop are always perfect. Trusted press for commercial printing.",
     date: "2024-09-25",
   },
   {
@@ -225,13 +227,13 @@ export const generateMetaDescription = (page?: string) => {
   
   switch (page) {
     case "home":
-      return `${base}Specializing in wedding invitations, visiting cards, business stationery, brochures, and packaging. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi. Call +91 9994466277.`;
+      return `${base}Specializing in wedding invitations, visiting cards, calendars, sticker labels, business stationery and brochures. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi. Call +91 9994466277.`;
     case "services":
-      return `Explore our comprehensive printing services - multicolor offset printing, wedding cards, visiting cards, letterheads, brochures, packaging, and more. Quality printing in Bhavani, Erode district.`;
+      return `Explore our comprehensive printing services - multicolor offset printing, wedding cards, visiting cards, calendars, sticker labels, letterheads, brochures, and more. Quality printing in Bhavani, Erode district.`;
     case "contact":
       return `Contact Raja Ganapathi Offset Press in Bhavani. Address: 24 Palani Andavar Kovil Street, Bhavani 638301. Phone: +91 9994466277. Email: rgpbvn@gmail.com. Get quotes for all printing needs.`;
     default:
-      return `${base}Quality printing services for wedding cards, business cards, brochures, packaging in Bhavani, Erode, Tamil Nadu. ${SITE_CONFIG.yearsInBusiness}+ years of excellence.`;
+      return `${base}Quality printing services for wedding cards, visiting cards, calendars, sticker labels and brochures in Bhavani, Erode, Tamil Nadu. ${SITE_CONFIG.yearsInBusiness}+ years of excellence.`;
   }
 };
 

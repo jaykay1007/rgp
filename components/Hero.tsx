@@ -91,9 +91,9 @@ export default function Hero() {
           className="mt-8 mx-auto max-w-[640px] text-[clamp(17px,1.6vw,22px)] text-ink-600 leading-[1.45] text-pretty"
         >
           South India's most-loved <strong className="font-semibold text-ink-800">offset printing press</strong>,
-          headquartered in Bhavani, Erode. Wedding cards, visiting cards, brochures,
-          packaging and book printing — crafted on heritage German Heidelberg
-          presses, since 1997.
+          headquartered in Bhavani, Erode. Wedding cards, visiting cards, calendars,
+          sticker labels, brochures and books — printed in rich multicolour offset,
+          since 1997.
         </motion.p>
 
         <motion.div

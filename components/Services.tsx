@@ -19,7 +19,7 @@ const services = featuredServices.map((s) => ({
   seoLabel: s.hero.alt,
 }))
 
-const secondary = ["business-stationery", "stationery-printing", "packaging-printing", "promotional-materials"]
+const secondary = ["sticker-labels", "business-stationery", "stationery-printing", "promotional-materials"]
   .map((slug) => getService(slug))
   .filter(Boolean)
   .map((s) => ({ title: s!.name, href: `/services/${s!.slug}`, image: s!.hero.src, alt: s!.hero.alt }))

@@ -7,7 +7,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Raja Ganapathi Offset — Printing Press Bhavani",
     short_name: "RGP Offset",
     description:
-      "Premium offset printing press in Bhavani, Erode since 1997 — wedding cards, visiting cards, brochures, packaging and more.",
+      "Multicolour offset printing press in Bhavani, Erode since 1997 — wedding cards, visiting cards, calendars, sticker labels and more.",
     start_url: "/",
     display: "standalone",
     background_color: "#fbfbfd",

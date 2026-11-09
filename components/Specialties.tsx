@@ -2,19 +2,19 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { Printer, Layers, Palette, Sparkles, Leaf, Zap, ShieldCheck, Clock } from "lucide-react"
+import { Printer, Layers, Palette, Scissors, Leaf, Zap, ShieldCheck, Clock } from "lucide-react"
 import { SITE_CONFIG } from "@/lib/seo-config"
 
 const specialties = [
   {
-    title: "2400 DPI offset",
-    description: "True high-resolution output on Heidelberg presses for poster-perfect detail.",
+    title: "Multicolour offset",
+    description: "True CMYK colour on our sheet-fed offset press for sharp, consistent detail.",
     icon: Printer,
     accent: "text-cmyk-cyan",
   },
   {
     title: "Premium papers",
-    description: "Imported art papers, textured stocks, kraft, suede, & luxury cardstock.",
+    description: "Art papers, maplitho, card stocks, kraft, vinyl & PVC — the right stock for every job.",
     icon: Layers,
     accent: "text-cmyk-magenta",
   },
@@ -25,9 +25,9 @@ const specialties = [
     accent: "text-accent",
   },
   {
-    title: "Foil, emboss, spot UV",
-    description: "Luxury finishes that turn a print into a keepsake.",
-    icon: Sparkles,
+    title: "Die-cut to any shape",
+    description: "Sticker labels and cards cut cleanly to round, oval or your own custom outline.",
+    icon: Scissors,
     accent: "text-amber-500",
   },
   {

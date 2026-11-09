@@ -39,7 +39,7 @@ export default function ServicesIndex() {
                 </h1>
                 <p className="mt-6 max-w-2xl text-[clamp(16px,1.4vw,20px)] leading-[1.55] text-white/60">
                   {services.length} dedicated services — from wedding invitations and visiting cards to
-                  multicolour offset, packaging and Bhavani jamakkalam collateral. Printed in Bhavani,
+                  calendars, die-cut sticker labels and Bhavani jamakkalam collateral. Printed in Bhavani,
                   trusted across Erode district since 1997.
                 </p>
                 <div className="mt-9 flex flex-wrap gap-3">

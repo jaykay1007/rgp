@@ -205,7 +205,7 @@ export default function LocationDetail({
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {[
                   { t: `${SITE_CONFIG.yearsInBusiness}+ years on press`, d: "A trusted Bhavani–Erode printer since 1997." },
-                  { t: "Heidelberg offset", d: "True CMYK + Pantone at 2400 DPI for crisp, consistent print." },
+                  { t: "Multicolour offset", d: "True CMYK + Pantone spot colours for crisp, consistent print." },
                   { t: "Fast local delivery", d: location.reach + "." },
                   { t: "Fair, bulk-friendly rates", d: "Sharp pricing from small runs to lakhs of sheets." },
                 ].map((b, i) => (

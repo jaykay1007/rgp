@@ -15,39 +15,39 @@ type Work = {
   tint: string
 }
 
-// Real work photography from /public/images/works
+// Tamil sample designs (/public/images/samples) + work photography (/public/images/works)
 const work: Work[] = [
   {
-    title: "Aarav & Priya",
-    category: "Wedding Invitations · Gold foil on handmade paper",
-    image: "/images/works/wedding-invitation-gold-foil-handmade-paper.jpg",
+    title: "அருண்குமார் – பிரியதர்ஷினி",
+    category: "Wedding Invitations · Tamil multicolour card",
+    image: "/images/samples/wedding-invitation-tamil.jpg",
     href: "/services/wedding-invitations",
     span: "md:col-span-7 md:row-span-2",
     tint: "from-rose-500/50",
   },
   {
-    title: "Apex Innovations",
-    category: "Visiting Cards · Silver foil on black stock",
-    image: "/images/works/visiting-card-silver-foil-black-cardstock.jpg",
+    title: "ஸ்ரீ லக்ஷ்மி ஜுவல்லர்ஸ்",
+    category: "Calendar Printing · Daily tear-off calendar",
+    image: "/images/samples/calendar-daily-tamil.jpg",
+    href: "/services/calendar-printing",
+    span: "md:col-span-5",
+    tint: "from-red-500/50",
+  },
+  {
+    title: "ஸ்ரீ முருகன் டெக்ஸ்டைல்ஸ்",
+    category: "Visiting Cards · Digital & PVC",
+    image: "/images/samples/visiting-cards-digital-pvc-tamil.jpg",
     href: "/services/visiting-cards",
     span: "md:col-span-5",
     tint: "from-blue-500/50",
   },
   {
-    title: "Core Creative",
-    category: "Brand Stationery · Foil-stamped cards",
-    image: "/images/works/visiting-card-foil-stamped-press-table.jpg",
-    href: "/services/visiting-cards",
-    span: "md:col-span-5",
-    tint: "from-violet-500/50",
-  },
-  {
-    title: "Eco Tote Bags",
-    category: "Bag Printing · Cotton & canvas",
-    image: "/images/works/cotton-canvas-tote-bag-printing.jpg",
-    href: "/services/bag-printing",
+    title: "Product labels",
+    category: "Die-Cut Sticker Labels · Any shape",
+    image: "/images/samples/die-cut-sticker-labels-tamil.jpg",
+    href: "/services/sticker-labels",
     span: "md:col-span-4",
-    tint: "from-teal-500/50",
+    tint: "from-orange-500/50",
   },
   {
     title: "Hardbound Editions",

@@ -8,7 +8,7 @@ export const generateAuthorityPageSchema = () => {
       "@id": `${SITE_CONFIG.domain}/printing-press-bhavani-erode#webpage`,
       "url": `${SITE_CONFIG.domain}/printing-press-bhavani-erode`,
       "name": "Best Offset Printing Press in Bhavani, Erode | Raja Ganapathi Offset",
-      "description": "Raja Ganapathi Offset - #1 Printing Press in Bhavani since 1997. Expert in offset printing, wedding cards, visiting cards, brochures, packaging, bag printing. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi.",
+      "description": "Raja Ganapathi Offset - #1 Printing Press in Bhavani since 1997. Expert in multicolour offset printing, wedding cards, visiting cards, calendars, sticker labels, brochures, bag printing. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi.",
       "inLanguage": "en",
       "isPartOf": {
         "@type": "WebSite",
@@ -50,7 +50,7 @@ export const generateAuthorityPageSchema = () => {
         "Printing Press Bhavani",
         "Offset Printing Bhavani"
       ],
-      "description": `Premier offset printing press in Bhavani since ${SITE_CONFIG.foundingYear}. Specializing in multicolor offset printing, wedding invitations, visiting cards, business stationery, brochures, packaging printing, bag printing, and all commercial printing services. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobichettipalayam, Perundurai, Sathyamangalam, Mettur, Sankagiri, Salem, Namakkal, and surrounding areas in Tamil Nadu.`,
+      "description": `Premier offset printing press in Bhavani since ${SITE_CONFIG.foundingYear}. Specializing in multicolor offset printing, wedding invitations, digital and PVC visiting cards, monthly and daily calendars, die-cut sticker labels, business stationery, brochures, bag printing, and all commercial printing services. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobichettipalayam, Perundurai, Sathyamangalam, Mettur, Sankagiri, Salem, Namakkal, and surrounding areas in Tamil Nadu.`,
       "url": SITE_CONFIG.domain,
       "telephone": CONTACT_INFO.phone,
       "email": CONTACT_INFO.email,
@@ -132,14 +132,14 @@ export const generateAuthorityPageSchema = () => {
             "itemListElement": [
               { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wedding Card Printing" } },
               { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marriage Invitation Printing" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Foil Stamping & Embossing" } }
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tamil Wedding Card Design" } }
             ]
           },
           {
             "@type": "OfferCatalog",
             "name": "Business Stationery",
             "itemListElement": [
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Visiting Card Printing" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital & PVC Visiting Card Printing" } },
               { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Letterhead Printing" } },
               { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bill Book Printing" } },
               { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Envelope Printing" } }
@@ -151,16 +151,22 @@ export const generateAuthorityPageSchema = () => {
             "itemListElement": [
               { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brochure Printing" } },
               { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Catalog Printing" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Poster Printing" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Calendar Printing" } }
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Poster Printing" } }
             ]
           },
           {
             "@type": "OfferCatalog",
-            "name": "Packaging & Bags",
+            "name": "Calendars & Sticker Labels",
             "itemListElement": [
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Packaging Printing" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Box Printing" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Monthly Calendar Printing" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Daily Calendar Printing" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Die-Cut Sticker Label Printing" } }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Bag Printing",
+            "itemListElement": [
               { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paper Bag Printing" } },
               { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloth Bag Printing" } }
             ]
@@ -177,7 +183,7 @@ export const generateAuthorityPageSchema = () => {
           "name": "What types of printing services does Raja Ganapathi Offset offer in Bhavani?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We offer comprehensive printing services including multicolor offset printing, wedding card printing, visiting card printing, business stationery (letterheads, bill books, envelopes), brochure printing, catalog printing, packaging printing, bag printing (paper, cloth, jute, non-woven), book printing, poster printing, sticker printing, label printing, certificate printing, ID card printing, calendar printing, and all finishing services like lamination, foiling, embossing, and binding."
+            "text": "We offer comprehensive printing services including multicolor offset printing, wedding card printing, visiting card printing, business stationery (letterheads, bill books, envelopes), brochure printing, catalog printing, monthly and daily calendar printing, die-cut sticker label printing, digital and PVC visiting cards, bag printing (paper, cloth, jute, non-woven), book printing, poster printing, certificate printing, ID card printing, and finishing services like lamination, die-cutting, numbering and binding."
           }
         },
         {
@@ -201,7 +207,7 @@ export const generateAuthorityPageSchema = () => {
           "name": "Do you offer custom wedding card design services?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, we specialize in custom wedding invitation design and printing. Our services include traditional Tamil wedding cards, modern minimalist designs, luxury foil stamping (gold, silver, holographic), embossing and debossing, laser cut invitations, and complete design consultation. We work with you to create unique invitations that match your wedding theme and budget."
+            "text": "Yes, we specialize in custom wedding invitation design and printing. Our services include traditional Tamil wedding cards, modern minimalist and bilingual designs, rich multicolour printing on premium card stocks, die-cut shapes, and complete design consultation. We work with you to create unique invitations that match your wedding theme and budget."
           }
         },
         {
@@ -237,18 +243,18 @@ export const generateAuthorityPageSchema = () => {
         { "@type": "ListItem", "position": 6, "name": "Bill Book Printing" },
         { "@type": "ListItem", "position": 7, "name": "Brochure Printing" },
         { "@type": "ListItem", "position": 8, "name": "Catalog Printing" },
-        { "@type": "ListItem", "position": 9, "name": "Packaging Printing" },
+        { "@type": "ListItem", "position": 9, "name": "Daily Calendar Printing" },
         { "@type": "ListItem", "position": 10, "name": "Bag Printing" },
         { "@type": "ListItem", "position": 11, "name": "Poster Printing" },
         { "@type": "ListItem", "position": 12, "name": "Dangler & Standee Printing" },
-        { "@type": "ListItem", "position": 13, "name": "Sticker Printing" },
+        { "@type": "ListItem", "position": 13, "name": "Die-Cut Sticker Printing" },
         { "@type": "ListItem", "position": 14, "name": "Label Printing" },
         { "@type": "ListItem", "position": 15, "name": "Envelope Printing" },
-        { "@type": "ListItem", "position": 16, "name": "Calendar Printing" },
+        { "@type": "ListItem", "position": 16, "name": "Monthly Calendar Printing" },
         { "@type": "ListItem", "position": 17, "name": "Certificate Printing" },
         { "@type": "ListItem", "position": 18, "name": "ID Card Printing" },
         { "@type": "ListItem", "position": 19, "name": "Book Printing" },
-        { "@type": "ListItem", "position": 20, "name": "Box Printing" }
+        { "@type": "ListItem", "position": 20, "name": "PVC Visiting Card Printing" }
       ]
     }
   ]

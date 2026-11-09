@@ -21,7 +21,7 @@ export const generateLocalBusinessSchema = () => ({
     "Raja Ganapathi Press Bhavani",
     "RGP Offset Bhavani",
   ],
-  description: `Premier offset printing press in Bhavani since ${SITE_CONFIG.foundingYear}. Specializing in wedding invitations, visiting cards, business stationery, brochures, packaging, and commercial printing. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi and surrounding areas in Tamil Nadu.`,
+  description: `Premier offset printing press in Bhavani since ${SITE_CONFIG.foundingYear}. Specializing in wedding invitations, digital & PVC visiting cards, monthly & daily calendars, die-cut sticker labels, business stationery, brochures and commercial multicolour offset printing. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi and surrounding areas in Tamil Nadu.`,
   url: SITE_CONFIG.domain,
   telephone: CONTACT_INFO.phone,
   email: CONTACT_INFO.email,

@@ -193,6 +193,43 @@ export default function ServiceDetail({
             </div>
           </section>
 
+          {/* ----------------------------------------------------- Types & sizes */}
+          {service.specs && service.specs.length > 0 && (
+            <section className="bg-white py-24 md:py-32">
+              <div className="container-apple-wide">
+                <Reveal>
+                  <p className="text-eyebrow uppercase text-accent mb-5">Types &amp; sizes</p>
+                  <h2 className="mb-12 max-w-2xl font-display font-semibold tracking-[-0.025em] text-ink-900 text-[clamp(26px,3vw,40px)] leading-[1.1]">
+                    Every {service.name.toLowerCase()} option, in detail.
+                  </h2>
+                </Reveal>
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  {service.specs.map((group, i) => (
+                    <Reveal key={group.title} delay={i * 0.06}>
+                      <div className="h-full rounded-[22px] border border-ink-200 bg-ink-50 p-6">
+                        <h3 className="mb-4 font-display text-[18px] font-semibold tracking-[-0.01em] text-ink-900">
+                          {group.title}
+                        </h3>
+                        <ul className="space-y-2.5">
+                          {group.items.map((item) => (
+                            <li key={item} className="flex items-start gap-2.5 text-[14px] leading-[1.5] text-ink-600">
+                              <span
+                                aria-hidden
+                                className="mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full"
+                                style={{ backgroundColor: service.tint }}
+                              />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </Reveal>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+
           {/* ------------------------------------------------------------- Gallery */}
           <section className="bg-white py-24 md:py-32">
             <div className="container-apple-wide">
