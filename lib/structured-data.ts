@@ -4,7 +4,6 @@ import {
   CONTACT_INFO,
   BUSINESS_HOURS,
   FAQ_DATA,
-  REVIEWS,
   SERVICE_AREAS,
 } from "./seo-config";
 import { services } from "./services-data";
@@ -82,30 +81,8 @@ export const generateLocalBusinessSchema = () => ({
     availableLanguage: ["Tamil", "English"],
     areaServed: "IN",
   },
-  // Ratings/reviews live on the one canonical LocalBusiness node — a separate
-  // LocalBusiness "#reviews" entity would split the business into two entities.
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: REVIEWS.length.toString(),
-    bestRating: "5",
-    worstRating: "1",
-  },
-  review: REVIEWS.map((review) => ({
-    "@type": "Review",
-    author: {
-      "@type": "Person",
-      name: review.author,
-    },
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: review.rating.toString(),
-      bestRating: "5",
-      worstRating: "1",
-    },
-    reviewBody: review.review,
-    datePublished: review.date,
-  })),
+  // No aggregateRating/review here on purpose: Google does not show stars for
+  // a business's own reviews of itself, and the figures must never be invented.
 });
 
 // Organization Schema

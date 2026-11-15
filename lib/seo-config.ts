@@ -175,7 +175,8 @@ export const FAQ_DATA = [
   },
 ] as const;
 
-// Reviews/Testimonials for Review schema
+// Testimonials. NOT used in structured data or on the page: confirm with the
+// owner that these are real customers who agreed to be quoted before using them.
 export const REVIEWS = [
   {
     author: "Senthil Kumar",

@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import { ArrowRight, Star } from "lucide-react"
+import { CONTACT_INFO } from "@/lib/seo-config"
 
 export default function WhyChooseUs() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -125,10 +126,18 @@ export default function WhyChooseUs() {
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                 ))}
-                <span className="ml-1.5 text-[13px] font-semibold text-ink-900">4.9</span>
+                <span className="ml-1.5 text-[13px] font-semibold text-ink-900">5.0</span>
               </div>
               <p className="text-[13px] text-ink-600 leading-snug">
-                Based on <strong>200+ verified</strong> Google reviews across Bhavani &amp; Erode.
+                Rated <strong>5.0 on Google</strong>.{" "}
+                <a
+                  href={CONTACT_INFO.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent hover:underline"
+                >
+                  Read our reviews
+                </a>
               </p>
             </motion.div>
           </motion.div>

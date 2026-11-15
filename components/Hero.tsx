@@ -21,7 +21,7 @@ const prints = HERO_PRINTS
 const stats = [
   { stat: `${SITE_CONFIG.yearsInBusiness}+`, label: "years on press" },
   { stat: "50K+", label: "projects printed" },
-  { stat: "4.9★", label: "client rating" },
+  { stat: "5.0★", label: "Google rating" },
 ]
 
 const services = [

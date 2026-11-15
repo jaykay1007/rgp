@@ -105,13 +105,6 @@ export const generateAuthorityPageSchema = () => {
         "https://www.facebook.com/rajaganapathioffset",
         "https://www.instagram.com/rajaganapathioffset"
       ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "500",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Printing Services",
