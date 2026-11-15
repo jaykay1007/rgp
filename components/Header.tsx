@@ -3,10 +3,10 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, Menu, ChevronRight, Phone } from "lucide-react"
 import LanguageToggle from "./language-toggle"
-import { useLanguage } from "@/contexts/language-context"
 import { CONTACT_INFO } from "@/lib/seo-config"
 
 interface MegaItem {
@@ -43,7 +43,8 @@ const megaMenu: Record<string, MegaItem[]> = {
 }
 
 export default function Header() {
-  const { t } = useLanguage()
+  const pathname = usePathname() ?? "/"
+  const isTamil = pathname === "/ta" || pathname.startsWith("/ta/")
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [openMenu, setOpenMenu] = useState<string | null>(null)
@@ -67,13 +68,15 @@ export default function Header() {
     }
   }, [isMobileMenuOpen])
 
+  // Section links are absolute (/#services) so they work from every page, not
+  // only the homepage. Labels switch to Tamil on the /ta pages.
   const navItems = [
-    { key: "services", label: "Services", href: "#services", mega: "Services" },
-    { key: "expertise", label: "Expertise", href: "#expertise" },
-    { key: "process", label: "Process", href: "#process" },
-    { key: "work", label: "Work", href: "#showcase" },
-    { key: "locations", label: "Locations", href: "/printing-press", mega: "Locations" },
-    { key: "contact", label: "Contact", href: "#contact" },
+    { key: "services", label: isTamil ? "சேவைகள்" : "Services", href: "/services", mega: "Services" },
+    { key: "expertise", label: isTamil ? "சிறப்புகள்" : "Expertise", href: "/#expertise" },
+    { key: "process", label: isTamil ? "செயல்முறை" : "Process", href: "/#process" },
+    { key: "work", label: isTamil ? "எங்கள் பணிகள்" : "Work", href: "/#showcase" },
+    { key: "locations", label: isTamil ? "ஊர்கள்" : "Locations", href: "/printing-press", mega: "Locations" },
+    { key: "contact", label: isTamil ? "தொடர்பு" : "Contact", href: "/#contact" },
   ]
 
   return (
@@ -230,7 +233,7 @@ export default function Header() {
 
               <div className="px-6 py-8 border-t border-ink-300/30">
                 <div className="flex items-center justify-between mb-6">
-                  <span className="text-[14px] text-ink-500">Language</span>
+                  <span className="text-[14px] text-ink-500">{isTamil ? "மொழி" : "Language"}</span>
                   <LanguageToggle />
                 </div>
                 <Link
