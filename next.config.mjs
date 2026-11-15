@@ -66,13 +66,19 @@ const nextConfig = {
         source: "/:path*",
         headers: securityHeaders,
       },
-      {
-        // Long-cache immutable hashed static assets.
-        source: "/_next/static/:path*",
-        headers: [
-          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
-        ],
-      },
+      // Long-cache immutable hashed static assets. Production only: dev chunk
+      // URLs are not content-hashed, so caching them makes the browser keep
+      // stale client code after an edit (hydration mismatches).
+      ...(process.env.NODE_ENV === "production"
+        ? [
+            {
+              source: "/_next/static/:path*",
+              headers: [
+                { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+              ],
+            },
+          ]
+        : []),
     ]
   },
   experimental: {

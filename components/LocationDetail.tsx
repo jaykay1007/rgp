@@ -14,12 +14,13 @@ import {
   Truck,
 } from "lucide-react"
 import Header from "@/components/Header"
+import PageHero from "@/components/PageHero"
 import Footer from "@/components/Footer"
 import SmoothScroll from "@/components/smooth-scroll"
 import type { Location } from "@/lib/locations-data"
-import { LOCATION_HERO } from "@/lib/locations-data"
 import type { Service } from "@/lib/services-data"
 import { SITE_CONFIG } from "@/lib/seo-config"
+import { buildHeroDeck } from "@/lib/hero-prints"
 
 const ease = [0.16, 1, 0.3, 1] as const
 
@@ -37,56 +38,21 @@ export default function LocationDetail({
 
         <main>
           {/* Hero */}
-          <section className="relative flex min-h-[78vh] items-end overflow-hidden bg-ink-900 text-white">
-            <Image
-              src={LOCATION_HERO}
-              alt={`Offset printing press serving ${location.name}, Erode district`}
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover opacity-30"
-            />
-            <div aria-hidden className="absolute inset-0 bg-mesh-dark opacity-70" />
-            <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/60 to-ink-900/30" />
-
-            <div className="container-apple-wide relative z-10 pb-16 pt-32 md:pb-20">
-              <nav aria-label="Breadcrumb" className="mb-8">
-                <ol className="flex flex-wrap items-center gap-1.5 text-[13px] text-white/55">
-                  <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
-                  <ChevronRight className="h-3.5 w-3.5" aria-hidden />
-                  <li><Link href="/printing-press" className="hover:text-white transition-colors">Locations</Link></li>
-                  <ChevronRight className="h-3.5 w-3.5" aria-hidden />
-                  <li className="text-white/85">{location.name}</li>
-                </ol>
-              </nav>
-
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease }}
-                className="max-w-3xl"
-              >
-                <p className="text-eyebrow uppercase text-cmyk-cyan mb-5">
-                  Printing Press · {location.tamilName}
-                </p>
-                <h1 className="font-display font-semibold tracking-[-0.03em] text-[clamp(38px,6vw,80px)] leading-[1.0]">
-                  Printing Press in {location.name}
-                </h1>
-                <p className="mt-6 max-w-2xl text-[clamp(16px,1.5vw,21px)] leading-[1.5] text-white/65">
-                  {location.tagline}
-                </p>
-                <div className="mt-9 flex flex-wrap gap-3">
-                  <a
-                    href="tel:+919994466277"
-                    className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[15px] font-medium text-ink-900 transition-colors hover:bg-ink-100"
-                  >
-                    <Phone className="h-4 w-4" strokeWidth={2} />
-                    +91 99944 66277
-                  </a>
-                </div>
-              </motion.div>
-            </div>
-          </section>
+          <PageHero
+            breadcrumb={[
+              { label: "Home", href: "/" },
+              { label: "Locations", href: "/printing-press" },
+              { label: location.name },
+            ]}
+            eyebrow={`Printing Press · ${location.tamilName}`}
+            title="Printing Press in"
+            accent={location.name}
+            subtitle={location.tagline}
+            secondary={{ label: "All locations", href: "/printing-press" }}
+            deck={buildHeroDeck(
+              services.map((s) => ({ src: s.hero.src, alt: `${s.name} for ${location.name} — ${s.hero.alt}` })),
+            )}
+          />
 
           {/* Intro + reach */}
           <section className="bg-white py-24 md:py-32">

@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Phone, Mail, MapPin, Clock, CheckCircle2, Award, Users, TrendingUp, Star, ArrowRight } from "lucide-react"
 import Header from "@/components/Header"
+import PageHero from "@/components/PageHero"
 import Footer from "@/components/Footer"
 import { SITE_CONFIG, CONTACT_INFO, getFullAddress } from "@/lib/seo-config"
 import { getAuthorityPageSchemaJSON } from "@/lib/authority-page-schema"
@@ -100,56 +101,24 @@ export default function PrintingPressBhavaniErodePage() {
 
 function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-br from-[#0F172A] via-[#1e293b] to-[#0F172A] text-white py-20 md:py-32">
-      <div className="absolute inset-0 bg-[url('/images/printing-pattern.svg')] opacity-5"></div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full px-6 py-2 mb-6">
-            <Award className="w-5 h-5 text-[#D4AF37]" />
-            <span className="text-[#D4AF37] font-semibold">Trusted Since 1997 | {YEARS}+ Years of Excellence</span>
-          </div>
-          
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Raja Ganapathi Offset
-            <span className="block text-[#D4AF37] mt-2">Best Printing Press in Bhavani & Erode</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-            Premier Multicolour Offset & Commercial Printing Solutions Provider
-            <span className="block mt-2 text-lg">Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi & Surrounding Areas</span>
-          </p>
-          
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <a
-              href={`tel:${CONTACT_INFO.phoneFormatted}`}
-              className="inline-flex items-center gap-2 bg-[#D4AF37] hover:bg-[#C4A137] text-[#0F172A] font-bold px-8 py-4 rounded-lg transition-all transform hover:scale-105"
-            >
-              <Phone className="w-5 h-5" />
-              Call +91 9994466277
-            </a>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#D4AF37] mb-1">{YEARS}+</div>
-              <div className="text-sm text-gray-400">Years Experience</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#D4AF37] mb-1">10,000+</div>
-              <div className="text-sm text-gray-400">Happy Clients</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#D4AF37] mb-1">50+</div>
-              <div className="text-sm text-gray-400">Services Offered</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#D4AF37] mb-1">100%</div>
-              <div className="text-sm text-gray-400">Quality Guaranteed</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <PageHero
+      eyebrow={`Trusted since 1997 · ${YEARS}+ years of excellence`}
+      title="Raja Ganapathi Offset"
+      accent="Best Printing Press in Bhavani & Erode"
+      subtitle={
+        <>
+          Premier Multicolour Offset & Commercial Printing Solutions Provider. Serving Bhavani,
+          Erode, Komarapalayam, Anthiyur, Gobi & Surrounding Areas.
+        </>
+      }
+      primary={{ label: "Call +91 9994466277", href: `tel:${CONTACT_INFO.phoneFormatted}` }}
+      stats={[
+        { stat: `${YEARS}+`, label: "Years Experience" },
+        { stat: "10,000+", label: "Happy Clients" },
+        { stat: "50+", label: "Services Offered" },
+        { stat: "100%", label: "Quality Guaranteed" },
+      ]}
+    />
   )
 }
 

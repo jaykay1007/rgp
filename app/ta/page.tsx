@@ -3,9 +3,11 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight, Phone, MapPin } from "lucide-react"
 import Header from "@/components/Header"
+import PageHero from "@/components/PageHero"
 import Footer from "@/components/Footer"
 import SmoothScroll from "@/components/smooth-scroll"
 import { SITE_CONFIG } from "@/lib/seo-config"
+import { buildHeroDeck } from "@/lib/hero-prints"
 
 const url = `${SITE_CONFIG.domain}/ta`
 
@@ -96,35 +98,20 @@ export default function TamilPage() {
           <Header />
           <main>
             {/* Hero */}
-            <section className="relative overflow-hidden bg-ink-50">
-              <div aria-hidden className="absolute inset-0 bg-mesh-light" />
-              <div className="container-apple-wide relative z-10 pb-20 pt-36 text-center md:pb-28 md:pt-44">
-                <p className="text-eyebrow uppercase text-accent mb-5">ராஜா கணபதி ஆஃப்செட் · பவானி</p>
-                <h1 className="mx-auto max-w-4xl font-display font-bold tracking-[-0.03em] text-ink-900 text-[clamp(34px,6vw,76px)] leading-[1.05]">
-                  பவானி, ஈரோட்டில்
-                  <br />
-                  <span className="text-gradient-ink">தரமான ஆஃப்செட் அச்சகம்.</span>
-                </h1>
-                <p className="mx-auto mt-6 max-w-2xl text-[clamp(16px,1.5vw,20px)] leading-[1.6] text-ink-600">
-                  திருமண அழைப்பிதழ்கள், விசிட்டிங் கார்டுகள், மாத & தினசரி காலண்டர்கள், டை-கட்
-                  ஸ்டிக்கர் லேபிள்கள், சிற்றேடுகள் மற்றும் புத்தகங்கள் — மல்டிகலர் ஆஃப்செட் அச்சில், 1997 முதல்.
-                </p>
-                <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-                  <a
-                    href="tel:+919994466277"
-                    className="inline-flex items-center gap-2 rounded-full bg-ink-900 px-6 py-3.5 text-[15px] font-medium text-white transition-colors hover:bg-ink-800"
-                  >
-                    <Phone className="h-4 w-4" strokeWidth={2} />
-                    +91 99944 66277
-                  </a>
-                </div>
-                <p className="mt-6 text-[13px] text-ink-500">
-                  <Link href="/" className="underline underline-offset-4 hover:text-ink-800">
-                    View this site in English
-                  </Link>
-                </p>
-              </div>
-            </section>
+            <PageHero
+              eyebrow="ராஜா கணபதி ஆஃப்செட் · பவானி"
+              title="பவானி, ஈரோட்டில்"
+              accent="தரமான ஆஃப்செட் அச்சகம்."
+                deck={buildHeroDeck(samples.map((s) => ({ src: s.src, alt: s.t })))}
+              subtitle="திருமண அழைப்பிதழ்கள், விசிட்டிங் கார்டுகள், மாத & தினசரி காலண்டர்கள், டை-கட் ஸ்டிக்கர் லேபிள்கள், சிற்றேடுகள் மற்றும் புத்தகங்கள் — மல்டிகலர் ஆஃப்செட் அச்சில், 1997 முதல்."
+              primary={{ label: "+91 99944 66277", href: "tel:+919994466277" }}
+            >
+              <p className="text-[13px] text-ink-500">
+                <Link href="/" className="underline underline-offset-4 hover:text-ink-800">
+                  View this site in English
+                </Link>
+              </p>
+            </PageHero>
 
             {/* Services */}
             <section className="bg-white py-24 md:py-32">

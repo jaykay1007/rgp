@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowUpRight, MapPin, Phone } from "lucide-react"
 import Header from "@/components/Header"
+import PageHero from "@/components/PageHero"
 import Footer from "@/components/Footer"
 import SmoothScroll from "@/components/smooth-scroll"
 import { locations } from "@/lib/locations-data"
@@ -84,31 +85,12 @@ export default function PrintingPressHubPage() {
         <div className="min-h-screen bg-ink-50 overflow-x-clip">
           <Header />
           <main>
-            <section className="relative overflow-hidden bg-ink-900 text-white">
-              <div aria-hidden className="absolute inset-0 bg-mesh-dark opacity-70" />
-              <div aria-hidden className="absolute inset-0 press-grid opacity-20" />
-              <div className="container-apple-wide relative z-10 pb-20 pt-36 md:pb-28 md:pt-44">
-                <p className="text-eyebrow uppercase text-cmyk-cyan mb-5">Locations</p>
-                <h1 className="max-w-3xl font-display font-semibold tracking-[-0.03em] text-[clamp(40px,6.5vw,86px)] leading-[1.0]">
-                  A printing press
-                  <br />
-                  <span className="text-gradient-pearl">close to you.</span>
-                </h1>
-                <p className="mt-6 max-w-2xl text-[clamp(16px,1.4vw,20px)] leading-[1.55] text-white/60">
-                  From our Bhavani floor we serve Erode, Komarapalayam, Gobichettipalayam, Anthiyur,
-                  Sathyamangalam and Perundurai — with pickup and local delivery across the district.
-                </p>
-                <div className="mt-9 flex flex-wrap gap-3">
-                  <a
-                    href="tel:+919994466277"
-                    className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[15px] font-medium text-ink-900 transition-colors hover:bg-ink-100"
-                  >
-                    <Phone className="h-4 w-4" strokeWidth={2} />
-                    +91 99944 66277
-                  </a>
-                </div>
-              </div>
-            </section>
+            <PageHero
+              eyebrow="Locations"
+              title="A printing press"
+              accent="close to you."
+              subtitle="From our Bhavani floor we serve Erode, Komarapalayam, Gobichettipalayam, Anthiyur, Sathyamangalam and Perundurai — with pickup and local delivery across the district."
+            />
 
             <section className="bg-white py-24 md:py-32">
               <div className="container-apple-wide grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

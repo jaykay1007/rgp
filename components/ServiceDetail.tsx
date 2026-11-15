@@ -12,6 +12,8 @@ import {
   Plus,
 } from "lucide-react"
 import Header from "@/components/Header"
+import PageHero from "@/components/PageHero"
+import { getServiceHeroVisual } from "@/lib/hero-prints"
 import Footer from "@/components/Footer"
 import SmoothScroll from "@/components/smooth-scroll"
 import type { Service } from "@/lib/services-data"
@@ -32,82 +34,19 @@ export default function ServiceDetail({
 
         <main>
           {/* ---------------------------------------------------------------- Hero */}
-          <section className="relative flex min-h-[88vh] items-end overflow-hidden bg-ink-900 text-white">
-            <Image
-              src={service.hero.src}
-              alt={service.hero.alt}
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover opacity-40"
-            />
-            <div aria-hidden className="absolute inset-0 bg-mesh-dark opacity-60" />
-            <div
-              aria-hidden
-              className="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/55 to-ink-900/30"
-            />
-            <div
-              aria-hidden
-              className="absolute -right-24 top-1/4 h-96 w-96 rounded-full blur-[120px] opacity-40"
-              style={{ backgroundColor: service.tint }}
-            />
-
-            <div className="container-apple-wide relative z-10 pb-16 pt-32 md:pb-20">
-              {/* breadcrumb */}
-              <nav aria-label="Breadcrumb" className="mb-8">
-                <ol className="flex flex-wrap items-center gap-1.5 text-[13px] text-white/55">
-                  <li>
-                    <Link href="/" className="hover:text-white transition-colors">
-                      Home
-                    </Link>
-                  </li>
-                  <ChevronRight className="h-3.5 w-3.5" aria-hidden />
-                  <li>
-                    <Link href="/services" className="hover:text-white transition-colors">
-                      Services
-                    </Link>
-                  </li>
-                  <ChevronRight className="h-3.5 w-3.5" aria-hidden />
-                  <li className="text-white/85">{service.name}</li>
-                </ol>
-              </nav>
-
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease }}
-                className="max-w-3xl"
-              >
-                <div className="mb-5 flex items-center gap-3">
-                  <span className="text-eyebrow uppercase text-cmyk-cyan">{service.category}</span>
-                  {service.tag && (
-                    <span
-                      className="rounded-full border border-white/15 px-3 py-1 text-[11px] font-medium text-white/80"
-                      style={{ backgroundColor: `${service.tint}2a` }}
-                    >
-                      {service.tag}
-                    </span>
-                  )}
-                </div>
-                <h1 className="font-display font-semibold tracking-[-0.03em] text-[clamp(40px,6.5vw,84px)] leading-[1.0]">
-                  {service.name}
-                </h1>
-                <p className="mt-6 max-w-2xl text-[clamp(16px,1.5vw,21px)] leading-[1.5] text-white/65">
-                  {service.tagline}
-                </p>
-
-                <div className="mt-9 flex flex-wrap gap-3">
-                  <a
-                    href="tel:+919994466277"
-                    className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[15px] font-medium text-ink-900 transition-colors hover:bg-ink-100"
-                  >
-                    <Phone className="h-4 w-4" strokeWidth={2} />
-                    +91 99944 66277
-                  </a>
-                </div>
-              </motion.div>
-            </div>
-          </section>
+          <PageHero
+            breadcrumb={[
+              { label: "Home", href: "/" },
+              { label: "Services", href: "/services" },
+              { label: service.name },
+            ]}
+            eyebrow={service.tag ? `${service.category} · ${service.tag}` : service.category}
+            title={service.name}
+            subtitle={service.tagline}
+            secondary={{ label: "All services", href: "/services" }}
+            {...getServiceHeroVisual(service.slug, service.hero)}
+            tint={service.tint}
+          />
 
           {/* ------------------------------------------------------------ Overview */}
           <section className="bg-white py-24 md:py-32">
