@@ -7,15 +7,15 @@ import { SITE_CONFIG, CONTACT_INFO } from "@/lib/seo-config"
 import type { Service } from "@/lib/services-data"
 
 interface LocationPageProps {
-  params: { location: string }
+  params: Promise<{ location: string }>
 }
 
 export function generateStaticParams() {
   return locationSlugs.map((location) => ({ location }))
 }
 
-export function generateMetadata({ params }: LocationPageProps): Metadata {
-  const loc = getLocation(params.location)
+export async function generateMetadata({ params }: LocationPageProps): Promise<Metadata> {
+  const loc = getLocation((await params).location)
   if (!loc) return { title: "Location not found" }
 
   const title = `Printing Press in ${loc.name}, Erode`
@@ -41,8 +41,8 @@ export function generateMetadata({ params }: LocationPageProps): Metadata {
   }
 }
 
-export default function LocationPage({ params }: LocationPageProps) {
-  const loc = getLocation(params.location)
+export default async function LocationPage({ params }: LocationPageProps) {
+  const loc = getLocation((await params).location)
   if (!loc) notFound()
 
   const services = loc.popular

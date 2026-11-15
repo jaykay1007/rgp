@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight, MapPin, Phone, Mail, MessageCircle } from "lucide-react"
+import { ArrowUpRight, MapPin, Phone, Mail } from "lucide-react"
 import { CONTACT_INFO } from "@/lib/seo-config"
 
 const services = [
@@ -58,15 +58,6 @@ export default function Footer() {
             </h2>
           </div>
           <div className="lg:col-span-5 flex flex-wrap gap-3 lg:justify-end">
-            <a
-              href="https://wa.me/919994466277"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-emerald-500 text-white px-6 py-3.5 rounded-full text-[15px] font-medium hover:bg-emerald-600 transition-all"
-            >
-              <MessageCircle className="w-4 h-4" strokeWidth={2} />
-              WhatsApp us
-            </a>
             <a
               href="tel:+919994466277"
               className="inline-flex items-center gap-2 bg-white text-ink-900 px-6 py-3.5 rounded-full text-[15px] font-medium hover:bg-ink-100 transition-all"

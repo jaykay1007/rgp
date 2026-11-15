@@ -91,6 +91,16 @@ const SAMPLE = {
   productLabels: "/images/samples/product-labels-tamil.jpg",
 } as const
 
+// Our own finished jobs, re-shot as clean studio flat-lays (/public/images/collections).
+const COLLECTION = {
+  earPiercingFan: "/images/collections/ear-piercing-ceremony-invitations-tamil.jpg",
+  earPiercingKids: "/images/collections/ear-piercing-invitation-kids-cartoon-design.jpg",
+  puberty: "/images/collections/puberty-ceremony-invitations-tamil.jpg",
+  labelClassic: "/images/collections/product-label-sticker-tea-stall-classic.jpg",
+  labelFestive: "/images/collections/product-label-sticker-tea-stall-festive.jpg",
+  poster: "/images/collections/gold-finance-poster-tamil.jpg",
+} as const
+
 export const services: Service[] = [
   {
     slug: "multicolour-offset-printing",
@@ -105,6 +115,7 @@ export const services: Service[] = [
     hero: { src: IMG.press, alt: "Multicolour offset printing press running at Raja Ganapathi Offset, Bhavani" },
     gallery: [
       { src: IMG.pressSheets, alt: "Freshly printed CMYK offset sheets" },
+      { src: COLLECTION.poster, alt: "Tamil multicolour poster designed and printed for a gold finance company in Bhavani" },
       { src: SAMPLE.calendarMonthly, alt: "Tamil monthly wall calendar printed in multicolour offset" },
       { src: IMG.brochure, alt: "Multicolour brochures printed on the offset press" },
     ],
@@ -140,6 +151,9 @@ export const services: Service[] = [
       "From traditional Tamil thirumana azhaippithal (திருமண அழைப்பிதழ்) to modern minimalist suites, we design and print wedding invitations that feel as special as the occasion — rich multicolour printing on premium and pearl card stocks, with die-cut shapes, matching envelopes and inserts.",
     hero: { src: SAMPLE.weddingTamil, alt: "Tamil wedding invitation (thirumana azhaippithal) with envelope and reception card, printed in Bhavani" },
     gallery: [
+      { src: COLLECTION.earPiercingFan, alt: "Tamil ear-piercing ceremony (kathani vizha) invitations in four multicolour designs" },
+      { src: COLLECTION.puberty, alt: "Tamil puberty ceremony (poopunitha neerattu vizha) invitations with folder, flap card and insert" },
+      { src: COLLECTION.earPiercingKids, alt: "Kathani vizha invitation set with cartoon cover, temple line art and details card" },
       { src: WORK.weddingSuiteSeal, alt: "Wedding invitation suite with RSVP and insert cards" },
       { src: IMG.weddingSuite, alt: "Printed wedding invitation cards and envelopes" },
       { src: IMG.pressSheets, alt: "Wedding cards on the offset press" },
@@ -376,7 +390,7 @@ export const services: Service[] = [
     faqs: [
       { q: "Can you print names and dates for weddings?", a: "Yes — we personalise wedding bags with names, dates and traditional motifs." },
       { q: "Which fabrics can you print on?", a: "Cotton, jute, canvas and non-woven — choose by budget and use." },
-      { q: "Is there a minimum order?", a: "Bag printing is most economical in bulk; share your quantity for a quote." },
+      { q: "Is there a minimum order?", a: "Bag printing is most economical in bulk; tell us your quantity and we will advise." },
     ],
     related: ["wedding-invitations", "promotional-materials", "sticker-labels"],
     keywords: ["bag printing bhavani", "cotton bag printing erode", "jute bag printing", "wedding return gift bags"],
@@ -464,6 +478,8 @@ export const services: Service[] = [
       "Every label, cut to fit. We print multicolour sticker labels and die-cut them to any shape — round, oval, square, rectangle, star or a custom outline that follows your logo. Paper, vinyl, transparent and waterproof stocks, supplied on sheets or rolls so they are easy to peel and apply. Tamil, English or bilingual.",
     hero: { src: SAMPLE.stickers, alt: "Sheet of Tamil die-cut sticker labels in round, oval, star, heart and barcode shapes" },
     gallery: [
+      { src: COLLECTION.labelFestive, alt: "Multicolour Tamil product label for a tea stall's sweets and savouries, with FSSAI and veg marks" },
+      { src: COLLECTION.labelClassic, alt: "Tamil snack-pack sticker label design with shop name, contact numbers and address" },
       { src: SAMPLE.productLabels, alt: "Tamil product labels on honey, ghee, sesame oil and turmeric jars" },
       { src: IMG.pressSheets, alt: "Printed sticker label sheets before die-cutting" },
       { src: IMG.press, alt: "Sticker labels printing on the multicolour offset press" },
@@ -480,7 +496,7 @@ export const services: Service[] = [
     faqs: [
       { q: "Can you cut stickers to a custom shape?", a: "Yes — we make a die for your exact outline, from a simple circle to the shape of your logo." },
       { q: "Are the stickers waterproof?", a: "Choose vinyl or laminated stocks for waterproof, oil-resistant labels — ideal for ghee, oil, honey and other food products." },
-      { q: "What sizes can you print?", a: "Any size — from small logo stickers to large product labels. Share your size and quantity for a quote." },
+      { q: "What sizes can you print?", a: "Any size — from small logo stickers to large product labels. Tell us your size and quantity and we will advise." },
     ],
     related: ["multicolour-offset-printing", "visiting-cards", "calendar-printing"],
     keywords: ["die cut sticker printing bhavani", "sticker label printing erode", "product label printing tamil nadu", "custom shape stickers erode"],

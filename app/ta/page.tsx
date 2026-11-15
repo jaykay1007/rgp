@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight, MessageCircle, Phone, MapPin } from "lucide-react"
+import { ArrowUpRight, Phone, MapPin } from "lucide-react"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import SmoothScroll from "@/components/smooth-scroll"
@@ -110,15 +110,6 @@ export default function TamilPage() {
                   ஸ்டிக்கர் லேபிள்கள், சிற்றேடுகள் மற்றும் புத்தகங்கள் — மல்டிகலர் ஆஃப்செட் அச்சில், 1997 முதல்.
                 </p>
                 <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-                  <a
-                    href="https://wa.me/919994466277?text=%E0%AE%B5%E0%AE%A3%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%AE%E0%AF%8D%2C%20%E0%AE%85%E0%AE%9A%E0%AF%8D%E0%AE%9A%E0%AF%81%20%E0%AE%B5%E0%AE%BF%E0%AE%B2%E0%AF%88%20%E0%AE%B5%E0%AF%87%E0%AE%A3%E0%AF%8D%E0%AE%9F%E0%AF%81%E0%AE%AE%E0%AF%8D"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-6 py-3.5 text-[15px] font-medium text-white transition-colors hover:bg-emerald-600"
-                  >
-                    <MessageCircle className="h-4 w-4" strokeWidth={2} />
-                    வாட்ஸ்அப்பில் தொடர்பு கொள்ளுங்கள்
-                  </a>
                   <a
                     href="tel:+919994466277"
                     className="inline-flex items-center gap-2 rounded-full bg-ink-900 px-6 py-3.5 text-[15px] font-medium text-white transition-colors hover:bg-ink-800"

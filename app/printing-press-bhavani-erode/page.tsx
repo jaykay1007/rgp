@@ -11,7 +11,7 @@ const YEARS = SITE_CONFIG.yearsInBusiness
 
 export const metadata: Metadata = {
   title: "Best Offset Printing Press in Bhavani, Erode | Raja Ganapathi Offset | Commercial Printing Services",
-  description: "Raja Ganapathi Offset - #1 Printing Press in Bhavani since 1997. Expert in multicolour offset printing, wedding cards, digital & PVC visiting cards, monthly & daily calendars, die-cut sticker labels, brochures, bill books, letterheads. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi, Salem. Call +91 9994466277 for quotes.",
+  description: "Raja Ganapathi Offset - #1 Printing Press in Bhavani since 1997. Expert in multicolour offset printing, wedding cards, digital & PVC visiting cards, monthly & daily calendars, die-cut sticker labels, brochures, bill books, letterheads. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi, Salem. Call +91 9994466277.",
   keywords: [
     "printing press bhavani",
     "offset printing bhavani",
@@ -126,12 +126,6 @@ function HeroSection() {
             >
               <Phone className="w-5 h-5" />
               Call +91 9994466277
-            </a>
-            <a
-              href={`https://wa.me/${CONTACT_INFO.whatsapp}`}
-              className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-lg transition-all transform hover:scale-105"
-            >
-              Get Free Quote on WhatsApp
             </a>
           </div>
           
@@ -416,7 +410,7 @@ function LocationsServedSection() {
         <div className="mt-12 bg-gradient-to-r from-[#0F172A] to-[#1e293b] rounded-xl p-8 text-white text-center">
           <h3 className="text-2xl font-bold mb-4">Looking for Printing Services Near You?</h3>
           <p className="text-lg mb-6 text-gray-300">
-            We serve all areas in and around Bhavani, Erode district. Contact us for free quotes and delivery options.
+            We serve all areas in and around Bhavani, Erode district. Contact us for delivery options.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
@@ -506,13 +500,6 @@ function WhyChooseSection() {
           <p className="text-lg text-gray-300 mb-6 max-w-2xl mx-auto">
             Join thousands of satisfied customers who trust us for all their printing needs. Quality, reliability, and excellence in every print.
           </p>
-          <a
-            href={`https://wa.me/${CONTACT_INFO.whatsapp}?text=Hi, I would like to get a quote for printing services`}
-            className="inline-flex items-center gap-2 bg-[#D4AF37] hover:bg-[#C4A137] text-[#0F172A] font-bold px-8 py-4 rounded-lg transition-all transform hover:scale-105"
-          >
-            Get Free Quote on WhatsApp
-            <ArrowRight className="w-5 h-5" />
-          </a>
         </div>
       </div>
     </section>
@@ -626,8 +613,8 @@ function ProcessSection() {
   const steps = [
     {
       step: "1",
-      title: "Consultation & Quote",
-      desc: "Contact us via phone, WhatsApp, or visit our press. Share your requirements and get instant quote."
+      title: "Consultation",
+      desc: "Call us or visit our press. Share your requirements and we will recommend the right approach."
     },
     {
       step: "2",
@@ -700,7 +687,7 @@ function FAQSection() {
     },
     {
       q: "What are your business hours and contact details?",
-      a: "We are open Monday to Saturday from 9:30 AM to 2:00 PM and 4:00 PM to 8:00 PM. Closed on Sundays. You can reach us at +91 9994466277 (Phone/WhatsApp) or email us at rgpbvn@gmail.com. Visit us at 24 Palani Andavar Kovil Street, Bhavani - 638301 (Opposite CSI School)."
+      a: "We are open Monday to Saturday from 9:30 AM to 2:00 PM and 4:00 PM to 8:00 PM. Closed on Sundays. You can reach us at +91 9994466277 or email us at rgpbvn@gmail.com. Visit us at 24 Palani Andavar Kovil Street, Bhavani - 638301 (Opposite CSI School)."
     },
     {
       q: "Do you offer custom wedding card design services?",
@@ -717,10 +704,6 @@ function FAQSection() {
     {
       q: "What paper quality and finishing options are available?",
       a: "We offer a wide range of paper options including art paper (various GSM), maplitho, bond paper, card stock, textured papers, pearl card stocks, vinyl and PVC. Finishing options include lamination (gloss/matte), die cutting to any shape, punching, perforation, numbering, calendar binding and various book binding methods."
-    },
-    {
-      q: "How can I get a quote for my printing project?",
-      a: "Getting a quote is easy! You can call us at +91 9994466277, send a WhatsApp message with your requirements, email us at rgpbvn@gmail.com, or visit our press in person. Please provide details about your project including quantity, size, paper type, colors, and any special finishes required. We will provide a detailed quote promptly."
     },
     {
       q: "Do you offer bag printing services for businesses?",
@@ -773,12 +756,6 @@ function FAQSection() {
               <Phone className="w-5 h-5" />
               Call +91 9994466277
             </a>
-            <a
-              href={`https://wa.me/${CONTACT_INFO.whatsapp}`}
-              className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-3 rounded-lg transition-all"
-            >
-              WhatsApp Us
-            </a>
           </div>
         </div>
       </div>
@@ -804,12 +781,6 @@ function CTASection() {
           >
             <Phone className="w-6 h-6" />
             Call Now: +91 9994466277
-          </a>
-          <a
-            href={`https://wa.me/${CONTACT_INFO.whatsapp}?text=Hi, I would like to get a quote for printing services`}
-            className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-lg transition-all transform hover:scale-105 text-lg"
-          >
-            Get Free Quote on WhatsApp
           </a>
         </div>
 

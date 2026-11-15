@@ -6,6 +6,7 @@ import PrintingProcess from "@/components/printing-process"
 import WhyChooseUs from "@/components/WhyChooseUs"
 import FinishLab from "@/components/FinishLab"
 import Showcase from "@/components/Showcase"
+import CalendarCatalogue from "@/components/CalendarCatalogue"
 import FAQ from "@/components/FAQ"
 import Contact from "@/components/Contact"
 import Footer from "@/components/Footer"
@@ -28,6 +29,7 @@ export default function Home() {
           <Services />
           <Specialties />
           <Showcase />
+          <CalendarCatalogue />
           <PrintingProcess />
           <WhyChooseUs />
           <FinishLab />

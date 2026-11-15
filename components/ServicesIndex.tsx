@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { ArrowUpRight, MessageCircle, Phone } from "lucide-react"
+import { ArrowUpRight, Phone } from "lucide-react"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import SmoothScroll from "@/components/smooth-scroll"
@@ -43,15 +43,6 @@ export default function ServicesIndex() {
                   trusted across Erode district since 1997.
                 </p>
                 <div className="mt-9 flex flex-wrap gap-3">
-                  <a
-                    href="https://wa.me/919994466277"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-6 py-3.5 text-[15px] font-medium text-white transition-colors hover:bg-emerald-600"
-                  >
-                    <MessageCircle className="h-4 w-4" strokeWidth={2} />
-                    WhatsApp us
-                  </a>
                   <a
                     href="tel:+919994466277"
                     className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[15px] font-medium text-ink-900 transition-colors hover:bg-ink-100"

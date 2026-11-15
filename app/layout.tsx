@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_CONFIG.name} | Printing Press Bhavani Erode`,
   },
   description:
-    "Multicolour offset printing press in Bhavani, Erode since 1997. Tamil wedding invitations, digital & PVC visiting cards, monthly & daily calendars, die-cut sticker labels, brochures and books. Free quote in 1 hour. Call +91 99944 66277.",
+    "Multicolour offset printing press in Bhavani, Erode since 1997. Tamil wedding invitations, digital & PVC visiting cards, monthly & daily calendars, die-cut sticker labels, brochures and books. Call +91 99944 66277.",
   applicationName: SITE_CONFIG.name,
   keywords: [
     ...PRIMARY_KEYWORDS,
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     title:
       "Raja Ganapathi Offset — Premium Printing Press in Bhavani, Erode (Since 1997)",
     description:
-      "Wedding cards, digital & PVC visiting cards, monthly & daily calendars, die-cut sticker labels and multicolour offset printing in Bhavani, Erode. Free quote in 1 hour.",
+      "Wedding cards, digital & PVC visiting cards, monthly & daily calendars, die-cut sticker labels and multicolour offset printing in Bhavani, Erode.",
     url: SITE_CONFIG.domain,
     siteName: SITE_CONFIG.name,
     // OG image is provided by app/opengraph-image.tsx (generated, never 404s).
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     title:
       "Raja Ganapathi Offset — Premium Printing Press in Bhavani, Erode",
     description:
-      "Wedding cards, visiting cards, calendars, sticker labels & offset printing in Bhavani, Erode. Since 1997. Free quote in 1 hour.",
+      "Wedding cards, visiting cards, calendars, sticker labels & offset printing in Bhavani, Erode. Since 1997.",
     creator: "@rajaganapathioffset",
     site: "@rajaganapathioffset",
   },

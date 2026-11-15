@@ -8,7 +8,6 @@ import {
   ArrowUpRight,
   Check,
   ChevronRight,
-  MessageCircle,
   Phone,
   Plus,
 } from "lucide-react"
@@ -26,8 +25,6 @@ export default function ServiceDetail({
   service: Service
   related: Service[]
 }) {
-  const waText = encodeURIComponent(`Hi! I'm interested in ${service.name} — can you share a quote?`)
-
   return (
     <SmoothScroll>
       <div className="min-h-screen bg-ink-50 overflow-x-clip">
@@ -100,15 +97,6 @@ export default function ServiceDetail({
                 </p>
 
                 <div className="mt-9 flex flex-wrap gap-3">
-                  <a
-                    href={`https://wa.me/919994466277?text=${waText}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-6 py-3.5 text-[15px] font-medium text-white transition-colors hover:bg-emerald-600"
-                  >
-                    <MessageCircle className="h-4 w-4" strokeWidth={2} />
-                    Get a quote on WhatsApp
-                  </a>
                   <a
                     href="tel:+919994466277"
                     className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[15px] font-medium text-ink-900 transition-colors hover:bg-ink-100"
@@ -365,18 +353,16 @@ export default function ServiceDetail({
                     <span className="text-gradient-pearl">{service.name.toLowerCase()}.</span>
                   </h2>
                   <p className="mt-5 max-w-xl text-[16px] leading-[1.55] text-white/70">
-                    Visit our press floor in Bhavani, or send your details — we&apos;ll share samples,
-                    paper options and a quote within the hour.
+                    Visit our press floor in Bhavani or call us — we&apos;ll show you samples
+                    and paper options.
                   </p>
                   <div className="mt-8 flex flex-wrap gap-3">
                     <a
-                      href={`https://wa.me/919994466277?text=${waText}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href="tel:+919994466277"
                       className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[15px] font-medium text-ink-900 transition-colors hover:bg-ink-100"
                     >
-                      <MessageCircle className="h-4 w-4" strokeWidth={2} />
-                      WhatsApp us
+                      <Phone className="h-4 w-4" strokeWidth={2} />
+                      Call +91 99944 66277
                     </a>
                     <Link
                       href="/services"

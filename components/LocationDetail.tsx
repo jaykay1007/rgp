@@ -9,7 +9,6 @@ import {
   ChevronRight,
   Clock,
   MapPin,
-  MessageCircle,
   Phone,
   Plus,
   Truck,
@@ -31,10 +30,6 @@ export default function LocationDetail({
   location: Location
   services: Service[]
 }) {
-  const waText = encodeURIComponent(
-    `Hi! I'm from ${location.name} — I'd like a printing quote.`
-  )
-
   return (
     <SmoothScroll>
       <div className="min-h-screen bg-ink-50 overflow-x-clip">
@@ -81,15 +76,6 @@ export default function LocationDetail({
                   {location.tagline}
                 </p>
                 <div className="mt-9 flex flex-wrap gap-3">
-                  <a
-                    href={`https://wa.me/919994466277?text=${waText}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-6 py-3.5 text-[15px] font-medium text-white transition-colors hover:bg-emerald-600"
-                  >
-                    <MessageCircle className="h-4 w-4" strokeWidth={2} />
-                    Get a quote on WhatsApp
-                  </a>
                   <a
                     href="tel:+919994466277"
                     className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[15px] font-medium text-ink-900 transition-colors hover:bg-ink-100"
@@ -258,18 +244,16 @@ export default function LocationDetail({
                     <span className="text-gradient-pearl">Let&apos;s get started.</span>
                   </h2>
                   <p className="mt-5 max-w-xl text-[16px] leading-[1.55] text-white/70">
-                    Send your details on WhatsApp or call us — we&apos;ll share samples, paper
-                    options and a quote within the hour, and arrange delivery to {location.name}.
+                    Call us or visit our press floor — we&apos;ll show you samples and paper
+                    options, and arrange delivery to {location.name}.
                   </p>
                   <div className="mt-8 flex flex-wrap gap-3">
                     <a
-                      href={`https://wa.me/919994466277?text=${waText}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href="tel:+919994466277"
                       className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[15px] font-medium text-ink-900 transition-colors hover:bg-ink-100"
                     >
-                      <MessageCircle className="h-4 w-4" strokeWidth={2} />
-                      WhatsApp us
+                      <Phone className="h-4 w-4" strokeWidth={2} />
+                      Call +91 99944 66277
                     </a>
                     <Link
                       href="/printing-press"

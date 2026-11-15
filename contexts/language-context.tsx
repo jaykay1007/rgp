@@ -24,7 +24,6 @@ export const translations = {
     "nav.specialties": "Specialties",
     "nav.process": "Process",
     "nav.contact": "Contact",
-    "nav.getQuote": "Get a Quote",
 
     // Hero Section
     "hero.title1": "Premium",
@@ -34,7 +33,6 @@ export const translations = {
     "hero.description":
       "Bringing your ideas to life with vibrant colors and exceptional quality. Your trusted printing partner for all your needs.",
     "hero.services": "Our Services",
-    "hero.getQuote": "Get a Quote",
 
     // Services Section
     "services.title": "Our Printing Services",
@@ -61,7 +59,7 @@ export const translations = {
     "contact.getInTouch": "Get in Touch",
     "contact.visitUs": "Visit Us",
     "contact.description":
-      "Have a project in mind? Contact us today for a free quote or to discuss your printing needs.",
+      "Have a project in mind? Contact us today to discuss your printing needs.",
     "contact.sendMessage": "Send Us a Message",
     "contact.info": "Contact Information",
     "contact.location": "Our Location",
@@ -91,7 +89,6 @@ export const translations = {
     "nav.specialties": "சிறப்புகள்",
     "nav.process": "செயல்முறை",
     "nav.contact": "தொடர்பு",
-    "nav.getQuote": "விலை பெறுக",
 
     // Hero Section
     "hero.title1": "உயர்தர",
@@ -101,7 +98,6 @@ export const translations = {
     "hero.description":
       "உங்கள் யோசனைகளை வண்ணமயமான நிறங்கள் மற்றும் சிறந்த தரத்துடன் உயிர்ப்பிக்கிறோம். உங்கள் அனைத்து தேவைகளுக்கும் நம்பகமான அச்சுப்பதிப்பு கூட்டாளி.",
     "hero.services": "எங்கள் சேவைகள்",
-    "hero.getQuote": "விலை பெறுக",
 
     // Services Section
     "services.title": "எங்கள் அச்சுப்பதிப்பு சேவைகள்",

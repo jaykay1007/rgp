@@ -4,7 +4,7 @@ import { useRef, useState, useCallback, useEffect } from "react"
 import Image from "next/image"
 import type { MotionValue } from "framer-motion"
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion"
-import { CreditCard, Heart, FileText, Sticker, ImagePlus, MessageCircle, ArrowUpRight, X } from "lucide-react"
+import { CreditCard, Heart, FileText, Sticker, ImagePlus, ArrowUpRight, X } from "lucide-react"
 
 /* ------------------------------------------------------------------ *
  * Product templates — each renders its own layout in the live preview
@@ -213,19 +213,6 @@ export default function FinishLab() {
   const displayName = name.trim() || product.namePlaceholder
   const displayLine2 = line2.trim() || product.line2Placeholder
 
-  const whatsapp = `https://wa.me/919994466277?text=${encodeURIComponent(
-    [
-      `Hi Raja Ganapathi Offset! I designed a ${product.label.toLowerCase()} in your Print Lab:`,
-      `• Print: ${finish.label}`,
-      `• Stock: ${stock.label}`,
-      `• Text: "${displayName}"${displayLine2 ? ` / "${displayLine2}"` : ""}`,
-      logo ? "• I have a logo/artwork to share." : null,
-      "Can you share a quote?",
-    ]
-      .filter(Boolean)
-      .join("\n")
-  )}`
-
   return (
     <section
       ref={sectionRef}
@@ -252,8 +239,7 @@ export default function FinishLab() {
           </h2>
           <p className="mt-6 text-[clamp(16px,1.3vw,19px)] text-white/60 leading-[1.55]">
             Pick a product, add your own name, details and logo, then try the print styles,
-            laminations and stocks we use on the press floor — in Tamil or English. Send your
-            design straight to our team on WhatsApp.
+            laminations and stocks we use on the press floor — in Tamil or English.
           </p>
         </motion.div>
 
@@ -402,15 +388,6 @@ export default function FinishLab() {
             </motion.p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href={whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-emerald-500 text-white px-7 py-3.5 rounded-full text-[15px] font-medium hover:bg-emerald-600 transition-all duration-300 hover:scale-[1.02]"
-              >
-                <MessageCircle className="w-4 h-4" strokeWidth={2} />
-                Send my {product.label.toLowerCase()} design
-              </a>
               <a
                 href={`/services/${product.serviceSlug}`}
                 className="inline-flex items-center gap-1.5 text-white/70 text-[14px] font-medium hover:text-white transition-colors"

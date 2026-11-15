@@ -74,7 +74,6 @@ export const generateLocalBusinessSchema = () => ({
   sameAs: [
     "https://www.facebook.com/rajaganapathioffset",
     "https://www.instagram.com/rajaganapathioffset",
-    "https://wa.me/919994466277",
   ],
   contactPoint: {
     "@type": "ContactPoint",

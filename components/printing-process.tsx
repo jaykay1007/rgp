@@ -23,7 +23,7 @@ const steps = [
     number: "01",
     title: "Talk it through",
     description:
-      "Drop by the shop or message us on WhatsApp. We listen to your idea, show you paper samples and past work, and recommend the right approach.",
+      "Drop by the shop or give us a call. We listen to your idea, show you paper samples and past work, and recommend the right approach.",
     icon: MessageSquare,
     tint: "#00B5E2",
   },

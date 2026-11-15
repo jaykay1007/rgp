@@ -13,25 +13,28 @@ type Work = {
   href: string
   span: string
   tint: string
+  /** Optional CSS object-position for tall artwork */
+  position?: string
 }
 
 // Tamil sample designs (/public/images/samples) + work photography (/public/images/works)
 const work: Work[] = [
   {
+    title: "Custom Calendar Printing",
+    category: "Daily & monthly sheet calendars · Your name on every sheet",
+    image: "/images/calendars/daily-sheet-calendar-board-sri-saai-bramma-engineerings.jpg",
+    position: "50% 12%",
+    href: "/services/calendar-printing",
+    span: "row-span-2 md:col-span-7",
+    tint: "from-red-500/50",
+  },
+  {
     title: "அருண்குமார் – பிரியதர்ஷினி",
     category: "Wedding Invitations · Tamil multicolour card",
     image: "/images/samples/wedding-invitation-tamil.jpg",
     href: "/services/wedding-invitations",
-    span: "md:col-span-7 md:row-span-2",
-    tint: "from-rose-500/50",
-  },
-  {
-    title: "ஸ்ரீ லக்ஷ்மி ஜுவல்லர்ஸ்",
-    category: "Calendar Printing · Daily tear-off calendar",
-    image: "/images/samples/calendar-daily-tamil.jpg",
-    href: "/services/calendar-printing",
     span: "md:col-span-5",
-    tint: "from-red-500/50",
+    tint: "from-rose-500/50",
   },
   {
     title: "ஸ்ரீ முருகன் டெக்ஸ்டைல்ஸ்",
@@ -56,6 +59,47 @@ const work: Work[] = [
     href: "/services/book-printing",
     span: "md:col-span-8",
     tint: "from-emerald-500/50",
+  },
+  {
+    title: "Kathani Vizha Invitations",
+    category: "Function Invitations · Ear-piercing ceremony",
+    image: "/images/collections/ear-piercing-ceremony-invitations-tamil.jpg",
+    href: "/services/wedding-invitations",
+    span: "md:col-span-4",
+    tint: "from-amber-500/40",
+  },
+  {
+    title: "Poopunitha Neerattu Vizha",
+    category: "Function Invitations · Puberty ceremony",
+    image: "/images/collections/puberty-ceremony-invitations-tamil.jpg",
+    href: "/services/wedding-invitations",
+    span: "md:col-span-4",
+    tint: "from-pink-500/40",
+  },
+  {
+    title: "Kids' Cartoon Invitation Set",
+    category: "Function Invitations · Cover, line art & details card",
+    image: "/images/collections/ear-piercing-invitation-kids-cartoon-design.jpg",
+    href: "/services/wedding-invitations",
+    span: "md:col-span-4",
+    tint: "from-yellow-500/40",
+  },
+  {
+    title: "Snack-pack Product Labels",
+    category: "Sticker Labels · Designed & printed in-house",
+    image: "/images/collections/product-label-sticker-tea-stall-festive.jpg",
+    href: "/services/sticker-labels",
+    span: "md:col-span-7",
+    tint: "from-green-600/40",
+  },
+  {
+    title: "Posters & Handbills",
+    category: "Multicolour Offset · Shop & finance posters",
+    image: "/images/collections/gold-finance-poster-tamil.jpg",
+    position: "50% 22%",
+    href: "/services/multicolour-offset-printing",
+    span: "md:col-span-5",
+    tint: "from-emerald-700/40",
   },
 ]
 
@@ -108,6 +152,7 @@ export default function Showcase() {
                   alt={`${w.title} — ${w.category} printed by Raja Ganapathi Offset Bhavani`}
                   fill
                   sizes="(min-width: 768px) 60vw, 100vw"
+                  style={w.position ? { objectPosition: w.position } : undefined}
                   className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,_1,_0.3,_1)] group-hover:scale-[1.07]"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-t ${w.tint} to-transparent opacity-60`} />

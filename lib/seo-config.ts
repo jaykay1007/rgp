@@ -14,7 +14,6 @@ export const CONTACT_INFO = {
   phone: "+91 9994466277",
   phoneFormatted: "+919994466277",
   email: "rgpbvn@gmail.com",
-  whatsapp: "919994466277",
   address: {
     street: "24 Palani Andavar Kovil Street",
     landmark: "Opposite CSI School",
@@ -148,7 +147,7 @@ export const FAQ_DATA = [
   },
   {
     question: "What are your business hours?",
-    answer: "We are open Monday to Saturday from 9:30 AM to 2:00 PM and 4:00 PM to 8:00 PM. We are closed on Sundays. For urgent orders, please contact us via WhatsApp at +91 9994466277.",
+    answer: "We are open Monday to Saturday from 9:30 AM to 2:00 PM and 4:00 PM to 8:00 PM. We are closed on Sundays. For urgent orders, please call us at +91 9994466277.",
   },
   {
     question: "Do you offer custom wedding card designs?",
@@ -160,7 +159,7 @@ export const FAQ_DATA = [
   },
   {
     question: "How do I start a printing project with you?",
-    answer: "The best way is to visit our press floor at 24 Palani Andavar Kovil Street, Bhavani. You can feel the paper stocks, see real samples of our work, and plan your project face-to-face with our team — no appointment needed. Prefer to start remotely? Call us at +91 9994466277, message us on WhatsApp, or email rgpbvn@gmail.com with your project details and we'll guide you from there.",
+    answer: "The best way is to visit our press floor at 24 Palani Andavar Kovil Street, Bhavani. You can feel the paper stocks, see real samples of our work, and plan your project face-to-face with our team — no appointment needed. Prefer to start remotely? Call us at +91 9994466277 or email rgpbvn@gmail.com with your project details and we'll guide you from there.",
   },
   {
     question: "Do you offer express or urgent printing services?",
@@ -231,7 +230,7 @@ export const generateMetaDescription = (page?: string) => {
     case "services":
       return `Explore our comprehensive printing services - multicolor offset printing, wedding cards, visiting cards, calendars, sticker labels, letterheads, brochures, and more. Quality printing in Bhavani, Erode district.`;
     case "contact":
-      return `Contact Raja Ganapathi Offset Press in Bhavani. Address: 24 Palani Andavar Kovil Street, Bhavani 638301. Phone: +91 9994466277. Email: rgpbvn@gmail.com. Get quotes for all printing needs.`;
+      return `Contact Raja Ganapathi Offset Press in Bhavani. Address: 24 Palani Andavar Kovil Street, Bhavani 638301. Phone: +91 9994466277. Email: rgpbvn@gmail.com.`;
     default:
       return `${base}Quality printing services for wedding cards, visiting cards, calendars, sticker labels and brochures in Bhavani, Erode, Tamil Nadu. ${SITE_CONFIG.yearsInBusiness}+ years of excellence.`;
   }

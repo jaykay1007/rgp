@@ -104,7 +104,7 @@ export const locations: Location[] = [
     popular: ["wedding-invitations", "visiting-cards", "promotional-materials", "stationery-printing"],
     faqs: [
       { q: "Do you deliver printing to Anthiyur?", a: "Yes — we provide on-time delivery to Anthiyur and the surrounding villages." },
-      { q: "Can I order wedding cards from Anthiyur?", a: "Yes, share your details by WhatsApp or visit our Bhavani shop to choose designs and paper." },
+      { q: "Can I order wedding cards from Anthiyur?", a: "Yes, call us or visit our Bhavani shop to choose designs and paper." },
       { q: "Do you print pamphlets and posters for local events?", a: "Yes, we print bulk flyers, pamphlets and posters with quick turnaround." },
     ],
     keywords: ["printing press anthiyur", "wedding card printing anthiyur", "offset printing anthiyur", "pamphlet printing anthiyur"],

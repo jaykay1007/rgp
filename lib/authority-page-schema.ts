@@ -103,8 +103,7 @@ export const generateAuthorityPageSchema = () => {
       ],
       "sameAs": [
         "https://www.facebook.com/rajaganapathioffset",
-        "https://www.instagram.com/rajaganapathioffset",
-        `https://wa.me/${CONTACT_INFO.whatsapp}`
+        "https://www.instagram.com/rajaganapathioffset"
       ],
       "aggregateRating": {
         "@type": "AggregateRating",
