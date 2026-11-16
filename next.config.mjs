@@ -51,19 +51,34 @@ const nextConfig = {
       { protocol: "https", hostname: "plus.unsplash.com", port: "", pathname: "/**" },
     ],
   },
+  // Packaging services were retired; send old URLs (and any backlinks/rankings)
+  // to the closest live service.
+  async redirects() {
+    return [
+      { source: "/services/packaging-printing", destination: "/services/sticker-labels", permanent: true },
+      { source: "/services/packaging-materials", destination: "/services/sticker-labels", permanent: true },
+      { source: "/services/turmeric-packaging", destination: "/services/sticker-labels", permanent: true },
+    ]
+  },
   async headers() {
     return [
       {
         source: "/:path*",
         headers: securityHeaders,
       },
-      {
-        // Long-cache immutable hashed static assets.
-        source: "/_next/static/:path*",
-        headers: [
-          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
-        ],
-      },
+      // Long-cache immutable hashed static assets. Production only: dev chunk
+      // URLs are not content-hashed, so caching them makes the browser keep
+      // stale client code after an edit (hydration mismatches).
+      ...(process.env.NODE_ENV === "production"
+        ? [
+            {
+              source: "/_next/static/:path*",
+              headers: [
+                { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+              ],
+            },
+          ]
+        : []),
     ]
   },
   experimental: {

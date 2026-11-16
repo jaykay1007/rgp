@@ -1,10 +1,13 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight, MessageCircle, Phone, MapPin } from "lucide-react"
+import { ArrowUpRight, Phone, MapPin } from "lucide-react"
 import Header from "@/components/Header"
+import PageHero from "@/components/PageHero"
 import Footer from "@/components/Footer"
 import SmoothScroll from "@/components/smooth-scroll"
 import { SITE_CONFIG } from "@/lib/seo-config"
+import { buildHeroDeck } from "@/lib/hero-prints"
 
 const url = `${SITE_CONFIG.domain}/ta`
 
@@ -13,7 +16,7 @@ const url = `${SITE_CONFIG.domain}/ta`
 export const metadata: Metadata = {
   title: "பவானி, ஈரோட்டில் தரமான ஆஃப்செட் அச்சகம் | ராஜா கணபதி ஆஃப்செட்",
   description:
-    "ராஜா கணபதி ஆஃப்செட் — 1997 முதல் பவானி, ஈரோட்டில் நம்பகமான ஆஃப்செட் அச்சகம். திருமண அழைப்பிதழ், விசிட்டிங் கார்டு, சிற்றேடு, பேக்கேஜிங் மற்றும் மல்டிகலர் அச்சு. அழைக்க +91 99944 66277.",
+    "ராஜா கணபதி ஆஃப்செட் — 1997 முதல் பவானி, ஈரோட்டில் நம்பகமான மல்டிகலர் ஆஃப்செட் அச்சகம். திருமண அழைப்பிதழ், டிஜிட்டல் & PVC விசிட்டிங் கார்டு, மாத & தினசரி காலண்டர், டை-கட் ஸ்டிக்கர் லேபிள். அழைக்க +91 99944 66277.",
   alternates: {
     canonical: url,
     languages: {
@@ -25,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "பவானி, ஈரோட்டில் தரமான ஆஃப்செட் அச்சகம் | ராஜா கணபதி ஆஃப்செட்",
     description:
-      "1997 முதல் பவானி, ஈரோட்டில் நம்பகமான ஆஃப்செட் அச்சகம். திருமண அழைப்பிதழ், விசிட்டிங் கார்டு, சிற்றேடு, பேக்கேஜிங்.",
+      "1997 முதல் பவானி, ஈரோட்டில் நம்பகமான மல்டிகலர் ஆஃப்செட் அச்சகம். திருமண அழைப்பிதழ், விசிட்டிங் கார்டு, காலண்டர், ஸ்டிக்கர் லேபிள்.",
     url,
     type: "website",
     locale: "ta_IN",
@@ -34,18 +37,32 @@ export const metadata: Metadata = {
 
 const services = [
   { ta: "திருமண அழைப்பிதழ்கள்", href: "/services/wedding-invitations" },
-  { ta: "விசிட்டிங் கார்டுகள்", href: "/services/visiting-cards" },
+  { ta: "டிஜிட்டல் & PVC விசிட்டிங் கார்டுகள்", href: "/services/visiting-cards" },
+  { ta: "மாத & தினசரி காலண்டர்கள்", href: "/services/calendar-printing" },
+  { ta: "டை-கட் ஸ்டிக்கர் லேபிள்கள்", href: "/services/sticker-labels" },
   { ta: "மல்டிகலர் ஆஃப்செட் அச்சு", href: "/services/multicolour-offset-printing" },
   { ta: "சிற்றேடு & கேடலாக்", href: "/services/brochures" },
   { ta: "புத்தக அச்சு", href: "/services/book-printing" },
+  { ta: "பில் புத்தகம் & லெட்டர்ஹெட்", href: "/services/stationery-printing" },
+  { ta: "போஸ்டர் & நோட்டீஸ்", href: "/services/promotional-materials" },
+  { ta: "பள்ளி டைரி & கல்வி அச்சு", href: "/services/educational-materials" },
   { ta: "பை அச்சு (காட்டன் & சணல்)", href: "/services/bag-printing" },
-  { ta: "பில் புத்தகம் & லெட்டர்ஹெட்", href: "/services/business-stationery" },
-  { ta: "பேக்கேஜிங் & பெட்டிகள்", href: "/services/packaging-printing" },
+  { ta: "பவானி ஜமக்காளம் சிற்றேடுகள்", href: "/services/bhavani-jamakkalam-brochures" },
+]
+
+// Tamil sample designs — shown so Tamil-speaking customers see their own script in print.
+const samples = [
+  { src: "/images/samples/wedding-invitation-tamil.jpg", t: "திருமண அழைப்பிதழ்", href: "/services/wedding-invitations" },
+  { src: "/images/samples/calendar-daily-tamil.jpg", t: "தினசரி காலண்டர்", href: "/services/calendar-printing" },
+  { src: "/images/samples/calendar-monthly-tamil.jpg", t: "மாத காலண்டர்", href: "/services/calendar-printing" },
+  { src: "/images/samples/visiting-cards-digital-pvc-tamil.jpg", t: "டிஜிட்டல் & PVC விசிட்டிங் கார்டு", href: "/services/visiting-cards" },
+  { src: "/images/samples/die-cut-sticker-labels-tamil.jpg", t: "டை-கட் ஸ்டிக்கர்கள்", href: "/services/sticker-labels" },
+  { src: "/images/samples/product-labels-tamil.jpg", t: "தயாரிப்பு லேபிள்கள்", href: "/services/sticker-labels" },
 ]
 
 const reasons = [
   { t: `${SITE_CONFIG.yearsInBusiness}+ ஆண்டுகள் அனுபவம்`, d: "1997 முதல் பவானி – ஈரோடு மாவட்டத்தின் நம்பகமான அச்சகம்." },
-  { t: "ஹைடெல்பெர்க் ஆஃப்செட்", d: "உண்மையான CMYK + பாண்டோன் வண்ணங்கள், 2400 DPI கூர்மை." },
+  { t: "மல்டிகலர் ஆஃப்செட்", d: "உண்மையான CMYK + பாண்டோன் வண்ணங்கள், கூர்மையான அச்சுத் தரம்." },
   { t: "விரைவான டெலிவரி", d: "பவானி, ஈரோடு மற்றும் அருகிலுள்ள ஊர்களுக்கு சரியான நேரத்தில்." },
   { t: "மொத்த விலையில் சிறந்த தரம்", d: "சிறிய அளவு முதல் லட்சக்கணக்கான தாள்கள் வரை." },
 ]
@@ -81,44 +98,20 @@ export default function TamilPage() {
           <Header />
           <main>
             {/* Hero */}
-            <section className="relative overflow-hidden bg-ink-50">
-              <div aria-hidden className="absolute inset-0 bg-mesh-light" />
-              <div className="container-apple-wide relative z-10 pb-20 pt-36 text-center md:pb-28 md:pt-44">
-                <p className="text-eyebrow uppercase text-accent mb-5">ராஜா கணபதி ஆஃப்செட் · பவானி</p>
-                <h1 className="mx-auto max-w-4xl font-display font-bold tracking-[-0.03em] text-ink-900 text-[clamp(34px,6vw,76px)] leading-[1.05]">
-                  பவானி, ஈரோட்டில்
-                  <br />
-                  <span className="text-gradient-ink">தரமான ஆஃப்செட் அச்சகம்.</span>
-                </h1>
-                <p className="mx-auto mt-6 max-w-2xl text-[clamp(16px,1.5vw,20px)] leading-[1.6] text-ink-600">
-                  திருமண அழைப்பிதழ்கள், விசிட்டிங் கார்டுகள், சிற்றேடுகள், புத்தகங்கள் மற்றும்
-                  பேக்கேஜிங் — ஜெர்மன் ஹைடெல்பெர்க் அச்சு இயந்திரத்தில், 1997 முதல்.
-                </p>
-                <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-                  <a
-                    href="https://wa.me/919994466277?text=%E0%AE%B5%E0%AE%A3%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%AE%E0%AF%8D%2C%20%E0%AE%85%E0%AE%9A%E0%AF%8D%E0%AE%9A%E0%AF%81%20%E0%AE%B5%E0%AE%BF%E0%AE%B2%E0%AF%88%20%E0%AE%B5%E0%AF%87%E0%AE%A3%E0%AF%8D%E0%AE%9F%E0%AF%81%E0%AE%AE%E0%AF%8D"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-6 py-3.5 text-[15px] font-medium text-white transition-colors hover:bg-emerald-600"
-                  >
-                    <MessageCircle className="h-4 w-4" strokeWidth={2} />
-                    வாட்ஸ்அப்பில் தொடர்பு கொள்ளுங்கள்
-                  </a>
-                  <a
-                    href="tel:+919994466277"
-                    className="inline-flex items-center gap-2 rounded-full bg-ink-900 px-6 py-3.5 text-[15px] font-medium text-white transition-colors hover:bg-ink-800"
-                  >
-                    <Phone className="h-4 w-4" strokeWidth={2} />
-                    +91 99944 66277
-                  </a>
-                </div>
-                <p className="mt-6 text-[13px] text-ink-500">
-                  <Link href="/" className="underline underline-offset-4 hover:text-ink-800">
-                    View this site in English
-                  </Link>
-                </p>
-              </div>
-            </section>
+            <PageHero
+              eyebrow="ராஜா கணபதி ஆஃப்செட் · பவானி"
+              title="பவானி, ஈரோட்டில்"
+              accent="தரமான ஆஃப்செட் அச்சகம்."
+                deck={buildHeroDeck(samples.map((s) => ({ src: s.src, alt: s.t })))}
+              subtitle="திருமண அழைப்பிதழ்கள், விசிட்டிங் கார்டுகள், மாத & தினசரி காலண்டர்கள், டை-கட் ஸ்டிக்கர் லேபிள்கள், சிற்றேடுகள் மற்றும் புத்தகங்கள் — மல்டிகலர் ஆஃப்செட் அச்சில், 1997 முதல்."
+              primary={{ label: "+91 99944 66277", href: "tel:+919994466277" }}
+            >
+              <p className="text-[13px] text-ink-500">
+                <Link href="/" className="underline underline-offset-4 hover:text-ink-800">
+                  View this site in English
+                </Link>
+              </p>
+            </PageHero>
 
             {/* Services */}
             <section className="bg-white py-24 md:py-32">
@@ -150,8 +143,45 @@ export default function TamilPage() {
               </div>
             </section>
 
-            {/* Why choose */}
+            {/* Tamil samples */}
             <section className="bg-ink-50 py-24 md:py-32">
+              <div className="container-apple-wide">
+                <p className="text-eyebrow uppercase text-accent mb-5">தமிழில் மாதிரிகள்</p>
+                <h2 className="mb-4 font-display font-semibold tracking-[-0.025em] text-ink-900 text-[clamp(28px,3.4vw,46px)] leading-[1.1]">
+                  உங்கள் மொழியில், உங்கள் அச்சு.
+                </h2>
+                <p className="mb-12 max-w-2xl text-[16px] leading-[1.6] text-ink-500">
+                  தமிழ், ஆங்கிலம் அல்லது இரு மொழிகளிலும் வடிவமைத்து அச்சிடுகிறோம். உங்கள் கடை, நிறுவனம்
+                  அல்லது குடும்ப நிகழ்வுக்கான மாதிரி வடிவமைப்புகள் கீழே.
+                </p>
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {samples.map((s) => (
+                    <Link
+                      key={s.src}
+                      href={s.href}
+                      className="group overflow-hidden rounded-[22px] border border-ink-200 bg-white transition-shadow hover:shadow-apple-md"
+                    >
+                      <div className="relative aspect-[3/2] overflow-hidden bg-ink-100">
+                        <Image
+                          src={s.src}
+                          alt={`${s.t} — தமிழ் மாதிரி வடிவமைப்பு, ராஜா கணபதி ஆஃப்செட், பவானி`}
+                          fill
+                          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                          className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                        />
+                      </div>
+                      <div className="flex items-center justify-between gap-3 px-5 py-4">
+                        <span className="font-display text-[16px] font-semibold text-ink-900">{s.t}</span>
+                        <ArrowUpRight className="h-4 w-4 flex-shrink-0 text-accent" />
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Why choose */}
+            <section className="bg-white py-24 md:py-32">
               <div className="container-apple-wide">
                 <h2 className="mb-12 max-w-2xl font-display font-semibold tracking-[-0.025em] text-ink-900 text-[clamp(26px,3vw,40px)] leading-[1.1]">
                   ஏன் எங்களை தேர்வு செய்ய வேண்டும்?

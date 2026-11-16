@@ -10,8 +10,7 @@
     "title": "Premium Printing for Your Business",
     "subtitle": "Bringing your ideas to life with vibrant colors and exceptional quality. Your trusted printing partner for all your needs.",
     "cta": {
-      "services": "Our Services",
-      "quote": "Get a Quote"
+      "services": "Our Services"
     }
   },
   "services": {
@@ -33,7 +32,7 @@
   },
   "contact": {
     "title": "Get In Touch",
-    "description": "Have a project in mind? Contact us today for a free quote or to discuss your printing needs.",
+    "description": "Have a project in mind? Contact us today to discuss your printing needs.",
     "form": {
       "name": "Your Name",
       "email": "Email Address",

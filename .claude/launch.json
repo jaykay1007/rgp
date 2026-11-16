@@ -11,8 +11,8 @@
     {
       "name": "next-prod",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["next", "start", "-p", "3060"],
-      "port": 3060
+      "runtimeArgs": ["next", "start"],
+      "port": 3061
     }
   ]
 }

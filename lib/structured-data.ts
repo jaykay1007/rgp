@@ -4,7 +4,6 @@ import {
   CONTACT_INFO,
   BUSINESS_HOURS,
   FAQ_DATA,
-  REVIEWS,
   SERVICE_AREAS,
 } from "./seo-config";
 import { services } from "./services-data";
@@ -21,7 +20,7 @@ export const generateLocalBusinessSchema = () => ({
     "Raja Ganapathi Press Bhavani",
     "RGP Offset Bhavani",
   ],
-  description: `Premier offset printing press in Bhavani since ${SITE_CONFIG.foundingYear}. Specializing in wedding invitations, visiting cards, business stationery, brochures, packaging, and commercial printing. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi and surrounding areas in Tamil Nadu.`,
+  description: `Premier offset printing press in Bhavani since ${SITE_CONFIG.foundingYear}. Specializing in wedding invitations, digital & PVC visiting cards, monthly & daily calendars, die-cut sticker labels, business stationery, brochures and commercial multicolour offset printing. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi and surrounding areas in Tamil Nadu.`,
   url: SITE_CONFIG.domain,
   telephone: CONTACT_INFO.phone,
   email: CONTACT_INFO.email,
@@ -74,7 +73,6 @@ export const generateLocalBusinessSchema = () => ({
   sameAs: [
     "https://www.facebook.com/rajaganapathioffset",
     "https://www.instagram.com/rajaganapathioffset",
-    "https://wa.me/919994466277",
   ],
   contactPoint: {
     "@type": "ContactPoint",
@@ -83,30 +81,8 @@ export const generateLocalBusinessSchema = () => ({
     availableLanguage: ["Tamil", "English"],
     areaServed: "IN",
   },
-  // Ratings/reviews live on the one canonical LocalBusiness node — a separate
-  // LocalBusiness "#reviews" entity would split the business into two entities.
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: REVIEWS.length.toString(),
-    bestRating: "5",
-    worstRating: "1",
-  },
-  review: REVIEWS.map((review) => ({
-    "@type": "Review",
-    author: {
-      "@type": "Person",
-      name: review.author,
-    },
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: review.rating.toString(),
-      bestRating: "5",
-      worstRating: "1",
-    },
-    reviewBody: review.review,
-    datePublished: review.date,
-  })),
+  // No aggregateRating/review here on purpose: Google does not show stars for
+  // a business's own reviews of itself, and the figures must never be invented.
 });
 
 // Organization Schema

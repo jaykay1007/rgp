@@ -1,11 +1,12 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, Menu, ChevronRight, Phone } from "lucide-react"
 import LanguageToggle from "./language-toggle"
-import { useLanguage } from "@/contexts/language-context"
 import { CONTACT_INFO } from "@/lib/seo-config"
 
 interface MegaItem {
@@ -17,17 +18,17 @@ interface MegaItem {
 const megaMenu: Record<string, MegaItem[]> = {
   Services: [
     { label: "Multicolour Offset Printing", href: "/services/multicolour-offset-printing", desc: "Vibrant CMYK at scale" },
-    { label: "Wedding Invitations", href: "/services/wedding-invitations", desc: "Foiled, embossed, unforgettable" },
-    { label: "Visiting Cards", href: "/services/visiting-cards", desc: "Premium finishes, lasting impressions" },
+    { label: "Wedding Invitations", href: "/services/wedding-invitations", desc: "Tamil, English & bilingual" },
+    { label: "Digital & PVC Visiting Cards", href: "/services/visiting-cards", desc: "Quick digital & waterproof PVC" },
+    { label: "Calendar Printing", href: "/services/calendar-printing", desc: "Monthly & daily, all sizes" },
+    { label: "Die-Cut Sticker Labels", href: "/services/sticker-labels", desc: "Any shape, any size" },
     { label: "Brochures & Catalogs", href: "/services/brochures", desc: "Tell your story beautifully" },
-    { label: "Business Stationery", href: "/services/business-stationery", desc: "Letterheads, envelopes, bill books" },
-    { label: "Packaging Printing", href: "/services/packaging-printing", desc: "Custom boxes & product packaging" },
-    { label: "Book Printing", href: "/services/book-printing", desc: "Bound to last" },
+    { label: "Business Stationery", href: "/services/business-stationery", desc: "Letterheads & envelopes" },
     { label: "Bill Books & Stationery", href: "/services/stationery-printing", desc: "Numbered, carbonless, ready to use" },
-    { label: "Promotional Materials", href: "/services/promotional-materials", desc: "Posters, flyers & calendars" },
+    { label: "Book Printing", href: "/services/book-printing", desc: "Bound to last" },
+    { label: "Promotional Materials", href: "/services/promotional-materials", desc: "Posters, flyers & handbills" },
     { label: "Bag Printing", href: "/services/bag-printing", desc: "Cotton, jute, festival specials" },
     { label: "Bhavani Jamakkalam Brochures", href: "/services/bhavani-jamakkalam-brochures", desc: "Heritage handloom marketing" },
-    { label: "Turmeric Packaging", href: "/services/turmeric-packaging", desc: "Food-grade spice wraps" },
   ],
   Locations: [
     { label: "Bhavani", href: "/printing-press-bhavani-erode", desc: "Our home, since 1997" },
@@ -42,7 +43,8 @@ const megaMenu: Record<string, MegaItem[]> = {
 }
 
 export default function Header() {
-  const { t } = useLanguage()
+  const pathname = usePathname() ?? "/"
+  const isTamil = pathname === "/ta" || pathname.startsWith("/ta/")
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [openMenu, setOpenMenu] = useState<string | null>(null)
@@ -66,13 +68,15 @@ export default function Header() {
     }
   }, [isMobileMenuOpen])
 
+  // Section links are absolute (/#services) so they work from every page, not
+  // only the homepage. Labels switch to Tamil on the /ta pages.
   const navItems = [
-    { key: "services", label: "Services", href: "#services", mega: "Services" },
-    { key: "expertise", label: "Expertise", href: "#expertise" },
-    { key: "process", label: "Process", href: "#process" },
-    { key: "work", label: "Work", href: "#showcase" },
-    { key: "locations", label: "Locations", href: "/printing-press", mega: "Locations" },
-    { key: "contact", label: "Contact", href: "#contact" },
+    { key: "services", label: isTamil ? "சேவைகள்" : "Services", href: "/services", mega: "Services" },
+    { key: "expertise", label: isTamil ? "சிறப்புகள்" : "Expertise", href: "/#expertise" },
+    { key: "process", label: isTamil ? "செயல்முறை" : "Process", href: "/#process" },
+    { key: "work", label: isTamil ? "எங்கள் பணிகள்" : "Work", href: "/#showcase" },
+    { key: "locations", label: isTamil ? "ஊர்கள்" : "Locations", href: "/printing-press", mega: "Locations" },
+    { key: "contact", label: isTamil ? "தொடர்பு" : "Contact", href: "/#contact" },
   ]
 
   return (
@@ -92,10 +96,13 @@ export default function Header() {
               href="/"
               className="text-[14px] font-semibold tracking-tight text-ink-800 hover:opacity-80 transition-opacity duration-300 inline-flex items-center gap-2"
             >
-              <span className="relative inline-flex w-5 h-5 items-center justify-center rounded-full bg-gradient-to-tr from-cmyk-cyan via-cmyk-magenta to-cmyk-yellow">
-                <span className="absolute inset-[3px] rounded-full bg-white" />
-                <span className="relative text-[8px] font-bold text-ink-800">R</span>
-              </span>
+              <Image
+                src="/images/brand/emblem-64.png"
+                alt="Raja Ganapathi Offset Printers"
+                width={20}
+                height={20}
+                priority
+              />
               <span>Raja Ganapathi</span>
             </Link>
 
@@ -226,7 +233,7 @@ export default function Header() {
 
               <div className="px-6 py-8 border-t border-ink-300/30">
                 <div className="flex items-center justify-between mb-6">
-                  <span className="text-[14px] text-ink-500">Language</span>
+                  <span className="text-[14px] text-ink-500">{isTamil ? "மொழி" : "Language"}</span>
                   <LanguageToggle />
                 </div>
                 <Link

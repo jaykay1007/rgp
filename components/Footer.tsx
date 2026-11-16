@@ -1,29 +1,28 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight, MapPin, Phone, Mail, MessageCircle } from "lucide-react"
+import { ArrowUpRight, MapPin, Phone, Mail } from "lucide-react"
 import { CONTACT_INFO } from "@/lib/seo-config"
 
 const services = [
   { label: "Multicolour Offset Printing", href: "/services/multicolour-offset-printing" },
   { label: "Wedding Invitations", href: "/services/wedding-invitations" },
-  { label: "Visiting Cards", href: "/services/visiting-cards" },
+  { label: "Digital & PVC Visiting Cards", href: "/services/visiting-cards" },
+  { label: "Calendar Printing", href: "/services/calendar-printing" },
+  { label: "Die-Cut Sticker Labels", href: "/services/sticker-labels" },
   { label: "Business Stationery", href: "/services/business-stationery" },
   { label: "Brochures & Catalogs", href: "/services/brochures" },
   { label: "Book Printing", href: "/services/book-printing" },
-  { label: "Packaging Printing", href: "/services/packaging-printing" },
   { label: "Bag Printing", href: "/services/bag-printing" },
-  { label: "Bill Books & Stationery", href: "/services/stationery-printing" },
   { label: "All Services", href: "/services" },
 ]
 
 const specialized = [
   { label: "Bhavani Jamakkalam Brochures", href: "/services/bhavani-jamakkalam-brochures" },
-  { label: "Turmeric Packaging", href: "/services/turmeric-packaging" },
   { label: "Textile Sample Books", href: "/services/textile-sample-books" },
   { label: "Educational Materials", href: "/services/educational-materials" },
-  { label: "Stationery Printing", href: "/services/stationery-printing" },
-  { label: "Packaging Materials", href: "/services/packaging-materials" },
+  { label: "Bill Books & Stationery", href: "/services/stationery-printing" },
   { label: "Promotional Materials", href: "/services/promotional-materials" },
 ]
 
@@ -60,15 +59,6 @@ export default function Footer() {
           </div>
           <div className="lg:col-span-5 flex flex-wrap gap-3 lg:justify-end">
             <a
-              href="https://wa.me/919994466277"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-emerald-500 text-white px-6 py-3.5 rounded-full text-[15px] font-medium hover:bg-emerald-600 transition-all"
-            >
-              <MessageCircle className="w-4 h-4" strokeWidth={2} />
-              WhatsApp us
-            </a>
-            <a
               href="tel:+919994466277"
               className="inline-flex items-center gap-2 bg-white text-ink-900 px-6 py-3.5 rounded-full text-[15px] font-medium hover:bg-ink-100 transition-all"
             >
@@ -82,17 +72,19 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-12 gap-y-12 gap-x-8 pb-12 border-b border-white/10">
           <div className="col-span-2 md:col-span-4">
             <Link href="/" className="inline-flex items-center gap-2.5 mb-5">
-              <span className="relative inline-flex w-7 h-7 items-center justify-center rounded-full bg-gradient-to-tr from-cmyk-cyan via-cmyk-magenta to-cmyk-yellow">
-                <span className="absolute inset-[3px] rounded-full bg-ink-900" />
-                <span className="relative text-[10px] font-bold text-white">R</span>
-              </span>
+              <Image
+                src="/images/brand/emblem-64.png"
+                alt="Raja Ganapathi Offset Printers"
+                width={28}
+                height={28}
+              />
               <span className="text-[16px] font-display font-semibold tracking-tight">
                 Raja Ganapathi Offset
               </span>
             </Link>
             <p className="text-[14px] text-white/55 leading-relaxed max-w-sm">
-              Premium offset printing press in Bhavani, Erode — wedding cards, visiting cards,
-              brochures, books, packaging and bag printing. Since 1997.
+              Multicolour offset printing press in Bhavani, Erode — wedding cards, visiting cards,
+              calendars, sticker labels, brochures and books. Since 1997.
             </p>
             <div className="mt-6 space-y-3">
               <a
@@ -193,11 +185,13 @@ export default function Footer() {
               { k: "multicolor offset printing tamil nadu", href: "/services/multicolour-offset-printing" },
               { k: "bulk printing erode district", href: "/services/multicolour-offset-printing" },
               { k: "bhavani jamakkalam brochure", href: "/services/bhavani-jamakkalam-brochures" },
-              { k: "turmeric packaging printing", href: "/services/turmeric-packaging" },
+              { k: "calendar printing bhavani", href: "/services/calendar-printing" },
+              { k: "daily calendar printing erode", href: "/services/calendar-printing" },
               { k: "letterhead printing erode", href: "/services/business-stationery" },
               { k: "brochure printing komarapalayam", href: "/printing-press/komarapalayam" },
               { k: "catalog printing erode", href: "/services/brochures" },
-              { k: "packaging printing bhavani", href: "/services/packaging-printing" },
+              { k: "sticker label printing erode", href: "/services/sticker-labels" },
+              { k: "pvc visiting card bhavani", href: "/services/visiting-cards" },
               { k: "bag printing bhavani", href: "/services/bag-printing" },
               { k: "bill book printing bhavani", href: "/services/stationery-printing" },
             ].map(({ k, href }) => (

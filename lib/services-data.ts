@@ -2,8 +2,9 @@
 // Drives the homepage service grid, the /services index, each /services/[slug]
 // detail page, the header mega-menu, the footer and the sitemap.
 //
-// NOTE: "Digital Printing" and "Large Format / Banners & Flex" have been
-// intentionally removed from the offering.
+// NOTE: This is a multicolour offset printing shop. "Large Format / Banners &
+// Flex", packaging/carton printing and specialty finishes (foil, embossing,
+// spot UV) are intentionally NOT offered — keep them out of copy and data.
 
 export type ServiceImage = { src: string; alt: string }
 
@@ -28,6 +29,8 @@ export type Service = {
   features: string[]
   /** "What we print" chips */
   craft: string[]
+  /** Optional detailed breakdown (types, sizes, finishing) shown on the detail page */
+  specs?: { title: string; items: string[] }[]
   faqs: ServiceFAQ[]
   /** Related service slugs */
   related: string[]
@@ -44,8 +47,6 @@ export type Service = {
 const IMG = {
   weddingSuite:
     "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1400&auto=format&fit=crop&q=80",
-  weddingFoil:
-    "https://images.unsplash.com/photo-1607190074257-dd4b7af0309f?w=1400&auto=format&fit=crop&q=80",
   cards:
     "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=1400&auto=format&fit=crop&q=80",
   press:
@@ -56,70 +57,83 @@ const IMG = {
     "https://images.unsplash.com/photo-1616628188859-7a11abb6fcc9?w=1400&auto=format&fit=crop&q=80",
   books:
     "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=1400&auto=format&fit=crop&q=80",
-  bagsCotton:
-    "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=1400&auto=format&fit=crop&q=80",
   bagsWedding:
     "https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=1400&auto=format&fit=crop&q=80",
   bagsFestival:
     "https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?w=1400&auto=format&fit=crop&q=80",
   bagsJute:
     "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=1400&auto=format&fit=crop&q=80",
-  turmeric:
-    "https://images.unsplash.com/photo-1558010089-ff6fd29ea39a?w=1400&auto=format&fit=crop&q=80",
   letterhead:
     "https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=1400&auto=format&fit=crop&q=80",
   stationery:
     "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=1400&auto=format&fit=crop&q=80",
   billbooks:
     "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1400&auto=format&fit=crop&q=80",
-  packagingBox:
-    "https://images.unsplash.com/photo-1589758438368-0ad531db3366?w=1400&auto=format&fit=crop&q=80",
 } as const
 
 // First-party work photography served from /public — preferred over stock
 // wherever we have a real shot of the craft.
 const WORK = {
-  weddingGoldFoil: "/images/works/wedding-invitation-gold-foil-handmade-paper.jpg",
   weddingSuiteSeal: "/images/works/wedding-invitation-suite-letterpress-wax-seal.jpg",
-  cardSilverFoil: "/images/works/visiting-card-silver-foil-black-cardstock.jpg",
-  cardFoilPressTable: "/images/works/visiting-card-foil-stamped-press-table.jpg",
   booksHardcover: "/images/works/book-printing-hardcover-offset-press-floor.jpg",
   brochurePressRun: "/images/works/brochure-catalog-offset-press-run.jpg",
   toteBag: "/images/works/cotton-canvas-tote-bag-printing.jpg",
+} as const
+
+// Tamil-language sample designs (illustrated mock-ups) from /public — swap for
+// real photographs of finished jobs as they become available.
+const SAMPLE = {
+  weddingTamil: "/images/samples/wedding-invitation-tamil.jpg",
+  cardsTamil: "/images/samples/visiting-cards-digital-pvc-tamil.jpg",
+  calendarDaily: "/images/samples/calendar-daily-tamil.jpg",
+  calendarMonthly: "/images/samples/calendar-monthly-tamil.jpg",
+  stickers: "/images/samples/die-cut-sticker-labels-tamil.jpg",
+  productLabels: "/images/samples/product-labels-tamil.jpg",
+} as const
+
+// Our own finished jobs, re-shot as clean studio flat-lays (/public/images/collections).
+const COLLECTION = {
+  earPiercingFan: "/images/collections/ear-piercing-ceremony-invitations-tamil.jpg",
+  earPiercingKids: "/images/collections/ear-piercing-invitation-kids-cartoon-design.jpg",
+  puberty: "/images/collections/puberty-ceremony-invitations-tamil.jpg",
+  labelClassic: "/images/collections/product-label-sticker-tea-stall-classic.jpg",
+  labelFestive: "/images/collections/product-label-sticker-tea-stall-festive.jpg",
+  poster: "/images/collections/gold-finance-poster-tamil.jpg",
 } as const
 
 export const services: Service[] = [
   {
     slug: "multicolour-offset-printing",
     name: "Multicolour Offset Printing",
-    category: "Offset & Packaging",
-    tag: "Heidelberg press",
-    tagline: "True CMYK + Pantone offset, sheet-fed at 2400 DPI — built for runs from 1,000 to a million.",
+    category: "Offset, Calendars & Labels",
+    tag: "Multicolour offset",
+    tagline: "True CMYK + Pantone sheet-fed offset — built for runs from 1,000 to lakhs of sheets.",
     summary:
-      "Vibrant 4-colour offset printing on our Heidelberg press for bulk commercial runs with razor-sharp registration.",
+      "Vibrant 4-colour offset printing for bulk commercial runs, with sharp registration and consistent colour.",
     overview:
-      "Our Heidelberg sheet-fed offset press is the heart of the shop. We print true CMYK plus Pantone spot colours at 2400 DPI with tight registration, consistent ink density across the entire run, and a finish that digital simply cannot match at volume.",
+      "Our sheet-fed multicolour offset press is the heart of the shop. We print true CMYK plus Pantone spot colours with tight registration and consistent ink density across the entire run — a finish digital simply cannot match at volume.",
     hero: { src: IMG.press, alt: "Multicolour offset printing press running at Raja Ganapathi Offset, Bhavani" },
     gallery: [
       { src: IMG.pressSheets, alt: "Freshly printed CMYK offset sheets" },
+      { src: COLLECTION.poster, alt: "Tamil multicolour poster designed and printed for a gold finance company in Bhavani" },
+      { src: SAMPLE.calendarMonthly, alt: "Tamil monthly wall calendar printed in multicolour offset" },
       { src: IMG.brochure, alt: "Multicolour brochures printed on the offset press" },
-      { src: IMG.books, alt: "Bulk offset printed booklets" },
     ],
     features: [
       "4-colour CMYK + Pantone spot colours",
-      "2400 DPI computer-to-plate (CTP) setting",
+      "Computer-to-plate (CTP) plate making",
       "Consistent ink density across long runs",
       "Stocks from 70gsm text to 400gsm board",
       "In-house colour proofing before the run",
       "Bulk runs from 1,000 to 10,00,000 sheets",
     ],
-    craft: ["Brochures & catalogues", "Magazines & books", "Posters & calendars", "Mono-cartons", "Letterheads & forms", "Labels & wrappers"],
+    craft: ["Brochures & catalogues", "Magazines & books", "Posters & handbills", "Monthly & daily calendars", "Letterheads & forms", "Die-cut sticker labels"],
     faqs: [
       { q: "What is the minimum quantity for offset printing?", a: "Offset becomes cost-effective from around 1,000 sheets; below that we suggest a short-run option." },
       { q: "Can you match a specific Pantone colour?", a: "Yes — we mix Pantone spot inks and proof them before the full run so your brand colour is exact." },
       { q: "How long does a bulk offset job take?", a: "Most multicolour runs are ready in 3–6 working days depending on finishing; rush jobs can be accommodated." },
     ],
-    related: ["brochures", "book-printing", "packaging-printing"],
+    related: ["calendar-printing", "sticker-labels", "brochures"],
     keywords: ["multicolour offset printing bhavani", "cmyk printing erode", "offset press tamil nadu", "bulk printing erode district"],
     accent: "from-violet-500/30 via-indigo-500/20 to-transparent",
     tint: "#5E5CE6",
@@ -130,71 +144,150 @@ export const services: Service[] = [
     name: "Wedding Invitations",
     category: "Celebrations & Events",
     tag: "Most loved",
-    tagline: "Foiled, embossed and laser-cut wedding cards in Tamil, English and bilingual layouts.",
+    tagline: "Multicolour wedding cards in Tamil, English and bilingual layouts — designed and printed in Bhavani.",
     summary:
-      "Hand-finished wedding invitations with gold foil, embossing and laser-cut detail — crafted for your big day.",
+      "Tamil, English and bilingual wedding invitations, printed in rich multicolour on premium card stocks.",
     overview:
-      "From traditional Tamil mappillai-azhaippithal to modern minimalist suites, we design and print wedding invitations that feel as special as the occasion. Choose gold and silver foil, blind embossing, laser cutting, and premium handmade stocks.",
-    hero: { src: WORK.weddingGoldFoil, alt: "Gold foil wedding invitation on handmade deckle-edge paper printed in Bhavani" },
+      "From traditional Tamil thirumana azhaippithal (திருமண அழைப்பிதழ்) to modern minimalist suites, we design and print wedding invitations that feel as special as the occasion — rich multicolour printing on premium and pearl card stocks, with die-cut shapes, matching envelopes and inserts.",
+    hero: { src: SAMPLE.weddingTamil, alt: "Tamil wedding invitation (thirumana azhaippithal) with envelope and reception card, printed in Bhavani" },
     gallery: [
-      { src: WORK.weddingSuiteSeal, alt: "Letterpress wedding invitation suite with wax seal and RSVP cards" },
-      { src: IMG.weddingFoil, alt: "Gold foil wedding invitation card" },
+      { src: COLLECTION.earPiercingFan, alt: "Tamil ear-piercing ceremony (kathani vizha) invitations in four multicolour designs" },
+      { src: COLLECTION.puberty, alt: "Tamil puberty ceremony (poopunitha neerattu vizha) invitations with folder, flap card and insert" },
+      { src: COLLECTION.earPiercingKids, alt: "Kathani vizha invitation set with cartoon cover, temple line art and details card" },
+      { src: WORK.weddingSuiteSeal, alt: "Wedding invitation suite with RSVP and insert cards" },
+      { src: IMG.weddingSuite, alt: "Printed wedding invitation cards and envelopes" },
       { src: IMG.pressSheets, alt: "Wedding cards on the offset press" },
     ],
     features: [
-      "Gold & silver foil stamping",
-      "Blind & registered embossing",
-      "Laser-cut and die-cut motifs",
+      "Rich multicolour offset printing",
       "Tamil, English & bilingual typesetting",
-      "Handmade, pearl & imported stocks",
-      "Matching envelopes, inserts & return-gift tags",
+      "Traditional & modern designs for every community",
+      "Die-cut shapes & window cards",
+      "Pearl, textured & premium card stocks",
+      "Matching envelopes, inserts & thank-you tags",
     ],
-    craft: ["Hindu wedding cards", "Muslim & Christian invitations", "Engagement & reception cards", "Save-the-date cards", "Return-gift & sweet boxes", "RSVP & insert cards"],
+    craft: ["Hindu wedding cards", "Muslim & Christian invitations", "Engagement & reception cards", "Save-the-date cards", "Thank-you & return-gift tags", "RSVP & insert cards"],
     faqs: [
       { q: "Do you print invitations in Tamil?", a: "Yes — we typeset in Tamil, English and bilingual layouts with both traditional and modern fonts." },
       { q: "Can I see a sample before printing?", a: "Absolutely. We share a colour proof and can show physical paper samples at our Bhavani shop." },
-      { q: "What is the lead time for wedding cards?", a: "Plan for 5–7 days after design approval; foil and laser-cut work may need a little longer." },
+      { q: "What is the lead time for wedding cards?", a: "Plan for 5–7 days after design approval; die-cut designs may need a little longer." },
     ],
-    related: ["bag-printing", "visiting-cards", "promotional-materials"],
-    keywords: ["wedding card printing bhavani", "marriage invitation tamil", "foil wedding cards erode", "laser cut invitations"],
+    related: ["bag-printing", "visiting-cards", "sticker-labels"],
+    keywords: ["wedding card printing bhavani", "marriage invitation tamil", "tamil wedding card design", "thirumana azhaippithal printing erode"],
     accent: "from-rose-500/30 via-fuchsia-500/20 to-transparent",
     tint: "#EC008C",
     featured: true,
   },
   {
     slug: "visiting-cards",
-    name: "Visiting Cards",
+    name: "Digital & PVC Visiting Cards",
     category: "Business Identity",
     tag: "From ₹399",
-    tagline: "Premium 350gsm business cards with matte, suede, foil and spot-UV finishes — in 48 hours.",
+    tagline: "Digital-printed paper cards and waterproof PVC visiting cards — sharp full colour, ready fast.",
     summary:
-      "Premium matte, suede and metallic-foil visiting cards on 350gsm stock, delivered in 48 hours.",
+      "Full-colour digital visiting cards and durable, waterproof PVC cards for shops, clinics and businesses.",
     overview:
-      "A visiting card is a handshake in paper. We print on heavy 350gsm stocks with finishes that make people hold on a second longer — soft-touch matte lamination, spot UV, gold foil edges and embossing.",
-    hero: { src: WORK.cardSilverFoil, alt: "Silver foil visiting cards on black 600gsm cardstock printed at Raja Ganapathi Offset, Bhavani" },
+      "A visiting card is a handshake in paper. Choose digital-printed cards on 300–350gsm stock with matte or gloss lamination for quick, sharp short runs — or PVC visiting cards that are waterproof, tear-proof and last for years in a wallet. Tamil, English or bilingual, with your logo and a QR code.",
+    hero: { src: SAMPLE.cardsTamil, alt: "Tamil digital visiting card and PVC clinic visiting card printed at Raja Ganapathi Offset, Bhavani" },
     gallery: [
-      { src: WORK.cardFoilPressTable, alt: "Foil-stamped business cards on the finishing table beside ink tins" },
-      { src: IMG.letterhead, alt: "Business card and stationery set" },
-      { src: IMG.stationery, alt: "Finished premium business cards" },
+      { src: IMG.cards, alt: "Stack of printed visiting cards" },
+      { src: IMG.letterhead, alt: "Visiting card with matching business stationery" },
+      { src: IMG.stationery, alt: "Finished full-colour visiting cards" },
     ],
     features: [
-      "Heavy 350–600gsm card stocks",
-      "Soft-touch matte & gloss lamination",
-      "Spot-UV, foil and embossing",
-      "Rounded corners & edge painting",
-      "Double-sided full-colour printing",
-      "48-hour turnaround on standard cards",
+      "Digital full-colour, single or double-sided",
+      "PVC cards — waterproof & tear-proof",
+      "300–350gsm card stocks for paper cards",
+      "Matte & gloss lamination",
+      "Rounded corners & QR codes",
+      "Tamil, English & bilingual layouts",
     ],
-    craft: ["Business & corporate cards", "Doctor & clinic cards", "Textile & shop cards", "Premium foil cards", "Folded & square cards", "QR-code visiting cards"],
+    craft: ["Shop & business cards", "Doctor & clinic cards", "Textile & showroom cards", "PVC visiting cards", "Tamil & bilingual cards", "QR-code visiting cards"],
     faqs: [
-      { q: "What's the minimum order for visiting cards?", a: "Offset starts at 500 cards; for fewer we offer quick short-run printing." },
-      { q: "How fast can I get them?", a: "Standard cards are ready in 48 hours; same-day is possible for urgent orders." },
-      { q: "Do you design the card too?", a: "Yes — our in-house team can design from scratch or refine your existing artwork." },
+      { q: "What is a PVC visiting card?", a: "A plastic card — similar in feel to an ATM card — that is waterproof, tear-proof and lasts far longer than paper. Ideal for clinics, shops and anyone who hands out cards every day." },
+      { q: "What's the minimum order?", a: "Digital printing has no large minimum — a standard box of 100 cards is fine for both paper and PVC cards." },
+      { q: "Do you design the card too?", a: "Yes — our in-house team can design from scratch in Tamil or English, or refine your existing artwork." },
     ],
-    related: ["business-stationery", "stationery-printing", "multicolour-offset-printing"],
-    keywords: ["visiting card printing bhavani", "business card erode", "premium visiting cards", "foil business cards"],
+    related: ["business-stationery", "stationery-printing", "sticker-labels"],
+    keywords: ["visiting card printing bhavani", "pvc visiting card erode", "digital visiting card printing", "tamil visiting card design"],
     accent: "from-blue-500/30 via-cyan-500/20 to-transparent",
     tint: "#0071e3",
+    featured: true,
+  },
+  {
+    slug: "calendar-printing",
+    name: "Calendar Printing",
+    category: "Offset, Calendars & Labels",
+    tag: "Monthly & daily",
+    tagline: "All types of monthly and daily calendars, in every size — Tamil, English or bilingual.",
+    summary:
+      "Monthly wall calendars, daily tear-off calendars, desk and pocket calendars in all sizes — branded for your shop.",
+    overview:
+      "A calendar stays on the wall all year — the best-value advertising a shop, textile house, jeweller, school or temple can buy. We print every type: 12-page, 6-page and single-sheet monthly wall calendars, daily tear-off (date-pad) calendars on a branded header board, desk calendars and pocket calendars. Any standard size or a custom size, with Tamil months, festivals and holidays, your logo, photos and contact details.",
+    hero: { src: SAMPLE.calendarDaily, alt: "Tamil daily tear-off calendar with branded header board, printed in Bhavani" },
+    gallery: [
+      { src: SAMPLE.calendarMonthly, alt: "Tamil monthly wall calendar with shop branding and January date grid" },
+      { src: IMG.press, alt: "Calendar sheets printing on the multicolour offset press" },
+      { src: IMG.pressSheets, alt: "Printed calendar sheets before binding" },
+    ],
+    features: [
+      "Monthly wall calendars — 12-page, 6-page & single-sheet",
+      "Daily tear-off calendars with branded header board",
+      "Desk / table & pocket calendars",
+      "All sizes — standard or fully custom",
+      "Tamil, English & bilingual date panels",
+      "Metal-strip, wiro & hanging-hole finishing",
+    ],
+    craft: ["Monthly wall calendars", "Daily tear-off calendars", "Single-sheet calendars", "Desk & table calendars", "Pocket calendars", "Shop & temple calendars"],
+    specs: [
+      {
+        title: "Monthly calendars",
+        items: [
+          "12-page wall calendar — one month per page",
+          "6-page wall calendar — two months per page",
+          "Single-sheet 12-month wall calendar",
+          "Monthly desk / table calendar",
+        ],
+      },
+      {
+        title: "Daily calendars",
+        items: [
+          "Daily tear-off date pad — a sheet for every day",
+          "Multicolour branded header board",
+          "Tamil month, festival & holiday details",
+          "Hanging hole or wall-mount finish",
+        ],
+      },
+      {
+        title: "Sizes",
+        items: [
+          "Wall: 12×18, 15×20, 18×23 & 20×30 inches",
+          "Daily board: small, medium & large",
+          "Desk: A5 & custom sizes",
+          "Pocket: wallet / card size",
+          "Any custom size on request",
+        ],
+      },
+      {
+        title: "Finishing",
+        items: [
+          "Metal strip (tin) binding",
+          "Wiro / spiral binding",
+          "Hanging hole & loop",
+          "Matte or gloss laminated covers",
+        ],
+      },
+    ],
+    faqs: [
+      { q: "What types of calendars do you print?", a: "Monthly wall calendars (12-page, 6-page and single-sheet), daily tear-off calendars, desk/table calendars and pocket calendars — all customised with your branding." },
+      { q: "What sizes are available?", a: "All popular wall sizes such as 12×18, 15×20, 18×23 and 20×30 inches, small to large daily calendar boards, desk and pocket calendars — or any custom size." },
+      { q: "Can the calendar be in Tamil?", a: "Yes — Tamil, English or bilingual date panels with Tamil months, festivals and government holidays." },
+      { q: "When should I order for the new year?", a: "Calendar season peaks in November and December. Confirm your design by October–November so calendars are delivered well before January." },
+    ],
+    related: ["multicolour-offset-printing", "promotional-materials", "sticker-labels"],
+    keywords: ["calendar printing bhavani", "daily calendar printing erode", "monthly calendar printing tamil nadu", "tamil calendar printing", "wall calendar printing erode"],
+    accent: "from-red-500/30 via-rose-500/20 to-transparent",
+    tint: "#DC2626",
     featured: true,
   },
   {
@@ -218,7 +311,7 @@ export const services: Service[] = [
       "A4, A5 & custom catalogue sizes",
       "Saddle-stitch & perfect binding",
       "Art, matte & textured paper stocks",
-      "Lamination and spot-UV covers",
+      "Matte & gloss laminated covers",
       "Design & layout assistance in-house",
     ],
     craft: ["Tri-fold brochures", "Product catalogues", "Corporate profiles", "Leaflets & flyers", "Annual reports", "Menu cards"],
@@ -253,7 +346,7 @@ export const services: Service[] = [
       "Perfect, section-sewn & hardcase binding",
       "Full-colour or B&W interiors",
       "Art, maplitho & bond text stocks",
-      "Laminated & spot-UV covers",
+      "Matte & gloss laminated covers",
       "ISBN & barcode placement",
       "Short and bulk print runs",
     ],
@@ -297,9 +390,9 @@ export const services: Service[] = [
     faqs: [
       { q: "Can you print names and dates for weddings?", a: "Yes — we personalise wedding bags with names, dates and traditional motifs." },
       { q: "Which fabrics can you print on?", a: "Cotton, jute, canvas and non-woven — choose by budget and use." },
-      { q: "Is there a minimum order?", a: "Bag printing is most economical in bulk; share your quantity for a quote." },
+      { q: "Is there a minimum order?", a: "Bag printing is most economical in bulk; tell us your quantity and we will advise." },
     ],
-    related: ["wedding-invitations", "packaging-printing", "promotional-materials"],
+    related: ["wedding-invitations", "promotional-materials", "sticker-labels"],
     keywords: ["bag printing bhavani", "cotton bag printing erode", "jute bag printing", "wedding return gift bags"],
     accent: "from-teal-500/30 via-emerald-500/20 to-transparent",
     tint: "#0E9F8E",
@@ -374,70 +467,39 @@ export const services: Service[] = [
     tint: "#4f46e5",
   },
   {
-    slug: "packaging-printing",
-    name: "Packaging Printing",
-    category: "Offset & Packaging",
-    tagline: "Mono-cartons, boxes and product packaging that protect and sell on the shelf.",
+    slug: "sticker-labels",
+    name: "Die-Cut Sticker Labels",
+    category: "Offset, Calendars & Labels",
+    tag: "All shapes",
+    tagline: "Die-cut sticker labels in any shape and size — round, oval, square or your own custom outline.",
     summary:
-      "Custom mono-cartons, product boxes and cartons with die-cutting, lamination and foil.",
+      "Die-cut sticker labels for products, shops and brands — paper, vinyl and transparent stocks, cut to any shape.",
     overview:
-      "Packaging is your product's first impression. We design and print mono-cartons, product boxes and cartons with structural die-cutting, lamination, foil and spot-UV — built to protect in transit and stand out on the shelf.",
-    hero: { src: IMG.packagingBox, alt: "Custom printed mono-cartons and product boxes from Bhavani" },
+      "Every label, cut to fit. We print multicolour sticker labels and die-cut them to any shape — round, oval, square, rectangle, star or a custom outline that follows your logo. Paper, vinyl, transparent and waterproof stocks, supplied on sheets or rolls so they are easy to peel and apply. Tamil, English or bilingual.",
+    hero: { src: SAMPLE.stickers, alt: "Sheet of Tamil die-cut sticker labels in round, oval, star, heart and barcode shapes" },
     gallery: [
-      { src: IMG.press, alt: "Packaging printing on the offset press" },
-      { src: IMG.pressSheets, alt: "Die-cut carton sheets" },
-      { src: IMG.bagsCotton, alt: "Branded retail packaging" },
+      { src: COLLECTION.labelFestive, alt: "Multicolour Tamil product label for a tea stall's sweets and savouries, with FSSAI and veg marks" },
+      { src: COLLECTION.labelClassic, alt: "Tamil snack-pack sticker label design with shop name, contact numbers and address" },
+      { src: SAMPLE.productLabels, alt: "Tamil product labels on honey, ghee, sesame oil and turmeric jars" },
+      { src: IMG.pressSheets, alt: "Printed sticker label sheets before die-cutting" },
+      { src: IMG.press, alt: "Sticker labels printing on the multicolour offset press" },
     ],
     features: [
-      "Custom mono-cartons & boxes",
-      "Structural die-cutting & creasing",
-      "Lamination, foil & spot-UV finishes",
-      "Food-grade board options",
-      "Prototype & sample before bulk",
-      "Bulk carton runs at scale",
-    ],
-    craft: ["Product mono-cartons", "Sweet & gift boxes", "Pharma & cosmetic boxes", "Food-grade cartons", "Corrugated outers", "Hang tags & sleeves"],
-    faqs: [
-      { q: "Can you make a sample box first?", a: "Yes — we produce a die-cut prototype for approval before the bulk run." },
-      { q: "Do you offer food-grade packaging?", a: "Yes, we use food-grade boards and coatings for edible products." },
-      { q: "Can you die-cut a custom shape?", a: "We make custom dies for bespoke box structures and shapes." },
-    ],
-    related: ["packaging-materials", "turmeric-packaging", "multicolour-offset-printing"],
-    keywords: ["packaging printing bhavani", "mono carton erode", "product box printing", "custom packaging tamil nadu"],
-    accent: "from-amber-500/30 via-yellow-500/20 to-transparent",
-    tint: "#FF8A00",
-  },
-  {
-    slug: "packaging-materials",
-    name: "Labels & Packaging Materials",
-    category: "Offset & Packaging",
-    tagline: "Product labels, stickers, wrappers and pouches that finish your packaging.",
-    summary:
-      "Product labels, stickers, wrappers and printed pouches in rolls or sheets.",
-    overview:
-      "The finishing layer of your product. We print labels, stickers, wrappers and pouches — in sheets or rolls, on paper, vinyl and metallic stocks — with the adhesion and durability your product needs.",
-    hero: { src: IMG.packagingBox, alt: "Printed product labels and packaging materials from Erode" },
-    gallery: [
-      { src: IMG.pressSheets, alt: "Printed label sheets" },
-      { src: IMG.turmeric, alt: "Labelled food product packaging" },
-      { src: IMG.press, alt: "Labels printing on the press" },
-    ],
-    features: [
-      "Paper, vinyl & metallic label stocks",
-      "Roll-form & sheet labels",
+      "Die-cut to any shape & size",
+      "Round, oval, square, star & custom outlines",
+      "Paper, vinyl & transparent stocks",
       "Waterproof & oil-resistant options",
-      "Die-cut to any shape",
-      "Variable data & batch coding",
-      "Wrappers, pouches & seals",
+      "Easy-peel sheets or rolls",
+      "Barcode, MRP & batch details",
     ],
-    craft: ["Product labels", "Bottle & jar labels", "Stickers & seals", "Printed wrappers", "Pouches & sachets", "Barcode & batch labels"],
+    craft: ["Product & jar labels", "Logo stickers", "Shop & brand stickers", "Barcode & MRP labels", "Wedding & gift stickers", "Temple & festival stickers"],
     faqs: [
-      { q: "Do you supply labels on rolls?", a: "Yes — roll-form for automatic applicators or sheets for hand application." },
-      { q: "Are your labels waterproof?", a: "We offer waterproof vinyl and oil-resistant stocks for demanding products." },
-      { q: "Can labels be die-cut to a shape?", a: "Yes, any custom shape with a made-to-order die." },
+      { q: "Can you cut stickers to a custom shape?", a: "Yes — we make a die for your exact outline, from a simple circle to the shape of your logo." },
+      { q: "Are the stickers waterproof?", a: "Choose vinyl or laminated stocks for waterproof, oil-resistant labels — ideal for ghee, oil, honey and other food products." },
+      { q: "What sizes can you print?", a: "Any size — from small logo stickers to large product labels. Tell us your size and quantity and we will advise." },
     ],
-    related: ["packaging-printing", "turmeric-packaging", "promotional-materials"],
-    keywords: ["label printing erode", "sticker printing bhavani", "product label printing", "pouch printing tamil nadu"],
+    related: ["multicolour-offset-printing", "visiting-cards", "calendar-printing"],
+    keywords: ["die cut sticker printing bhavani", "sticker label printing erode", "product label printing tamil nadu", "custom shape stickers erode"],
     accent: "from-orange-500/30 via-amber-500/20 to-transparent",
     tint: "#FB923C",
   },
@@ -445,11 +507,11 @@ export const services: Service[] = [
     slug: "promotional-materials",
     name: "Promotional Materials",
     category: "Marketing & Publishing",
-    tagline: "Posters, flyers, danglers and calendars that get your brand seen.",
+    tagline: "Posters, flyers, danglers and handbills that get your brand seen.",
     summary:
-      "Posters, flyers, danglers, standees and calendars for campaigns and store branding.",
+      "Posters, flyers, danglers and standees for campaigns and store branding.",
     overview:
-      "Everything you need to run a campaign in print. From handbill flyers and posters to danglers, table-tents and year-round calendars — bold colour and quick turnaround to keep your brand visible.",
+      "Everything you need to run a campaign in print. From handbill flyers and posters to danglers, standees and table-tents — bold colour and quick turnaround to keep your brand visible.",
     hero: { src: IMG.brochure, alt: "Promotional posters, flyers and calendars printed in Bhavani" },
     gallery: [
       { src: IMG.press, alt: "Promotional flyers on the press" },
@@ -460,18 +522,18 @@ export const services: Service[] = [
       "Posters in A3 to large sizes",
       "Flyers & handbills in bulk",
       "Danglers, standees & table-tents",
-      "Wall & desk calendars",
-      "Stickers & door-hangers",
+      "Notices & menu cards",
+      "Coupons, tickets & door-hangers",
       "Fast turnaround for campaigns",
     ],
-    craft: ["Posters & handbills", "Pamphlets & flyers", "Danglers & buntings", "Calendars & diaries", "Standees & table-tents", "Notice & menu cards"],
+    craft: ["Posters & handbills", "Pamphlets & flyers", "Danglers & buntings", "Coupons & tickets", "Standees & table-tents", "Notice & menu cards"],
     faqs: [
       { q: "How quickly can you print flyers?", a: "Bulk flyers are typically ready in 1–3 days depending on quantity." },
-      { q: "Do you print calendars?", a: "Yes — wall, desk and date-pad calendars, customised with your branding." },
+      { q: "Do you print calendars?", a: "Yes — monthly, daily, desk and pocket calendars in all sizes. See our dedicated calendar printing service." },
       { q: "Can you do very large posters?", a: "We print large poster sizes on paper stocks for indoor display and campaigns." },
     ],
-    related: ["brochures", "business-stationery", "bag-printing"],
-    keywords: ["poster printing bhavani", "flyer printing erode", "calendar printing", "pamphlet printing tamil nadu"],
+    related: ["brochures", "calendar-printing", "bag-printing"],
+    keywords: ["poster printing bhavani", "flyer printing erode", "notice printing bhavani", "pamphlet printing tamil nadu"],
     accent: "from-fuchsia-500/30 via-pink-500/20 to-transparent",
     tint: "#EC008C",
   },
@@ -544,40 +606,6 @@ export const services: Service[] = [
     tint: "#7C3AED",
   },
   {
-    slug: "turmeric-packaging",
-    name: "Turmeric & Spice Packaging",
-    category: "Specialised",
-    tagline: "Food-grade pouches and cartons for Erode's turmeric and spice trade.",
-    summary:
-      "Food-grade pouches, wrappers and cartons for turmeric, spices and food products.",
-    overview:
-      "Erode is the turmeric city — and we package its pride. Food-grade pouches, wrappers and cartons with moisture barriers, vibrant print, and the compliance details your product needs on shelf.",
-    hero: { src: IMG.turmeric, alt: "Turmeric and spice packaging printed in Erode" },
-    gallery: [
-      { src: IMG.packagingBox, alt: "Spice cartons and boxes" },
-      { src: IMG.pressSheets, alt: "Printed pouch laminate sheets" },
-      { src: IMG.press, alt: "Food packaging on the press" },
-    ],
-    features: [
-      "Food-grade pouches & wrappers",
-      "Moisture-barrier laminates",
-      "Vibrant, appetite-led print",
-      "Carton & box options",
-      "Batch, weight & FSSAI details",
-      "Bulk runs for traders & FMCG",
-    ],
-    craft: ["Turmeric pouches", "Spice & masala packs", "Wrappers & sachets", "Food cartons", "Roll-stock laminate", "Labels & seals"],
-    faqs: [
-      { q: "Is the packaging food-safe?", a: "Yes — we use food-grade materials and coatings suited to edible products." },
-      { q: "Can you add FSSAI and batch details?", a: "We lay out FSSAI, batch, weight and statutory details correctly." },
-      { q: "Do you supply moisture-barrier pouches?", a: "Yes, laminated moisture-barrier pouches to keep spices fresh." },
-    ],
-    related: ["packaging-printing", "packaging-materials", "multicolour-offset-printing"],
-    keywords: ["turmeric packaging erode", "spice pouch printing", "food packaging bhavani", "masala pack printing"],
-    accent: "from-amber-500/30 via-yellow-500/20 to-transparent",
-    tint: "#FFB300",
-  },
-  {
     slug: "bhavani-jamakkalam-brochures",
     name: "Bhavani Jamakkalam Brochures",
     category: "Specialised",
@@ -618,7 +646,7 @@ export const SERVICE_CATEGORIES = [
   "Celebrations & Events",
   "Business Identity",
   "Marketing & Publishing",
-  "Offset & Packaging",
+  "Offset, Calendars & Labels",
   "Specialised",
 ] as const
 

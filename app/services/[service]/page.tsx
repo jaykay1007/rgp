@@ -5,15 +5,15 @@ import { getService, getRelatedServices, serviceSlugs } from "@/lib/services-dat
 import { SITE_CONFIG, getFullAddress } from "@/lib/seo-config"
 
 interface ServicePageProps {
-  params: { service: string }
+  params: Promise<{ service: string }>
 }
 
 export function generateStaticParams() {
   return serviceSlugs.map((service) => ({ service }))
 }
 
-export function generateMetadata({ params }: ServicePageProps): Metadata {
-  const service = getService(params.service)
+export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
+  const service = getService((await params).service)
   if (!service) {
     return { title: "Service not found" }
   }
@@ -43,8 +43,8 @@ export function generateMetadata({ params }: ServicePageProps): Metadata {
   }
 }
 
-export default function ServicePage({ params }: ServicePageProps) {
-  const service = getService(params.service)
+export default async function ServicePage({ params }: ServicePageProps) {
+  const service = getService((await params).service)
   if (!service) notFound()
 
   const related = getRelatedServices(service.slug)

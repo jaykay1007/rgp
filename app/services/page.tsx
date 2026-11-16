@@ -8,12 +8,12 @@ const url = `${SITE_CONFIG.domain}/services`
 export const metadata: Metadata = {
   title: "Printing Services in Bhavani & Erode",
   description:
-    "All printing services from Raja Ganapathi Offset, Bhavani — wedding invitations, visiting cards, multicolour offset, brochures, books, packaging, bags, labels and jamakkalam collateral. Since 1997.",
+    "All printing services from Raja Ganapathi Offset, Bhavani — wedding invitations, digital & PVC visiting cards, calendars, die-cut sticker labels, multicolour offset, brochures, books, bags and jamakkalam collateral. Since 1997.",
   alternates: { canonical: url },
   openGraph: {
     title: `Printing Services | ${SITE_CONFIG.name}`,
     description:
-      "Wedding cards, visiting cards, offset printing, brochures, books, packaging and more — printed in Bhavani, Erode.",
+      "Wedding cards, visiting cards, calendars, sticker labels, offset printing, brochures and books — printed in Bhavani, Erode.",
     url,
     type: "website",
   },

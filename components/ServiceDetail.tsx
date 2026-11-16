@@ -8,11 +8,12 @@ import {
   ArrowUpRight,
   Check,
   ChevronRight,
-  MessageCircle,
   Phone,
   Plus,
 } from "lucide-react"
 import Header from "@/components/Header"
+import PageHero from "@/components/PageHero"
+import { getServiceHeroVisual } from "@/lib/hero-prints"
 import Footer from "@/components/Footer"
 import SmoothScroll from "@/components/smooth-scroll"
 import type { Service } from "@/lib/services-data"
@@ -26,8 +27,6 @@ export default function ServiceDetail({
   service: Service
   related: Service[]
 }) {
-  const waText = encodeURIComponent(`Hi! I'm interested in ${service.name} — can you share a quote?`)
-
   return (
     <SmoothScroll>
       <div className="min-h-screen bg-ink-50 overflow-x-clip">
@@ -35,91 +34,19 @@ export default function ServiceDetail({
 
         <main>
           {/* ---------------------------------------------------------------- Hero */}
-          <section className="relative flex min-h-[88vh] items-end overflow-hidden bg-ink-900 text-white">
-            <Image
-              src={service.hero.src}
-              alt={service.hero.alt}
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover opacity-40"
-            />
-            <div aria-hidden className="absolute inset-0 bg-mesh-dark opacity-60" />
-            <div
-              aria-hidden
-              className="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/55 to-ink-900/30"
-            />
-            <div
-              aria-hidden
-              className="absolute -right-24 top-1/4 h-96 w-96 rounded-full blur-[120px] opacity-40"
-              style={{ backgroundColor: service.tint }}
-            />
-
-            <div className="container-apple-wide relative z-10 pb-16 pt-32 md:pb-20">
-              {/* breadcrumb */}
-              <nav aria-label="Breadcrumb" className="mb-8">
-                <ol className="flex flex-wrap items-center gap-1.5 text-[13px] text-white/55">
-                  <li>
-                    <Link href="/" className="hover:text-white transition-colors">
-                      Home
-                    </Link>
-                  </li>
-                  <ChevronRight className="h-3.5 w-3.5" aria-hidden />
-                  <li>
-                    <Link href="/services" className="hover:text-white transition-colors">
-                      Services
-                    </Link>
-                  </li>
-                  <ChevronRight className="h-3.5 w-3.5" aria-hidden />
-                  <li className="text-white/85">{service.name}</li>
-                </ol>
-              </nav>
-
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease }}
-                className="max-w-3xl"
-              >
-                <div className="mb-5 flex items-center gap-3">
-                  <span className="text-eyebrow uppercase text-cmyk-cyan">{service.category}</span>
-                  {service.tag && (
-                    <span
-                      className="rounded-full border border-white/15 px-3 py-1 text-[11px] font-medium text-white/80"
-                      style={{ backgroundColor: `${service.tint}2a` }}
-                    >
-                      {service.tag}
-                    </span>
-                  )}
-                </div>
-                <h1 className="font-display font-semibold tracking-[-0.03em] text-[clamp(40px,6.5vw,84px)] leading-[1.0]">
-                  {service.name}
-                </h1>
-                <p className="mt-6 max-w-2xl text-[clamp(16px,1.5vw,21px)] leading-[1.5] text-white/65">
-                  {service.tagline}
-                </p>
-
-                <div className="mt-9 flex flex-wrap gap-3">
-                  <a
-                    href={`https://wa.me/919994466277?text=${waText}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-6 py-3.5 text-[15px] font-medium text-white transition-colors hover:bg-emerald-600"
-                  >
-                    <MessageCircle className="h-4 w-4" strokeWidth={2} />
-                    Get a quote on WhatsApp
-                  </a>
-                  <a
-                    href="tel:+919994466277"
-                    className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[15px] font-medium text-ink-900 transition-colors hover:bg-ink-100"
-                  >
-                    <Phone className="h-4 w-4" strokeWidth={2} />
-                    +91 99944 66277
-                  </a>
-                </div>
-              </motion.div>
-            </div>
-          </section>
+          <PageHero
+            breadcrumb={[
+              { label: "Home", href: "/" },
+              { label: "Services", href: "/services" },
+              { label: service.name },
+            ]}
+            eyebrow={service.tag ? `${service.category} · ${service.tag}` : service.category}
+            title={service.name}
+            subtitle={service.tagline}
+            secondary={{ label: "All services", href: "/services" }}
+            {...getServiceHeroVisual(service.slug, service.hero)}
+            tint={service.tint}
+          />
 
           {/* ------------------------------------------------------------ Overview */}
           <section className="bg-white py-24 md:py-32">
@@ -192,6 +119,43 @@ export default function ServiceDetail({
               </Reveal>
             </div>
           </section>
+
+          {/* ----------------------------------------------------- Types & sizes */}
+          {service.specs && service.specs.length > 0 && (
+            <section className="bg-white py-24 md:py-32">
+              <div className="container-apple-wide">
+                <Reveal>
+                  <p className="text-eyebrow uppercase text-accent mb-5">Types &amp; sizes</p>
+                  <h2 className="mb-12 max-w-2xl font-display font-semibold tracking-[-0.025em] text-ink-900 text-[clamp(26px,3vw,40px)] leading-[1.1]">
+                    Every {service.name.toLowerCase()} option, in detail.
+                  </h2>
+                </Reveal>
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  {service.specs.map((group, i) => (
+                    <Reveal key={group.title} delay={i * 0.06}>
+                      <div className="h-full rounded-[22px] border border-ink-200 bg-ink-50 p-6">
+                        <h3 className="mb-4 font-display text-[18px] font-semibold tracking-[-0.01em] text-ink-900">
+                          {group.title}
+                        </h3>
+                        <ul className="space-y-2.5">
+                          {group.items.map((item) => (
+                            <li key={item} className="flex items-start gap-2.5 text-[14px] leading-[1.5] text-ink-600">
+                              <span
+                                aria-hidden
+                                className="mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full"
+                                style={{ backgroundColor: service.tint }}
+                              />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </Reveal>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
 
           {/* ------------------------------------------------------------- Gallery */}
           <section className="bg-white py-24 md:py-32">
@@ -328,18 +292,16 @@ export default function ServiceDetail({
                     <span className="text-gradient-pearl">{service.name.toLowerCase()}.</span>
                   </h2>
                   <p className="mt-5 max-w-xl text-[16px] leading-[1.55] text-white/70">
-                    Visit our press floor in Bhavani, or send your details — we&apos;ll share samples,
-                    paper options and a quote within the hour.
+                    Visit our press floor in Bhavani or call us — we&apos;ll show you samples
+                    and paper options.
                   </p>
                   <div className="mt-8 flex flex-wrap gap-3">
                     <a
-                      href={`https://wa.me/919994466277?text=${waText}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href="tel:+919994466277"
                       className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[15px] font-medium text-ink-900 transition-colors hover:bg-ink-100"
                     >
-                      <MessageCircle className="h-4 w-4" strokeWidth={2} />
-                      WhatsApp us
+                      <Phone className="h-4 w-4" strokeWidth={2} />
+                      Call +91 99944 66277
                     </a>
                     <Link
                       href="/services"

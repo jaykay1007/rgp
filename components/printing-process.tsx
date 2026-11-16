@@ -23,7 +23,7 @@ const steps = [
     number: "01",
     title: "Talk it through",
     description:
-      "Drop by the shop or message us on WhatsApp. We listen to your idea, show you paper samples and past work, and recommend the right approach.",
+      "Drop by the shop or give us a call. We listen to your idea, show you paper samples and past work, and recommend the right approach.",
     icon: MessageSquare,
     tint: "#00B5E2",
   },
@@ -39,7 +39,7 @@ const steps = [
     number: "03",
     title: "Plate & print",
     description:
-      "CTP plates load onto our Heidelberg offset press. True CMYK plus Pantone spot colours, sheet-fed at 2400 DPI.",
+      "CTP plates load onto our multicolour offset press. True CMYK plus Pantone spot colours, sheet-fed for sharp, consistent detail.",
     icon: Layers,
     tint: "#EC008C",
   },
@@ -47,7 +47,7 @@ const steps = [
     number: "04",
     title: "Finish by hand",
     description:
-      "Die-cutting, foiling, embossing, lamination and perfect binding — the craftsmanship that turns a print into a keepsake.",
+      "Die-cutting, lamination, numbering, calendar binding and perfect binding — the finishing that turns a print into a finished product.",
     icon: Scissors,
     tint: "#FF8A00",
   },

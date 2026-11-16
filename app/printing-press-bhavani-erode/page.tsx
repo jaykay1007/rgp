@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Phone, Mail, MapPin, Clock, CheckCircle2, Award, Users, TrendingUp, Star, ArrowRight } from "lucide-react"
 import Header from "@/components/Header"
+import PageHero from "@/components/PageHero"
 import Footer from "@/components/Footer"
 import { SITE_CONFIG, CONTACT_INFO, getFullAddress } from "@/lib/seo-config"
 import { getAuthorityPageSchemaJSON } from "@/lib/authority-page-schema"
@@ -11,7 +12,7 @@ const YEARS = SITE_CONFIG.yearsInBusiness
 
 export const metadata: Metadata = {
   title: "Best Offset Printing Press in Bhavani, Erode | Raja Ganapathi Offset | Commercial Printing Services",
-  description: "Raja Ganapathi Offset - #1 Printing Press in Bhavani since 1997. Expert in offset printing, wedding cards, visiting cards, brochures, packaging, bag printing, bill books, letterheads. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi, Salem. Call +91 9994466277 for quotes.",
+  description: "Raja Ganapathi Offset - #1 Printing Press in Bhavani since 1997. Expert in multicolour offset printing, wedding cards, digital & PVC visiting cards, monthly & daily calendars, die-cut sticker labels, brochures, bill books, letterheads. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi, Salem. Call +91 9994466277.",
   keywords: [
     "printing press bhavani",
     "offset printing bhavani",
@@ -21,21 +22,21 @@ export const metadata: Metadata = {
     "wedding card printing bhavani",
     "visiting card printing erode",
     "brochure printing komarapalayam",
-    "packaging printing anthiyur",
+    "pvc visiting card bhavani",
     "bag printing bhavani",
     "bill book printing erode",
     "letterhead printing bhavani",
     "poster printing gobi",
     "catalog printing erode",
     "booklet printing bhavani",
-    "sticker printing erode",
+    "die cut sticker printing erode",
     "label printing bhavani",
     "envelope printing komarapalayam",
     "invitation card printing bhavani",
     "calendar printing erode",
+    "daily calendar printing bhavani",
     "id card printing bhavani",
     "certificate printing erode",
-    "box printing bhavani",
     "paper bag printing erode",
     "menu card printing bhavani",
     "printing press near me",
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Raja Ganapathi Offset - Best Printing Press in Bhavani, Erode District | Since 1997",
-    description: `Trusted printing press serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi for ${YEARS}+ years. Expert offset printing, wedding cards, business stationery, packaging, bag printing. Quality guaranteed. Call +91 9994466277`,
+    description: `Trusted printing press serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi for ${YEARS}+ years. Expert offset printing, wedding cards, calendars, sticker labels, business stationery. Quality guaranteed. Call +91 9994466277`,
     url: `${SITE_CONFIG.domain}/printing-press-bhavani-erode`,
     siteName: SITE_CONFIG.name,
     // OG image inherited from app/opengraph-image.tsx (generated, never 404s).
@@ -55,7 +56,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Raja Ganapathi Offset - Best Printing Press Bhavani | Offset Printing Erode",
-    description: `${YEARS}+ years trusted printing press in Bhavani. Wedding cards, visiting cards, brochures, packaging, bag printing. Serving Erode district. Call +91 9994466277`,
+    description: `${YEARS}+ years trusted printing press in Bhavani. Wedding cards, visiting cards, calendars, sticker labels, brochures. Serving Erode district. Call +91 9994466277`,
   },
   alternates: {
     canonical: `${SITE_CONFIG.domain}/printing-press-bhavani-erode`,
@@ -100,62 +101,24 @@ export default function PrintingPressBhavaniErodePage() {
 
 function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-br from-[#0F172A] via-[#1e293b] to-[#0F172A] text-white py-20 md:py-32">
-      <div className="absolute inset-0 bg-[url('/images/printing-pattern.svg')] opacity-5"></div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full px-6 py-2 mb-6">
-            <Award className="w-5 h-5 text-[#D4AF37]" />
-            <span className="text-[#D4AF37] font-semibold">Trusted Since 1997 | {YEARS}+ Years of Excellence</span>
-          </div>
-          
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Raja Ganapathi Offset
-            <span className="block text-[#D4AF37] mt-2">Best Printing Press in Bhavani & Erode</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-            Premier Multicolour Offset & Commercial Printing Solutions Provider
-            <span className="block mt-2 text-lg">Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi & Surrounding Areas</span>
-          </p>
-          
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <a
-              href={`tel:${CONTACT_INFO.phoneFormatted}`}
-              className="inline-flex items-center gap-2 bg-[#D4AF37] hover:bg-[#C4A137] text-[#0F172A] font-bold px-8 py-4 rounded-lg transition-all transform hover:scale-105"
-            >
-              <Phone className="w-5 h-5" />
-              Call +91 9994466277
-            </a>
-            <a
-              href={`https://wa.me/${CONTACT_INFO.whatsapp}`}
-              className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-lg transition-all transform hover:scale-105"
-            >
-              Get Free Quote on WhatsApp
-            </a>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#D4AF37] mb-1">{YEARS}+</div>
-              <div className="text-sm text-gray-400">Years Experience</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#D4AF37] mb-1">10,000+</div>
-              <div className="text-sm text-gray-400">Happy Clients</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#D4AF37] mb-1">50+</div>
-              <div className="text-sm text-gray-400">Services Offered</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#D4AF37] mb-1">100%</div>
-              <div className="text-sm text-gray-400">Quality Guaranteed</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <PageHero
+      eyebrow={`Trusted since 1997 · ${YEARS}+ years of excellence`}
+      title="Raja Ganapathi Offset"
+      accent="Best Printing Press in Bhavani & Erode"
+      subtitle={
+        <>
+          Premier Multicolour Offset & Commercial Printing Solutions Provider. Serving Bhavani,
+          Erode, Komarapalayam, Anthiyur, Gobi & Surrounding Areas.
+        </>
+      }
+      primary={{ label: "Call +91 9994466277", href: `tel:${CONTACT_INFO.phoneFormatted}` }}
+      stats={[
+        { stat: `${YEARS}+`, label: "Years Experience" },
+        { stat: "10,000+", label: "Happy Clients" },
+        { stat: "50+", label: "Services Offered" },
+        { stat: "100%", label: "Quality Guaranteed" },
+      ]}
+    />
   )
 }
 
@@ -174,11 +137,11 @@ function IntroSection() {
             </p>
             
             <p className="text-lg leading-relaxed">
-              As the <strong>leading printing press in Bhavani</strong>, we specialize in comprehensive printing solutions including <strong>offset printing, multicolor printing, commercial printing, wedding card printing, visiting card printing, brochure printing, packaging printing, bag printing, bill book printing, letterhead printing</strong>, and much more. Our state-of-the-art printing facility combines traditional craftsmanship with modern technology to deliver exceptional results every time.
+              As the <strong>leading printing press in Bhavani</strong>, we specialize in comprehensive printing solutions including <strong>offset printing, multicolor printing, commercial printing, wedding card printing, visiting card printing, calendar printing, sticker label printing, brochure printing, bag printing, bill book printing, letterhead printing</strong>, and much more. Our state-of-the-art printing facility combines traditional craftsmanship with modern technology to deliver exceptional results every time.
             </p>
             
             <p className="text-lg leading-relaxed">
-              Whether you need <strong>bulk printing services for commercial purposes</strong>, <strong>premium wedding invitations with foiling and embossing</strong>, <strong>professional business stationery</strong>, <strong>eye-catching marketing materials</strong>, or <strong>custom packaging solutions</strong>, Raja Ganapathi Offset is your one-stop destination for all printing needs in Erode district and beyond.
+              Whether you need <strong>bulk printing services for commercial purposes</strong>, <strong>Tamil wedding invitations</strong>, <strong>professional business stationery</strong>, <strong>eye-catching marketing materials</strong>, or <strong>monthly and daily calendars</strong>, Raja Ganapathi Offset is your one-stop destination for all printing needs in Erode district and beyond.
             </p>
           </div>
           
@@ -196,7 +159,7 @@ function IntroSection() {
             <div className="bg-gradient-to-br from-[#0F172A] to-[#1e293b] p-6 rounded-xl text-white text-center">
               <TrendingUp className="w-12 h-12 text-[#D4AF37] mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-2">Modern Technology</h3>
-              <p className="text-gray-300">Latest Heidelberg offset printing equipment for perfect results</p>
+              <p className="text-gray-300">Multicolour offset printing equipment for sharp, consistent results</p>
             </div>
           </div>
         </div>
@@ -225,7 +188,7 @@ function ComprehensiveServicesSection() {
         "Bill Book Printing (Duplicate, Triplicate)",
         "Invoice Printing & Receipt Book Printing",
         "Challan Printing & Voucher Printing",
-        "Visiting Card Printing & Business Card Printing",
+        "Digital & PVC Visiting Card Printing",
         "Envelope Printing (All Sizes)",
         "Letter Envelope & Courier Cover Printing",
         "File Cover & Folder Printing",
@@ -242,7 +205,6 @@ function ComprehensiveServicesSection() {
         "Dangler Printing & Tent Card Printing",
         "Standee Printing & Display Materials",
         "Menu Card Printing (Restaurant & Hotel)",
-        "Calendar Printing & Diary Printing",
         "Bill Folder Printing",
       ]
     },
@@ -250,8 +212,8 @@ function ComprehensiveServicesSection() {
       category: "Wedding & Invitation Cards",
       items: [
         "Wedding Card Printing (Traditional & Modern)",
-        "Marriage Invitation Printing with Foiling",
-        "Embossed Wedding Cards & Laser Cut Invitations",
+        "Tamil, English & Bilingual Marriage Invitations",
+        "Die-Cut Wedding Cards & Inserts",
         "Birthday Invitation Printing",
         "Corporate Invitation Printing",
         "Event Invitation Cards",
@@ -276,34 +238,32 @@ function ComprehensiveServicesSection() {
       items: [
         "Certificate Printing (All Types)",
         "ID Card Printing & Employee ID Cards",
-        "PVC Card Printing & Plastic Card Printing",
+        "PVC Card Printing & PVC Visiting Cards",
         "Student ID Cards & Membership Cards",
         "Access Cards & Loyalty Cards",
       ]
     },
     {
-      category: "Calendar & Sticker Printing",
+      category: "Calendar Printing (All Types & Sizes)",
       items: [
-        "Wall Calendar Printing",
-        "Table Calendar Printing & Desk Calendar",
-        "Pocket Calendar Printing",
-        "Sticker Printing (All Shapes & Sizes)",
-        "Label Printing & Product Label Printing",
-        "Barcode Label Printing",
-        "Vinyl Stickers & Die-Cut Stickers",
+        "Monthly Wall Calendars (12-page, 6-page)",
+        "Single-Sheet 12-Month Calendars",
+        "Daily Tear-Off Calendars with Header Board",
+        "Desk / Table Calendars",
+        "Pocket Calendars",
+        "Tamil, English & Bilingual Calendars",
+        "All Sizes — 12×18, 15×20, 18×23, 20×30 in & Custom",
       ]
     },
     {
-      category: "Packaging & Box Printing",
+      category: "Die-Cut Sticker Labels",
       items: [
-        "Box Printing & Carton Printing",
-        "Mono Carton Printing",
-        "Corrugated Box Printing",
-        "Product Packaging Printing",
-        "Food Packaging Printing",
-        "Pharmaceutical Packaging",
-        "Cosmetic Box Printing",
-        "Gift Box Printing",
+        "Die-Cut Stickers (All Shapes & Sizes)",
+        "Product & Jar Labels",
+        "Barcode & MRP Labels",
+        "Vinyl & Transparent Stickers",
+        "Waterproof & Oil-Resistant Labels",
+        "Logo & Brand Stickers",
       ]
     },
     {
@@ -323,10 +283,7 @@ function ComprehensiveServicesSection() {
       category: "Finishing & Binding Services",
       items: [
         "Lamination (Gloss & Matte)",
-        "UV Coating & Spot UV",
-        "Embossing & Debossing",
-        "Foil Stamping (Gold, Silver, Holographic)",
-        "Die Cutting & Laser Cutting",
+        "Die Cutting (Any Shape)",
         "Punching & Perforation",
         "Numbering & Sequential Printing",
         "Spiral Binding & Wire-O Binding",
@@ -378,7 +335,7 @@ function LocationsServedSection() {
     { name: "Komarapalayam", desc: "Textile & commercial printing hub" },
     { name: "Anthiyur", desc: "Wedding cards & business stationery" },
     { name: "Gobichettipalayam (Gobi)", desc: "Offset & commercial printing services" },
-    { name: "Perundurai", desc: "Packaging & promotional materials" },
+    { name: "Perundurai", desc: "Sticker labels & promotional materials" },
     { name: "Sathyamangalam", desc: "All printing solutions available" },
     { name: "Mettur", desc: "Business & commercial printing" },
     { name: "Sankagiri", desc: "Wedding invitations & visiting cards" },
@@ -387,7 +344,7 @@ function LocationsServedSection() {
     { name: "Tiruchengode", desc: "Educational & commercial printing" },
     { name: "Pallipalayam", desc: "Quick printing & express services" },
     { name: "Chithode", desc: "Local printing solutions" },
-    { name: "Modakurichi", desc: "Business stationery & packaging" },
+    { name: "Modakurichi", desc: "Business stationery & calendars" },
     { name: "Kavindapadi", desc: "All printing services available" },
     { name: "Ammapet", desc: "Wedding cards & invitations" },
     { name: "Surrounding Villages", desc: "Delivery available across Tamil Nadu" },
@@ -422,7 +379,7 @@ function LocationsServedSection() {
         <div className="mt-12 bg-gradient-to-r from-[#0F172A] to-[#1e293b] rounded-xl p-8 text-white text-center">
           <h3 className="text-2xl font-bold mb-4">Looking for Printing Services Near You?</h3>
           <p className="text-lg mb-6 text-gray-300">
-            We serve all areas in and around Bhavani, Erode district. Contact us for free quotes and delivery options.
+            We serve all areas in and around Bhavani, Erode district. Contact us for delivery options.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
@@ -512,13 +469,6 @@ function WhyChooseSection() {
           <p className="text-lg text-gray-300 mb-6 max-w-2xl mx-auto">
             Join thousands of satisfied customers who trust us for all their printing needs. Quality, reliability, and excellence in every print.
           </p>
-          <a
-            href={`https://wa.me/${CONTACT_INFO.whatsapp}?text=Hi, I would like to get a quote for printing services`}
-            className="inline-flex items-center gap-2 bg-[#D4AF37] hover:bg-[#C4A137] text-[#0F172A] font-bold px-8 py-4 rounded-lg transition-all transform hover:scale-105"
-          >
-            Get Free Quote on WhatsApp
-            <ArrowRight className="w-5 h-5" />
-          </a>
         </div>
       </div>
     </section>
@@ -542,12 +492,12 @@ function SpecializedServicesSection() {
           <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-100 rounded-xl p-6">
             <h3 className="text-xl font-bold text-[#0F172A] mb-4">Wedding Printing Specialist</h3>
             <p className="text-gray-700 mb-4">
-              Make your special day memorable with our premium wedding card printing services. We offer traditional Tamil designs, modern minimalist styles, luxury foil stamping, embossing, laser cutting, and custom design services.
+              Make your special day memorable with our premium wedding card printing services. We offer traditional Tamil designs, modern minimalist and bilingual styles, rich multicolour printing, die-cut shapes and custom design services.
             </p>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>• Traditional & Contemporary Designs</li>
-              <li>• Gold/Silver Foiling & Embossing</li>
-              <li>• Laser Cut Invitations</li>
+              <li>• Tamil, English & Bilingual Layouts</li>
+              <li>• Die-Cut Shapes & Inserts</li>
               <li>• Custom Design Consultation</li>
               <li>• Premium Paper Options</li>
             </ul>
@@ -559,7 +509,7 @@ function SpecializedServicesSection() {
               Complete corporate stationery and business printing services. From visiting cards to letterheads, bill books to brochures - we handle all your business printing needs professionally.
             </p>
             <ul className="space-y-2 text-sm text-gray-600">
-              <li>• Professional Visiting Cards</li>
+              <li>• Digital & PVC Visiting Cards</li>
               <li>• Letterheads & Envelopes</li>
               <li>• Bill Books (Duplicate/Triplicate)</li>
               <li>• Corporate Brochures & Catalogs</li>
@@ -568,16 +518,16 @@ function SpecializedServicesSection() {
           </div>
 
           <div className="bg-gradient-to-br from-purple-50 to-white border-2 border-purple-100 rounded-xl p-6">
-            <h3 className="text-xl font-bold text-[#0F172A] mb-4">Packaging & Label Printing</h3>
+            <h3 className="text-xl font-bold text-[#0F172A] mb-4">Calendars & Sticker Labels</h3>
             <p className="text-gray-700 mb-4">
-              Custom packaging solutions for products, food items, pharmaceuticals, and cosmetics. High-quality box printing, carton printing, and label printing services with barcode support.
+              All types of monthly and daily calendars in every size, plus die-cut sticker labels in any shape — printed in rich multicolour for shops, brands and temples.
             </p>
             <ul className="space-y-2 text-sm text-gray-600">
-              <li>• Product Packaging Design</li>
-              <li>• Mono Carton & Corrugated Boxes</li>
-              <li>• Barcode Labels & Stickers</li>
-              <li>• Food-Grade Packaging</li>
-              <li>• Custom Shapes & Sizes</li>
+              <li>• Monthly Wall & Desk Calendars</li>
+              <li>• Daily Tear-Off Calendars</li>
+              <li>• Die-Cut Stickers (Any Shape)</li>
+              <li>• Product, Barcode & MRP Labels</li>
+              <li>• Tamil & Bilingual Designs</li>
             </ul>
           </div>
 
@@ -598,13 +548,13 @@ function SpecializedServicesSection() {
           <div className="bg-gradient-to-br from-red-50 to-white border-2 border-red-100 rounded-xl p-6">
             <h3 className="text-xl font-bold text-[#0F172A] mb-4">Promotional Material Printing</h3>
             <p className="text-gray-700 mb-4">
-              Eye-catching marketing materials to promote your business. Posters, standees, danglers, flyers, calendars and all promotional printing at affordable prices.
+              Eye-catching marketing materials to promote your business. Posters, standees, danglers, flyers, handbills and all promotional printing at affordable prices.
             </p>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>• Posters & Pamphlets</li>
               <li>• Standees & Danglers</li>
               <li>• Promotional Flyers</li>
-              <li>• Calendars & Diaries</li>
+              <li>• Notices & Handbills</li>
               <li>• Event Branding Materials</li>
             </ul>
           </div>
@@ -632,8 +582,8 @@ function ProcessSection() {
   const steps = [
     {
       step: "1",
-      title: "Consultation & Quote",
-      desc: "Contact us via phone, WhatsApp, or visit our press. Share your requirements and get instant quote."
+      title: "Consultation",
+      desc: "Call us or visit our press. Share your requirements and we will recommend the right approach."
     },
     {
       step: "2",
@@ -648,7 +598,7 @@ function ProcessSection() {
     {
       step: "4",
       title: "Printing Process",
-      desc: "Your order goes into production on our advanced Heidelberg offset printing equipment."
+      desc: "Your order goes into production on our multicolour offset press."
     },
     {
       step: "5",
@@ -694,7 +644,7 @@ function FAQSection() {
   const faqs = [
     {
       q: "What types of printing services does Raja Ganapathi Offset offer in Bhavani?",
-      a: "We offer comprehensive printing services including multicolor offset printing, wedding card printing, visiting card printing, business stationery (letterheads, bill books, envelopes), brochure printing, catalog printing, packaging printing, bag printing (paper, cloth, jute, non-woven), book printing, poster printing, sticker printing, label printing, certificate printing, ID card printing, calendar printing, and all finishing services like lamination, foiling, embossing, and binding."
+      a: "We offer comprehensive printing services including multicolor offset printing, wedding card printing, visiting card printing, business stationery (letterheads, bill books, envelopes), brochure printing, catalog printing, monthly and daily calendar printing, die-cut sticker label printing, digital and PVC visiting cards, bag printing (paper, cloth, jute, non-woven), book printing, poster printing, certificate printing, ID card printing, and finishing services like lamination, die-cutting, numbering and binding."
     },
     {
       q: "Which areas do you serve from your Bhavani location?",
@@ -706,11 +656,11 @@ function FAQSection() {
     },
     {
       q: "What are your business hours and contact details?",
-      a: "We are open Monday to Saturday from 9:30 AM to 2:00 PM and 4:00 PM to 8:00 PM. Closed on Sundays. You can reach us at +91 9994466277 (Phone/WhatsApp) or email us at rgpbvn@gmail.com. Visit us at 24 Palani Andavar Kovil Street, Bhavani - 638301 (Opposite CSI School)."
+      a: "We are open Monday to Saturday from 9:30 AM to 2:00 PM and 4:00 PM to 8:00 PM. Closed on Sundays. You can reach us at +91 9994466277 or email us at rgpbvn@gmail.com. Visit us at 24 Palani Andavar Kovil Street, Bhavani - 638301 (Opposite CSI School)."
     },
     {
       q: "Do you offer custom wedding card design services?",
-      a: "Yes, we specialize in custom wedding invitation design and printing. Our services include traditional Tamil wedding cards, modern minimalist designs, luxury foil stamping (gold, silver, holographic), embossing and debossing, laser cut invitations, and complete design consultation. We work with you to create unique invitations that match your wedding theme and budget."
+      a: "Yes, we specialize in custom wedding invitation design and printing. Our services include traditional Tamil wedding cards, modern minimalist and bilingual designs, rich multicolour printing on premium card stocks, die-cut shapes, and complete design consultation. We work with you to create unique invitations that match your wedding theme and budget."
     },
     {
       q: "What is the minimum order quantity for offset printing?",
@@ -722,11 +672,7 @@ function FAQSection() {
     },
     {
       q: "What paper quality and finishing options are available?",
-      a: "We offer a wide range of paper options including art paper (various GSM), maplitho, bond paper, card stock, textured papers, metallic papers, handmade papers, and imported specialty papers. Finishing options include lamination (gloss/matte), UV coating, spot UV, embossing, debossing, foil stamping (gold, silver, holographic), die cutting, laser cutting, punching, perforation, and various binding methods."
-    },
-    {
-      q: "How can I get a quote for my printing project?",
-      a: "Getting a quote is easy! You can call us at +91 9994466277, send a WhatsApp message with your requirements, email us at rgpbvn@gmail.com, or visit our press in person. Please provide details about your project including quantity, size, paper type, colors, and any special finishes required. We will provide a detailed quote promptly."
+      a: "We offer a wide range of paper options including art paper (various GSM), maplitho, bond paper, card stock, textured papers, pearl card stocks, vinyl and PVC. Finishing options include lamination (gloss/matte), die cutting to any shape, punching, perforation, numbering, calendar binding and various book binding methods."
     },
     {
       q: "Do you offer bag printing services for businesses?",
@@ -779,12 +725,6 @@ function FAQSection() {
               <Phone className="w-5 h-5" />
               Call +91 9994466277
             </a>
-            <a
-              href={`https://wa.me/${CONTACT_INFO.whatsapp}`}
-              className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-3 rounded-lg transition-all"
-            >
-              WhatsApp Us
-            </a>
           </div>
         </div>
       </div>
@@ -810,12 +750,6 @@ function CTASection() {
           >
             <Phone className="w-6 h-6" />
             Call Now: +91 9994466277
-          </a>
-          <a
-            href={`https://wa.me/${CONTACT_INFO.whatsapp}?text=Hi, I would like to get a quote for printing services`}
-            className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-lg transition-all transform hover:scale-105 text-lg"
-          >
-            Get Free Quote on WhatsApp
           </a>
         </div>
 

@@ -23,11 +23,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.domain),
   title: {
-    default: "Raja Ganapathi Offset — Premium Printing Press in Bhavani, Erode | Wedding Cards, Visiting Cards, Brochures, Packaging",
+    default: "Raja Ganapathi Offset — Multicolour Offset Printing Press in Bhavani, Erode | Wedding Cards, Calendars, Visiting Cards, Stickers",
     template: `%s | ${SITE_CONFIG.name} | Printing Press Bhavani Erode`,
   },
   description:
-    "South India's most-loved offset printing press in Bhavani, Erode. Wedding invitations, visiting cards, multicolour offset, brochures, books, packaging & jamakkalam printing — since 1997. Get a free quote in 1 hour. Call +91 99944 66277.",
+    "Multicolour offset printing press in Bhavani, Erode since 1997. Tamil wedding invitations, digital & PVC visiting cards, monthly & daily calendars, die-cut sticker labels, brochures and books. Call +91 99944 66277.",
   applicationName: SITE_CONFIG.name,
   keywords: [
     ...PRIMARY_KEYWORDS,
@@ -41,7 +41,8 @@ export const metadata: Metadata = {
     "rajaganapathi offset bhavani erode",
     "raja ganapathi printers bhavani",
     "premium printing tamil nadu",
-    "heidelberg offset press bhavani",
+    "calendar printing bhavani",
+    "pvc visiting card bhavani",
     "cmyk offset printing erode",
     "bilingual tamil wedding invitations",
   ],
@@ -58,7 +59,7 @@ export const metadata: Metadata = {
     title:
       "Raja Ganapathi Offset — Premium Printing Press in Bhavani, Erode (Since 1997)",
     description:
-      "Wedding cards, visiting cards, brochures, packaging & multicolour offset printing in Bhavani, Erode. Heidelberg press, CMYK + Pantone, foil, emboss, spot UV. Free quote in 1 hour.",
+      "Wedding cards, digital & PVC visiting cards, monthly & daily calendars, die-cut sticker labels and multicolour offset printing in Bhavani, Erode.",
     url: SITE_CONFIG.domain,
     siteName: SITE_CONFIG.name,
     // OG image is provided by app/opengraph-image.tsx (generated, never 404s).
@@ -71,7 +72,7 @@ export const metadata: Metadata = {
     title:
       "Raja Ganapathi Offset — Premium Printing Press in Bhavani, Erode",
     description:
-      "Wedding cards, visiting cards, brochures, packaging & offset printing in Bhavani, Erode. Since 1997. Free quote in 1 hour.",
+      "Wedding cards, visiting cards, calendars, sticker labels & offset printing in Bhavani, Erode. Since 1997.",
     creator: "@rajaganapathioffset",
     site: "@rajaganapathioffset",
   },
@@ -171,7 +172,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.google.com" />
 
         {/* favicon.ico fallback; modern icon, apple-icon and web manifest are
-            provided by app/icon.tsx, app/apple-icon.tsx and app/manifest.ts */}
+            provided by app/icon.png, app/apple-icon.png and app/manifest.ts */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className={`${inter.className} bg-ink-50 text-ink-900`}>
