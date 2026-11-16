@@ -84,7 +84,7 @@ export default function Hero() {
     <MotionConfig reducedMotion="user">
       <section
         id="home"
-        className="relative bg-[#fbfbfd] text-ink-900"
+        className="relative bg-ink-50 text-ink-900"
         aria-label="Premium offset printing press in Bhavani, Erode"
       >
         {/* Scroll track: the stage below stays pinned while this scrolls past */}

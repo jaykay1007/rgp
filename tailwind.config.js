@@ -24,25 +24,36 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#1d1d1f",
+          DEFAULT: "#131C36",
           foreground: "#ffffff",
         },
         secondary: {
-          DEFAULT: "#f5f5f7",
-          foreground: "#1d1d1f",
+          DEFAULT: "#F3EDE1",
+          foreground: "#131C36",
         },
+        // Brand accent. Royal blue on paper, gold on dark ink surfaces. The
+        // values live in CSS variables (app/globals.css) so they flip by scope.
         accent: {
-          DEFAULT: "#0071e3",
+          DEFAULT: "rgb(var(--accent-rgb) / <alpha-value>)",
           foreground: "#ffffff",
-          hover: "#0077ed",
+          hover: "rgb(var(--accent-hover-rgb) / <alpha-value>)",
+        },
+        gold: {
+          light: "#E9CE8C",
+          DEFAULT: "#C9A24B",
+          dark: "#8F6A1A",
+        },
+        paper: {
+          DEFAULT: "#FBF8F2",
+          deep: "#F3EDE1",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
-          DEFAULT: "#f5f5f7",
-          foreground: "#86868b",
+          DEFAULT: "#F3EDE1",
+          foreground: "#7A7264",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -52,18 +63,21 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Paper-to-ink scale: warm ivory stock at the light end, navy press
+        // ink (from the logo) at the dark end.
         ink: {
-          50: "#fafafa",
-          100: "#f5f5f7",
-          200: "#e8e8ed",
-          300: "#d2d2d7",
-          400: "#a1a1a6",
-          500: "#86868b",
-          600: "#6e6e73",
-          700: "#3a3a3c",
-          800: "#1d1d1f",
-          900: "#0a0a0b",
+          50: "#FBF8F2",
+          100: "#F3EDE1",
+          200: "#E7DFCF",
+          300: "#D5CAB5",
+          400: "#A39A89",
+          500: "#7A7264",
+          600: "#5C5548",
+          700: "#343A52",
+          800: "#131C36",
+          900: "#0B1226",
         },
+
         cmyk: {
           cyan: "#00B5E2",
           magenta: "#EC008C",
@@ -84,10 +98,10 @@ module.exports = {
       },
       fontFamily: {
         sans: [
-          "SF Pro Text",
+          "var(--font-inter)",
+          "var(--font-tamil)",
           "-apple-system",
           "BlinkMacSystemFont",
-          "Inter",
           "Segoe UI",
           "Roboto",
           "Helvetica Neue",
@@ -95,11 +109,12 @@ module.exports = {
           "sans-serif",
         ],
         display: [
-          "SF Pro Display",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "Inter",
-          "sans-serif",
+          "var(--font-display)",
+          "var(--font-tamil-serif)",
+          "Georgia",
+          "Cambria",
+          "Times New Roman",
+          "serif",
         ],
         mono: [
           "SF Mono",
@@ -141,14 +156,15 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
-        "apple-sm": "0 2px 8px rgba(0, 0, 0, 0.04)",
-        "apple-md": "0 4px 16px rgba(0, 0, 0, 0.08)",
-        "apple-lg": "0 8px 32px rgba(0, 0, 0, 0.12)",
-        "apple-xl": "0 16px 48px rgba(0, 0, 0, 0.16)",
-        "apple-2xl": "0 32px 80px rgba(0, 0, 0, 0.20)",
+        // Soft, warm, layered: a sheet resting on a table, not a floating UI card.
+        "apple-sm": "0 1px 2px rgba(19, 28, 54, 0.05), 0 1px 1px rgba(19, 28, 54, 0.03)",
+        "apple-md": "0 1px 2px rgba(19, 28, 54, 0.05), 0 6px 16px -4px rgba(19, 28, 54, 0.08)",
+        "apple-lg": "0 2px 4px rgba(19, 28, 54, 0.05), 0 14px 32px -8px rgba(19, 28, 54, 0.12)",
+        "apple-xl": "0 2px 6px rgba(19, 28, 54, 0.06), 0 24px 48px -12px rgba(19, 28, 54, 0.16)",
+        "apple-2xl": "0 4px 8px rgba(19, 28, 54, 0.06), 0 40px 80px -20px rgba(19, 28, 54, 0.22)",
         "glass": "0 8px 32px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.1)",
         "inner-glow": "inset 0 1px 0 0 rgba(255, 255, 255, 0.08)",
-        "ink-glow": "0 0 80px rgba(0, 113, 227, 0.25)",
+        "ink-glow": "0 0 80px rgba(201, 162, 75, 0.28)",
       },
       transitionDuration: {
         "400": "400ms",
@@ -165,7 +181,7 @@ module.exports = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "ink-blue": "linear-gradient(135deg, #0071e3 0%, #42a1ec 50%, #6dc4ff 100%)",
+        "ink-blue": "linear-gradient(135deg, #1F3F96 0%, #3559B8 55%, #6C8BDD 100%)",
         "ink-magenta": "linear-gradient(135deg, #ec008c 0%, #ff4fab 100%)",
         "ink-rainbow": "linear-gradient(135deg, #00B5E2 0%, #EC008C 33%, #FFF200 66%, #0A0A0B 100%)",
         "noise": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E\")",

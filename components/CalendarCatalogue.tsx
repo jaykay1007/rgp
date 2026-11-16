@@ -253,7 +253,7 @@ export default function CalendarCatalogue() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 exit={{ opacity: 0, scale: 0.96 }}
                 transition={{ duration: 0.5, delay: Math.min(i, 8) * 0.04, ease: [0.16, 1, 0.3, 1] }}
-                className="group flex flex-col rounded-[24px] bg-white border border-ink-100 overflow-hidden"
+                className="group flex flex-col rounded-2xl bg-white border border-ink-100 overflow-hidden"
               >
                 <button
                   type="button"
@@ -304,7 +304,7 @@ export default function CalendarCatalogue() {
 
       {/* Larger view */}
       <Dialog open={!!open} onOpenChange={(o) => !o && setOpen(null)}>
-        <DialogContent className="max-w-[min(92vw,640px)] p-4 md:p-6 rounded-[24px]">
+        <DialogContent className="max-w-[min(92vw,640px)] p-4 md:p-6 rounded-2xl">
           {open && (
             <>
               <div className="relative w-full h-[min(68vh,720px)]">

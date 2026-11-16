@@ -86,7 +86,7 @@ export default function PageHero({
 
   return (
     <MotionConfig reducedMotion="user">
-      <section ref={sectionRef} className="relative overflow-hidden bg-[#fbfbfd] text-ink-900">
+      <section ref={sectionRef} className="relative overflow-hidden bg-ink-50 text-ink-900">
         {/* CMYK ink glow */}
         <motion.div
           aria-hidden="true"

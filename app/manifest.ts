@@ -10,8 +10,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Multicolour offset printing press in Bhavani, Erode since 1997 — wedding cards, visiting cards, calendars, sticker labels and more.",
     start_url: "/",
     display: "standalone",
-    background_color: "#fbfbfd",
-    theme_color: "#fbfbfd",
+    background_color: "#FBF8F2",
+    theme_color: "#FBF8F2",
     lang: "en-IN",
     categories: ["business", "shopping"],
     icons: [

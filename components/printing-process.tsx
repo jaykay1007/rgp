@@ -33,7 +33,7 @@ const steps = [
     description:
       "Our in-house team prepares pre-press files and colour proofs. You see exactly how it will look before a single sheet is printed.",
     icon: PenTool,
-    tint: "#0071e3",
+    tint: "#1F3F96",
   },
   {
     number: "03",
@@ -338,7 +338,7 @@ function StepCard({ step, x }: { step: (typeof steps)[number]; x: MotionValue<nu
       ref={ref}
       data-step-card
       style={style}
-      className="group relative flex-none w-[clamp(300px,30vw,400px)] h-[clamp(380px,56vh,460px)] rounded-[32px] overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur-md p-8 flex flex-col"
+      className="group relative flex-none w-[clamp(300px,30vw,400px)] h-[clamp(380px,56vh,460px)] rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur-md p-8 flex flex-col"
     >
       {/* tint glow that brightens as the card reaches centre */}
       <motion.div
@@ -388,7 +388,7 @@ function CtaPanel({ x }: { x: MotionValue<number> }) {
     <motion.article
       ref={ref}
       style={style}
-      className="relative flex-none w-[clamp(320px,32vw,440px)] h-[clamp(380px,56vh,460px)] rounded-[32px] overflow-hidden border border-white/15 p-8 flex flex-col justify-end bg-gradient-to-br from-accent/40 via-cmyk-magenta/25 to-cmyk-yellow/15"
+      className="relative flex-none w-[clamp(320px,32vw,440px)] h-[clamp(380px,56vh,460px)] rounded-2xl overflow-hidden border border-white/15 p-8 flex flex-col justify-end bg-gradient-to-br from-accent/40 via-cmyk-magenta/25 to-cmyk-yellow/15"
     >
       <div aria-hidden="true" className="absolute inset-0 grain" />
       <p className="relative z-10 text-eyebrow uppercase text-white/80 mb-4">Come see for yourself</p>

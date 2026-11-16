@@ -98,7 +98,7 @@ export default function PrintingPressHubPage() {
                   <Link
                     key={c.href}
                     href={c.href}
-                    className="group flex h-full flex-col rounded-[24px] border border-ink-200 bg-white p-7 transition-shadow hover:shadow-apple-lg"
+                    className="group flex h-full flex-col rounded-2xl border border-ink-200 bg-white p-7 transition-shadow hover:shadow-apple-lg"
                   >
                     <div className="mb-4 flex items-center justify-between">
                       <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-ink-900 text-white">

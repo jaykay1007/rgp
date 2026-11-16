@@ -81,7 +81,7 @@ export default function WhyChooseUs() {
             className="lg:col-span-6 relative"
           >
             <div className="grid grid-cols-12 gap-3">
-              <div className="col-span-7 row-span-2 relative h-[420px] rounded-[28px] overflow-hidden bg-ink-100">
+              <div className="col-span-7 row-span-2 relative h-[420px] rounded-2xl overflow-hidden bg-ink-100">
                 <Image
                   src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=900&q=80"
                   alt="Offset printing press floor at Raja Ganapathi Offset Bhavani"
@@ -95,7 +95,7 @@ export default function WhyChooseUs() {
                   <p className="text-[12px] text-white/70">Bhavani, Erode district</p>
                 </div>
               </div>
-              <div className="col-span-5 h-[200px] rounded-[28px] overflow-hidden bg-ink-100 relative">
+              <div className="col-span-5 h-[200px] rounded-2xl overflow-hidden bg-ink-100 relative">
                 <Image
                   src="https://images.unsplash.com/photo-1561049501-e1f96bdd98fd?w=600&q=80"
                   alt="Design studio preparing print-ready artwork and proofs"
@@ -104,7 +104,7 @@ export default function WhyChooseUs() {
                   className="object-cover"
                 />
               </div>
-              <div className="col-span-5 h-[212px] rounded-[28px] overflow-hidden bg-ink-100 relative">
+              <div className="col-span-5 h-[212px] rounded-2xl overflow-hidden bg-ink-100 relative">
                 <Image
                   src="https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=600&q=80"
                   alt="Stationery, letterheads and bill books we print"

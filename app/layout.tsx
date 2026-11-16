@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Inter } from "next/font/google"
+import { Inter, Fraunces, Noto_Sans_Tamil, Noto_Serif_Tamil } from "next/font/google"
 import Script from "next/script"
 import "./globals.css"
 import {
@@ -14,10 +14,35 @@ import {
 import { getSiteWideStructuredData } from "@/lib/structured-data"
 import { LanguageProvider } from "@/contexts/language-context"
 
+// Text face.
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+})
+
+// Display face: a warm, slightly old-style serif that sits with the engraved
+// lettering of the logo. Variable, so one file covers every weight and italic.
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
+  variable: "--font-display",
+  display: "swap",
+})
+
+// Tamil companions for both faces, so Tamil never falls back to a system font.
+const tamilSans = Noto_Sans_Tamil({
+  subsets: ["tamil"],
+  variable: "--font-tamil",
+  display: "swap",
+  preload: false,
+})
+const tamilSerif = Noto_Serif_Tamil({
+  subsets: ["tamil"],
+  variable: "--font-tamil-serif",
+  display: "swap",
+  preload: false,
 })
 
 export const metadata: Metadata = {
@@ -111,8 +136,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fbfbfd" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0b" },
+    { media: "(prefers-color-scheme: light)", color: "#FBF8F2" },
+    { media: "(prefers-color-scheme: dark)", color: "#0B1226" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -131,7 +156,7 @@ export default function RootLayout({
   const structuredData = getSiteWideStructuredData()
 
   return (
-    <html lang="en" prefix="og: http://ogp.me/ns#" className={inter.variable}>
+    <html lang="en" prefix="og: http://ogp.me/ns#" className={`${inter.variable} ${fraunces.variable} ${tamilSans.variable} ${tamilSerif.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -175,7 +200,7 @@ export default function RootLayout({
             provided by app/icon.png, app/apple-icon.png and app/manifest.ts */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className={`${inter.className} bg-ink-50 text-ink-900`}>
+      <body className="font-sans bg-ink-50 text-ink-800">
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

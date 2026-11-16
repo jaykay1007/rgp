@@ -55,7 +55,7 @@ export default function Services() {
 
         {/* Featured large card with interactive image stage */}
         <div className="grid lg:grid-cols-12 gap-6 mb-10">
-          <div className="lg:col-span-7 relative h-[520px] md:h-[640px] rounded-[28px] overflow-hidden bg-ink-100">
+          <div className="lg:col-span-7 relative h-[520px] md:h-[640px] rounded-2xl overflow-hidden bg-ink-100">
             {services.map((s, i) => (
               <motion.div
                 key={s.title}
@@ -146,7 +146,7 @@ export default function Services() {
             <Link
               key={s.title}
               href={s.href}
-              className="group relative h-44 rounded-3xl overflow-hidden bg-ink-100"
+              className="group relative h-44 rounded-2xl overflow-hidden bg-ink-100"
             >
               <Image
                 src={s.image}

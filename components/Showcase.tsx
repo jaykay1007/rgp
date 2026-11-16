@@ -144,7 +144,7 @@ export default function Showcase() {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className={`group relative rounded-[28px] overflow-hidden bg-ink-100 ${w.span}`}
+              className={`group relative rounded-2xl overflow-hidden bg-ink-100 ${w.span}`}
             >
               <Link href={w.href} className="block w-full h-full" aria-label={`${w.title} — ${w.category}`}>
                 <Image

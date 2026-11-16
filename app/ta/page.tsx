@@ -159,7 +159,7 @@ export default function TamilPage() {
                     <Link
                       key={s.src}
                       href={s.href}
-                      className="group overflow-hidden rounded-[22px] border border-ink-200 bg-white transition-shadow hover:shadow-apple-md"
+                      className="group overflow-hidden rounded-2xl border border-ink-200 bg-white transition-shadow hover:shadow-apple-md"
                     >
                       <div className="relative aspect-[3/2] overflow-hidden bg-ink-100">
                         <Image
@@ -188,7 +188,7 @@ export default function TamilPage() {
                 </h2>
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   {reasons.map((r) => (
-                    <div key={r.t} className="h-full rounded-[22px] border border-ink-200 bg-white p-6">
+                    <div key={r.t} className="h-full rounded-2xl border border-ink-200 bg-white p-6">
                       <h3 className="font-display text-[17px] font-semibold tracking-[-0.01em] text-ink-900">{r.t}</h3>
                       <p className="mt-2 text-[14px] leading-[1.6] text-ink-500">{r.d}</p>
                     </div>

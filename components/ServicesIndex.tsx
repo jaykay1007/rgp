@@ -75,7 +75,7 @@ export default function ServicesIndex() {
                       >
                         <Link
                           href={`/services/${s.slug}`}
-                          className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-ink-200 bg-white transition-shadow hover:shadow-apple-lg"
+                          className="group flex h-full flex-col overflow-hidden rounded-2xl border border-ink-200 bg-white transition-shadow hover:shadow-apple-lg"
                         >
                           <div className="relative h-48 overflow-hidden bg-ink-100">
                             <Image

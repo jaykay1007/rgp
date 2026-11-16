@@ -109,7 +109,7 @@ export default function Specialties() {
                 delay: index * 0.06,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="group relative bg-white rounded-3xl p-7 md:p-8 hover-lift cursor-default overflow-hidden"
+              className="group relative bg-white rounded-2xl p-7 md:p-8 hover-lift cursor-default overflow-hidden"
             >
               <div className="relative z-10">
                 <div className="mb-5">
@@ -139,7 +139,7 @@ export default function Specialties() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px rounded-3xl overflow-hidden bg-ink-200"
+          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl overflow-hidden bg-ink-200"
         >
           {[
             { stat: `${SITE_CONFIG.yearsInBusiness}+`, label: "Years on press" },

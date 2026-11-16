@@ -66,7 +66,7 @@ export default function LocationDetail({
               </Reveal>
 
               <Reveal delay={0.1}>
-                <div className="rounded-[24px] border border-ink-200 bg-ink-50 p-7">
+                <div className="rounded-2xl border border-ink-200 bg-ink-50 p-7">
                   <div className="flex items-start gap-3">
                     <Truck className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" strokeWidth={1.5} />
                     <div>
@@ -120,7 +120,7 @@ export default function LocationDetail({
                   <Reveal key={s.slug} delay={i * 0.06}>
                     <Link
                       href={`/services/${s.slug}`}
-                      className="group flex h-full flex-col overflow-hidden rounded-[22px] border border-ink-200 bg-white transition-shadow hover:shadow-apple-lg"
+                      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-ink-200 bg-white transition-shadow hover:shadow-apple-lg"
                     >
                       <div className="relative h-36 overflow-hidden bg-ink-100">
                         <Image
@@ -162,7 +162,7 @@ export default function LocationDetail({
                   { t: "Fair, bulk-friendly rates", d: "Sharp pricing from small runs to lakhs of sheets." },
                 ].map((b, i) => (
                   <Reveal key={b.t} delay={i * 0.06}>
-                    <div className="h-full rounded-[22px] border border-ink-200 bg-ink-50 p-6">
+                    <div className="h-full rounded-2xl border border-ink-200 bg-ink-50 p-6">
                       <Check className="mb-4 h-5 w-5 text-accent" strokeWidth={2.5} />
                       <h3 className="font-display text-[17px] font-semibold tracking-[-0.01em] text-ink-900">{b.t}</h3>
                       <p className="mt-2 text-[14px] leading-[1.55] text-ink-500">{b.d}</p>
@@ -201,7 +201,7 @@ export default function LocationDetail({
           {/* CTA */}
           <section className="bg-ink-900 text-white">
             <div className="container-apple-wide py-20 md:py-28">
-              <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-accent/30 via-cmyk-magenta/15 to-cmyk-yellow/10 p-10 md:p-16">
+              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-accent/30 via-cmyk-magenta/15 to-cmyk-yellow/10 p-10 md:p-16">
                 <div aria-hidden className="absolute inset-0 grain" />
                 <div className="relative z-10 max-w-2xl">
                   <h2 className="font-display font-semibold tracking-[-0.025em] text-[clamp(30px,4vw,56px)] leading-[1.04]">

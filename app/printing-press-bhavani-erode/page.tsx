@@ -127,11 +127,11 @@ function IntroSection() {
     <section className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold text-ink-800 mb-6 text-center">
             Welcome to Raja Ganapathi Offset - Your Trusted Printing Partner in Bhavani
           </h2>
           
-          <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
+          <div className="prose prose-lg max-w-none text-ink-600 space-y-6">
             <p className="text-lg leading-relaxed">
               Established in <strong>1997</strong>, <strong>Raja Ganapathi Offset</strong> has been the cornerstone of quality printing services in <strong>Bhavani, Erode district, Tamil Nadu</strong>. With over <strong>{YEARS} years of dedicated service</strong>, we have earned the trust of thousands of businesses, individuals, and organizations across <strong>Bhavani, Erode, Komarapalayam, Anthiyur, Gobichettipalayam, Perundurai, Sathyamangalam, Mettur, Sankagiri, Salem, Namakkal, Tiruchengode, Pallipalayam, Chithode, Modakurichi, Kavindapadi, Ammapet</strong>, and surrounding regions.
             </p>
@@ -146,20 +146,20 @@ function IntroSection() {
           </div>
           
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-gradient-to-br from-[#0F172A] to-[#1e293b] p-6 rounded-xl text-white text-center">
-              <Award className="w-12 h-12 text-[#D4AF37] mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-2">Quality Assured</h3>
-              <p className="text-gray-300">ISO-standard processes ensuring consistent, superior quality in every print</p>
+            <div className="bg-gradient-to-br from-ink-900 to-ink-800 p-6 rounded-xl text-white text-center">
+              <Award className="w-12 h-12 text-gold mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2">Quality Assured</h3>
+              <p className="text-white/75">ISO-standard processes ensuring consistent, superior quality in every print</p>
             </div>
-            <div className="bg-gradient-to-br from-[#0F172A] to-[#1e293b] p-6 rounded-xl text-white text-center">
-              <Users className="w-12 h-12 text-[#D4AF37] mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-2">Expert Team</h3>
-              <p className="text-gray-300">Skilled professionals with decades of combined printing expertise</p>
+            <div className="bg-gradient-to-br from-ink-900 to-ink-800 p-6 rounded-xl text-white text-center">
+              <Users className="w-12 h-12 text-gold mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2">Expert Team</h3>
+              <p className="text-white/75">Skilled professionals with decades of combined printing expertise</p>
             </div>
-            <div className="bg-gradient-to-br from-[#0F172A] to-[#1e293b] p-6 rounded-xl text-white text-center">
-              <TrendingUp className="w-12 h-12 text-[#D4AF37] mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-2">Modern Technology</h3>
-              <p className="text-gray-300">Multicolour offset printing equipment for sharp, consistent results</p>
+            <div className="bg-gradient-to-br from-ink-900 to-ink-800 p-6 rounded-xl text-white text-center">
+              <TrendingUp className="w-12 h-12 text-gold mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2">Modern Technology</h3>
+              <p className="text-white/75">Multicolour offset printing equipment for sharp, consistent results</p>
             </div>
           </div>
         </div>
@@ -294,13 +294,13 @@ function ComprehensiveServicesSection() {
   ]
 
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
+    <section className="py-16 md:py-24 bg-ink-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4">
+          <h2 className="text-3xl md:text-4xl font-semibold text-ink-800 mb-4">
             Complete Printing Services in Bhavani & Erode District
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-ink-500 max-w-3xl mx-auto">
             From concept to completion, we offer comprehensive printing solutions for businesses, individuals, and organizations across Tamil Nadu
           </p>
         </div>
@@ -308,14 +308,14 @@ function ComprehensiveServicesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, idx) => (
             <div key={idx} className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-              <h3 className="text-xl font-bold text-[#0F172A] mb-4 flex items-center gap-2">
-                <CheckCircle2 className="w-6 h-6 text-[#D4AF37]" />
+              <h3 className="text-xl font-semibold text-ink-800 mb-4 flex items-center gap-2">
+                <CheckCircle2 className="w-6 h-6 text-gold-dark" />
                 {service.category}
               </h3>
               <ul className="space-y-2">
                 {service.items.map((item, itemIdx) => (
-                  <li key={itemIdx} className="flex items-start gap-2 text-gray-700">
-                    <span className="text-[#D4AF37] mt-1">•</span>
+                  <li key={itemIdx} className="flex items-start gap-2 text-ink-600">
+                    <span className="text-gold-dark mt-1">•</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -354,37 +354,37 @@ function LocationsServedSection() {
     <section className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4">
+          <h2 className="text-3xl md:text-4xl font-semibold text-ink-800 mb-4">
             Areas We Serve - Printing Press Near You
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-ink-500 max-w-3xl mx-auto">
             Proudly serving customers across Erode district, Salem, Namakkal, and surrounding regions with quality printing services and timely delivery
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {locations.map((location, idx) => (
-            <div key={idx} className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg p-5 hover:shadow-lg transition-all">
+            <div key={idx} className="bg-gradient-to-br from-ink-50 to-white border border-ink-200 rounded-lg p-5 hover:shadow-lg transition-all">
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-1" />
+                <MapPin className="w-5 h-5 text-gold-dark flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="font-bold text-[#0F172A] mb-1">{location.name}</h3>
-                  <p className="text-sm text-gray-600">{location.desc}</p>
+                  <h3 className="font-semibold text-ink-800 mb-1">{location.name}</h3>
+                  <p className="text-sm text-ink-500">{location.desc}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 bg-gradient-to-r from-[#0F172A] to-[#1e293b] rounded-xl p-8 text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">Looking for Printing Services Near You?</h3>
-          <p className="text-lg mb-6 text-gray-300">
+        <div className="mt-12 bg-gradient-to-r from-ink-900 to-ink-800 rounded-xl p-8 text-white text-center">
+          <h3 className="text-2xl font-semibold mb-4">Looking for Printing Services Near You?</h3>
+          <p className="text-lg mb-6 text-white/75">
             We serve all areas in and around Bhavani, Erode district. Contact us for delivery options.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href={`tel:${CONTACT_INFO.phoneFormatted}`}
-              className="inline-flex items-center gap-2 bg-[#D4AF37] hover:bg-[#C4A137] text-[#0F172A] font-bold px-6 py-3 rounded-lg transition-all"
+              className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-ink-800 font-semibold px-6 py-3 rounded-lg transition-all"
             >
               <Phone className="w-5 h-5" />
               Call Now: +91 9994466277
@@ -393,7 +393,7 @@ function LocationsServedSection() {
               href={CONTACT_INFO.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-[#0F172A] font-bold px-6 py-3 rounded-lg transition-all"
+              className="inline-flex items-center gap-2 bg-white hover:bg-ink-100 text-ink-800 font-semibold px-6 py-3 rounded-lg transition-all"
             >
               <MapPin className="w-5 h-5" />
               Get Directions
@@ -440,13 +440,13 @@ function WhyChooseSection() {
   ]
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-[#0F172A] via-[#1e293b] to-[#0F172A] text-white">
+    <section className="py-16 md:py-24 bg-gradient-to-br from-ink-900 via-ink-800 to-ink-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-4">
             Why Raja Ganapathi Offset is the Best Printing Press in Bhavani
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-white/75 max-w-3xl mx-auto">
             Discover what makes us the preferred choice for thousands of customers across Erode district
           </p>
         </div>
@@ -456,17 +456,17 @@ function WhyChooseSection() {
             const Icon = reason.icon
             return (
               <div key={idx} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all">
-                <Icon className="w-12 h-12 text-[#D4AF37] mb-4" />
-                <h3 className="text-xl font-bold mb-3">{reason.title}</h3>
-                <p className="text-gray-300 leading-relaxed">{reason.desc}</p>
+                <Icon className="w-12 h-12 text-gold mb-4" />
+                <h3 className="text-xl font-semibold mb-3">{reason.title}</h3>
+                <p className="text-white/75 leading-relaxed">{reason.desc}</p>
               </div>
             )
           })}
         </div>
 
-        <div className="mt-16 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-xl p-8 text-center">
-          <h3 className="text-2xl font-bold mb-4">Experience the Raja Ganapathi Offset Difference</h3>
-          <p className="text-lg text-gray-300 mb-6 max-w-2xl mx-auto">
+        <div className="mt-16 bg-gold/10 border border-gold/30 rounded-xl p-8 text-center">
+          <h3 className="text-2xl font-semibold mb-4">Experience the Raja Ganapathi Offset Difference</h3>
+          <p className="text-lg text-white/75 mb-6 max-w-2xl mx-auto">
             Join thousands of satisfied customers who trust us for all their printing needs. Quality, reliability, and excellence in every print.
           </p>
         </div>
@@ -480,21 +480,21 @@ function SpecializedServicesSection() {
     <section className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4">
+          <h2 className="text-3xl md:text-4xl font-semibold text-ink-800 mb-4">
             Specialized Printing Services for Every Need
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-ink-500 max-w-3xl mx-auto">
             Expert solutions tailored to specific industries and requirements
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-100 rounded-xl p-6">
-            <h3 className="text-xl font-bold text-[#0F172A] mb-4">Wedding Printing Specialist</h3>
-            <p className="text-gray-700 mb-4">
+            <h3 className="text-xl font-semibold text-ink-800 mb-4">Wedding Printing Specialist</h3>
+            <p className="text-ink-600 mb-4">
               Make your special day memorable with our premium wedding card printing services. We offer traditional Tamil designs, modern minimalist and bilingual styles, rich multicolour printing, die-cut shapes and custom design services.
             </p>
-            <ul className="space-y-2 text-sm text-gray-600">
+            <ul className="space-y-2 text-sm text-ink-500">
               <li>• Traditional & Contemporary Designs</li>
               <li>• Tamil, English & Bilingual Layouts</li>
               <li>• Die-Cut Shapes & Inserts</li>
@@ -504,11 +504,11 @@ function SpecializedServicesSection() {
           </div>
 
           <div className="bg-gradient-to-br from-green-50 to-white border-2 border-green-100 rounded-xl p-6">
-            <h3 className="text-xl font-bold text-[#0F172A] mb-4">Business Printing Solutions</h3>
-            <p className="text-gray-700 mb-4">
+            <h3 className="text-xl font-semibold text-ink-800 mb-4">Business Printing Solutions</h3>
+            <p className="text-ink-600 mb-4">
               Complete corporate stationery and business printing services. From visiting cards to letterheads, bill books to brochures - we handle all your business printing needs professionally.
             </p>
-            <ul className="space-y-2 text-sm text-gray-600">
+            <ul className="space-y-2 text-sm text-ink-500">
               <li>• Digital & PVC Visiting Cards</li>
               <li>• Letterheads & Envelopes</li>
               <li>• Bill Books (Duplicate/Triplicate)</li>
@@ -518,11 +518,11 @@ function SpecializedServicesSection() {
           </div>
 
           <div className="bg-gradient-to-br from-purple-50 to-white border-2 border-purple-100 rounded-xl p-6">
-            <h3 className="text-xl font-bold text-[#0F172A] mb-4">Calendars & Sticker Labels</h3>
-            <p className="text-gray-700 mb-4">
+            <h3 className="text-xl font-semibold text-ink-800 mb-4">Calendars & Sticker Labels</h3>
+            <p className="text-ink-600 mb-4">
               All types of monthly and daily calendars in every size, plus die-cut sticker labels in any shape — printed in rich multicolour for shops, brands and temples.
             </p>
-            <ul className="space-y-2 text-sm text-gray-600">
+            <ul className="space-y-2 text-sm text-ink-500">
               <li>• Monthly Wall & Desk Calendars</li>
               <li>• Daily Tear-Off Calendars</li>
               <li>• Die-Cut Stickers (Any Shape)</li>
@@ -532,11 +532,11 @@ function SpecializedServicesSection() {
           </div>
 
           <div className="bg-gradient-to-br from-orange-50 to-white border-2 border-orange-100 rounded-xl p-6">
-            <h3 className="text-xl font-bold text-[#0F172A] mb-4">Educational Printing</h3>
-            <p className="text-gray-700 mb-4">
+            <h3 className="text-xl font-semibold text-ink-800 mb-4">Educational Printing</h3>
+            <p className="text-ink-600 mb-4">
               Specialized printing services for schools, colleges, and educational institutions. Textbooks, notebooks, diaries, certificates, ID cards, and more at competitive rates.
             </p>
-            <ul className="space-y-2 text-sm text-gray-600">
+            <ul className="space-y-2 text-sm text-ink-500">
               <li>• Textbook & Workbook Printing</li>
               <li>• Student Diaries & Notebooks</li>
               <li>• Certificates & Marksheets</li>
@@ -546,11 +546,11 @@ function SpecializedServicesSection() {
           </div>
 
           <div className="bg-gradient-to-br from-red-50 to-white border-2 border-red-100 rounded-xl p-6">
-            <h3 className="text-xl font-bold text-[#0F172A] mb-4">Promotional Material Printing</h3>
-            <p className="text-gray-700 mb-4">
+            <h3 className="text-xl font-semibold text-ink-800 mb-4">Promotional Material Printing</h3>
+            <p className="text-ink-600 mb-4">
               Eye-catching marketing materials to promote your business. Posters, standees, danglers, flyers, handbills and all promotional printing at affordable prices.
             </p>
-            <ul className="space-y-2 text-sm text-gray-600">
+            <ul className="space-y-2 text-sm text-ink-500">
               <li>• Posters & Pamphlets</li>
               <li>• Standees & Danglers</li>
               <li>• Promotional Flyers</li>
@@ -560,11 +560,11 @@ function SpecializedServicesSection() {
           </div>
 
           <div className="bg-gradient-to-br from-teal-50 to-white border-2 border-teal-100 rounded-xl p-6">
-            <h3 className="text-xl font-bold text-[#0F172A] mb-4">Bag Printing Services</h3>
-            <p className="text-gray-700 mb-4">
+            <h3 className="text-xl font-semibold text-ink-800 mb-4">Bag Printing Services</h3>
+            <p className="text-ink-600 mb-4">
               Eco-friendly and branded bag printing for businesses. Paper bags, cloth bags, jute bags, non-woven bags with custom logo printing and designs.
             </p>
-            <ul className="space-y-2 text-sm text-gray-600">
+            <ul className="space-y-2 text-sm text-ink-500">
               <li>• Paper Bag Printing (All Sizes)</li>
               <li>• Cloth & Cotton Bags</li>
               <li>• Jute & Eco-Friendly Bags</li>
@@ -613,13 +613,13 @@ function ProcessSection() {
   ]
 
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
+    <section className="py-16 md:py-24 bg-ink-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4">
+          <h2 className="text-3xl md:text-4xl font-semibold text-ink-800 mb-4">
             Our Simple & Transparent Printing Process
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-ink-500 max-w-3xl mx-auto">
             From inquiry to delivery - experience hassle-free printing with Raja Ganapathi Offset
           </p>
         </div>
@@ -627,11 +627,11 @@ function ProcessSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {steps.map((item, idx) => (
             <div key={idx} className="relative bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
-              <div className="absolute -top-4 -left-4 w-12 h-12 bg-[#D4AF37] text-[#0F172A] rounded-full flex items-center justify-center text-xl font-bold">
+              <div className="absolute -top-4 -left-4 w-12 h-12 bg-gold text-ink-800 rounded-full flex items-center justify-center text-xl font-semibold">
                 {item.step}
               </div>
-              <h3 className="text-xl font-bold text-[#0F172A] mb-3 mt-2">{item.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+              <h3 className="text-xl font-semibold text-ink-800 mb-3 mt-2">{item.title}</h3>
+              <p className="text-ink-500 leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -692,35 +692,35 @@ function FAQSection() {
     <section className="py-16 md:py-24 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4">
+          <h2 className="text-3xl md:text-4xl font-semibold text-ink-800 mb-4">
             Frequently Asked Questions About Our Printing Services
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-ink-500">
             Everything you need to know about printing services at Raja Ganapathi Offset
           </p>
         </div>
 
         <div className="space-y-6">
           {faqs.map((faq, idx) => (
-            <div key={idx} className="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors">
-              <h3 className="text-lg font-bold text-[#0F172A] mb-3 flex items-start gap-2">
-                <span className="text-[#D4AF37] flex-shrink-0">Q{idx + 1}.</span>
+            <div key={idx} className="bg-ink-50 rounded-xl p-6 hover:bg-ink-100 transition-colors">
+              <h3 className="text-lg font-semibold text-ink-800 mb-3 flex items-start gap-2">
+                <span className="text-gold-dark flex-shrink-0">Q{idx + 1}.</span>
                 {faq.q}
               </h3>
-              <p className="text-gray-700 leading-relaxed pl-8">{faq.a}</p>
+              <p className="text-ink-600 leading-relaxed pl-8">{faq.a}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 bg-gradient-to-r from-[#0F172A] to-[#1e293b] rounded-xl p-8 text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">Still Have Questions?</h3>
-          <p className="text-lg mb-6 text-gray-300">
+        <div className="mt-12 bg-gradient-to-r from-ink-900 to-ink-800 rounded-xl p-8 text-white text-center">
+          <h3 className="text-2xl font-semibold mb-4">Still Have Questions?</h3>
+          <p className="text-lg mb-6 text-white/75">
             Our team is here to help! Contact us for personalized assistance with your printing needs.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href={`tel:${CONTACT_INFO.phoneFormatted}`}
-              className="inline-flex items-center gap-2 bg-[#D4AF37] hover:bg-[#C4A137] text-[#0F172A] font-bold px-6 py-3 rounded-lg transition-all"
+              className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-ink-800 font-semibold px-6 py-3 rounded-lg transition-all"
             >
               <Phone className="w-5 h-5" />
               Call +91 9994466277
@@ -734,19 +734,19 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-[#0F172A] via-[#1e293b] to-[#0F172A] text-white">
+    <section className="py-16 md:py-24 bg-gradient-to-br from-ink-900 via-ink-800 to-ink-900 text-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl md:text-5xl font-bold mb-6">
+        <h2 className="text-3xl md:text-5xl font-semibold mb-6">
           Ready to Start Your Printing Project?
         </h2>
-        <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        <p className="text-xl md:text-2xl text-white/75 mb-8 max-w-3xl mx-auto">
           Experience the quality and service that has made Raja Ganapathi Offset the most trusted printing press in Bhavani for over {YEARS} years
         </p>
 
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           <a
             href={`tel:${CONTACT_INFO.phoneFormatted}`}
-            className="inline-flex items-center gap-2 bg-[#D4AF37] hover:bg-[#C4A137] text-[#0F172A] font-bold px-8 py-4 rounded-lg transition-all transform hover:scale-105 text-lg"
+            className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-ink-800 font-semibold px-8 py-4 rounded-lg transition-all transform hover:scale-105 text-lg"
           >
             <Phone className="w-6 h-6" />
             Call Now: +91 9994466277
@@ -754,14 +754,14 @@ function CTASection() {
         </div>
 
         <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-8 max-w-2xl mx-auto">
-          <h3 className="text-2xl font-bold mb-4 flex items-center justify-center gap-2">
-            <MapPin className="w-6 h-6 text-[#D4AF37]" />
+          <h3 className="text-2xl font-semibold mb-4 flex items-center justify-center gap-2">
+            <MapPin className="w-6 h-6 text-gold" />
             Visit Our Printing Press
           </h3>
           <p className="text-lg mb-2 font-semibold">Raja Ganapathi Offset</p>
-          <p className="text-gray-300 mb-4">{getFullAddress()}</p>
-          <div className="flex items-center justify-center gap-2 text-gray-300 mb-4">
-            <Clock className="w-5 h-5 text-[#D4AF37]" />
+          <p className="text-white/75 mb-4">{getFullAddress()}</p>
+          <div className="flex items-center justify-center gap-2 text-white/75 mb-4">
+            <Clock className="w-5 h-5 text-gold" />
             <span>Mon-Sat: 9:30 AM - 2:00 PM, 4:00 PM - 8:00 PM</span>
           </div>
           <div className="flex flex-wrap justify-center gap-4">
@@ -769,14 +769,14 @@ function CTASection() {
               href={CONTACT_INFO.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-[#0F172A] font-bold px-6 py-3 rounded-lg transition-all"
+              className="inline-flex items-center gap-2 bg-white hover:bg-ink-100 text-ink-800 font-semibold px-6 py-3 rounded-lg transition-all"
             >
               <MapPin className="w-5 h-5" />
               Get Directions
             </a>
             <a
               href={`mailto:${CONTACT_INFO.email}`}
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold px-6 py-3 rounded-lg transition-all"
+              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-6 py-3 rounded-lg transition-all"
             >
               <Mail className="w-5 h-5" />
               Email Us

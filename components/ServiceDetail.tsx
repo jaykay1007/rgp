@@ -74,7 +74,7 @@ export default function ServiceDetail({
               </Reveal>
 
               <Reveal delay={0.1}>
-                <div className="relative h-[420px] overflow-hidden rounded-[28px] bg-ink-100 md:h-full md:min-h-[480px]">
+                <div className="relative h-[420px] overflow-hidden rounded-2xl bg-ink-100 md:h-full md:min-h-[480px]">
                   <Image
                     src={service.gallery[0]?.src ?? service.hero.src}
                     alt={service.gallery[0]?.alt ?? service.hero.alt}
@@ -133,7 +133,7 @@ export default function ServiceDetail({
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   {service.specs.map((group, i) => (
                     <Reveal key={group.title} delay={i * 0.06}>
-                      <div className="h-full rounded-[22px] border border-ink-200 bg-ink-50 p-6">
+                      <div className="h-full rounded-2xl border border-ink-200 bg-ink-50 p-6">
                         <h3 className="mb-4 font-display text-[18px] font-semibold tracking-[-0.01em] text-ink-900">
                           {group.title}
                         </h3>
@@ -177,7 +177,7 @@ export default function ServiceDetail({
                         : "md:col-span-5"
                     }
                   >
-                    <div className="group relative h-[260px] w-full overflow-hidden rounded-[24px] bg-ink-100 md:h-full">
+                    <div className="group relative h-[260px] w-full overflow-hidden rounded-2xl bg-ink-100 md:h-full">
                       <Image
                         src={img.src}
                         alt={img.alt}
@@ -251,7 +251,7 @@ export default function ServiceDetail({
                     <Reveal key={r.slug} delay={i * 0.08}>
                       <Link
                         href={`/services/${r.slug}`}
-                        className="group block h-full overflow-hidden rounded-[24px] border border-ink-200 bg-white transition-shadow hover:shadow-apple-lg"
+                        className="group block h-full overflow-hidden rounded-2xl border border-ink-200 bg-white transition-shadow hover:shadow-apple-lg"
                       >
                         <div className="relative h-44 overflow-hidden bg-ink-100">
                           <Image
@@ -283,7 +283,7 @@ export default function ServiceDetail({
           {/* --------------------------------------------------------------- CTA band */}
           <section className="bg-ink-900 text-white">
             <div className="container-apple-wide py-20 md:py-28">
-              <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-accent/30 via-cmyk-magenta/15 to-cmyk-yellow/10 p-10 md:p-16">
+              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-accent/30 via-cmyk-magenta/15 to-cmyk-yellow/10 p-10 md:p-16">
                 <div aria-hidden className="absolute inset-0 grain" />
                 <div className="relative z-10 max-w-2xl">
                   <h2 className="font-display font-semibold tracking-[-0.025em] text-[clamp(30px,4vw,56px)] leading-[1.04]">

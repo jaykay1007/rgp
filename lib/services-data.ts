@@ -211,7 +211,7 @@ export const services: Service[] = [
     related: ["business-stationery", "stationery-printing", "sticker-labels"],
     keywords: ["visiting card printing bhavani", "pvc visiting card erode", "digital visiting card printing", "tamil visiting card design"],
     accent: "from-blue-500/30 via-cyan-500/20 to-transparent",
-    tint: "#0071e3",
+    tint: "#1F3F96",
     featured: true,
   },
   {
@@ -430,7 +430,7 @@ export const services: Service[] = [
     related: ["visiting-cards", "stationery-printing", "brochures"],
     keywords: ["letterhead printing erode", "envelope printing bhavani", "corporate stationery", "business stationery printing"],
     accent: "from-blue-500/30 via-sky-500/20 to-transparent",
-    tint: "#0071e3",
+    tint: "#1F3F96",
   },
   {
     slug: "stationery-printing",
@@ -637,7 +637,7 @@ export const services: Service[] = [
     related: ["textile-sample-books", "brochures", "promotional-materials"],
     keywords: ["bhavani jamakkalam brochure", "handloom catalogue printing", "jamakkalam marketing", "textile brochure bhavani"],
     accent: "from-blue-500/30 via-indigo-500/20 to-transparent",
-    tint: "#0071e3",
+    tint: "#1F3F96",
   },
 ]
 

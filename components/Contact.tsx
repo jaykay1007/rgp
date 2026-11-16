@@ -46,7 +46,7 @@ export default function Contact() {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7"
           >
-            <div className="bg-white rounded-[28px] p-8 md:p-10 shadow-apple-md">
+            <div className="bg-white rounded-2xl p-8 md:p-10 shadow-apple-md">
               <h3 className="font-display font-semibold text-ink-900 text-[24px] tracking-tight mb-2">
                 Talk to a printer, not a form
               </h3>
@@ -120,7 +120,7 @@ export default function Contact() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5"
           >
-            <div className="bg-ink-900 text-white rounded-[28px] p-8 md:p-10 h-full flex flex-col">
+            <div className="bg-ink-900 text-white rounded-2xl p-8 md:p-10 h-full flex flex-col">
               <h3 className="font-display font-semibold text-[24px] tracking-tight mb-8">
                 Visit our press
               </h3>
@@ -143,7 +143,7 @@ export default function Contact() {
                       href={CONTACT_INFO.directionsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 mt-3 rounded-full bg-accent px-4 py-2 text-[12px] font-medium text-white transition-transform hover:scale-[1.03]"
+                      className="inline-flex items-center gap-1.5 mt-3 rounded-full bg-accent px-4 py-2 text-[12px] font-medium text-ink-900 transition-transform hover:scale-[1.03]"
                     >
                       <Navigation className="w-3 h-3" strokeWidth={2} />
                       Get directions in Google Maps

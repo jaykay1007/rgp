@@ -15,14 +15,22 @@
   --secondary-foreground: 0 0% 0%;
   --muted: 0 0% 96%;
   --muted-foreground: 0 0% 45%;
-  --accent: 211 100% 50%;
+  --accent: 224 66% 35%;
   --accent-foreground: 0 0% 100%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
-  --border: 0 0% 90%;
-  --input: 0 0% 90%;
-  --ring: 211 100% 50%;
-  --radius: 0.875rem;
+  --border: 40 33% 86%;
+  --input: 40 33% 86%;
+  --ring: 224 66% 35%;
+  --radius: 0.625rem;
+
+  /* Brand accent, as RGB channels so Tailwind opacity modifiers work.
+     Royal blue on paper; redefined to gold inside dark ink surfaces below. */
+  --accent-rgb: 31 63 150;
+  --accent-hover-rgb: 23 48 118;
+  --paper: #FBF8F2;
+  --ink: #131C36;
+  --gold: #C9A24B;
 
   --apple-blue: #0071e3;
   --apple-gray-100: #fbfbfd;
@@ -70,11 +78,12 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  background-color: #fbfbfd;
+  background-color: #FBF8F2;
 }
 
 body {
-  @apply bg-background text-foreground;
+  background-color: #FBF8F2;
+  color: #131C36;
   font-feature-settings: "kern" 1, "liga" 1, "ss01" 1;
   letter-spacing: -0.011em;
   /* `clip` (not `hidden`) prevents horizontal scroll WITHOUT creating a
@@ -89,7 +98,7 @@ body {
   }
 
   ::selection {
-    background: rgba(0, 113, 227, 0.2);
+    background: rgba(201, 162, 75, 0.35);
     color: inherit;
   }
 
@@ -123,17 +132,17 @@ body {
 
   /* Glass surfaces */
   .glass {
-    background: rgba(255, 255, 255, 0.72);
+    background: rgba(251, 248, 242, 0.8);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
   }
   .glass-strong {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(251, 248, 242, 0.92);
     backdrop-filter: saturate(200%) blur(28px);
     -webkit-backdrop-filter: saturate(200%) blur(28px);
   }
   .glass-dark {
-    background: rgba(29, 29, 31, 0.72);
+    background: rgba(19, 28, 54, 0.78);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
   }
@@ -155,33 +164,33 @@ body {
   }
 
   .bg-mesh-light {
-    background-color: #fbfbfd;
+    background-color: #FBF8F2;
     background-image:
       radial-gradient(at 8% 18%, rgba(0, 181, 226, 0.10) 0px, transparent 50%),
       radial-gradient(at 92% 8%, rgba(236, 0, 140, 0.08) 0px, transparent 50%),
-      radial-gradient(at 50% 100%, rgba(0, 113, 227, 0.10) 0px, transparent 50%);
+      radial-gradient(at 50% 100%, rgba(201, 162, 75, 0.14) 0px, transparent 50%);
   }
 
   .bg-mesh-dark {
-    background-color: #050507;
+    background-color: #0B1226;
     background-image:
       radial-gradient(at 12% 22%, rgba(0, 181, 226, 0.18) 0px, transparent 50%),
       radial-gradient(at 92% 18%, rgba(236, 0, 140, 0.14) 0px, transparent 50%),
-      radial-gradient(at 50% 100%, rgba(0, 113, 227, 0.18) 0px, transparent 50%);
+      radial-gradient(at 50% 100%, rgba(201, 162, 75, 0.16) 0px, transparent 50%);
   }
 
   .text-gradient {
-    background: linear-gradient(90deg, #000 0%, #333 100%);
+    background: linear-gradient(90deg, #0B1226 0%, #343A52 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
+  /* Headline accent: an italic cut of the display serif in the accent ink.
+     (Name kept for compatibility; it is no longer a blue gradient.) */
   .text-gradient-blue {
-    background: linear-gradient(90deg, #0071e3 0%, #42a1ec 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: rgb(var(--accent-rgb));
+    font-style: italic;
   }
 
   .text-gradient-ink {
@@ -201,7 +210,7 @@ body {
   }
 
   .text-gradient-pearl {
-    background: linear-gradient(180deg, #f5f5f7 0%, #86868b 100%);
+    background: linear-gradient(180deg, #FBF8F2 0%, #E9CE8C 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -213,7 +222,7 @@ body {
   }
   .hover-lift:hover {
     transform: translateY(-6px);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
+    box-shadow: 0 2px 6px rgba(19, 28, 54, 0.06), 0 24px 48px -12px rgba(19, 28, 54, 0.16);
   }
 
   /* Magnetic affordance for buttons */
@@ -248,10 +257,10 @@ body {
 
   /* Apple-style frosted nav */
   .nav-blur {
-    background: rgba(251, 251, 253, 0.72);
+    background: rgba(251, 248, 242, 0.84);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
-    border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(19, 28, 54, 0.08);
   }
 
   /* Inks */
@@ -375,6 +384,123 @@ body {
     transform: scale(1.6);
     opacity: 0;
   }
+}
+
+/* ------------------------------------------------------------------
+   Brand system: "ink on paper"
+   Ivory stock, navy press ink, gold rules, and the four process colours
+   used only as small print-shop details (never as large fills).
+   ------------------------------------------------------------------ */
+
+/* Dark ink surfaces flip the accent from royal blue to gold. */
+.bg-ink-900,
+.bg-ink-800,
+.bg-mesh-dark,
+.glass-dark {
+  --accent-rgb: 226 188 104;
+  --accent-hover-rgb: 236 206 140;
+}
+
+/* A printer's colour bar across the very top of every page. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 3px;
+  z-index: 60;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    #00B5E2 0 25%,
+    #EC008C 25% 50%,
+    #FFD400 50% 75%,
+    #131C36 75% 100%
+  );
+}
+
+/* Headings are set in the display serif unless they are small caps labels. */
+h1, h2, h3 {
+  font-family: var(--font-display), var(--font-tamil-serif), Georgia, serif;
+}
+h2.uppercase, h3.uppercase, h4.uppercase {
+  font-family: var(--font-inter), var(--font-tamil), system-ui, sans-serif;
+}
+
+/* One voice for display type: the components were tuned for a tight bold
+   grotesque; a serif wants a lighter weight and looser tracking. */
+.font-display {
+  font-weight: 560 !important;
+  letter-spacing: -0.018em !important;
+  font-optical-sizing: auto;
+}
+h1.font-display {
+  font-weight: 520 !important;
+  letter-spacing: -0.024em !important;
+}
+
+/* Tamil script must never be tracked tight, and needs more leading. */
+[lang="ta"] .font-display,
+[lang="ta"] h1,
+[lang="ta"] h2,
+[lang="ta"] h3 {
+  letter-spacing: 0 !important;
+}
+[lang="ta"] h1,
+[lang="ta"] h2 {
+  line-height: 1.3 !important;
+}
+
+/* Section labels: small caps with a short gold rule, like a folio line. */
+.text-eyebrow.uppercase {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75em;
+  letter-spacing: 0.16em;
+}
+.text-eyebrow.uppercase::before {
+  content: "";
+  width: 1.75rem;
+  height: 1px;
+  background: var(--gold);
+  flex: none;
+}
+.text-center > .text-eyebrow.uppercase::after {
+  content: "";
+  width: 1.75rem;
+  height: 1px;
+  background: var(--gold);
+  flex: none;
+}
+
+/* Crop marks for framed blocks: add class="crop-marks" to a box. */
+.crop-marks {
+  position: relative;
+}
+.crop-marks::before,
+.crop-marks::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  border-color: var(--gold);
+  border-style: solid;
+}
+.crop-marks::before {
+  top: -7px;
+  left: -7px;
+  border-width: 1px 0 0 1px;
+}
+.crop-marks::after {
+  bottom: -7px;
+  right: -7px;
+  border-width: 0 1px 1px 0;
+}
+
+/* Visible keyboard focus in the brand gold. */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
 }
 
 /* Respect reduced motion */
