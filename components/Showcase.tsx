@@ -17,7 +17,7 @@ type Work = {
   position?: string
 }
 
-// Tamil sample designs (/public/images/samples) + work photography (/public/images/works)
+// Tamil sample designs (/public/images/samples) + our own finished jobs (/public/images/collections, /calendars)
 const work: Work[] = [
   {
     title: "Custom Calendar Printing",
@@ -53,10 +53,11 @@ const work: Work[] = [
     tint: "from-orange-500/50",
   },
   {
-    title: "Hardbound Editions",
-    category: "Book Printing · Hardcase, straight off the press",
-    image: "/images/works/book-printing-hardcover-offset-press-floor.jpg",
-    href: "/services/book-printing",
+    title: "Gold Finance Poster",
+    category: "Posters & Notices · Tamil multicolour offset",
+    image: "/images/collections/gold-finance-poster-tamil.jpg",
+    position: "50% 15%",
+    href: "/services/promotional-materials",
     span: "md:col-span-8",
     tint: "from-emerald-500/50",
   },
@@ -183,8 +184,8 @@ export default function Showcase() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="mt-16 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-ink-400"
         >
-          <span className="text-[12px] uppercase tracking-widest text-ink-400">Trusted by</span>
-          {["Textile houses", "Schools & colleges", "Wedding planners", "FMCG brands", "Local government"].map(
+          <span className="text-[12px] uppercase tracking-widest text-ink-400">We print for</span>
+          {["Families", "Shops & traders", "Textile businesses", "Schools", "Temples"].map(
             (t) => (
               <span key={t} className="text-[14px] font-medium text-ink-600">
                 {t}

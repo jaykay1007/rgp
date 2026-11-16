@@ -4,7 +4,7 @@
 export const SITE_CONFIG = {
   name: "Raja Ganapathi Offset",
   legalName: "Raja Ganapathi Offset Printers",
-  tagline: "Premium Offset Printing Press in Bhavani",
+  tagline: "Offset Printing Press in Bhavani",
   domain: "https://www.rajaganapathioffset.in",
   foundingYear: 1997,
   yearsInBusiness: new Date().getFullYear() - 1997,
@@ -139,7 +139,7 @@ export const FAQ_DATA = [
   },
   {
     question: "How long has Raja Ganapathi Offset been in business?",
-    answer: `Raja Ganapathi Offset has been serving customers in Bhavani and Erode district since 1997. With over ${new Date().getFullYear() - 1997} years of experience, we are one of the most trusted printing presses in the region.`,
+    answer: `Raja Ganapathi Offset has been serving customers in Bhavani and Erode district since 1997. We have printed in the same town for over ${new Date().getFullYear() - 1997} years.`,
   },
   {
     question: "What areas do you serve from your Bhavani location?",
@@ -223,7 +223,7 @@ export const getFullAddress = () => {
 
 // Generate meta description with keywords
 export const generateMetaDescription = (page?: string) => {
-  const base = `Raja Ganapathi Offset - Premier offset printing press in Bhavani since 1997. `;
+  const base = `Raja Ganapathi Offset - Offset printing press in Bhavani since 1997. `;
   
   switch (page) {
     case "home":

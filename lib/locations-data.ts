@@ -27,8 +27,7 @@ export type Location = {
   keywords: string[]
 }
 
-const HERO =
-  "https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?w=1400&auto=format&fit=crop&q=80"
+const HERO = "/images/collections/gold-finance-poster-tamil.jpg"
 
 export const LOCATION_HERO = HERO
 
@@ -48,7 +47,7 @@ export const locations: Location[] = [
     faqs: [
       { q: "Do you deliver printing to Erode?", a: "Yes — we offer same-day pickup and next-day delivery across Erode city from our Bhavani press." },
       { q: "Can I get wedding cards printed for an Erode wedding?", a: "Absolutely. We design and print multicolour wedding invitations in Tamil, English and bilingual layouts for Erode customers." },
-      { q: "Do you handle bulk offset orders for Erode businesses?", a: "Yes, our multicolour offset press handles runs from 1,000 to several lakh sheets with consistent quality." },
+      { q: "Do you handle bulk offset orders for Erode businesses?", a: "Yes. Our multicolour offset press suits runs from about 1,000 sheets upward." },
     ],
     keywords: ["printing press erode", "offset printing erode", "wedding card printing erode", "visiting card printing erode"],
   },

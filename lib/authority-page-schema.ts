@@ -7,8 +7,8 @@ export const generateAuthorityPageSchema = () => {
       "@type": "WebPage",
       "@id": `${SITE_CONFIG.domain}/printing-press-bhavani-erode#webpage`,
       "url": `${SITE_CONFIG.domain}/printing-press-bhavani-erode`,
-      "name": "Best Offset Printing Press in Bhavani, Erode | Raja Ganapathi Offset",
-      "description": "Raja Ganapathi Offset - #1 Printing Press in Bhavani since 1997. Expert in multicolour offset printing, wedding cards, visiting cards, calendars, sticker labels, brochures, bag printing. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi.",
+      "name": "Offset Printing Press in Bhavani, Erode | Raja Ganapathi Offset",
+      "description": "Raja Ganapathi Offset - Offset printing press in Bhavani since 1997. Expert in multicolour offset printing, wedding cards, visiting cards, calendars, sticker labels, brochures, bag printing. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi.",
       "inLanguage": "en",
       "isPartOf": {
         "@type": "WebSite",
@@ -46,11 +46,10 @@ export const generateAuthorityPageSchema = () => {
         "Rajaganapathi Offset Press",
         "Raja Ganapathi Press Bhavani",
         "RGP Offset Bhavani",
-        "Best Printing Press Bhavani",
         "Printing Press Bhavani",
         "Offset Printing Bhavani"
       ],
-      "description": `Premier offset printing press in Bhavani since ${SITE_CONFIG.foundingYear}. Specializing in multicolor offset printing, wedding invitations, digital and PVC visiting cards, monthly and daily calendars, die-cut sticker labels, business stationery, brochures, bag printing, and all commercial printing services. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobichettipalayam, Perundurai, Sathyamangalam, Mettur, Sankagiri, Salem, Namakkal, and surrounding areas in Tamil Nadu.`,
+      "description": `Offset printing press in Bhavani since ${SITE_CONFIG.foundingYear}. Specializing in multicolor offset printing, wedding invitations, digital and PVC visiting cards, monthly and daily calendars, die-cut sticker labels, business stationery, brochures, bag printing, and all commercial printing services. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobichettipalayam, Perundurai, Sathyamangalam, Mettur, Sankagiri, Salem, Namakkal, and surrounding areas in Tamil Nadu.`,
       "url": SITE_CONFIG.domain,
       "telephone": CONTACT_INFO.phone,
       "email": CONTACT_INFO.email,

@@ -52,9 +52,9 @@ export default function Footer() {
           <div className="lg:col-span-7">
             <p className="text-eyebrow uppercase text-accent mb-5">Visit our press floor</p>
             <h2 className="font-display font-semibold tracking-[-0.025em] text-[clamp(36px,5vw,72px)] leading-[1.02] text-balance">
-              Ready to print
+              Have something
               <br />
-              <span className="text-gradient-pearl">something brilliant?</span>
+              <span className="text-gradient-pearl">to print?</span>
             </h2>
           </div>
           <div className="lg:col-span-5 flex flex-wrap gap-3 lg:justify-end">
@@ -181,7 +181,6 @@ export default function Footer() {
               { k: "offset printing erode", href: "/printing-press/erode" },
               { k: "wedding card printing bhavani", href: "/services/wedding-invitations" },
               { k: "visiting card printing erode", href: "/services/visiting-cards" },
-              { k: "best printing press in bhavani", href: "/printing-press-bhavani-erode" },
               { k: "multicolor offset printing tamil nadu", href: "/services/multicolour-offset-printing" },
               { k: "bulk printing erode district", href: "/services/multicolour-offset-printing" },
               { k: "bhavani jamakkalam brochure", href: "/services/bhavani-jamakkalam-brochures" },

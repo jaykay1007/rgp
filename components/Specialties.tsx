@@ -8,19 +8,19 @@ import { SITE_CONFIG } from "@/lib/seo-config"
 const specialties = [
   {
     title: "Multicolour offset",
-    description: "True CMYK colour on our sheet-fed offset press for sharp, consistent detail.",
+    description: "Four-colour (CMYK) printing on our sheet-fed offset press, for sharp and even colour.",
     icon: Printer,
     accent: "text-cmyk-cyan",
   },
   {
-    title: "Premium papers",
-    description: "Art papers, maplitho, card stocks, kraft, vinyl & PVC — the right stock for every job.",
+    title: "Paper to suit the job",
+    description: "Art paper, maplitho, card stock, sticker and PVC. We help you pick the right one.",
     icon: Layers,
     accent: "text-cmyk-magenta",
   },
   {
-    title: "Pantone colour matching",
-    description: "Brand-true spot colours, soft proofing, and dedicated ink kitchen.",
+    title: "Colour matched to your sample",
+    description: "Bring a printed sample and we match it as closely as offset allows.",
     icon: Palette,
     accent: "text-accent",
   },
@@ -31,26 +31,26 @@ const specialties = [
     accent: "text-amber-500",
   },
   {
-    title: "Soy & vegetable inks",
-    description: "Eco-conscious inks, FSC-certified papers, lower-emission washes.",
+    title: "Tamil & English typesetting",
+    description: "Layouts set in Tamil, English or both, in fonts that suit the occasion.",
     icon: Leaf,
     accent: "text-emerald-500",
   },
   {
-    title: "24-hour express",
-    description: "Same-day visiting cards & next-day wedding samples — no compromise.",
+    title: "Any quantity welcome",
+    description: "A box of visiting cards is as welcome here as a large order.",
     icon: Zap,
     accent: "text-yellow-500",
   },
   {
-    title: "Quality-locked",
-    description: "Three-stage QA with proof sign-off & batch quality samples.",
+    title: "Proof before print",
+    description: "You see and approve a proof before anything goes on the press.",
     icon: ShieldCheck,
     accent: "text-blue-500",
   },
   {
-    title: "Sat-late delivery",
-    description: "Open till 8 PM, six days a week — for last-minute deadlines.",
+    title: "Open six days",
+    description: "Monday to Saturday, 9:30 AM to 2 PM and 4 to 8 PM. Walk in, no appointment.",
     icon: Clock,
     accent: "text-rose-500",
   },
@@ -86,15 +86,15 @@ export default function Specialties() {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl mb-20"
         >
-          <p className="text-eyebrow uppercase text-accent mb-5">Built into every print</p>
+          <p className="text-eyebrow uppercase text-accent mb-5">On the press floor</p>
           <h2 className="font-display font-semibold text-ink-900 tracking-[-0.025em] text-[clamp(40px,6vw,80px)] leading-[1.02] text-balance">
-            Expertise that shows.
+            How we work.
             <br />
-            <span className="text-gradient-blue">From the first sheet.</span>
+            <span className="text-gradient-blue">Sheet by sheet.</span>
           </h2>
           <p className="mt-6 text-[clamp(17px,1.4vw,21px)] text-ink-500 leading-[1.5] text-pretty">
-            Eight pillars that make us South India's most trusted offset printing
-            press. Every project, audited against this standard.
+            Eight things we hold to on every job that leaves our offset press
+            in Bhavani.
           </p>
         </motion.div>
 
@@ -144,7 +144,7 @@ export default function Specialties() {
           {[
             { stat: `${SITE_CONFIG.yearsInBusiness}+`, label: "Years on press" },
             { stat: "50,000+", label: "Projects shipped" },
-            { stat: "1M+", label: "Sheets / month" },
+            { stat: "6", label: "Days open a week" },
             { stat: "8", label: "Districts served" },
           ].map((b) => (
             <div key={b.label} className="bg-white p-8 text-center">

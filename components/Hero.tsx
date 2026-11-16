@@ -5,7 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { MotionConfig, motion, useScroll, useTransform, type MotionStyle, type MotionValue } from "framer-motion"
 import { ChevronRight } from "lucide-react"
-import { SITE_CONFIG, CONTACT_INFO } from "@/lib/seo-config"
+import { CONTACT_INFO } from "@/lib/seo-config"
 import { HERO_PRINTS } from "@/lib/hero-prints"
 
 const ease = [0.16, 1, 0.3, 1] as const
@@ -19,7 +19,7 @@ const headline: { text: string; accent?: boolean }[][] = [
 const prints = HERO_PRINTS
 
 const stats = [
-  { stat: `${SITE_CONFIG.yearsInBusiness}+`, label: "years on press" },
+  { stat: "40", label: "years in offset printing" },
   { stat: "50K+", label: "projects printed" },
   { stat: "5.0★", label: "Google rating" },
 ]
@@ -85,7 +85,7 @@ export default function Hero() {
       <section
         id="home"
         className="relative bg-ink-50 text-ink-900"
-        aria-label="Premium offset printing press in Bhavani, Erode"
+        aria-label="Offset printing press in Bhavani, Erode"
       >
         {/* Scroll track: the stage below stays pinned while this scrolls past */}
         <div ref={trackRef} className="relative h-[230vh]">
@@ -113,7 +113,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, ease }}
                 className="mb-4 text-[13px] font-semibold tracking-tight text-accent sm:text-[15px]"
               >
-                Since {SITE_CONFIG.foundingYear} · Bhavani, Erode
+                40 years of experience in offset printing · Bhavani, Erode
               </motion.p>
 
               <h1 className="font-display text-[clamp(32px,min(7.4vw,11.5vh),104px)] font-bold leading-[1.02] tracking-[-0.04em]">
@@ -151,12 +151,12 @@ export default function Hero() {
                 transition={{ duration: 0.9, delay: 0.85, ease }}
                 className="mt-3 max-w-[620px] text-pretty text-[clamp(15px,1.35vw,19px)] leading-[1.5] text-ink-500"
               >
-                South India&apos;s most-loved <strong className="font-semibold text-ink-800">offset printing press</strong>,
-                headquartered in Bhavani, Erode.
+                A multicolour <strong className="font-semibold text-ink-800">offset printing press</strong>{" "}
+                in Bhavani, Erode.
                 <span className="hidden sm:inline">
                   {" "}
                   Wedding cards, visiting cards, calendars, sticker labels, brochures and books — printed in rich
-                  multicolour offset, since {SITE_CONFIG.foundingYear}.
+                  multicolour offset.
                 </span>
               </motion.p>
 

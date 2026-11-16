@@ -32,13 +32,16 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
       description,
       url,
       type: "website",
-      images: [{ url: service.hero.src, width: 1200, height: 630, alt: service.hero.alt }],
+      // Social cards cannot show SVG plates; those fall back to the site image.
+      ...(service.hero.src.endsWith(".svg")
+        ? {}
+        : { images: [{ url: service.hero.src, width: 1200, height: 630, alt: service.hero.alt }] }),
     },
     twitter: {
       card: "summary_large_image",
       title: `${service.name} | ${SITE_CONFIG.name}`,
       description,
-      images: [service.hero.src],
+      ...(service.hero.src.endsWith(".svg") ? {} : { images: [service.hero.src] }),
     },
   }
 }

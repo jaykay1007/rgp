@@ -43,13 +43,13 @@ export default function Services() {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl mb-20"
         >
-          <p className="text-eyebrow uppercase text-accent mb-5">What we craft</p>
+          <p className="text-eyebrow uppercase text-accent mb-5">What we print</p>
           <h2 className="font-display font-semibold text-ink-900 tracking-[-0.025em] text-[clamp(40px,6vw,80px)] leading-[1.02] text-balance">
-            Every project, a portfolio piece.
+            What comes off our press.
           </h2>
           <p className="mt-6 text-[clamp(17px,1.4vw,21px)] text-ink-500 leading-[1.5] text-pretty max-w-2xl">
-            From a single business card to a million-piece offset run — we engineer
-            print that feels good in the hand and looks great in the camera.
+            Wedding cards, visiting cards, calendars, bill books, notices and labels:
+            everyday printing for families, shops and businesses around Bhavani.
           </p>
         </motion.div>
 

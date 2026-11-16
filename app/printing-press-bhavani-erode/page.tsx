@@ -11,8 +11,8 @@ import { getAuthorityPageSchemaJSON } from "@/lib/authority-page-schema"
 const YEARS = SITE_CONFIG.yearsInBusiness
 
 export const metadata: Metadata = {
-  title: "Best Offset Printing Press in Bhavani, Erode | Raja Ganapathi Offset | Commercial Printing Services",
-  description: "Raja Ganapathi Offset - #1 Printing Press in Bhavani since 1997. Expert in multicolour offset printing, wedding cards, digital & PVC visiting cards, monthly & daily calendars, die-cut sticker labels, brochures, bill books, letterheads. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi, Salem. Call +91 9994466277.",
+  title: "Our Offset Press in Bhavani, Erode",
+  description: "Raja Ganapathi Offset, an offset printing press in Bhavani since 1997. Expert in multicolour offset printing, wedding cards, digital & PVC visiting cards, monthly & daily calendars, die-cut sticker labels, brochures, bill books, letterheads. Serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi, Salem. Call +91 9994466277.",
   keywords: [
     "printing press bhavani",
     "offset printing bhavani",
@@ -45,8 +45,8 @@ export const metadata: Metadata = {
     "rajaganapathi press bhavani",
   ],
   openGraph: {
-    title: "Raja Ganapathi Offset - Best Printing Press in Bhavani, Erode District | Since 1997",
-    description: `Trusted printing press serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi for ${YEARS}+ years. Expert offset printing, wedding cards, calendars, sticker labels, business stationery. Quality guaranteed. Call +91 9994466277`,
+    title: "Raja Ganapathi Offset, Offset Printing Press in Bhavani | Since 1997",
+    description: `Trusted printing press serving Bhavani, Erode, Komarapalayam, Anthiyur, Gobi for ${YEARS}+ years. Expert offset printing, wedding cards, calendars, sticker labels, business stationery. Call +91 9994466277`,
     url: `${SITE_CONFIG.domain}/printing-press-bhavani-erode`,
     siteName: SITE_CONFIG.name,
     // OG image inherited from app/opengraph-image.tsx (generated, never 404s).
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Raja Ganapathi Offset - Best Printing Press Bhavani | Offset Printing Erode",
+    title: "Raja Ganapathi Offset | Offset Printing Press, Bhavani",
     description: `${YEARS}+ years trusted printing press in Bhavani. Wedding cards, visiting cards, calendars, sticker labels, brochures. Serving Erode district. Call +91 9994466277`,
   },
   alternates: {
@@ -102,21 +102,21 @@ export default function PrintingPressBhavaniErodePage() {
 function HeroSection() {
   return (
     <PageHero
-      eyebrow={`Trusted since 1997 · ${YEARS}+ years of excellence`}
+      eyebrow={`Since 1997 · ${YEARS}+ years on the same press floor`}
       title="Raja Ganapathi Offset"
-      accent="Best Printing Press in Bhavani & Erode"
+      accent="Offset Printing Press in Bhavani"
       subtitle={
         <>
-          Premier Multicolour Offset & Commercial Printing Solutions Provider. Serving Bhavani,
-          Erode, Komarapalayam, Anthiyur, Gobi & Surrounding Areas.
+          A multicolour offset press. We print for Bhavani, Erode, Komarapalayam,
+          Anthiyur, Gobi and nearby towns.
         </>
       }
       primary={{ label: "Call +91 9994466277", href: `tel:${CONTACT_INFO.phoneFormatted}` }}
       stats={[
-        { stat: `${YEARS}+`, label: "Years Experience" },
-        { stat: "10,000+", label: "Happy Clients" },
-        { stat: "50+", label: "Services Offered" },
-        { stat: "100%", label: "Quality Guaranteed" },
+        { stat: `${YEARS}+`, label: "Years printing" },
+        { stat: "4", label: "Process colours" },
+        { stat: "6", label: "Days open a week" },
+        { stat: "1997", label: "Established" },
       ]}
     />
   )
@@ -148,18 +148,18 @@ function IntroSection() {
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-gradient-to-br from-ink-900 to-ink-800 p-6 rounded-xl text-white text-center">
               <Award className="w-12 h-12 text-gold mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Quality Assured</h3>
-              <p className="text-white/75">ISO-standard processes ensuring consistent, superior quality in every print</p>
+              <h3 className="text-xl font-semibold mb-2">Checked by hand</h3>
+              <p className="text-white/75">Every job is looked over on the press floor before it is packed</p>
             </div>
             <div className="bg-gradient-to-br from-ink-900 to-ink-800 p-6 rounded-xl text-white text-center">
               <Users className="w-12 h-12 text-gold mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Expert Team</h3>
-              <p className="text-white/75">Skilled professionals with decades of combined printing expertise</p>
+              <h3 className="text-xl font-semibold mb-2">People who print</h3>
+              <p className="text-white/75">You deal with the people who set the type and run the press</p>
             </div>
             <div className="bg-gradient-to-br from-ink-900 to-ink-800 p-6 rounded-xl text-white text-center">
               <TrendingUp className="w-12 h-12 text-gold mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Modern Technology</h3>
-              <p className="text-white/75">Multicolour offset printing equipment for sharp, consistent results</p>
+              <h3 className="text-xl font-semibold mb-2">Multicolour offset</h3>
+              <p className="text-white/75">A sheet-fed four-colour offset press for sharp, even print</p>
             </div>
           </div>
         </div>
@@ -175,7 +175,7 @@ function ComprehensiveServicesSection() {
       items: [
         "Multicolor Offset Printing (CMYK + Spot Colors)",
         "Single Color & Two Color Offset Printing",
-        "Short-run Offset Printing for Small Quantities",
+        "Short-run Offset Printing",
         "Commercial Printing Solutions",
         "Bulk Printing Services",
         "Express Printing Services",
@@ -409,33 +409,33 @@ function WhyChooseSection() {
   const reasons = [
     {
       icon: Award,
-      title: `${YEARS}+ Years of Excellence`,
-      desc: "Established in 1997, we bring nearly three decades of printing expertise and industry knowledge to every project."
+      title: `${YEARS}+ years in Bhavani`,
+      desc: "We have printed from the same town since 1997, so we know what local families and shops need."
     },
     {
       icon: CheckCircle2,
-      title: "Quality Guaranteed",
-      desc: "We use premium materials, advanced printing technology, and rigorous quality control to ensure perfect results every time."
+      title: "Careful work",
+      desc: "Good paper, clean registration and a proof you approve before the run."
     },
     {
       icon: Users,
-      title: "10,000+ Satisfied Clients",
-      desc: "Trusted by businesses, individuals, and organizations across Erode district for consistent quality and reliable service."
+      title: "Local customers",
+      desc: "Families, shops, schools and businesses in and around Bhavani."
     },
     {
       icon: TrendingUp,
-      title: "Competitive Pricing",
-      desc: "Best rates in Bhavani and Erode for all printing services without compromising on quality. Bulk discounts available."
+      title: "Fair pricing",
+      desc: "You get a clear price before we print. Larger quantities cost less per piece."
     },
     {
       icon: Clock,
-      title: "Fast Turnaround",
-      desc: "Express printing services available. We understand deadlines and deliver on time, every time."
+      title: "A clear delivery date",
+      desc: "Tell us your date and we will say plainly whether we can meet it."
     },
     {
       icon: Star,
-      title: "Complete Solutions",
-      desc: "From design to delivery, we offer end-to-end printing solutions under one roof. No need to go anywhere else."
+      title: "Design to delivery",
+      desc: "We can set the design, print it and finish it in the same shop."
     },
   ]
 
@@ -465,9 +465,9 @@ function WhyChooseSection() {
         </div>
 
         <div className="mt-16 bg-gold/10 border border-gold/30 rounded-xl p-8 text-center">
-          <h3 className="text-2xl font-semibold mb-4">Experience the Raja Ganapathi Offset Difference</h3>
+          <h3 className="text-2xl font-semibold mb-4">Come and see the press</h3>
           <p className="text-lg text-white/75 mb-6 max-w-2xl mx-auto">
-            Join thousands of satisfied customers who trust us for all their printing needs. Quality, reliability, and excellence in every print.
+            Walk in during shop hours, look at paper samples and finished jobs, and talk your work through with us.
           </p>
         </div>
       </div>
@@ -740,7 +740,7 @@ function CTASection() {
           Ready to Start Your Printing Project?
         </h2>
         <p className="text-xl md:text-2xl text-white/75 mb-8 max-w-3xl mx-auto">
-          Experience the quality and service that has made Raja Ganapathi Offset the most trusted printing press in Bhavani for over {YEARS} years
+          Call us or walk in. We have been printing in Bhavani for over {YEARS} years.
         </p>
 
         <div className="flex flex-wrap justify-center gap-4 mb-12">

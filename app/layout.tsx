@@ -82,7 +82,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Raja Ganapathi Offset — Premium Printing Press in Bhavani, Erode (Since 1997)",
+      "Raja Ganapathi Offset — Offset Printing Press in Bhavani, Erode (Since 1997)",
     description:
       "Wedding cards, digital & PVC visiting cards, monthly & daily calendars, die-cut sticker labels and multicolour offset printing in Bhavani, Erode.",
     url: SITE_CONFIG.domain,
@@ -95,7 +95,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Raja Ganapathi Offset — Premium Printing Press in Bhavani, Erode",
+      "Raja Ganapathi Offset — Offset Printing Press in Bhavani, Erode",
     description:
       "Wedding cards, visiting cards, calendars, sticker labels & offset printing in Bhavani, Erode. Since 1997.",
     creator: "@rajaganapathioffset",
@@ -192,8 +192,6 @@ export default function RootLayout({
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://images.unsplash.com" />
-        <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://www.google.com" />
 
         {/* favicon.ico fallback; modern icon, apple-icon and web manifest are

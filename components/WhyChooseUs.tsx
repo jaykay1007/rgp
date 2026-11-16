@@ -16,7 +16,7 @@ export default function WhyChooseUs() {
       ref={sectionRef}
       id="why-choose-us"
       className="relative py-32 md:py-40 bg-white overflow-hidden"
-      aria-label="Why businesses across Tamil Nadu choose Raja Ganapathi Offset Press"
+      aria-label="About Raja Ganapathi Offset, Bhavani"
     >
       <div className="container-apple-wide">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20">
@@ -26,23 +26,22 @@ export default function WhyChooseUs() {
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-6"
           >
-            <p className="text-eyebrow uppercase text-accent mb-5">Trusted since 1997</p>
+            <p className="text-eyebrow uppercase text-accent mb-5">Since 1997</p>
             <h2 className="font-display font-semibold text-ink-900 tracking-[-0.025em] text-[clamp(40px,6vw,72px)] leading-[1.02] text-balance">
-              The reason businesses across
-              <span className="text-gradient-blue"> Tamil Nadu </span>
-              keep coming back.
+              An offset press,
+              <span className="text-gradient-blue"> run by the people who print.</span>
             </h2>
             <p className="mt-6 text-[clamp(17px,1.4vw,21px)] text-ink-500 leading-[1.5] text-pretty">
-              We've printed wedding cards for three generations of the same family.
-              Catalogues for textile houses since the day they opened. School diaries that
-              parents still keep. That's the kind of trust you only build one print at a time.
+              We are an offset press in Bhavani. Families come to us for wedding and
+              function cards; shops come for bill books, calendars, notices and labels. You
+              deal directly with the people who set the type and run the press.
             </p>
 
             <div className="mt-10 space-y-5">
               {[
-                { label: "Quality first", desc: "Multicolour offset + Pantone-matched colour" },
-                { label: "On time, every time", desc: "On-time delivery rate: 99.4%" },
-                { label: "Fair, transparent pricing", desc: "No hidden costs, no surprise invoices" },
+                { label: "Quality first", desc: "Multicolour offset, checked sheet by sheet" },
+                { label: "A clear delivery date", desc: "We tell you when it will be ready before we start" },
+                { label: "Fair, clear pricing", desc: "You know the price before we print" },
                 { label: "Bilingual design support", desc: "Tamil & English typography that respects the script" },
               ].map((item, index) => (
                 <motion.div
@@ -83,22 +82,22 @@ export default function WhyChooseUs() {
             <div className="grid grid-cols-12 gap-3">
               <div className="col-span-7 row-span-2 relative h-[420px] rounded-2xl overflow-hidden bg-ink-100">
                 <Image
-                  src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=900&q=80"
-                  alt="Offset printing press floor at Raja Ganapathi Offset Bhavani"
+                  src="/images/calendars/daily-sheet-calendar-board-sri-saai-bramma-engineerings.jpg"
+                  alt="Daily sheet calendar with a custom multicolour header board printed for an engineering firm"
                   fill
                   sizes="(min-width: 1024px) 35vw, 70vw"
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink-900/50 to-transparent" />
                 <div className="absolute bottom-6 left-6 text-white">
-                  <p className="font-display font-semibold text-[18px] tracking-tight">Press floor</p>
-                  <p className="text-[12px] text-white/70">Bhavani, Erode district</p>
+                  <p className="font-display font-semibold text-[18px] tracking-tight">Printed here</p>
+                  <p className="text-[12px] text-white/70">Custom daily calendar, Bhavani</p>
                 </div>
               </div>
               <div className="col-span-5 h-[200px] rounded-2xl overflow-hidden bg-ink-100 relative">
                 <Image
-                  src="https://images.unsplash.com/photo-1561049501-e1f96bdd98fd?w=600&q=80"
-                  alt="Design studio preparing print-ready artwork and proofs"
+                  src="/images/collections/ear-piercing-ceremony-invitations-tamil.jpg"
+                  alt="Tamil ear-piercing ceremony (kathani vizha) invitations in four multicolour designs"
                   fill
                   sizes="(min-width: 1024px) 25vw, 50vw"
                   className="object-cover"
@@ -106,8 +105,8 @@ export default function WhyChooseUs() {
               </div>
               <div className="col-span-5 h-[212px] rounded-2xl overflow-hidden bg-ink-100 relative">
                 <Image
-                  src="https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=600&q=80"
-                  alt="Stationery, letterheads and bill books we print"
+                  src="/images/collections/product-label-sticker-tea-stall-classic.jpg"
+                  alt="Tamil snack-pack sticker label with shop name, contact numbers and address"
                   fill
                   sizes="(min-width: 1024px) 25vw, 50vw"
                   className="object-cover"

@@ -158,12 +158,13 @@ export default function ServiceDetail({
           )}
 
           {/* ------------------------------------------------------------- Gallery */}
+          {service.gallery.length > 0 && (
           <section className="bg-white py-24 md:py-32">
             <div className="container-apple-wide">
               <Reveal>
-                <p className="text-eyebrow uppercase text-accent mb-5">From our press floor</p>
+                <p className="text-eyebrow uppercase text-accent mb-5">Our work</p>
                 <h2 className="mb-12 font-display font-semibold tracking-[-0.025em] text-ink-900 text-[clamp(26px,3vw,40px)] leading-[1.1]">
-                  A closer look at the craft.
+                  Jobs we have printed.
                 </h2>
               </Reveal>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:auto-rows-[260px]">
@@ -195,6 +196,7 @@ export default function ServiceDetail({
               </div>
             </div>
           </section>
+          )}
 
           {/* ----------------------------------------------------------------- FAQ */}
           {service.faqs.length > 0 && (

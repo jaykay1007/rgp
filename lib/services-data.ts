@@ -43,63 +43,10 @@ export type Service = {
   featured?: boolean
 }
 
-// Curated, relevant imagery — each picture genuinely depicts the work.
-const IMG = {
-  weddingSuite:
-    "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1400&auto=format&fit=crop&q=80",
-  cards:
-    "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=1400&auto=format&fit=crop&q=80",
-  press:
-    "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1400&auto=format&fit=crop&q=80",
-  pressSheets:
-    "https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?w=1400&auto=format&fit=crop&q=80",
-  brochure:
-    "https://images.unsplash.com/photo-1616628188859-7a11abb6fcc9?w=1400&auto=format&fit=crop&q=80",
-  books:
-    "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=1400&auto=format&fit=crop&q=80",
-  bagsWedding:
-    "https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=1400&auto=format&fit=crop&q=80",
-  bagsFestival:
-    "https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?w=1400&auto=format&fit=crop&q=80",
-  bagsJute:
-    "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=1400&auto=format&fit=crop&q=80",
-  letterhead:
-    "https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=1400&auto=format&fit=crop&q=80",
-  stationery:
-    "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=1400&auto=format&fit=crop&q=80",
-  billbooks:
-    "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1400&auto=format&fit=crop&q=80",
-} as const
-
-// First-party work photography served from /public — preferred over stock
-// wherever we have a real shot of the craft.
-const WORK = {
-  weddingSuiteSeal: "/images/works/wedding-invitation-suite-letterpress-wax-seal.jpg",
-  booksHardcover: "/images/works/book-printing-hardcover-offset-press-floor.jpg",
-  brochurePressRun: "/images/works/brochure-catalog-offset-press-run.jpg",
-  toteBag: "/images/works/cotton-canvas-tote-bag-printing.jpg",
-} as const
-
-// Tamil-language sample designs (illustrated mock-ups) from /public — swap for
-// real photographs of finished jobs as they become available.
-const SAMPLE = {
-  weddingTamil: "/images/samples/wedding-invitation-tamil.jpg",
-  cardsTamil: "/images/samples/visiting-cards-digital-pvc-tamil.jpg",
-  calendarDaily: "/images/samples/calendar-daily-tamil.jpg",
-  calendarMonthly: "/images/samples/calendar-monthly-tamil.jpg",
-  stickers: "/images/samples/die-cut-sticker-labels-tamil.jpg",
-  productLabels: "/images/samples/product-labels-tamil.jpg",
-} as const
-
-// Our own finished jobs, re-shot as clean studio flat-lays (/public/images/collections).
-const COLLECTION = {
-  earPiercingFan: "/images/collections/ear-piercing-ceremony-invitations-tamil.jpg",
-  earPiercingKids: "/images/collections/ear-piercing-invitation-kids-cartoon-design.jpg",
-  puberty: "/images/collections/puberty-ceremony-invitations-tamil.jpg",
-  labelClassic: "/images/collections/product-label-sticker-tea-stall-classic.jpg",
-  labelFestive: "/images/collections/product-label-sticker-tea-stall-festive.jpg",
-  poster: "/images/collections/gold-finance-poster-tamil.jpg",
-} as const
+// Imagery rules: only our own finished jobs (/images/calendars, /images/collections)
+// and clearly-labelled sample designs (/images/samples). Where a service has no
+// photograph of a real job yet, it uses a typeset "plate" from /images/plates —
+// never a stock or generated photo presented as our work.
 
 export const services: Service[] = [
   {
@@ -107,30 +54,30 @@ export const services: Service[] = [
     name: "Multicolour Offset Printing",
     category: "Offset, Calendars & Labels",
     tag: "Multicolour offset",
-    tagline: "True CMYK + Pantone sheet-fed offset — built for runs from 1,000 to lakhs of sheets.",
+    tagline: "Four-colour sheet-fed offset for notices, calendars, labels and brochures.",
     summary:
-      "Vibrant 4-colour offset printing for bulk commercial runs, with sharp registration and consistent colour.",
+      "Four-colour offset printing with sharp registration and even colour, from about 1,000 sheets.",
     overview:
-      "Our sheet-fed multicolour offset press is the heart of the shop. We print true CMYK plus Pantone spot colours with tight registration and consistent ink density across the entire run — a finish digital simply cannot match at volume.",
-    hero: { src: IMG.press, alt: "Multicolour offset printing press running at Raja Ganapathi Offset, Bhavani" },
+      "Our sheet-fed multicolour offset press is the heart of the shop. We print in four process colours (cyan, magenta, yellow and black) with careful registration and even ink across the run, which is what makes offset the economical choice once you need a thousand copies or more.",
+    hero: { src: "/images/collections/gold-finance-poster-tamil.jpg", alt: "Tamil multicolour poster designed and printed for a gold finance company in Bhavani" },
     gallery: [
-      { src: IMG.pressSheets, alt: "Freshly printed CMYK offset sheets" },
-      { src: COLLECTION.poster, alt: "Tamil multicolour poster designed and printed for a gold finance company in Bhavani" },
-      { src: SAMPLE.calendarMonthly, alt: "Tamil monthly wall calendar printed in multicolour offset" },
-      { src: IMG.brochure, alt: "Multicolour brochures printed on the offset press" },
+      { src: "/images/collections/gold-finance-poster-tamil.jpg", alt: "Tamil multicolour poster designed and printed for a gold finance company in Bhavani" },
+      { src: "/images/calendars/advertisement-calendar-6086-jewellery-silks.jpg", alt: "Advertisement calendar for a jewellery and silks showroom, design no. 6086" },
+      { src: "/images/collections/product-label-sticker-tea-stall-festive.jpg", alt: "Multicolour Tamil product label for a tea stall's sweets and savouries, with FSSAI and veg marks" },
+      { src: "/images/calendars/monthly-sheet-calendar-6004-hand-watch.jpg", alt: "Tamil monthly sheet calendar, design no. 6004" },
     ],
     features: [
-      "4-colour CMYK + Pantone spot colours",
-      "Computer-to-plate (CTP) plate making",
+      "4-colour CMYK printing",
+      "Sheet-fed offset, plate by plate",
       "Consistent ink density across long runs",
       "Stocks from 70gsm text to 400gsm board",
-      "In-house colour proofing before the run",
-      "Bulk runs from 1,000 to 10,00,000 sheets",
+      "Proof approved by you before the run",
+      "Runs from about 1,000 sheets upward",
     ],
     craft: ["Brochures & catalogues", "Magazines & books", "Posters & handbills", "Monthly & daily calendars", "Letterheads & forms", "Die-cut sticker labels"],
     faqs: [
       { q: "What is the minimum quantity for offset printing?", a: "Offset becomes cost-effective from around 1,000 sheets; below that we suggest a short-run option." },
-      { q: "Can you match a specific Pantone colour?", a: "Yes — we mix Pantone spot inks and proof them before the full run so your brand colour is exact." },
+      { q: "Can you match my brand colour?", a: "Bring a printed sample and we match it as closely as four-colour offset allows, and show you a proof first." },
       { q: "How long does a bulk offset job take?", a: "Most multicolour runs are ready in 3–6 working days depending on finishing; rush jobs can be accommodated." },
     ],
     related: ["calendar-printing", "sticker-labels", "brochures"],
@@ -143,20 +90,17 @@ export const services: Service[] = [
     slug: "wedding-invitations",
     name: "Wedding Invitations",
     category: "Celebrations & Events",
-    tag: "Most loved",
+    tag: "Popular",
     tagline: "Multicolour wedding cards in Tamil, English and bilingual layouts — designed and printed in Bhavani.",
     summary:
       "Tamil, English and bilingual wedding invitations, printed in rich multicolour on premium card stocks.",
     overview:
       "From traditional Tamil thirumana azhaippithal (திருமண அழைப்பிதழ்) to modern minimalist suites, we design and print wedding invitations that feel as special as the occasion — rich multicolour printing on premium and pearl card stocks, with die-cut shapes, matching envelopes and inserts.",
-    hero: { src: SAMPLE.weddingTamil, alt: "Tamil wedding invitation (thirumana azhaippithal) with envelope and reception card, printed in Bhavani" },
+    hero: { src: "/images/samples/wedding-invitation-tamil.jpg", alt: "Sample design: Tamil wedding invitation (thirumana azhaippithal) with envelope and reception card" },
     gallery: [
-      { src: COLLECTION.earPiercingFan, alt: "Tamil ear-piercing ceremony (kathani vizha) invitations in four multicolour designs" },
-      { src: COLLECTION.puberty, alt: "Tamil puberty ceremony (poopunitha neerattu vizha) invitations with folder, flap card and insert" },
-      { src: COLLECTION.earPiercingKids, alt: "Kathani vizha invitation set with cartoon cover, temple line art and details card" },
-      { src: WORK.weddingSuiteSeal, alt: "Wedding invitation suite with RSVP and insert cards" },
-      { src: IMG.weddingSuite, alt: "Printed wedding invitation cards and envelopes" },
-      { src: IMG.pressSheets, alt: "Wedding cards on the offset press" },
+      { src: "/images/collections/ear-piercing-ceremony-invitations-tamil.jpg", alt: "Tamil ear-piercing ceremony (kathani vizha) invitations in four multicolour designs" },
+      { src: "/images/collections/puberty-ceremony-invitations-tamil.jpg", alt: "Tamil puberty ceremony (poopunitha neerattu vizha) invitations with folder, flap card and insert" },
+      { src: "/images/collections/ear-piercing-invitation-kids-cartoon-design.jpg", alt: "Kathani vizha invitation set with cartoon cover, temple line art and details card" },
     ],
     features: [
       "Rich multicolour offset printing",
@@ -188,12 +132,8 @@ export const services: Service[] = [
       "Full-colour digital visiting cards and durable, waterproof PVC cards for shops, clinics and businesses.",
     overview:
       "A visiting card is a handshake in paper. Choose digital-printed cards on 300–350gsm stock with matte or gloss lamination for quick, sharp short runs — or PVC visiting cards that are waterproof, tear-proof and last for years in a wallet. Tamil, English or bilingual, with your logo and a QR code.",
-    hero: { src: SAMPLE.cardsTamil, alt: "Tamil digital visiting card and PVC clinic visiting card printed at Raja Ganapathi Offset, Bhavani" },
-    gallery: [
-      { src: IMG.cards, alt: "Stack of printed visiting cards" },
-      { src: IMG.letterhead, alt: "Visiting card with matching business stationery" },
-      { src: IMG.stationery, alt: "Finished full-colour visiting cards" },
-    ],
+    hero: { src: "/images/samples/visiting-cards-digital-pvc-tamil.jpg", alt: "Sample design: Tamil digital visiting card and PVC clinic visiting card" },
+    gallery: [],
     features: [
       "Digital full-colour, single or double-sided",
       "PVC cards — waterproof & tear-proof",
@@ -224,11 +164,12 @@ export const services: Service[] = [
       "Monthly wall calendars, daily tear-off calendars, desk and pocket calendars in all sizes — branded for your shop.",
     overview:
       "A calendar stays on the wall all year — the best-value advertising a shop, textile house, jeweller, school or temple can buy. We print every type: 12-page, 6-page and single-sheet monthly wall calendars, daily tear-off (date-pad) calendars on a branded header board, desk calendars and pocket calendars. Any standard size or a custom size, with Tamil months, festivals and holidays, your logo, photos and contact details.",
-    hero: { src: SAMPLE.calendarDaily, alt: "Tamil daily tear-off calendar with branded header board, printed in Bhavani" },
+    hero: { src: "/images/calendars/daily-sheet-calendar-board-sri-saai-bramma-engineerings.jpg", alt: "Daily sheet calendar with a custom multicolour header board printed for an engineering firm" },
     gallery: [
-      { src: SAMPLE.calendarMonthly, alt: "Tamil monthly wall calendar with shop branding and January date grid" },
-      { src: IMG.press, alt: "Calendar sheets printing on the multicolour offset press" },
-      { src: IMG.pressSheets, alt: "Printed calendar sheets before binding" },
+      { src: "/images/calendars/daily-sheet-calendar-6030-daily-5b.jpg", alt: "Daily sheet calendar, design no. 6030" },
+      { src: "/images/calendars/monthly-sheet-calendar-6004-hand-watch.jpg", alt: "Tamil monthly sheet calendar, design no. 6004" },
+      { src: "/images/calendars/advertisement-calendar-6086-jewellery-silks.jpg", alt: "Advertisement calendar for a jewellery and silks showroom, design no. 6086" },
+      { src: "/images/calendars/god-picture-calendar-6134-arupadai-murugan.jpg", alt: "God-picture calendar with Arupadai Murugan artwork, design no. 6134" },
     ],
     features: [
       "Monthly wall calendars — 12-page, 6-page & single-sheet",
@@ -300,12 +241,8 @@ export const services: Service[] = [
       "Tri-fold brochures, product catalogues and corporate booklets designed to sell, on premium art stocks.",
     overview:
       "Whether it's a single tri-fold or a 64-page product catalogue, we help you tell your story in print. Crisp offset colour, clean folds, and binding that lies flat and lasts.",
-    hero: { src: WORK.brochurePressRun, alt: "Freshly printed catalogue stacks beside the offset press in Bhavani, Erode" },
-    gallery: [
-      { src: IMG.brochure, alt: "Tri-fold brochures and catalogues" },
-      { src: IMG.press, alt: "Brochures on the multicolour offset press" },
-      { src: IMG.pressSheets, alt: "Printed brochure sheets before folding" },
-    ],
+    hero: { src: "/images/plates/brochures.svg", alt: "Brochures & Catalogues by Raja Ganapathi Offset, Bhavani" },
+    gallery: [],
     features: [
       "Tri-fold, gate-fold & Z-fold options",
       "A4, A5 & custom catalogue sizes",
@@ -318,7 +255,7 @@ export const services: Service[] = [
     faqs: [
       { q: "Can you design my brochure?", a: "Yes, our design team handles layout, copy formatting and print-ready artwork." },
       { q: "What binding do you recommend for catalogues?", a: "Saddle-stitch for up to ~48 pages, perfect binding for thicker catalogues." },
-      { q: "Do you do small quantities?", a: "Yes — short runs for samples, offset for bulk distribution." },
+      { q: "Do you do short runs?", a: "Yes — short runs for samples, offset for bulk distribution." },
     ],
     related: ["promotional-materials", "multicolour-offset-printing", "book-printing"],
     keywords: ["brochure printing bhavani", "catalog printing erode", "tri-fold brochure", "company profile printing"],
@@ -336,12 +273,8 @@ export const services: Service[] = [
       "Perfect-bound and saddle-stitched books, magazines and journals with durable, lay-flat binding.",
     overview:
       "From self-published authors to schools and magazines, we print and bind books that hold up to daily use. Choose paperback or hardcase binding, full colour or economical black-and-white interiors.",
-    hero: { src: WORK.booksHardcover, alt: "Hardcover books stacked on pallets beside the offset press at Raja Ganapathi Offset" },
-    gallery: [
-      { src: IMG.books, alt: "Perfect-bound books ready for delivery" },
-      { src: IMG.press, alt: "Book pages printing on the offset press" },
-      { src: IMG.pressSheets, alt: "Book signatures before binding" },
-    ],
+    hero: { src: "/images/plates/book-printing.svg", alt: "Book Printing by Raja Ganapathi Offset, Bhavani" },
+    gallery: [],
     features: [
       "Perfect, section-sewn & hardcase binding",
       "Full-colour or B&W interiors",
@@ -353,7 +286,7 @@ export const services: Service[] = [
     craft: ["Textbooks & guides", "Novels & literature", "Magazines & journals", "Souvenirs & temple books", "Annual magazines", "Recipe & coffee-table books"],
     faqs: [
       { q: "Do you do hardcover binding?", a: "Yes — we offer hardcase, section-sewn and perfect binding." },
-      { q: "Can you print a single author's small run?", a: "Yes, we support short runs for self-publishers as well as bulk." },
+      { q: "Can you print a short run for a single author?", a: "Yes, we support short runs for self-publishers as well as bulk." },
       { q: "Will you place the ISBN barcode?", a: "We position the ISBN and barcode correctly on the cover at no extra design cost." },
     ],
     related: ["educational-materials", "brochures", "multicolour-offset-printing"],
@@ -372,12 +305,8 @@ export const services: Service[] = [
       "Custom-printed cotton, jute and non-woven bags for weddings, festivals, return-gifts and retail.",
     overview:
       "Carry your brand and celebrate your moments. We screen and digitally print on cotton, jute, canvas and non-woven bags — from wedding return-gift bags to eco-friendly shopping bags for shops and supermarkets.",
-    hero: { src: WORK.toteBag, alt: "Natural cotton canvas tote bag ready for custom printing in Bhavani" },
-    gallery: [
-      { src: IMG.bagsWedding, alt: "Personalised wedding return-gift bags" },
-      { src: IMG.bagsFestival, alt: "Festival and pooja bags with traditional prints" },
-      { src: IMG.bagsJute, alt: "Eco-friendly jute katta pai bags" },
-    ],
+    hero: { src: "/images/plates/bag-printing.svg", alt: "Bag Printing by Raja Ganapathi Offset, Bhavani" },
+    gallery: [],
     features: [
       "Cotton, jute, canvas & non-woven fabrics",
       "Custom sizes from gift to shopping bags",
@@ -407,12 +336,8 @@ export const services: Service[] = [
       "Letterheads, envelopes, folders and complete corporate identity sets on premium stocks.",
     overview:
       "Consistent stationery builds trust. We print cohesive identity sets — letterheads, envelopes, folders and compliment slips — colour-matched to your brand and ready to reorder anytime.",
-    hero: { src: IMG.letterhead, alt: "Corporate letterhead and stationery set printed in Erode" },
-    gallery: [
-      { src: IMG.stationery, alt: "Branded business stationery" },
-      { src: IMG.cards, alt: "Matching visiting cards and stationery" },
-      { src: IMG.press, alt: "Letterheads printing on the press" },
-    ],
+    hero: { src: "/images/plates/business-stationery.svg", alt: "Letterheads & Envelopes by Raja Ganapathi Offset, Bhavani" },
+    gallery: [],
     features: [
       "Letterheads on bond & executive stocks",
       "Window & cover envelopes (all sizes)",
@@ -441,12 +366,8 @@ export const services: Service[] = [
       "Numbered bill books, invoice and receipt pads in duplicate/triplicate with carbonless options.",
     overview:
       "The everyday paperwork that keeps a business running. We print bill books, invoice books, delivery challans and receipt pads — sequentially numbered, perforated, and bound in duplicate or triplicate.",
-    hero: { src: IMG.billbooks, alt: "Numbered bill books and invoice pads printed in Bhavani" },
-    gallery: [
-      { src: IMG.letterhead, alt: "Business stationery and bill books" },
-      { src: IMG.stationery, alt: "Receipt and invoice pads" },
-      { src: IMG.press, alt: "Bill books printing on the press" },
-    ],
+    hero: { src: "/images/plates/stationery-printing.svg", alt: "Bill Books & Receipt Pads by Raja Ganapathi Offset, Bhavani" },
+    gallery: [],
     features: [
       "Duplicate & triplicate sets",
       "Sequential numbering & perforation",
@@ -476,13 +397,11 @@ export const services: Service[] = [
       "Die-cut sticker labels for products, shops and brands — paper, vinyl and transparent stocks, cut to any shape.",
     overview:
       "Every label, cut to fit. We print multicolour sticker labels and die-cut them to any shape — round, oval, square, rectangle, star or a custom outline that follows your logo. Paper, vinyl, transparent and waterproof stocks, supplied on sheets or rolls so they are easy to peel and apply. Tamil, English or bilingual.",
-    hero: { src: SAMPLE.stickers, alt: "Sheet of Tamil die-cut sticker labels in round, oval, star, heart and barcode shapes" },
+    hero: { src: "/images/samples/die-cut-sticker-labels-tamil.jpg", alt: "Sample design: sheet of Tamil die-cut sticker labels in round, oval, star and heart shapes" },
     gallery: [
-      { src: COLLECTION.labelFestive, alt: "Multicolour Tamil product label for a tea stall's sweets and savouries, with FSSAI and veg marks" },
-      { src: COLLECTION.labelClassic, alt: "Tamil snack-pack sticker label design with shop name, contact numbers and address" },
-      { src: SAMPLE.productLabels, alt: "Tamil product labels on honey, ghee, sesame oil and turmeric jars" },
-      { src: IMG.pressSheets, alt: "Printed sticker label sheets before die-cutting" },
-      { src: IMG.press, alt: "Sticker labels printing on the multicolour offset press" },
+      { src: "/images/collections/product-label-sticker-tea-stall-festive.jpg", alt: "Multicolour Tamil product label for a tea stall's sweets and savouries, with FSSAI and veg marks" },
+      { src: "/images/collections/product-label-sticker-tea-stall-classic.jpg", alt: "Tamil snack-pack sticker label with shop name, contact numbers and address" },
+      { src: "/images/samples/product-labels-tamil.jpg", alt: "Sample design: Tamil product labels on honey, ghee, sesame oil and turmeric jars" },
     ],
     features: [
       "Die-cut to any shape & size",
@@ -512,11 +431,11 @@ export const services: Service[] = [
       "Posters, flyers, danglers and standees for campaigns and store branding.",
     overview:
       "Everything you need to run a campaign in print. From handbill flyers and posters to danglers, standees and table-tents — bold colour and quick turnaround to keep your brand visible.",
-    hero: { src: IMG.brochure, alt: "Promotional posters, flyers and calendars printed in Bhavani" },
+    hero: { src: "/images/collections/gold-finance-poster-tamil.jpg", alt: "Tamil multicolour poster designed and printed for a gold finance company in Bhavani" },
     gallery: [
-      { src: IMG.press, alt: "Promotional flyers on the press" },
-      { src: IMG.cards, alt: "Printed danglers and table-tents" },
-      { src: IMG.pressSheets, alt: "Poster sheets fresh off the press" },
+      { src: "/images/collections/gold-finance-poster-tamil.jpg", alt: "Tamil multicolour poster designed and printed for a gold finance company in Bhavani" },
+      { src: "/images/calendars/advertisement-calendar-6032-full-ad.jpg", alt: "Full-advertisement monthly calendar, design no. 6032" },
+      { src: "/images/calendars/advertisement-calendar-6086-jewellery-silks.jpg", alt: "Advertisement calendar for a jewellery and silks showroom, design no. 6086" },
     ],
     features: [
       "Posters in A3 to large sizes",
@@ -546,12 +465,8 @@ export const services: Service[] = [
       "School diaries, workbooks, question papers and progress cards for schools and colleges.",
     overview:
       "Schools and colleges across Erode district trust us for the printed material that runs the academic year — diaries, workbooks, question papers, lab records and progress cards, delivered on time for term.",
-    hero: { src: IMG.books, alt: "School diaries, workbooks and educational material printed in Erode" },
-    gallery: [
-      { src: IMG.brochure, alt: "Printed workbooks and guides" },
-      { src: IMG.press, alt: "Educational books on the press" },
-      { src: IMG.pressSheets, alt: "Question paper sheets before binding" },
-    ],
+    hero: { src: "/images/plates/educational-materials.svg", alt: "School Printing by Raja Ganapathi Offset, Bhavani" },
+    gallery: [],
     features: [
       "School diaries & almanacs",
       "Workbooks & practice sheets",
@@ -580,12 +495,8 @@ export const services: Service[] = [
       "Fabric swatch books, shade cards and sample folders for textile and garment businesses.",
     overview:
       "Built for the textile belt of Erode and Komarapalayam. We produce fabric swatch books, shade cards and sample folders that present your collection beautifully and survive heavy use by buyers and agents.",
-    hero: { src: IMG.pressSheets, alt: "Textile sample books and shade cards printed in Komarapalayam" },
-    gallery: [
-      { src: IMG.books, alt: "Bound fabric swatch books" },
-      { src: IMG.brochure, alt: "Textile collection catalogue" },
-      { src: IMG.stationery, alt: "Shade and colour cards" },
-    ],
+    hero: { src: "/images/plates/textile-sample-books.svg", alt: "Textile Sample Books by Raja Ganapathi Offset, Bhavani" },
+    gallery: [],
     features: [
       "Swatch books with fabric windows",
       "Shade & colour cards",
@@ -614,12 +525,8 @@ export const services: Service[] = [
       "Brochures, catalogues and tags that market Bhavani's famous GI-tagged jamakkalam handloom.",
     overview:
       "Bhavani Jamakkalam carries a GI tag and centuries of heritage — its marketing should too. We craft brochures, catalogues, hang-tags and lookbooks that present the weave, colour and story of your handloom to buyers near and far.",
-    hero: { src: IMG.brochure, alt: "Bhavani Jamakkalam handloom brochures and catalogues" },
-    gallery: [
-      { src: IMG.pressSheets, alt: "Jamakkalam catalogue sheets" },
-      { src: IMG.books, alt: "Handloom lookbook" },
-      { src: IMG.stationery, alt: "Hang-tags and product cards" },
-    ],
+    hero: { src: "/images/plates/bhavani-jamakkalam-brochures.svg", alt: "Bhavani Jamakkalam by Raja Ganapathi Offset, Bhavani" },
+    gallery: [],
     features: [
       "Heritage-led brochure & catalogue design",
       "Hang-tags & product labels",

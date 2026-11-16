@@ -4,7 +4,7 @@ export const runtime = "edge"
 
 // Default Open Graph + Twitter image for the whole site (children inherit it
 // unless they set their own). Generated at the edge — always 200, never a 404.
-export const alt = "Raja Ganapathi Offset — Premium Offset Printing Press in Bhavani, Erode"
+export const alt = "Raja Ganapathi Offset — Offset Printing Press in Bhavani, Erode"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
@@ -41,7 +41,7 @@ export default function OpengraphImage() {
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 72, fontWeight: 800, lineHeight: 1.05, letterSpacing: -2, maxWidth: 980 }}>
-            Premium Offset Printing Press in Bhavani, Erode
+            Offset Printing Press in Bhavani, Erode
           </div>
           <div style={{ marginTop: 24, fontSize: 30, color: "rgba(255,255,255,0.66)", maxWidth: 900 }}>
             Wedding cards · Calendars · Visiting cards · Stickers — since 1997

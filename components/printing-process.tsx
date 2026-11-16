@@ -39,7 +39,7 @@ const steps = [
     number: "03",
     title: "Plate & print",
     description:
-      "CTP plates load onto our multicolour offset press. True CMYK plus Pantone spot colours, sheet-fed for sharp, consistent detail.",
+      "Plates go onto our multicolour offset press and the sheets run through four colours: cyan, magenta, yellow and black.",
     icon: Layers,
     tint: "#EC008C",
   },
@@ -307,11 +307,11 @@ function IntroPanel({ x }: { x: MotionValue<number> }) {
       <h2 className="font-display font-semibold tracking-[-0.03em] text-[clamp(40px,5vw,72px)] leading-[1.0]">
         Six steps.
         <br />
-        <span className="text-gradient-pearl">One signature finish.</span>
+        <span className="text-gradient-pearl">From file to finished sheet.</span>
       </h2>
       <p className="mt-6 text-[clamp(15px,1.2vw,18px)] text-white/55 max-w-md leading-[1.55]">
         From the first hello to the final box at your doorstep — every print passes through the same
-        craft-obsessed, six-stage offset workflow.
+        six steps on our offset floor.
       </p>
       <div className="mt-8 inline-flex items-center gap-3 text-white/40 text-[12px] uppercase tracking-wider">
         <motion.span
@@ -430,10 +430,10 @@ function ProcessMobile() {
         <h2 className="font-display font-semibold tracking-[-0.03em] text-[clamp(34px,9vw,52px)] leading-[1.02] mb-4">
           Six steps.
           <br />
-          <span className="text-gradient-pearl">One signature finish.</span>
+          <span className="text-gradient-pearl">From file to finished sheet.</span>
         </h2>
         <p className="text-white/55 text-[15px] leading-[1.55] mb-12">
-          Every print passes through the same craft-obsessed, six-stage offset workflow.
+          Every print passes through the same six steps on our offset floor.
         </p>
 
         <div className="relative pl-8">
